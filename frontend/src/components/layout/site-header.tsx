@@ -1,44 +1,51 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Building2, Menu, X } from "lucide-react";
-import { useState } from "react";
+import { Menu, X } from "lucide-react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/properties", label: "Properties" },
   { href: "/properties?status=for-sale", label: "Buy" },
   { href: "/properties?status=for-rent", label: "Rent" },
+  { href: "/", label: "Projects" },
+  { href: "/properties", label: "Market Trends" },
 ];
 
 export function SiteHeader() {
-  const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-2 font-semibold text-slate-900">
-          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-900 text-emerald-400">
-            <Building2 className="h-5 w-5" />
-          </span>
-          <span className="hidden sm:inline tracking-tight">LuxeEstate</span>
+    <header
+      id="site-header"
+      className={cn(
+        "site-header fixed top-0 z-50 w-full border-b border-[#d2c4bb]/30 bg-[#f9f9f9]/60 backdrop-blur-xl transition-shadow",
+        scrolled && "shadow-sm"
+      )}
+    >
+      <div className="mx-auto flex h-20 max-w-[1440px] items-center justify-between px-5 md:px-20">
+        <Link
+          href="/"
+          className="font-serif text-2xl tracking-tight text-[#4a3829]"
+        >
+          Ethereal Estate
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-6 md:flex">
           {navLinks.map((link) => (
             <Link
-              key={link.href}
+              key={link.label}
               href={link.href}
-              className={cn(
-                "text-sm font-medium transition-colors hover:text-emerald-600",
-                pathname === link.href.split("?")[0]
-                  ? "text-emerald-600"
-                  : "text-slate-600"
-              )}
+              className="pb-1 text-sm font-semibold tracking-wide text-[#4e453e] transition-colors hover:text-[#4a3829]"
             >
               {link.label}
             </Link>
@@ -46,14 +53,19 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden md:block">
-          <Button asChild size="sm">
-            <Link href="/properties">Browse listings</Link>
+          <Button
+            asChild
+            className="h-auto rounded-sm bg-[#4a3829] px-8 py-3 text-sm font-semibold text-white hover:bg-[#534335]"
+          >
+            <Link href="/properties/wyndham-soleil-danang#contact">
+              Contact Us
+            </Link>
           </Button>
         </div>
 
         <button
           type="button"
-          className="inline-flex rounded-lg p-2 text-slate-700 md:hidden"
+          className="inline-flex p-2 text-[#4a3829] md:hidden"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -62,21 +74,27 @@ export function SiteHeader() {
       </div>
 
       {open && (
-        <div className="border-t border-slate-200 bg-white px-4 py-4 md:hidden">
+        <div className="border-t border-[#d2c4bb]/30 bg-[#f9f9f9]/95 px-5 py-4 md:hidden">
           <nav className="flex flex-col gap-3">
             {navLinks.map((link) => (
               <Link
-                key={link.href}
+                key={link.label}
                 href={link.href}
-                className="text-sm font-medium text-slate-700"
+                className="text-sm font-semibold text-[#4e453e]"
                 onClick={() => setOpen(false)}
               >
                 {link.label}
               </Link>
             ))}
-            <Button asChild className="mt-2 w-full">
-              <Link href="/properties" onClick={() => setOpen(false)}>
-                Browse listings
+            <Button
+              asChild
+              className="mt-2 h-auto w-full rounded-sm bg-[#4a3829] py-3 text-white"
+            >
+              <Link
+                href="/properties/wyndham-soleil-danang#contact"
+                onClick={() => setOpen(false)}
+              >
+                Contact Us
               </Link>
             </Button>
           </nav>
