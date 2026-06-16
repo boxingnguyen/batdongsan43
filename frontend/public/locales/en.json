@@ -1,0 +1,25 @@
+{
+  "home": "Home",
+  "projects": "Projects",
+  "properties": "Properties",
+  "contact": "Contact",
+  "header": {
+    "menu": {
+      "introduction": "Introduction",
+      "connection": "Connection",
+      "partners": "Partners",
+      "facility": "Facility",
+      "news": "News",
+      "gallery": "Gallery",
+      "contactUs": "Contact Us"
+    }
+  },
+  "Introduction": {},
+  "Gallery": {},
+  "Connection": {},
+  "Partners": {},
+  "News": {},
+  "Facility": {},
+  "Apartment": {},
+  "ContactUs": {}
+}

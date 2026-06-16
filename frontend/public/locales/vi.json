@@ -1,0 +1,25 @@
+{
+  "home": "Trang chủ",
+  "projects": "Dự án",
+  "properties": "Bất động sản",
+  "contact": "Liên hệ",
+  "header": {
+    "menu": {
+      "introduction": "Giới thiệu",
+      "connection": "Kết nối",
+      "partners": "Đối tác",
+      "facility": "Tiện ích",
+      "news": "Tin tức",
+      "gallery": "Thư viện",
+      "contactUs": "Liên hệ"
+    }
+  },
+  "Introduction": {},
+  "Gallery": {},
+  "Connection": {},
+  "Partners": {},
+  "News": {},
+  "Facility": {},
+  "Apartment": {},
+  "ContactUs": {}
+}

@@ -1,0 +1,96 @@
+<h2>Homepage Layout Options</h2>
+<p class="subtitle">How should we structure the projects homepage with carousel and grid?</p>
+
+<div class="cards">
+  <div class="card" data-choice="option-a" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="mockup">
+        <div class="mock-nav" style="background:#634F3F;color:white;padding:1rem">Header / Navigation</div>
+        <div style="background:linear-gradient(180deg,#f0f0f0 0%,#e0e0e0 100%);padding:2rem;text-align:center;min-height:300px">
+          <div style="font-weight:bold;margin-bottom:1rem">HERO CAROUSEL</div>
+          <div style="font-size:0.8rem;color:#666">Auto-rotating featured properties with dots</div>
+        </div>
+        <div style="padding:2rem;background:white">
+          <div style="font-weight:bold;margin-bottom:1rem">PROJECTS GRID</div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem">
+            <div style="background:#f5f5f5;padding:1rem;border-radius:4px">Property 1</div>
+            <div style="background:#f5f5f5;padding:1rem;border-radius:4px">Property 2</div>
+            <div style="background:#f5f5f5;padding:1rem;border-radius:4px">Property 3</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Option A: Simple Stack</h3>
+      <p><strong>Carousel on top, grid below.</strong> Full-width carousel hero with featured properties, then scrollable grid of all properties. Clean, straightforward hierarchy.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="option-b" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="mockup">
+        <div class="mock-nav" style="background:#634F3F;color:white;padding:1rem">Header / Navigation</div>
+        <div style="display:flex;gap:1rem;background:#f5f5f5;padding:1rem">
+          <div style="flex:0 0 60%;background:linear-gradient(180deg,#f0f0f0 0%,#e0e0e0 100%);padding:2rem;text-align:center;min-height:250px">
+            <div style="font-weight:bold">FEATURED CAROUSEL</div>
+            <div style="font-size:0.8rem;color:#666">Large hero image section</div>
+          </div>
+          <div style="flex:1;display:flex;flex-direction:column;gap:0.5rem">
+            <div style="background:white;padding:1rem;border-radius:4px;flex:1">
+              <div style="font-size:0.8rem;font-weight:bold">Quick Card 1</div>
+            </div>
+            <div style="background:white;padding:1rem;border-radius:4px;flex:1">
+              <div style="font-size:0.8rem;font-weight:bold">Quick Card 2</div>
+            </div>
+          </div>
+        </div>
+        <div style="padding:1rem">
+          <div style="font-weight:bold;margin-bottom:0.5rem;font-size:0.9rem">More Properties</div>
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.5rem">
+            <div style="background:#f5f5f5;padding:0.8rem;border-radius:4px;font-size:0.75rem">P1</div>
+            <div style="background:#f5f5f5;padding:0.8rem;border-radius:4px;font-size:0.75rem">P2</div>
+            <div style="background:#f5f5f5;padding:0.8rem;border-radius:4px;font-size:0.75rem">P3</div>
+            <div style="background:#f5f5f5;padding:0.8rem;border-radius:4px;font-size:0.75rem">P4</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Option B: Hybrid Layout</h3>
+      <p><strong>Asymmetric with featured carousel + sidebar cards.</strong> Large carousel on left, featured property cards on right. More sophisticated, shows 2 featured properties immediately.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="option-c" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="mockup">
+        <div class="mock-nav" style="background:#634F3F;color:white;padding:1rem">Header / Navigation</div>
+        <div style="padding:2rem;background:white">
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem">
+            <div style="grid-column:1;background:linear-gradient(135deg,#f0f0f0 0%,#e0e0e0 100%);padding:3rem;text-align:center;min-height:300px;border-radius:8px">
+              <div style="font-weight:bold">FEATURED</div>
+              <div style="font-size:0.8rem;color:#666">Carousel or large image</div>
+            </div>
+            <div style="grid-column:2;display:grid;grid-template-rows:repeat(2,1fr);gap:1rem">
+              <div style="background:#f5f5f5;padding:1.5rem;text-align:center;border-radius:8px">Featured 2</div>
+              <div style="background:#f5f5f5;padding:1.5rem;text-align:center;border-radius:8px">Featured 3</div>
+            </div>
+          </div>
+          <div style="margin-top:2rem;border-top:1px solid #eee;padding-top:2rem">
+            <div style="font-weight:bold;margin-bottom:1rem;font-size:0.9rem">All Properties</div>
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem">
+              <div style="background:#f5f5f5;padding:1rem;border-radius:4px;text-align:center;font-size:0.8rem">Property 1</div>
+              <div style="background:#f5f5f5;padding:1rem;border-radius:4px;text-align:center;font-size:0.8rem">Property 2</div>
+              <div style="background:#f5f5f5;padding:1rem;border-radius:4px;text-align:center;font-size:0.8rem">Property 3</div>
+              <div style="background:#f5f5f5;padding:1rem;border-radius:4px;text-align:center;font-size:0.8rem">Property 4</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Option C: Grid Hero</h3>
+      <p><strong>Featured properties in CSS grid, then full grid below.</strong> Large featured property on left, 2 supporting featured on right. Gallery feel. More sophisticated visual hierarchy.</p>
+    </div>
+  </div>
+</div>

@@ -1,75 +1,127 @@
 import Link from "next/link";
-import { Building2, Mail, MapPin, Phone } from "lucide-react";
+import { MaterialIcon } from "@/components/ui/material-icon";
+import { FooterRegisterForm } from "@/components/ethereal/footer-register-form";
+
+const portfolioLinks = [
+  { href: "/properties", label: "Luxury Portfolio" },
+  { href: "/properties", label: "Global Networks" },
+  { href: "/properties", label: "Market Trends" },
+];
+
+const companyLinks = [
+  { href: "#", label: "Office Locations" },
+  { href: "#", label: "Contact Info" },
+  { href: "#", label: "Privacy Policy" },
+];
+
+const socialLinks = [
+  { href: "#", icon: "photo_camera", label: "Instagram" },
+  { href: "#", icon: "work", label: "LinkedIn" },
+  { href: "#", icon: "close", label: "X" },
+];
 
 export function SiteFooter() {
   return (
-    <footer className="dark-section border-t border-slate-800 bg-slate-950 text-slate-300">
-      <div className="mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-4 lg:px-8">
-        <div className="lg:col-span-2">
-          <div className="flex items-center gap-2 text-white">
-            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-600">
-              <Building2 className="h-5 w-5" />
-            </span>
-            <span className="text-lg font-semibold tracking-tight">LuxeEstate</span>
+    <footer className="mt-24 bg-[#eeeeee]">
+      <div className="mx-auto max-w-[1440px] px-5 py-16 md:px-20">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-16">
+          <div className="space-y-8 md:col-span-5">
+            <div>
+              <p className="font-serif text-2xl text-[#4a3829]">Ethereal Estate</p>
+              <p className="mt-6 max-w-sm text-base leading-relaxed text-[#4e453e]">
+                Curating the world&apos;s most exceptional living spaces for those
+                who demand architectural integrity and absolute discretion.
+              </p>
+            </div>
+            <div className="space-y-4">
+              <h5 className="text-sm font-semibold uppercase tracking-[0.2em] text-[#4a3829]">
+                Register for Expert Advice
+              </h5>
+              <FooterRegisterForm />
+            </div>
           </div>
-          <p className="mt-4 max-w-md text-sm leading-relaxed text-slate-400">
-            Curated luxury homes and investment properties. Data-driven insights
-            meet white-glove service.
+
+          <div className="md:col-span-2">
+            <h5 className="mb-6 text-sm font-semibold text-[#4a3829]">Portfolio</h5>
+            <ul className="space-y-4">
+              {portfolioLinks.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-xs text-[#4e453e] underline decoration-[#4e453e]/30 underline-offset-4 transition-colors hover:text-[#4a3829]"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="md:col-span-2">
+            <h5 className="mb-6 text-sm font-semibold text-[#4a3829]">Company</h5>
+            <ul className="space-y-4">
+              {companyLinks.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-xs text-[#4e453e] underline decoration-[#4e453e]/30 underline-offset-4 transition-colors hover:text-[#4a3829]"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="space-y-8 md:col-span-3">
+            <div>
+              <h5 className="mb-6 text-sm font-semibold text-[#4a3829]">
+                Contact Us
+              </h5>
+              <div className="space-y-2 text-xs text-[#4e453e]">
+                <p className="flex items-center gap-2">
+                  <MaterialIcon name="call" className="text-lg text-[#8C7B6E]" />
+                  +1 800-ETHEREAL
+                </p>
+                <p className="flex items-start gap-2">
+                  <MaterialIcon
+                    name="location_on"
+                    className="text-lg text-[#8C7B6E]"
+                  />
+                  <span>
+                    450 N Canon Dr,
+                    <br />
+                    Beverly Hills, CA 90210
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div>
+              <h5 className="mb-4 text-sm font-semibold text-[#4a3829]">
+                Follow Us
+              </h5>
+              <div className="flex gap-4">
+                {socialLinks.map((social) => (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    aria-label={social.label}
+                    className="text-[#8C7B6E] transition-colors hover:text-[#4a3829]"
+                  >
+                    <MaterialIcon name={social.icon} />
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-16 border-t border-[#8C7B6E]/20 pt-8">
+          <p className="text-center text-xs text-[#4e453e]">
+            © {new Date().getFullYear()} Ethereal Estate. All Rights Reserved.
+            Private &amp; Confidential.
           </p>
         </div>
-
-        <div>
-          <h4 className="text-sm font-semibold uppercase tracking-wider text-white">
-            Explore
-          </h4>
-          <ul className="mt-4 space-y-2 text-sm">
-            <li>
-              <Link href="/properties" className="hover:text-emerald-400">
-                All properties
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/properties?status=for-sale"
-                className="hover:text-emerald-400"
-              >
-                For sale
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/properties?status=for-rent"
-                className="hover:text-emerald-400"
-              >
-                For rent
-              </Link>
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 className="text-sm font-semibold uppercase tracking-wider text-white">
-            Contact
-          </h4>
-          <ul className="mt-4 space-y-3 text-sm text-slate-400">
-            <li className="flex items-center gap-2">
-              <MapPin className="h-4 w-4 shrink-0 text-emerald-500" />
-              100 Market St, San Francisco, CA
-            </li>
-            <li className="flex items-center gap-2">
-              <Phone className="h-4 w-4 shrink-0 text-emerald-500" />
-              (415) 555-0199
-            </li>
-            <li className="flex items-center gap-2">
-              <Mail className="h-4 w-4 shrink-0 text-emerald-500" />
-              hello@luxestate.com
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div className="border-t border-slate-800 py-6 text-center text-xs text-slate-500">
-        © {new Date().getFullYear()} LuxeEstate. All rights reserved.
       </div>
     </footer>
   );

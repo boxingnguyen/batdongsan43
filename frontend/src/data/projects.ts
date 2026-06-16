@@ -28,9 +28,9 @@ export const projects: Project[] = [
     title: "Wyndham Soleil Đà Nẵng",
     location: "Đà Nẵng, Việt Nam",
     description:
-      "A premier beachfront resort with world-class amenities, stunning ocean views, and Vietnamese hospitality excellence.",
+      "The Soleil Đà Nẵng – biểu tượng sống và đầu tư bên bờ biển Mỹ Khê, sở hữu vị trí kim cương 4 mặt tiền hiếm có. Tổ hợp căn hộ khách sạn hạng sang với hệ tiện ích chuẩn 5 sao và vận hành quốc tế. Kiệt tác dành cho những chủ nhân tìm kiếm giá trị nghỉ dưỡng, dòng tiền và tiềm năng gia tăng tài sản.",
     image:
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80",
+      "/images/home/banner-1.jpg",
     imageAlt: "Wyndham Soleil Danang beachfront",
     status: "Đang mở bán",
   },
@@ -57,17 +57,5 @@ export const projects: Project[] = [
       "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
     imageAlt: "Skyscraper facade against sunset sky",
     status: "For Sale",
-  },
-  {
-    id: "luminary-estate",
-    slug: "luminary-estate",
-    title: "Luminary Estate",
-    location: "Malibu, USA",
-    description:
-      "Minimal white volumes on a coastal bluff — indoor-outdoor living framed by Pacific horizons.",
-    image:
-      "https://images.unsplash.com/photo-1600585154340-be6162a9a998?w=1000&q=80",
-    imageAlt: "Minimal white house on a green hill",
-    status: "Sold",
   },
 ];
