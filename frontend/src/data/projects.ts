@@ -17,8 +17,7 @@ export const projects: Project[] = [
     location: "Đà Nẵng, Việt Nam",
     description:
       "Cao 31 tầng với 1.228 căn hộ cao cấp nằm trong tổ hợp Sun Symphony Residence, đường Trần Hưng Đạo — biểu tượng mới của kiến trúc ven sông Hàn.",
-    image:
-      "https://dongtayland.vn/wp-content/uploads/2026/05/hero-12-5.jpg",
+    image: "https://dongtayland.vn/wp-content/uploads/2026/05/hero-12-5.jpg",
     imageAlt: "Sun Symphony Residence 5",
     status: "Đang mở bán",
   },
@@ -29,15 +28,14 @@ export const projects: Project[] = [
     location: "Đà Nẵng, Việt Nam",
     description:
       "The Soleil Đà Nẵng – biểu tượng sống và đầu tư bên bờ biển Mỹ Khê, sở hữu vị trí kim cương 4 mặt tiền hiếm có. Tổ hợp căn hộ khách sạn hạng sang với hệ tiện ích chuẩn 5 sao và vận hành quốc tế. Kiệt tác dành cho những chủ nhân tìm kiếm giá trị nghỉ dưỡng, dòng tiền và tiềm năng gia tăng tài sản.",
-    image:
-      "/images/home/banner-1.jpg",
+    image: "/images/home/banner-1.jpg",
     imageAlt: "Wyndham Soleil Danang beachfront",
     status: "Đang mở bán",
   },
   {
-    id: "azure-bay-residences",
-    slug: "azure-bay-residences",
-    title: "Azure Bay Residences",
+    id: "the-legend-danang",
+    slug: "the-legend-danang",
+    title: "The Legend Da Nang",
     location: "Amalfi Coast, IT",
     description:
       "Terraced villas overlooking limestone cliffs and cobalt waters — a study in Mediterranean restraint.",

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://mcp.unwindai.com/schemas/mcp.json",
+  "mcpServers": {
+    "playwright": {
+      "type": "builtin",
+      "name": "Playwright",
+      "description": "Browser automation with Playwright for testing and web scraping"
+    },
+    "firecrawl": {
+      "type": "builtin",
+      "name": "Firecrawl",
+      "description": "Web scraping and data extraction with Firecrawl"
+    }
+  }
+}

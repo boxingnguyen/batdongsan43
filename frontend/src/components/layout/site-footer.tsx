@@ -27,10 +27,13 @@ export function SiteFooter() {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-16">
           <div className="space-y-8 md:col-span-5">
             <div>
-              <p className="font-serif text-2xl text-[#4a3829]">Ethereal Estate</p>
+              <p className="font-serif text-2xl text-[#4a3829]">
+                Ethereal Estate
+              </p>
               <p className="mt-6 max-w-sm text-base leading-relaxed text-[#4e453e]">
-                Curating the world&apos;s most exceptional living spaces for those
-                who demand architectural integrity and absolute discretion.
+                Curating the world&apos;s most exceptional living spaces for
+                those who demand architectural integrity and absolute
+                discretion.
               </p>
             </div>
             <div className="space-y-4">
@@ -42,7 +45,9 @@ export function SiteFooter() {
           </div>
 
           <div className="md:col-span-2">
-            <h5 className="mb-6 text-sm font-semibold text-[#4a3829]">Portfolio</h5>
+            <h5 className="mb-6 text-sm font-semibold text-[#4a3829]">
+              Portfolio
+            </h5>
             <ul className="space-y-4">
               {portfolioLinks.map((link) => (
                 <li key={link.label}>
@@ -58,7 +63,9 @@ export function SiteFooter() {
           </div>
 
           <div className="md:col-span-2">
-            <h5 className="mb-6 text-sm font-semibold text-[#4a3829]">Company</h5>
+            <h5 className="mb-6 text-sm font-semibold text-[#4a3829]">
+              Company
+            </h5>
             <ul className="space-y-4">
               {companyLinks.map((link) => (
                 <li key={link.label}>
@@ -80,8 +87,15 @@ export function SiteFooter() {
               </h5>
               <div className="space-y-2 text-xs text-[#4e453e]">
                 <p className="flex items-center gap-2">
-                  <MaterialIcon name="call" className="text-lg text-[#8C7B6E]" />
-                  +1 800-ETHEREAL
+                  <MaterialIcon
+                    name="call"
+                    className="text-lg text-[#8C7B6E]"
+                  />
+                  <span>
+                    +84 345 747 138
+                    <br />
+                    +84 939 963 769
+                  </span>
                 </p>
                 <p className="flex items-start gap-2">
                   <MaterialIcon
@@ -89,9 +103,9 @@ export function SiteFooter() {
                     className="text-lg text-[#8C7B6E]"
                   />
                   <span>
-                    450 N Canon Dr,
+                    246 Đỗ Bá,
                     <br />
-                    Beverly Hills, CA 90210
+                    phường Mỹ An, Đà Nẵng 50510
                   </span>
                 </p>
               </div>

@@ -2,5 +2,14 @@
   "home": "Home",
   "projects": "Projects",
   "properties": "Properties",
-  "contact": "Contact"
+  "contact": {
+    "title": "Get In Touch",
+    "form": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "message": "Message",
+      "submit": "Send"
+    }
+  }
 }

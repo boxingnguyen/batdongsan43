@@ -2,5 +2,14 @@
   "home": "Trang chủ",
   "projects": "Dự án",
   "properties": "Bất động sản",
-  "contact": "Liên hệ"
+  "contact": {
+    "title": "Liên Hệ Với Chúng Tôi",
+    "form": {
+      "name": "Họ và Tên",
+      "email": "Email",
+      "phone": "Số Điện Thoại",
+      "message": "Tin Nhắn",
+      "submit": "Gửi"
+    }
+  }
 }

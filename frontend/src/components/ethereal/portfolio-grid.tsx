@@ -22,11 +22,7 @@ function PortfolioCard({ item }: { item: PortfolioItem }) {
       )}
     >
       <Link
-        href={
-          item.id === "obsidian"
-            ? "/properties/wyndham-soleil-danang"
-            : "/properties"
-        }
+        href={`/${item.routePrefix || 'properties'}/${item.propertySlug}`}
         className={cn(
           "relative block overflow-hidden rounded-[4px] bg-[#e8e4df]",
           isLarge ? "aspect-[16/10]" : isTall ? "aspect-[3/5] md:aspect-auto md:min-h-[420px] md:h-full" : "aspect-[4/5]"
@@ -43,6 +39,13 @@ function PortfolioCard({ item }: { item: PortfolioItem }) {
               : "(max-width: 768px) 100vw, 33vw"
           }
         />
+        {item.status && (
+          <div className="absolute right-4 top-4 md:right-6 md:top-6">
+            <span className="inline-block rounded-sm bg-white/95 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#634F3F] backdrop-blur-sm">
+              {item.status}
+            </span>
+          </div>
+        )}
       </Link>
       <div className={cn("space-y-2", isLarge && "md:max-w-xl")}>
         <h3 className="font-serif text-xl text-[#634F3F] md:text-2xl">

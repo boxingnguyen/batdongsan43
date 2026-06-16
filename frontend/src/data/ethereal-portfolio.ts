@@ -6,6 +6,9 @@ export type PortfolioItem = {
   image: string;
   imageAlt: string;
   layout: "large" | "small" | "tall" | "medium";
+  propertySlug: string;
+  routePrefix?: "projects" | "properties";
+  status?: string;
 };
 
 export const portfolioItems: PortfolioItem[] = [
@@ -19,17 +22,21 @@ export const portfolioItems: PortfolioItem[] = [
       "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80",
     imageAlt: "Angular modern pavilion at dusk",
     layout: "large",
+    propertySlug: "wyndham-soleil-danang",
   },
   {
     id: "azure",
-    title: "Azure Bay Residences",
-    location: "Amalfi Coast, IT",
+    title: "The Legend Đà Nẵng",
+    location: "Đà Nẵng, Vietnam",
     description:
-      "Terraced villas overlooking limestone cliffs and cobalt waters — a study in Mediterranean restraint.",
+      "Biểu tượng thượng lưu với vị trí đắc địa tại sông Hàn, thiết kế hiện đại, và tiện ích đẳng cấp 5 sao.",
     image:
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80",
-    imageAlt: "Coastal cliffs and blue water",
+      "https://thelegendcity.com/wp-content/uploads/2026/01/vi-tri-the-legend-da-nang-4-2048x1118-1-1.png",
+    imageAlt: "The Legend Đà Nẵng - Strategic location on Han River",
     layout: "small",
+    propertySlug: "the-legend-danang",
+    routePrefix: "projects",
+    status: "Đang Mở Bán",
   },
   {
     id: "zenith",
@@ -41,8 +48,8 @@ export const portfolioItems: PortfolioItem[] = [
       "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
     imageAlt: "Skyscraper facade against sunset sky",
     layout: "tall",
+    propertySlug: "the-zenith-tower",
   },
-
 ];
 
 export const featuredDevelopment = {
