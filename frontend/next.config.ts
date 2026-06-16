@@ -33,6 +33,11 @@ const nextConfig: NextConfig = {
         hostname: "dongtayland.vn",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "thelegendcity.com",
+        pathname: "/**",
+      },
     ],
   },
   env: {
