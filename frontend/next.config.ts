@@ -38,6 +38,11 @@ const nextConfig: NextConfig = {
         hostname: "thelegendcity.com",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "sundanangcity.com",
+        pathname: "/**",
+      },
     ],
   },
   env: {
