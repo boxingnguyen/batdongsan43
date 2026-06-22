@@ -82,7 +82,7 @@ export function EtherealHomeClient() {
               }`}
             >
               <Image
-                alt={`Luxury Estate ${idx + 1}`}
+                alt={`Bất Động Sản Cao Cấp ${idx + 1}`}
                 src={slide}
                 fill
                 priority={idx === 0}
@@ -104,11 +104,10 @@ export function EtherealHomeClient() {
         {/* Content */}
         <div className="relative z-30 w-full max-w-4xl px-5 md:px-0 text-center text-white">
           <h1 className="font-serif text-[40px] md:text-[64px] font-normal leading-[48px] md:leading-[72px] tracking-[-0.01em] md:tracking-[-0.02em] mb-8 drop-shadow-lg">
-            Find Your Sanctuary
+            Tìm Nơi Trú Ngụ Của Bạn
           </h1>
           <p className="font-hanken text-[18px] font-normal leading-[28px] opacity-90 max-w-2xl mx-auto drop-shadow-md">
-            Curating the world&apos;s most exceptional architectural
-            masterpieces.
+            Tuyển chọn những kiệt tác kiến trúc xuất sắc nhất trên thế giới.
           </p>
         </div>
 
@@ -126,7 +125,7 @@ export function EtherealHomeClient() {
                       ? "rgba(255, 255, 255, 0.8)"
                       : "rgba(255, 255, 255, 0.3)",
                 }}
-                aria-label={`Go to slide ${idx + 1}`}
+                aria-label={`Đến ảnh ${idx + 1}`}
               />
             ))}
           </div>
@@ -135,7 +134,7 @@ export function EtherealHomeClient() {
             className="flex flex-col items-center animate-bounce text-white/80 hover:text-white transition-colors"
           >
             <span className="font-hanken text-[12px] font-medium leading-[16px] tracking-[0.2em] uppercase mb-2">
-              Scroll
+              Cuộn Xuống
             </span>
             <ChevronDown className="h-5 w-5" />
           </button>
@@ -147,20 +146,20 @@ export function EtherealHomeClient() {
         <div className="max-w-[1440px] mx-auto px-5 md:px-20">
           <div className="flex flex-col md:flex-row justify-between items-center mb-16 gap-6">
             <h2 className="font-serif text-[32px] font-medium leading-[40px] text-[#4a3829]">
-              Latest Projects
+              Dự Án Mới Nhất
             </h2>
             <div className="flex gap-4">
               <button
                 type="button"
                 className="w-12 h-12 rounded-full border border-[#E8E2D9] flex items-center justify-center text-[#4a3829] hover:bg-[#E8E2D9] transition-colors"
-                aria-label="Previous"
+                aria-label="Trước"
               >
                 <ChevronLeft className="h-5 w-5" />
               </button>
               <button
                 type="button"
                 className="w-12 h-12 rounded-full border border-[#E8E2D9] flex items-center justify-center text-[#4a3829] hover:bg-[#E8E2D9] transition-colors"
-                aria-label="Next"
+                aria-label="Tiếp theo"
               >
                 <ChevronRight className="h-5 w-5" />
               </button>
@@ -247,11 +246,11 @@ export function EtherealHomeClient() {
                 <Check className="h-6 w-6 text-[#735c00] flex-shrink-0 mt-0.5" />
                 <div>
                   <h4 className="text-[14px] font-semibold leading-[20px] tracking-[0.05em] font-hanken text-[#4a3829]">
-                    Unrivaled Access
+                    Tiếp Cận Đặc Quyền
                   </h4>
                   <p className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e]">
-                    Exclusive off-market listings in the world&apos;s most
-                    coveted zip codes.
+                    Danh sách bất động sản ngoài thị trường độc quyền tại những
+                    vị trí đắt giá nhất.
                   </p>
                 </div>
               </div>
@@ -259,11 +258,11 @@ export function EtherealHomeClient() {
                 <Lock className="h-5 w-5 text-[#735c00] flex-shrink-0 mt-1 mx-0.5" />
                 <div>
                   <h4 className="text-[14px] font-semibold leading-[20px] tracking-[0.05em] font-hanken text-[#4a3829]">
-                    Absolute Discretion
+                    Tuyệt Đối Bảo Mật
                   </h4>
                   <p className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e]">
-                    Private viewings and confidential negotiations are our
-                    standard.
+                    Xem nhà riêng tư và đàm phán bảo mật là tiêu chuẩn của
+                    chúng tôi.
                   </p>
                 </div>
               </div>
@@ -272,7 +271,7 @@ export function EtherealHomeClient() {
               type="button"
               className="mt-8 border border-[#4a3829] text-[#4a3829] px-10 py-4 text-[14px] font-semibold leading-[20px] tracking-[0.05em] font-hanken hover:bg-[#4a3829] hover:text-white transition-all duration-300"
             >
-              OUR HERITAGE
+              DI SẢN CỦA CHÚNG TÔI
             </button>
           </div>
         </div>
@@ -289,13 +288,13 @@ export function EtherealHomeClient() {
                   Ethereal Estate
                 </h2>
                 <p className="text-[16px] font-normal leading-[24px] font-hanken text-[#4e453e] max-w-xs">
-                  Exceptional properties for an exceptional life. Worldwide
-                  reach, local expertise.
+                  Bất động sản xuất sắc cho cuộc sống đỉnh cao. Tầm vóc toàn
+                  cầu, chuyên môn địa phương.
                 </p>
               </div>
               <div className="space-y-4">
                 <h4 className="text-[14px] font-semibold leading-[20px] tracking-[0.05em] font-hanken text-[#4a3829] uppercase tracking-widest">
-                  Contact Us
+                  Liên Hệ
                 </h4>
                 <div className="space-y-2">
                   <p className="text-[16px] font-semibold leading-[24px] font-hanken text-[#4a3829] font-bold">
@@ -349,7 +348,7 @@ export function EtherealHomeClient() {
             <div className="md:col-span-4 grid grid-cols-2 gap-8">
               <div className="space-y-6">
                 <h4 className="text-[14px] font-semibold leading-[20px] tracking-[0.05em] font-hanken text-[#4a3829] uppercase tracking-widest">
-                  Portfolio
+                  Danh Mục
                 </h4>
                 <ul className="space-y-3">
                   <li>
@@ -357,7 +356,7 @@ export function EtherealHomeClient() {
                       className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] hover:text-[#4a3829] transition-colors"
                       href="#"
                     >
-                      Luxury Portfolio
+                      Danh Mục Cao Cấp
                     </a>
                   </li>
                   <li>
@@ -365,7 +364,7 @@ export function EtherealHomeClient() {
                       className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] hover:text-[#4a3829] transition-colors"
                       href="#"
                     >
-                      Global Networks
+                      Mạng Lưới Toàn Cầu
                     </a>
                   </li>
                   <li>
@@ -373,7 +372,7 @@ export function EtherealHomeClient() {
                       className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] hover:text-[#4a3829] transition-colors"
                       href="#"
                     >
-                      New Developments
+                      Dự Án Mới
                     </a>
                   </li>
                   <li>
@@ -381,14 +380,14 @@ export function EtherealHomeClient() {
                       className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] hover:text-[#4a3829] transition-colors"
                       href="#"
                     >
-                      Rental Collection
+                      Bộ Sưu Tập Cho Thuê
                     </a>
                   </li>
                 </ul>
               </div>
               <div className="space-y-6">
                 <h4 className="text-[14px] font-semibold leading-[20px] tracking-[0.05em] font-hanken text-[#4a3829] uppercase tracking-widest">
-                  Inquiries
+                  Tư Vấn
                 </h4>
                 <ul className="space-y-3">
                   <li>
@@ -396,7 +395,7 @@ export function EtherealHomeClient() {
                       className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] hover:text-[#4a3829] transition-colors"
                       href="#"
                     >
-                      Contact Info
+                      Thông Tin Liên Hệ
                     </a>
                   </li>
                   <li>
@@ -404,7 +403,7 @@ export function EtherealHomeClient() {
                       className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] hover:text-[#4a3829] transition-colors"
                       href="#"
                     >
-                      Office Locations
+                      Địa Điểm Văn Phòng
                     </a>
                   </li>
                   <li>
@@ -412,7 +411,7 @@ export function EtherealHomeClient() {
                       className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] hover:text-[#4a3829] transition-colors"
                       href="#"
                     >
-                      Career Opportunities
+                      Cơ Hội Nghề Nghiệp
                     </a>
                   </li>
                   <li>
@@ -420,7 +419,7 @@ export function EtherealHomeClient() {
                       className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] hover:text-[#4a3829] transition-colors"
                       href="#"
                     >
-                      Agent Portal
+                      Cổng Đại Lý
                     </a>
                   </li>
                 </ul>
@@ -430,22 +429,22 @@ export function EtherealHomeClient() {
             {/* Newsletter Form */}
             <div className="md:col-span-4 space-y-6">
               <h4 className="text-[14px] font-semibold leading-[20px] tracking-[0.05em] font-hanken text-[#4a3829] uppercase tracking-widest">
-                Register for Expert Advice
+                Đăng Ký Nhận Tư Vấn Chuyên Gia
               </h4>
               <p className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e]">
-                Join our inner circle for exclusive market insights and
-                off-market opportunities.
+                Tham gia nhóm của chúng tôi để nhận thông tin thị trường độc
+                quyền và cơ hội bất động sản chưa niêm yết.
               </p>
               {subscribed ? (
                 <div className="bg-white p-4 border border-[#d2c4bb]/30 text-sm font-semibold tracking-wider font-hanken text-[#4a3829]">
-                  Thank you for subscribing!
+                  Cảm ơn bạn đã đăng ký!
                 </div>
               ) : (
                 <form onSubmit={handleSubscribe} className="space-y-4">
                   <div className="space-y-2">
                     <input
                       className="w-full bg-[#f9f9f9] border border-[#d2c4bb]/30 px-4 py-3 text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken focus:ring-1 focus:ring-[#4a3829] focus:border-[#4a3829] outline-none transition-all"
-                      placeholder="Full Name"
+                      placeholder="Họ và Tên"
                       type="text"
                       required
                       value={name}
@@ -453,7 +452,7 @@ export function EtherealHomeClient() {
                     />
                     <input
                       className="w-full bg-[#f9f9f9] border border-[#d2c4bb]/30 px-4 py-3 text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken focus:ring-1 focus:ring-[#4a3829] focus:border-[#4a3829] outline-none transition-all"
-                      placeholder="Email Address"
+                      placeholder="Địa Chỉ Email"
                       type="email"
                       required
                       value={email}
@@ -464,7 +463,7 @@ export function EtherealHomeClient() {
                     className="w-full bg-[#4a3829] hover:opacity-90 transition-opacity text-white py-3 text-[14px] font-semibold leading-[20px] tracking-[0.05em] font-hanken"
                     type="submit"
                   >
-                    SUBSCRIBE
+                    ĐĂNG KÝ
                   </button>
                 </form>
               )}
@@ -474,18 +473,18 @@ export function EtherealHomeClient() {
           {/* Bottom Bar */}
           <div className="pt-8 border-t border-[#d2c4bb]/20 flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e]">
-              © 2024 Ethereal Estate. All Rights Reserved. Private &amp;
-              Confidential.
+              © 2024 Ethereal Estate. Bảo Lưu Mọi Quyền. Riêng Tư &amp; Bảo
+              Mật.
             </p>
             <div className="flex gap-6">
               <a
                 className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] hover:text-[#4a3829]"
                 href="#"
               >
-                Privacy Policy
+                Chính Sách Bảo Mật
               </a>
               <span className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] italic">
-                Member of Leading Hotels &amp; Residences of the World
+                Thành Viên Các Khách Sạn &amp; Khu Dân Cư Hàng Đầu Thế Giới
               </span>
             </div>
           </div>

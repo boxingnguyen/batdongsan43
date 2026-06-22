@@ -1,16 +1,19 @@
-import type { Metadata } from 'next'
-import { Montserrat } from 'next/font/google'
-import './globals.css'
-import { HeaderSelector } from '@/components/layout/HeaderSelector'
-import { ThemeProvider } from 'next-themes'
-import NextTopLoader from 'nextjs-toploader';
-import { NextIntlClientProvider } from 'next-intl'
-import { getMessages, getTranslations, getLocale } from 'next-intl/server'
-import Toaster from '@/components/Toaster'
-import Image from 'next/image' // <-- 1. IMPORT IMAGE
-import { ReactNode } from 'react' // <-- 2. IMPORT REACTNODE
+import type { Metadata } from "next";
+import { Montserrat } from "next/font/google";
+import "./globals.css";
+import { HeaderSelector } from "@/components/layout/HeaderSelector";
+import { ThemeProvider } from "next-themes";
+import NextTopLoader from "nextjs-toploader";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages, getTranslations, getLocale } from "next-intl/server";
+import Toaster from "@/components/Toaster";
+import Image from "next/image"; // <-- 1. IMPORT IMAGE
+import { ReactNode } from "react"; // <-- 2. IMPORT REACTNODE
 
-const font = Montserrat({ subsets: ["latin"], weight: ["300", "400", "500", "600", "700", "800"] });
+const font = Montserrat({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+});
 
 // 3. FIX METADATA FUNCTION (Must accept params)
 // export async function generateMetadata({
@@ -108,7 +111,7 @@ const font = Montserrat({ subsets: ["latin"], weight: ["300", "400", "500", "600
 // 4. FIX ROOTLAYOUT FUNCTION (Must accept params)
 export default async function RootLayout({
   children,
-  params
+  params,
 }: Readonly<{
   children: ReactNode;
   params?: Promise<{ locale?: string }>; // <-- Make params optional
@@ -116,15 +119,16 @@ export default async function RootLayout({
   // Get locale from params if available, otherwise use getLocale()
   const paramsData = params ? await params : null;
   const localeFromParams = paramsData?.locale;
-  const resolvedLocale = localeFromParams || await getLocale() || 'vi';
+  const resolvedLocale = localeFromParams || (await getLocale()) || "vi";
   // Ensure locale is always 'vi' or 'en'
-  const locale = (resolvedLocale === 'en' || resolvedLocale === 'vi') ? resolvedLocale : 'vi';
+  const locale =
+    resolvedLocale === "en" || resolvedLocale === "vi" ? resolvedLocale : "vi";
 
   // const locale = await getLocale() // <-- This line is no longer needed
-  const messages = await getMessages()
+  const messages = await getMessages();
   // const t = await getTranslations({ locale, namespace: 'meta' })
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://thesoleil.vn'
-  const description = "The Soleil Đà Nẵng"
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://thesoleil.vn";
+  const description = "The Soleil Đà Nẵng";
 
   // --- 5. ADD CONTACT CONSTANTS ---
   const ZALO_LINK = "https://zalo.me/0345747138";
@@ -134,87 +138,88 @@ export default async function RootLayout({
 
   // Structured Data (JSON-LD) for SEO
   const structuredData = {
-    '@context': 'https://schema.org',
-    '@type': 'ResidentialComplex',
-    name: 'The Soleil Đà Nẵng',
-    alternateName: 'Wyndham Soleil Đà Nẵng',
+    "@context": "https://schema.org",
+    "@type": "ResidentialComplex",
+    name: "The Soleil Đà Nẵng",
+    alternateName: "Wyndham Soleil Đà Nẵng",
     description: description,
     url: baseUrl,
     address: {
-      '@type': 'PostalAddress',
-      streetAddress: 'Số 02, Phạm Văn Đồng, Phường An Hải',
-      addressLocality: 'Đà Nẵng',
-      addressCountry: 'VN',
+      "@type": "PostalAddress",
+      streetAddress: "Số 02, Phạm Văn Đồng, Phường An Hải",
+      addressLocality: "Đà Nẵng",
+      addressCountry: "VN",
     },
     geo: {
-      '@type': 'GeoCoordinates',
-      latitude: '16.0583',
-      longitude: '108.2278',
+      "@type": "GeoCoordinates",
+      latitude: "16.0583",
+      longitude: "108.2278",
     },
     developer: {
-      '@type': 'Organization',
-      name: 'Công Ty Cổ Phần PPC An Thịnh Đà Nẵng',
+      "@type": "Organization",
+      name: "Công Ty Cổ Phần PPC An Thịnh Đà Nẵng",
       url: baseUrl,
     },
     operator: {
-      '@type': 'Organization',
-      name: 'Wyndham Hotel Group',
+      "@type": "Organization",
+      name: "Wyndham Hotel Group",
     },
     numberOfUnits: {
-      '@type': 'QuantitativeValue',
-      value: 'Multiple towers with various apartment types',
+      "@type": "QuantitativeValue",
+      value: "Multiple towers with various apartment types",
     },
     amenityFeature: [
       {
-        '@type': 'LocationFeatureSpecification',
-        name: 'Infinity Pool',
+        "@type": "LocationFeatureSpecification",
+        name: "Infinity Pool",
         value: true,
       },
       {
-        '@type': 'LocationFeatureSpecification',
-        name: 'Gym',
+        "@type": "LocationFeatureSpecification",
+        name: "Gym",
         value: true,
       },
       {
-        '@type': 'LocationFeatureSpecification',
-        name: 'Spa',
+        "@type": "LocationFeatureSpecification",
+        name: "Spa",
         value: true,
       },
       {
-        '@type': 'LocationFeatureSpecification',
-        name: 'Restaurant',
+        "@type": "LocationFeatureSpecification",
+        name: "Restaurant",
         value: true,
       },
       {
-        '@type': 'LocationFeatureSpecification',
-        name: 'Shopping Center',
+        "@type": "LocationFeatureSpecification",
+        name: "Shopping Center",
         value: true,
       },
     ],
     image: `${baseUrl}/images/home/cover-image.jpg`,
-    telephone: '+84345747138',
-    email: 'Thesoleildanangofficial@gmail.com',
-  }
+    telephone: "+84345747138",
+    email: "Thesoleildanangofficial@gmail.com",
+  };
 
   return (
-    <html lang={locale}>
+    <html lang={locale} suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </head>
-      <body className={`${font.className} bg-white dark:bg-black antialiased relative`}>
+      <body
+        className={`${font.className} bg-white dark:bg-black antialiased relative`}
+      >
         <NextTopLoader color="#07be8a" />
         <NextIntlClientProvider locale={locale} messages={messages}>
           <ThemeProvider
-            attribute='class'
+            attribute="class"
             enableSystem={true}
-            defaultTheme='light'>
+            defaultTheme="light"
+          >
             <HeaderSelector />
-            {/* === BẠN ĐANG THIẾU <main className="pt-24 pb-40"> === */}
-            {children}
-            {/* === PHẢI BỌC {children} BẰNG <main> ĐỂ SỬA LỖI LAYOUT === */}
+            <main className="pt-20 pb-40">{children}</main>
             <Toaster />
           </ThemeProvider>
         </NextIntlClientProvider>
@@ -227,7 +232,6 @@ export default async function RootLayout({
             - Sát nhau hơn: 'gap-5' (20px) -> 'gap-3' (12px) trên mobile
           */}
         <div className="fixed bottom-8 right-4 lg:bottom-12 lg:right-6 z-50 flex flex-col items-end gap-3 lg:gap-5">
-
           {/* 1. Nút Zalo (Bé hơn trên mobile) */}
           <a
             href={ZALO_LINK}
@@ -253,7 +257,6 @@ export default async function RootLayout({
           >
             {/* Icon Phone (bên trái) - Gồm 2 lớp */}
             <div className="relative flex-shrink-0 w-12 h-12 lg:w-16 lg:h-16">
-
               {/* LỚP GIỮA (z-10): Hình tròn đỏ */}
               <div className="absolute inset-0 bg-red-500 rounded-full z-10"></div>
 
@@ -268,16 +271,13 @@ export default async function RootLayout({
             </div>
 
             {/* Dòng chữ (bên phải) */}
-            <div
-              className="hidden lg:flex bg-red-500 text-white text-lg font-bold px-5 py-3 rounded-r-full shadow-lg ml-[-16px] relative z-0"
-            >
+            <div className="hidden lg:flex bg-red-500 text-white text-lg font-bold px-5 py-3 rounded-r-full shadow-lg ml-[-16px] relative z-0">
               {PHONE_NUMBER}
             </div>
           </a>
-
         </div>
         {/* === KẾT THÚC SỬA NÚT NỔI === */}
       </body>
     </html>
-  )
+  );
 }
