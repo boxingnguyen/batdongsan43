@@ -131,7 +131,7 @@ export default function SunFoursTowerPage() {
       </section>
 
       {/* TỔNG QUAN */}
-      <section id="tong-quan" className="scroll-mt-16 py-20">
+      <section id="tong-quan" className="scroll-mt-16 pb-20">
         <div className="mx-auto max-w-[1440px] px-5 md:px-20">
           <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#634F3F]/70">
             Tổng Quan Dự Án
@@ -172,7 +172,7 @@ export default function SunFoursTowerPage() {
       </section>
 
       {/* LOẠI CĂN HỘ */}
-      <section id="can-ho" className="scroll-mt-16 bg-white py-20">
+      <section id="can-ho" className="scroll-mt-16 bg-white pb-20">
         <div className="mx-auto max-w-[1440px] px-5 md:px-20">
           <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#634F3F]/70">
             Sản Phẩm
@@ -208,7 +208,7 @@ export default function SunFoursTowerPage() {
       </section>
 
       {/* VỊ TRÍ */}
-      <section id="vi-tri" className="scroll-mt-16 py-20">
+      <section id="vi-tri" className="scroll-mt-16 pb-20">
         <div className="mx-auto max-w-[1440px] px-5 md:px-20">
           <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#634F3F]/70">
             Vị Trí
@@ -246,7 +246,7 @@ export default function SunFoursTowerPage() {
       </section>
 
       {/* TIỆN ÍCH */}
-      <section id="tien-ich" className="scroll-mt-16 bg-[#4a3829] py-20 text-white">
+      <section id="tien-ich" className="scroll-mt-16 bg-[#4a3829] pb-20 text-white">
         <div className="mx-auto max-w-[1440px] px-5 md:px-20">
           <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#E3C284]/70">
             Tiện Ích Nội Khu
@@ -314,7 +314,7 @@ export default function SunFoursTowerPage() {
       </section>
 
       {/* CHÍNH SÁCH */}
-      <section id="chinh-sach" className="scroll-mt-16 py-20">
+      <section id="chinh-sach" className="scroll-mt-16 pb-20">
         <div className="mx-auto max-w-[1440px] px-5 md:px-20">
           <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#634F3F]/70">
             Chính Sách Bán Hàng
@@ -361,7 +361,7 @@ export default function SunFoursTowerPage() {
       </section>
 
       {/* TIẾN ĐỘ */}
-      <section id="tien-do" className="scroll-mt-16 bg-white py-20">
+      <section id="tien-do" className="scroll-mt-16 bg-white pb-20">
         <div className="mx-auto max-w-[1440px] px-5 md:px-20">
           <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#634F3F]/70">
             Tiến Độ Xây Dựng
@@ -421,7 +421,7 @@ export default function SunFoursTowerPage() {
       </section>
 
       {/* LIÊN HỆ */}
-      <section id="lien-he" className="scroll-mt-16 bg-[#4a3829] py-20 text-white">
+      <section id="lien-he" className="scroll-mt-16 bg-[#4a3829] pb-20 text-white">
         <div className="mx-auto max-w-[1440px] px-5 md:px-20">
           <div className="grid gap-12 md:grid-cols-2">
             <div>

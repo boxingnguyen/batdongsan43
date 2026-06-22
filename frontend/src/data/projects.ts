@@ -11,6 +11,18 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    id: "s-light-tower",
+    slug: "s-light-tower",
+    title: "S-Light Tower",
+    location: "Nam Đà Nẵng, Việt Nam",
+    description:
+      "Tháp đôi biểu tượng 22 tầng tại ngã tư Nguyễn Đình Thi - 29/3, thuộc đại đô thị Sun NeO City. Gần 800 căn hộ với tầm nhìn 360° sông Hàn - biển - pháo hoa DIFF, pháp lý lâu dài.",
+    image:
+      "https://sun-ecommerce-cdn.azureedge.net/ecommerce/service-sites/asset/SunGroup/google_docs_media/news/news-11394/AD_4nXdNKTDV0B3tTY9UW2Gx1_6zuS-RHUjYOFnTq3xCu0pM0RZgiIldfjj_Cj-mSuSBMJNgD0nHylc4OtB8ZH4Gwnbn0TbKfP36-I1AThLqkt9cOY13uYnsJWFu4ONIhtFMTxzVxvkq-ZcZcGmkHDkns33lh8ssVbbLw9lq-CgsfNzyFCrR2hhZ6Mc%3Ds2048.jpg",
+    imageAlt: "S-Light Tower - Tháp đôi biểu tượng tại mặt sông Hàn Nam Đà Nẵng",
+    status: "Đang mở bán",
+  },
+  {
     id: "symphony5",
     slug: "symphony5",
     title: "Sun Symphony Residence 5",

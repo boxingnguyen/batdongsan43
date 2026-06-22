@@ -60,7 +60,7 @@ export default function TheLegendDanangPage() {
       </section>
 
       {/* Back Link */}
-      <section className="mx-auto max-w-[1440px] px-5 py-8 md:px-20">
+      <section className="mx-auto max-w-[1440px] px-5 pb-8 md:px-20">
         <Link
           href="/"
           className="text-sm font-semibold tracking-wide text-[#4a3829]/70 transition-colors hover:text-[#4a3829]"

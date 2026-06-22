@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { HeaderSelector } from "@/components/layout/HeaderSelector";
+import { MainWrapper } from "@/components/layout/MainWrapper";
 import { ThemeProvider } from "next-themes";
 import NextTopLoader from "nextjs-toploader";
 import { NextIntlClientProvider } from "next-intl";
@@ -219,7 +220,7 @@ export default async function RootLayout({
             defaultTheme="light"
           >
             <HeaderSelector />
-            <main className="pt-20 pb-40">{children}</main>
+            <MainWrapper>{children}</MainWrapper>
             <Toaster />
           </ThemeProvider>
         </NextIntlClientProvider>

@@ -74,9 +74,6 @@ html {
   /* Firefox */
 }
 
-section {
-  @apply py-24
-}
 
 @keyframes IconUtilitisActive {
   0% {

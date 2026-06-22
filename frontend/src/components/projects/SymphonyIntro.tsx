@@ -6,7 +6,7 @@ const CDN = "https://dongtayland.vn/wp-content/uploads/2026/05";
 export function SymphonyIntro() {
   return (
     <section id="gioi-thieu" className="relative scroll-mt-24">
-      <div className="relative overflow-hidden bg-gradient-to-b from-[#1e2433] via-[#0f437d] to-[#f9f9f9] pb-16 pt-10">
+      <div className="relative overflow-hidden bg-gradient-to-b from-[#1e2433] via-[#0f437d] to-[#f9f9f9] pb-16 ">
         <div className="mx-auto max-w-[1440px] px-5 md:px-20">
           <div className="mb-8 rounded-[20px] border border-white/20 bg-gradient-to-b from-[#030b3a] to-[#002f73] p-6 md:p-10">
             <p className="mb-8 text-base leading-relaxed text-white/95 md:text-lg">

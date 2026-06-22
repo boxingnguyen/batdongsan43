@@ -58,7 +58,7 @@ const AnimateInView: React.FC<AnimateInViewProps> = ({
         ${className}
         ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
       `}
-      style={{ transitionDelay: `${delay}ms` }}
+      style={{ transitionDelay: `${delay}ms` } as React.CSSProperties}
     >
       {children}
     </div>
