@@ -9,9 +9,8 @@ import {
   Check,
   Lock,
   Instagram,
-  Linkedin,
-  X,
-  ChevronDown
+  ChevronDown,
+  Facebook,
 } from "lucide-react";
 import { projects } from "@/data/projects";
 
@@ -25,7 +24,8 @@ const heroSlides = [
   "/images/home/banner-5.jpg",
   "/images/home/banner-6.jpg",
   "/images/home/banner-7.jpg",
-  "/images/home/banner-8.jpg",]
+  "/images/home/banner-8.jpg",
+];
 
 export function EtherealHomeClient() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -68,14 +68,18 @@ export function EtherealHomeClient() {
   return (
     <div className="bg-[#f9f9f9] text-[#1a1c1c] antialiased">
       {/* Hero Section Carousel */}
-      <section className="relative h-screen min-h-[800px] flex items-center justify-center overflow-hidden py-0!" id="hero-carousel">
+      <section
+        className="relative h-screen min-h-[800px] flex items-center justify-center overflow-hidden py-0!"
+        id="hero-carousel"
+      >
         {/* Slides */}
         <div className="absolute inset-0 z-0">
           {heroSlides.map((slide, idx) => (
             <div
               key={idx}
-              className={`absolute inset-0 transition-opacity duration-[1500ms] ease-in-out ${idx === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0"
-                }`}
+              className={`absolute inset-0 transition-opacity duration-[1500ms] ease-in-out ${
+                idx === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0"
+              }`}
             >
               <Image
                 alt={`Luxury Estate ${idx + 1}`}
@@ -86,9 +90,9 @@ export function EtherealHomeClient() {
                 style={
                   idx === currentSlide
                     ? {
-                      transform: `translateY(${scrollY * 0.15}px) scale(1.05)`,
-                      transition: "transform 0.1s ease-out",
-                    }
+                        transform: `translateY(${scrollY * 0.15}px) scale(1.05)`,
+                        transition: "transform 0.1s ease-out",
+                      }
                     : undefined
                 }
               />
@@ -103,7 +107,8 @@ export function EtherealHomeClient() {
             Find Your Sanctuary
           </h1>
           <p className="font-hanken text-[18px] font-normal leading-[28px] opacity-90 max-w-2xl mx-auto drop-shadow-md">
-            Curating the world&apos;s most exceptional architectural masterpieces.
+            Curating the world&apos;s most exceptional architectural
+            masterpieces.
           </p>
         </div>
 
@@ -116,7 +121,10 @@ export function EtherealHomeClient() {
                 onClick={() => setCurrentSlide(idx)}
                 className="w-12 h-[2px] transition-colors"
                 style={{
-                  backgroundColor: idx === currentSlide ? "rgba(255, 255, 255, 0.8)" : "rgba(255, 255, 255, 0.3)",
+                  backgroundColor:
+                    idx === currentSlide
+                      ? "rgba(255, 255, 255, 0.8)"
+                      : "rgba(255, 255, 255, 0.3)",
                 }}
                 aria-label={`Go to slide ${idx + 1}`}
               />
@@ -126,7 +134,9 @@ export function EtherealHomeClient() {
             onClick={scrollToProjects}
             className="flex flex-col items-center animate-bounce text-white/80 hover:text-white transition-colors"
           >
-            <span className="font-hanken text-[12px] font-medium leading-[16px] tracking-[0.2em] uppercase mb-2">Scroll</span>
+            <span className="font-hanken text-[12px] font-medium leading-[16px] tracking-[0.2em] uppercase mb-2">
+              Scroll
+            </span>
             <ChevronDown className="h-5 w-5" />
           </button>
         </div>
@@ -162,7 +172,11 @@ export function EtherealHomeClient() {
               return (
                 <Link
                   key={project.id}
-                  href={isSoleil ? "https://thesoleil.vn/" : `/projects/${project.slug}`}
+                  href={
+                    isSoleil
+                      ? "https://thesoleil.vn/"
+                      : `/projects/${project.slug}`
+                  }
                   target={isSoleil ? "_blank" : undefined}
                   rel={isSoleil ? "noopener noreferrer" : undefined}
                   className="group flex flex-col overflow-hidden rounded-[4px] bg-white shadow-sm transition-shadow hover:shadow-md"
@@ -201,45 +215,56 @@ export function EtherealHomeClient() {
       <section className="py-32 bg-[#e5e2dd]/30">
         <div className="max-w-[1440px] mx-auto px-5 md:px-20 flex flex-col lg:flex-row gap-20 items-center">
           <div className="lg:w-1/2 w-full relative">
-            <div className="aspect-[4/5] relative overflow-hidden">
+            <div className="aspect-[4/5] relative overflow-hidden rounded-lg">
               <Image
                 alt="The Vision"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQ24M6r2MBxMVWNNm7ZQCNoxCZN8ouNW4Rkhi-_gjXkKKH7yVdwZf9lI-c0q103Qsf4VzXNyY4krrY6wcFSitdyFTqJp3LTHus0jIT1tjDWbnTV6s5pjzQsz7sKxTEnYIQP0TJMWojk9ThcQtXaTD_kHe6VdxXPlsDGZS69iN9HfjugjNM0jfkxN0pTOHS8e3ab84YEmx0Xg6ApsyNLQ5mTNv9B7YxX5MYANB4GYrJctoVy0wm83Z5lSyzp_Qe4jf1asaUzRfobzo"
+                src="/images/home/profile.jpg"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </div>
-            <div className="absolute -bottom-8 -right-8 w-64 h-64 bg-[#f9f9f9] p-10 hidden md:block border border-[#E8E2D9] shadow-sm z-20">
-              <span className="font-serif text-[24px] font-medium leading-[32px] text-[#4a3829] block mb-2">24+ Years</span>
-              <p className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#8C7B6E] leading-relaxed">
-                Dedicated to the curation of the world&apos;s most exceptional living spaces.
-              </p>
-            </div>
           </div>
           <div className="lg:w-1/2 w-full space-y-8">
             <span className="text-[12px] font-medium leading-[16px] tracking-[0.3em] font-hanken text-[#8C7B6E] uppercase block">
-              Our Philosophy
+              Câu chuyện của tôi:
             </span>
             <h2 className="font-serif text-[32px] font-medium leading-[40px] text-[#4a3829] leading-tight">
-              Beyond Real Estate: A Legacy of Discretion &amp; Detail
+              Vượt trên bất động sản: Tôi đồng hành kiến tạo những giá trị
+              trường tồn.
             </h2>
             <p className="text-[18px] font-normal leading-[28px] font-hanken text-[#4e453e] leading-relaxed">
-              Ethereal Estate was founded on the principle that home is not merely a location, but a reflection of one&apos;s architectural soul. We serve a global clientele who demand more than square footage—they demand artistry, privacy, and an unwavering commitment to quality.
+              Tôi tin rằng bất động sản không đơn thuần là một giao dịch, mà là
+              hành trình đồng hành cùng khách hàng tìm kiếm giá trị bền vững.
+              Với nhiều năm kinh nghiệm trong lĩnh vực kinh doanh và đầu tư bất
+              động sản, tôi luôn đặt sự minh bạch, uy tín và lợi ích của khách
+              hàng làm kim chỉ nam trong mọi quyết định. Mỗi thành công của
+              khách hàng chính là động lực để tôi và đội ngũ không ngừng hoàn
+              thiện và phát triển.
             </p>
             <div className="space-y-4 pt-4">
               <div className="flex items-start gap-4">
                 <Check className="h-6 w-6 text-[#735c00] flex-shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="text-[14px] font-semibold leading-[20px] tracking-[0.05em] font-hanken text-[#4a3829]">Unrivaled Access</h4>
-                  <p className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e]">Exclusive off-market listings in the world&apos;s most coveted zip codes.</p>
+                  <h4 className="text-[14px] font-semibold leading-[20px] tracking-[0.05em] font-hanken text-[#4a3829]">
+                    Unrivaled Access
+                  </h4>
+                  <p className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e]">
+                    Exclusive off-market listings in the world&apos;s most
+                    coveted zip codes.
+                  </p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
                 <Lock className="h-5 w-5 text-[#735c00] flex-shrink-0 mt-1 mx-0.5" />
                 <div>
-                  <h4 className="text-[14px] font-semibold leading-[20px] tracking-[0.05em] font-hanken text-[#4a3829]">Absolute Discretion</h4>
-                  <p className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e]">Private viewings and confidential negotiations are our standard.</p>
+                  <h4 className="text-[14px] font-semibold leading-[20px] tracking-[0.05em] font-hanken text-[#4a3829]">
+                    Absolute Discretion
+                  </h4>
+                  <p className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e]">
+                    Private viewings and confidential negotiations are our
+                    standard.
+                  </p>
                 </div>
               </div>
             </div>
@@ -260,27 +285,62 @@ export function EtherealHomeClient() {
             {/* Brand & Contact */}
             <div className="md:col-span-4 space-y-8">
               <div className="space-y-4">
-                <h2 className="font-serif text-[24px] font-medium leading-[32px] text-[#4a3829]">Ethereal Estate</h2>
+                <h2 className="font-serif text-[24px] font-medium leading-[32px] text-[#4a3829]">
+                  Ethereal Estate
+                </h2>
                 <p className="text-[16px] font-normal leading-[24px] font-hanken text-[#4e453e] max-w-xs">
-                  Exceptional properties for an exceptional life. Worldwide reach, local expertise.
+                  Exceptional properties for an exceptional life. Worldwide
+                  reach, local expertise.
                 </p>
               </div>
               <div className="space-y-4">
-                <h4 className="text-[14px] font-semibold leading-[20px] tracking-[0.05em] font-hanken text-[#4a3829] uppercase tracking-widest">Contact Us</h4>
+                <h4 className="text-[14px] font-semibold leading-[20px] tracking-[0.05em] font-hanken text-[#4a3829] uppercase tracking-widest">
+                  Contact Us
+                </h4>
                 <div className="space-y-2">
-                  <p className="text-[16px] font-semibold leading-[24px] font-hanken text-[#4a3829] font-bold">+1 800-ETHEREAL</p>
-                  <p className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e]">720 Fifth Avenue, 15th Floor<br />New York, NY 10019</p>
+                  <p className="text-[16px] font-semibold leading-[24px] font-hanken text-[#4a3829] font-bold">
+                    0345 747 138 - (GDDA) Nguyễn Thị Nguyệt
+                  </p>
+                  <p className="text-[14px] font-semibold text-[#4a3829] font-bold">
+                    BĐS Duyên Hải - Đất Xanh Miền Bắc{" "}
+                  </p>
+                  <p className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e]">
+                    246 Đỗ Bá, Phường Mỹ An,
+                    <br />
+                    Đà Nẵng, Việt Nam
+                  </p>
                 </div>
               </div>
               <div className="flex gap-4">
-                <a aria-label="Instagram" className="w-10 h-10 border border-[#d2c4bb]/30 flex items-center justify-center text-[#4e453e] hover:bg-[#4a3829] hover:text-white transition-all duration-300" href="#">
+                <a
+                  aria-label="Facebook"
+                  className="w-10 h-10 border border-[#d2c4bb]/30 flex items-center justify-center text-[#4e453e] hover:bg-[#4a3829] hover:text-white transition-all duration-300"
+                  href="https://www.facebook.com/nguyet.nguyen2111"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Facebook className="h-5 w-5" />
+                </a>
+                <a
+                  aria-label="Instagram"
+                  className="w-10 h-10 border border-[#d2c4bb]/30 flex items-center justify-center text-[#4e453e] hover:bg-[#4a3829] hover:text-white transition-all duration-300"
+                  href="#"
+                >
                   <Instagram className="h-5 w-5" />
                 </a>
-                <a aria-label="LinkedIn" className="w-10 h-10 border border-[#d2c4bb]/30 flex items-center justify-center text-[#4e453e] hover:bg-[#4a3829] hover:text-white transition-all duration-300" href="#">
-                  <Linkedin className="h-5 w-5" />
-                </a>
-                <a aria-label="X" className="w-10 h-10 border border-[#d2c4bb]/30 flex items-center justify-center text-[#4e453e] hover:bg-[#4a3829] hover:text-white transition-all duration-300" href="#">
-                  <X className="h-5 w-5" />
+                <a
+                  aria-label="Tiktok"
+                  className="w-10 h-10 border border-[#d2c4bb]/30 flex items-center justify-center text-[#4e453e] hover:bg-[#4a3829] hover:text-white transition-all duration-300"
+                  href="#"
+                >
+                  <svg
+                    className="h-5 w-5"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z" />
+                  </svg>
                 </a>
               </div>
             </div>
@@ -288,29 +348,94 @@ export function EtherealHomeClient() {
             {/* Links Grid */}
             <div className="md:col-span-4 grid grid-cols-2 gap-8">
               <div className="space-y-6">
-                <h4 className="text-[14px] font-semibold leading-[20px] tracking-[0.05em] font-hanken text-[#4a3829] uppercase tracking-widest">Portfolio</h4>
+                <h4 className="text-[14px] font-semibold leading-[20px] tracking-[0.05em] font-hanken text-[#4a3829] uppercase tracking-widest">
+                  Portfolio
+                </h4>
                 <ul className="space-y-3">
-                  <li><a className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] hover:text-[#4a3829] transition-colors" href="#">Luxury Portfolio</a></li>
-                  <li><a className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] hover:text-[#4a3829] transition-colors" href="#">Global Networks</a></li>
-                  <li><a className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] hover:text-[#4a3829] transition-colors" href="#">New Developments</a></li>
-                  <li><a className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] hover:text-[#4a3829] transition-colors" href="#">Rental Collection</a></li>
+                  <li>
+                    <a
+                      className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] hover:text-[#4a3829] transition-colors"
+                      href="#"
+                    >
+                      Luxury Portfolio
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] hover:text-[#4a3829] transition-colors"
+                      href="#"
+                    >
+                      Global Networks
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] hover:text-[#4a3829] transition-colors"
+                      href="#"
+                    >
+                      New Developments
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] hover:text-[#4a3829] transition-colors"
+                      href="#"
+                    >
+                      Rental Collection
+                    </a>
+                  </li>
                 </ul>
               </div>
               <div className="space-y-6">
-                <h4 className="text-[14px] font-semibold leading-[20px] tracking-[0.05em] font-hanken text-[#4a3829] uppercase tracking-widest">Inquiries</h4>
+                <h4 className="text-[14px] font-semibold leading-[20px] tracking-[0.05em] font-hanken text-[#4a3829] uppercase tracking-widest">
+                  Inquiries
+                </h4>
                 <ul className="space-y-3">
-                  <li><a className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] hover:text-[#4a3829] transition-colors" href="#">Contact Info</a></li>
-                  <li><a className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] hover:text-[#4a3829] transition-colors" href="#">Office Locations</a></li>
-                  <li><a className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] hover:text-[#4a3829] transition-colors" href="#">Career Opportunities</a></li>
-                  <li><a className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] hover:text-[#4a3829] transition-colors" href="#">Agent Portal</a></li>
+                  <li>
+                    <a
+                      className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] hover:text-[#4a3829] transition-colors"
+                      href="#"
+                    >
+                      Contact Info
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] hover:text-[#4a3829] transition-colors"
+                      href="#"
+                    >
+                      Office Locations
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] hover:text-[#4a3829] transition-colors"
+                      href="#"
+                    >
+                      Career Opportunities
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] hover:text-[#4a3829] transition-colors"
+                      href="#"
+                    >
+                      Agent Portal
+                    </a>
+                  </li>
                 </ul>
               </div>
             </div>
 
             {/* Newsletter Form */}
             <div className="md:col-span-4 space-y-6">
-              <h4 className="text-[14px] font-semibold leading-[20px] tracking-[0.05em] font-hanken text-[#4a3829] uppercase tracking-widest">Register for Expert Advice</h4>
-              <p className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e]">Join our inner circle for exclusive market insights and off-market opportunities.</p>
+              <h4 className="text-[14px] font-semibold leading-[20px] tracking-[0.05em] font-hanken text-[#4a3829] uppercase tracking-widest">
+                Register for Expert Advice
+              </h4>
+              <p className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e]">
+                Join our inner circle for exclusive market insights and
+                off-market opportunities.
+              </p>
               {subscribed ? (
                 <div className="bg-white p-4 border border-[#d2c4bb]/30 text-sm font-semibold tracking-wider font-hanken text-[#4a3829]">
                   Thank you for subscribing!
@@ -349,11 +474,19 @@ export function EtherealHomeClient() {
           {/* Bottom Bar */}
           <div className="pt-8 border-t border-[#d2c4bb]/20 flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e]">
-              © 2024 Ethereal Estate. All Rights Reserved. Private &amp; Confidential.
+              © 2024 Ethereal Estate. All Rights Reserved. Private &amp;
+              Confidential.
             </p>
             <div className="flex gap-6">
-              <a className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] hover:text-[#4a3829]" href="#">Privacy Policy</a>
-              <span className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] italic">Member of Leading Hotels &amp; Residences of the World</span>
+              <a
+                className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] hover:text-[#4a3829]"
+                href="#"
+              >
+                Privacy Policy
+              </a>
+              <span className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] italic">
+                Member of Leading Hotels &amp; Residences of the World
+              </span>
             </div>
           </div>
         </div>
