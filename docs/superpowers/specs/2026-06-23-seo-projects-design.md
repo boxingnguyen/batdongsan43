@@ -172,18 +172,16 @@ JSON-LD inject vào `<head>` qua `<script type="application/ld+json">` trong lay
 
 ## OG Images
 
-- **Size:** 1200×630px (chuẩn Facebook Ads + Zalo + Google Display)
-- **Max size:** ~200KB sau khi compress
-- **Location:** `/public/og/<slug>.jpg`
+Dùng ảnh gốc có sẵn trong `/public/images/` — không cần resize/compress ở giai đoạn này.
 
-| Project | Source image | Output |
-|---------|-------------|--------|
-| S-Light Tower | `slight4.jpg` | `/public/og/s-light-tower.jpg` |
-| Sun Fours Tower | ảnh page hiện có | `/public/og/sun-fours-tower.jpg` |
-| Symphony5 | ảnh page hiện có | `/public/og/symphony5.jpg` |
-| The Legend | ảnh page hiện có | `/public/og/the-legend-danang.jpg` |
+| Project | OG image path |
+|---------|--------------|
+| S-Light Tower | `/images/slight_images/slight4.jpg` |
+| Sun Fours Tower | ảnh gốc của page (cần xác nhận path) |
+| Symphony5 | ảnh gốc của page (cần xác nhận path) |
+| The Legend | ảnh gốc của page (cần xác nhận path) |
 
-> OG images phải được resize + compress thủ công trước khi đặt vào `/public/og/`.
+> Sau khi có traffic, nên resize về 1200×630px + compress ~200KB để tối ưu load speed và preview quality.
 
 ---
 
