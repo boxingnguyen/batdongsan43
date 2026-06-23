@@ -1,144 +1,139 @@
 import Link from "next/link";
-import { SITE_NAME } from "@/config/site";
+import { MaterialIcon } from "@/components/ui/material-icon";
+import { FooterRegisterForm } from "@/components/ethereal/footer-register-form";
 
-const navLinks = [
-  { href: "/", label: "Trang Chủ" },
-  { href: "/projects", label: "Dự Án" },
-  { href: "/introduction", label: "Giới Thiệu" },
-  { href: "/news", label: "Tin Tức" },
-  { href: "/connection", label: "Liên Hệ" },
+const portfolioLinks = [
+  { href: "/properties", label: "Luxury Portfolio" },
+  { href: "/properties", label: "Global Networks" },
+  { href: "/properties", label: "Market Trends" },
 ];
 
-const projects = [
-  { href: "/projects/s-light-tower", label: "S-Light Tower" },
-  { href: "/projects/sun-fours-tower", label: "Sun FourS Tower" },
-  { href: "/projects/symphony5", label: "Sun Symphony 5" },
-  { href: "/projects/the-legend-danang", label: "The Legend Đà Nẵng" },
+const companyLinks = [
+  { href: "#", label: "Office Locations" },
+  { href: "#", label: "Contact Info" },
+  { href: "#", label: "Privacy Policy" },
+];
+
+const socialLinks = [
+  { href: "#", icon: "photo_camera", label: "Instagram" },
+  { href: "#", icon: "work", label: "LinkedIn" },
+  { href: "#", icon: "close", label: "X" },
 ];
 
 export function SiteFooter() {
   return (
-    <footer className="bg-[#2a1f16] text-white">
-      <div className="mx-auto max-w-[1440px] px-5 md:px-20">
-
-        {/* Main grid */}
-        <div className="grid gap-12 py-16 md:grid-cols-12">
-
-          {/* Brand col */}
-          <div className="space-y-6 md:col-span-5">
+    <footer className="mt-24 bg-[#eeeeee]">
+      <div className="mx-auto max-w-[1440px] px-5 py-16 md:px-20">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-16">
+          <div className="space-y-8 md:col-span-5">
             <div>
-              <p className="font-serif text-3xl font-medium text-white">
-                {SITE_NAME}
+              <p className="font-serif text-2xl text-[#4a3829]">
+                Ethereal Estate
               </p>
-              <p className="mt-3 max-w-sm text-sm leading-relaxed text-white/60">
-                Tư vấn bất động sản cao cấp tại Đà Nẵng — an cư, đầu tư, ngôi nhà thứ hai.
-              </p>
-            </div>
-
-            {/* Agent */}
-            <div className="border-l-2 border-[#C8A96E] pl-4">
-              <p className="text-sm font-semibold text-white">
-                (GDDA) Nguyễn Thị Nguyệt
-              </p>
-              <p className="mt-0.5 text-xs text-white/50">
-                BĐS Duyên Hải · Đất Xanh Miền Bắc
+              <p className="mt-6 max-w-sm text-base leading-relaxed text-[#4e453e]">
+                Curating the world&apos;s most exceptional living spaces for
+                those who demand architectural integrity and absolute
+                discretion.
               </p>
             </div>
-
-            {/* Contact */}
-            <div className="space-y-2 text-sm">
-              <p>
-                <a
-                  href="tel:0345747138"
-                  className="text-white/70 transition-colors hover:text-[#C8A96E]"
-                >
-                  0345 747 138
-                </a>
-                <span className="mx-2 text-white/30">·</span>
-                <a
-                  href="tel:0826768386"
-                  className="text-white/70 transition-colors hover:text-[#C8A96E]"
-                >
-                  0826 768 386
-                </a>
-              </p>
-              <p className="text-white/50">246 Đỗ Bá, Mỹ An, Đà Nẵng</p>
-            </div>
-
-            {/* Social */}
-            <div className="flex gap-3">
-              <a
-                href="https://www.facebook.com/nguyet.nguyen2111"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook"
-                className="flex h-9 w-9 items-center justify-center border border-white/15 text-white/50 transition-colors hover:border-[#C8A96E] hover:text-[#C8A96E]"
-              >
-                <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                </svg>
-              </a>
-              <a
-                href="https://zalo.me/0345747138"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Zalo"
-                className="flex h-9 w-9 items-center justify-center border border-white/15 text-white/50 transition-colors hover:border-[#C8A96E] hover:text-[#C8A96E]"
-              >
-                <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-1.97 9.021c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L6.26 14.4l-2.95-.924c-.64-.203-.654-.64.136-.954l11.527-4.447c.537-.194 1.006.131.588.173z" />
-                </svg>
-              </a>
+            <div className="space-y-4">
+              <h5 className="text-sm font-semibold uppercase tracking-[0.2em] text-[#4a3829]">
+                Register for Expert Advice
+              </h5>
+              <FooterRegisterForm />
             </div>
           </div>
 
-          {/* Nav cols */}
-          <div className="grid grid-cols-2 gap-8 md:col-span-7 md:grid-cols-2">
-            <div>
-              <p className="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-[#C8A96E]">
-                Trang
-              </p>
-              <ul className="space-y-3">
-                {navLinks.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-white/60 transition-colors hover:text-white"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className="md:col-span-2">
+            <h5 className="mb-6 text-sm font-semibold text-[#4a3829]">
+              Portfolio
+            </h5>
+            <ul className="space-y-4">
+              {portfolioLinks.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-xs text-[#4e453e] underline decoration-[#4e453e]/30 underline-offset-4 transition-colors hover:text-[#4a3829]"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
+          <div className="md:col-span-2">
+            <h5 className="mb-6 text-sm font-semibold text-[#4a3829]">
+              Company
+            </h5>
+            <ul className="space-y-4">
+              {companyLinks.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-xs text-[#4e453e] underline decoration-[#4e453e]/30 underline-offset-4 transition-colors hover:text-[#4a3829]"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="space-y-8 md:col-span-3">
             <div>
-              <p className="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-[#C8A96E]">
-                Dự Án
-              </p>
-              <ul className="space-y-3">
-                {projects.map((p) => (
-                  <li key={p.href}>
-                    <Link
-                      href={p.href}
-                      className="text-sm text-white/60 transition-colors hover:text-white"
-                    >
-                      {p.label}
-                    </Link>
-                  </li>
+              <h5 className="mb-6 text-sm font-semibold text-[#4a3829]">
+                Contact Us
+              </h5>
+              <div className="space-y-2 text-xs text-[#4e453e]">
+                <p className="flex items-center gap-2">
+                  <MaterialIcon
+                    name="call"
+                    className="text-lg text-[#8C7B6E]"
+                  />
+                  <span>
+                    +84 345 747 138
+                    <br />
+                    +84 939 963 769
+                  </span>
+                </p>
+                <p className="flex items-start gap-2">
+                  <MaterialIcon
+                    name="location_on"
+                    className="text-lg text-[#8C7B6E]"
+                  />
+                  <span>
+                    246 Đỗ Bá,
+                    <br />
+                    phường Mỹ An, Đà Nẵng 50510
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div>
+              <h5 className="mb-4 text-sm font-semibold text-[#4a3829]">
+                Follow Us
+              </h5>
+              <div className="flex gap-4">
+                {socialLinks.map((social) => (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    aria-label={social.label}
+                    className="text-[#8C7B6E] transition-colors hover:text-[#4a3829]"
+                  >
+                    <MaterialIcon name={social.icon} />
+                  </a>
                 ))}
-              </ul>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="flex flex-col gap-2 border-t border-white/10 py-6 md:flex-row md:items-center md:justify-between">
-          <p className="text-xs text-white/30">
-            © {new Date().getFullYear()} {SITE_NAME}. Bảo lưu mọi quyền.
-          </p>
-          <p className="text-xs text-white/20">
-            Bất động sản cao cấp · Đà Nẵng, Việt Nam
+        <div className="mt-16 border-t border-[#8C7B6E]/20 pt-8">
+          <p className="text-center text-xs text-[#4e453e]">
+            © {new Date().getFullYear()} Ethereal Estate. All Rights Reserved.
+            Private &amp; Confidential.
           </p>
         </div>
       </div>
