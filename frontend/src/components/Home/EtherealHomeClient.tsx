@@ -8,9 +8,7 @@ import {
   ChevronRight,
   Check,
   Lock,
-  Instagram,
   ChevronDown,
-  Facebook,
 } from "lucide-react";
 import { projects } from "@/data/projects";
 
@@ -30,9 +28,6 @@ const heroSlides = [
 export function EtherealHomeClient() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [scrollY, setScrollY] = useState(0);
-  const [subscribed, setSubscribed] = useState(false);
-  const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -53,15 +48,6 @@ export function EtherealHomeClient() {
     const element = document.getElementById("latest-projects");
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) {
-      setSubscribed(true);
-      setEmail("");
-      setName("");
     }
   };
 
@@ -277,219 +263,6 @@ export function EtherealHomeClient() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-[#eeeeee] py-16">
-        <div className="max-w-[1440px] mx-auto px-5 md:px-20">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 mb-16">
-            {/* Brand & Contact */}
-            <div className="md:col-span-4 space-y-8">
-              <div className="space-y-4">
-                <h2 className="font-serif text-[24px] font-medium leading-[32px] text-[#4a3829]">
-                  Ethereal Estate
-                </h2>
-                <p className="text-[16px] font-normal leading-[24px] font-hanken text-[#4e453e] max-w-xs">
-                  Bất động sản xuất sắc cho cuộc sống đỉnh cao. Tầm vóc toàn
-                  cầu, chuyên môn địa phương.
-                </p>
-              </div>
-              <div className="space-y-4">
-                <h4 className="text-[14px] font-semibold leading-[20px] tracking-[0.05em] font-hanken text-[#4a3829] uppercase tracking-widest">
-                  Liên Hệ
-                </h4>
-                <div className="space-y-2">
-                  <p className="text-[16px] font-semibold leading-[24px] font-hanken text-[#4a3829] font-bold">
-                    0345 747 138 - (GDDA) Nguyễn Thị Nguyệt
-                  </p>
-                  <p className="text-[14px] font-semibold text-[#4a3829] font-bold">
-                    BĐS Duyên Hải - Đất Xanh Miền Bắc{" "}
-                  </p>
-                  <p className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e]">
-                    246 Đỗ Bá, Phường Mỹ An,
-                    <br />
-                    Đà Nẵng, Việt Nam
-                  </p>
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <a
-                  aria-label="Facebook"
-                  className="w-10 h-10 border border-[#d2c4bb]/30 flex items-center justify-center text-[#4e453e] hover:bg-[#4a3829] hover:text-white transition-all duration-300"
-                  href="https://www.facebook.com/nguyet.nguyen2111"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Facebook className="h-5 w-5" />
-                </a>
-                <a
-                  aria-label="Instagram"
-                  className="w-10 h-10 border border-[#d2c4bb]/30 flex items-center justify-center text-[#4e453e] hover:bg-[#4a3829] hover:text-white transition-all duration-300"
-                  href="#"
-                >
-                  <Instagram className="h-5 w-5" />
-                </a>
-                <a
-                  aria-label="Tiktok"
-                  className="w-10 h-10 border border-[#d2c4bb]/30 flex items-center justify-center text-[#4e453e] hover:bg-[#4a3829] hover:text-white transition-all duration-300"
-                  href="#"
-                >
-                  <svg
-                    className="h-5 w-5"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-
-            {/* Links Grid */}
-            <div className="md:col-span-4 grid grid-cols-2 gap-8">
-              <div className="space-y-6">
-                <h4 className="text-[14px] font-semibold leading-[20px] tracking-[0.05em] font-hanken text-[#4a3829] uppercase tracking-widest">
-                  Danh Mục
-                </h4>
-                <ul className="space-y-3">
-                  <li>
-                    <a
-                      className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] hover:text-[#4a3829] transition-colors"
-                      href="#"
-                    >
-                      Danh Mục Cao Cấp
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] hover:text-[#4a3829] transition-colors"
-                      href="#"
-                    >
-                      Mạng Lưới Toàn Cầu
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] hover:text-[#4a3829] transition-colors"
-                      href="#"
-                    >
-                      Dự Án Mới
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] hover:text-[#4a3829] transition-colors"
-                      href="#"
-                    >
-                      Bộ Sưu Tập Cho Thuê
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div className="space-y-6">
-                <h4 className="text-[14px] font-semibold leading-[20px] tracking-[0.05em] font-hanken text-[#4a3829] uppercase tracking-widest">
-                  Tư Vấn
-                </h4>
-                <ul className="space-y-3">
-                  <li>
-                    <a
-                      className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] hover:text-[#4a3829] transition-colors"
-                      href="#"
-                    >
-                      Thông Tin Liên Hệ
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] hover:text-[#4a3829] transition-colors"
-                      href="#"
-                    >
-                      Địa Điểm Văn Phòng
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] hover:text-[#4a3829] transition-colors"
-                      href="#"
-                    >
-                      Cơ Hội Nghề Nghiệp
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] hover:text-[#4a3829] transition-colors"
-                      href="#"
-                    >
-                      Cổng Đại Lý
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Newsletter Form */}
-            <div className="md:col-span-4 space-y-6">
-              <h4 className="text-[14px] font-semibold leading-[20px] tracking-[0.05em] font-hanken text-[#4a3829] uppercase tracking-widest">
-                Đăng Ký Nhận Tư Vấn Chuyên Gia
-              </h4>
-              <p className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e]">
-                Tham gia nhóm của chúng tôi để nhận thông tin thị trường độc
-                quyền và cơ hội bất động sản chưa niêm yết.
-              </p>
-              {subscribed ? (
-                <div className="bg-white p-4 border border-[#d2c4bb]/30 text-sm font-semibold tracking-wider font-hanken text-[#4a3829]">
-                  Cảm ơn bạn đã đăng ký!
-                </div>
-              ) : (
-                <form onSubmit={handleSubscribe} className="space-y-4">
-                  <div className="space-y-2">
-                    <input
-                      className="w-full bg-[#f9f9f9] border border-[#d2c4bb]/30 px-4 py-3 text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken focus:ring-1 focus:ring-[#4a3829] focus:border-[#4a3829] outline-none transition-all"
-                      placeholder="Họ và Tên"
-                      type="text"
-                      required
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                    />
-                    <input
-                      className="w-full bg-[#f9f9f9] border border-[#d2c4bb]/30 px-4 py-3 text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken focus:ring-1 focus:ring-[#4a3829] focus:border-[#4a3829] outline-none transition-all"
-                      placeholder="Địa Chỉ Email"
-                      type="email"
-                      required
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                    />
-                  </div>
-                  <button
-                    className="w-full bg-[#4a3829] hover:opacity-90 transition-opacity text-white py-3 text-[14px] font-semibold leading-[20px] tracking-[0.05em] font-hanken"
-                    type="submit"
-                  >
-                    ĐĂNG KÝ
-                  </button>
-                </form>
-              )}
-            </div>
-          </div>
-
-          {/* Bottom Bar */}
-          <div className="pt-8 border-t border-[#d2c4bb]/20 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e]">
-              © 2024 Ethereal Estate. Bảo Lưu Mọi Quyền. Riêng Tư &amp; Bảo
-              Mật.
-            </p>
-            <div className="flex gap-6">
-              <a
-                className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] hover:text-[#4a3829]"
-                href="#"
-              >
-                Chính Sách Bảo Mật
-              </a>
-              <span className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] italic">
-                Thành Viên Các Khách Sạn &amp; Khu Dân Cư Hàng Đầu Thế Giới
-              </span>
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

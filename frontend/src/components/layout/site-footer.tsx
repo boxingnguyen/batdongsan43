@@ -18,7 +18,7 @@ export function SiteFooter() {
           <div className="space-y-4">
             <p className="font-serif text-xl text-[#4a3829]">Ethereal Estate</p>
             <p className="max-w-xs text-sm leading-relaxed text-[#4e453e]/70">
-              Tư vấn bất động sản cao cấp tại Đà Nẵng — an cư, đầu tư, second home.
+              Tư vấn bất động sản cao cấp tại Đà Nẵng — an cư, đầu tư, ngôi nhà thứ hai.
             </p>
             <div className="space-y-1 text-sm text-[#4e453e]/80">
               <p>
@@ -50,7 +50,7 @@ export function SiteFooter() {
 
         <div className="mt-10 border-t border-[#d2c4bb]/40 pt-6">
           <p className="text-xs text-[#4e453e]/50">
-            © {new Date().getFullYear()} Ethereal Estate. All Rights Reserved.
+            © {new Date().getFullYear()} Ethereal Estate. Bảo lưu mọi quyền.
           </p>
         </div>
       </div>
