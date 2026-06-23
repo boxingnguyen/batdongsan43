@@ -2,18 +2,19 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { useState, useEffect, useCallback, useRef } from "react";
+import { Menu, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { HideSiteHeader } from "@/components/projects/HideSiteHeader";
 
-const HERO_IMAGE =
-  "https://sun-ecommerce-cdn.azureedge.net/ecommerce/service-sites/asset/SunGroup/google_docs_media/news/news-11394/AD_4nXdNKTDV0B3tTY9UW2Gx1_6zuS-RHUjYOFnTq3xCu0pM0RZgiIldfjj_Cj-mSuSBMJNgD0nHylc4OtB8ZH4Gwnbn0TbKfP36-I1AThLqkt9cOY13uYnsJWFu4ONIhtFMTxzVxvkq-ZcZcGmkHDkns33lh8ssVbbLw9lq-CgsfNzyFCrR2hhZ6Mc%3Ds2048.jpg";
-
-const GALLERY_IMAGES = [
-  "https://sun-ecommerce-cdn.azureedge.net/ecommerce/service-sites/asset/SunGroup/google_docs_media/news/news-11394/AD_4nXcOAVQ4gM4CO-iiyP_zhdh4RiDGQ_7smLCdyNdnbpSJuFEHvhiD9eCGiY7QtXnb5l09QIH95pZcSXmAoUBeszzP0aADALsmNT3eieCb3_HN273P4FQvhG002VK7OC1Q5kkYf88lsTw40NUZckikK1RYiOPY1YqPn9ROW4pPWoveNqO2qnUYT6w%3Ds2048.jpg",
-  "https://sun-ecommerce-cdn.azureedge.net/ecommerce/service-sites/asset/SunGroup/google_docs_media/news/news-11394/AD_4nXcX7p3dC3RWCdO_GMgtKaqL7Tqou9dA50abzUg_mv-CyAZQrd2BijuL569-vhW6ZBLxIPys-cv2nWuqa2q-NJVpmvfbM8psURspT5lmC8DhyKjKSqTthCXwBnxHYPhOl_TvxqUiKL2BIn1kwkMukAHGC4dx03oSbxpsinWJAW83UzGjj8Lr%3Ds2048.jpg",
-  "https://sun-ecommerce-cdn.azureedge.net/ecommerce/service-sites/asset/SunGroup/google_docs_media/news/news-11394/AD_4nXf7T9mg6_AgDX_uFPcrdv6zfrD50pWwoMIFG51erSCU7Kj9FvDU7oayW2NGzBsXz1uTDQQoMeMrFXsRNgp_FqKAAR9ptLQAk65tF1eecllqlhFxjb34RKTkhtDF1hcfK8IvQhjMWtx6NeSX4_3RtVPKiaXVMnlUKqGps31c91FcJGF25nvdtQs%3Ds2048.jpg",
-  "https://sun-ecommerce-cdn.azureedge.net/ecommerce/service-sites/asset/SunGroup/google_docs_media/news/news-11394/AD_4nXeGIdpDo6vx-ZLix6GPe1M9DDc8E4UaV6hMuYKElItbtNSEq_98zGuwzaEtJZio23AbBWtNHGtEYawxhwxP6okQUsFlQJyd9RSP2ZgdK91-FWN4PjWy9vQxvuHJOYKfpDeGWtxMsZR7xZo_NmRzFv4fQvjo-4JHnBwjLeHJNtjMHXJZPAK6%3Ds2048.jpg",
+const CAROUSEL_IMAGES = [
+  "/images/slight_images/slight4.jpg",
+  "/images/slight_images/slight6.jpg",
+  "/images/slight_images/slight7.jpg",
+  "/images/slight_images/slight1.jpg",
+  "/images/slight_images/slight2.jpg",
+  "/images/slight_images/slight3.jpg",
+  "/images/slight_images/slight5.jpg",
+  "/images/slight_images/slight8.jpg",
 ];
 
 const navLinks = [
@@ -25,6 +26,96 @@ const navLinks = [
   { href: "#tien-do", label: "Tiến Độ" },
   { href: "#lien-he", label: "Liên Hệ" },
 ];
+
+function SLightContactForm() {
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [interest, setInterest] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, phone, message: interest || undefined, project: "S-Light Tower" }),
+      });
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error || "Failed");
+      }
+      setSubmitted(true);
+      setName(""); setPhone(""); setInterest("");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Có lỗi xảy ra");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const inputCls =
+    "w-full rounded-sm border border-white/20 bg-white/10 px-4 py-3 text-white placeholder:text-white/50 focus:border-[#C8A96E] focus:outline-none";
+
+  if (submitted) {
+    return (
+      <div className="flex h-full flex-col items-center justify-center py-12 text-center">
+        <p className="font-serif text-2xl text-white">Cảm ơn bạn!</p>
+        <p className="mt-2 text-sm text-white/70">Chúng tôi sẽ liên hệ lại qua số {phone} sớm nhất.</p>
+      </div>
+    );
+  }
+
+  return (
+    <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
+      {error && (
+        <p className="rounded-sm bg-red-900/40 px-3 py-2 text-sm text-red-300">{error}</p>
+      )}
+      <input
+        type="text"
+        name="name"
+        required
+        placeholder="Họ và tên"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        className={inputCls}
+      />
+      <input
+        type="tel"
+        name="phone"
+        required
+        placeholder="Số điện thoại"
+        value={phone}
+        onChange={(e) => setPhone(e.target.value)}
+        className={inputCls}
+      />
+      <select
+        name="interest"
+        value={interest}
+        onChange={(e) => setInterest(e.target.value)}
+        className="w-full rounded-sm border border-white/20 bg-[#4a3829] px-4 py-3 text-white focus:border-[#C8A96E] focus:outline-none"
+      >
+        <option value="">Quan tâm đến loại căn hộ</option>
+        <option value="Studio">Studio</option>
+        <option value="1 Phòng Ngủ">1 Phòng Ngủ</option>
+        <option value="2 Phòng Ngủ">2 Phòng Ngủ</option>
+        <option value="3 Phòng Ngủ">3 Phòng Ngủ</option>
+        <option value="Penthouse">Penthouse</option>
+      </select>
+      <button
+        type="submit"
+        disabled={loading}
+        className="w-full rounded-sm bg-[#C8A96E] py-3 font-semibold uppercase tracking-wide text-[#0d1520] transition-colors hover:bg-[#b8966a] disabled:opacity-60 disabled:cursor-not-allowed"
+      >
+        {loading ? "Đang gửi..." : "Gửi Yêu Cầu Tư Vấn"}
+      </button>
+    </form>
+  );
+}
 
 function SLightNav() {
   const [open, setOpen] = useState(false);
@@ -44,7 +135,10 @@ function SLightNav() {
       }`}
     >
       <div className="mx-auto flex h-16 max-w-[1440px] items-center justify-between px-5 md:px-20">
-        <Link href="/" className="font-serif text-xl tracking-tight text-[#4a3829]">
+        <Link
+          href="/"
+          className="font-serif text-xl tracking-tight text-[#4a3829]"
+        >
           Ethereal Estate
         </Link>
         <nav className="hidden items-center gap-6 lg:flex">
@@ -93,50 +187,198 @@ function SLightNav() {
   );
 }
 
+function HeroCarousel() {
+  const [current, setCurrent] = useState(0);
+  const total = CAROUSEL_IMAGES.length;
+  const dragStart = useRef<number | null>(null);
+  const isDragging = useRef(false);
+  const autoTimer = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const go = useCallback((index: number) => {
+    setCurrent(((index % total) + total) % total);
+  }, [total]);
+
+  const next = useCallback(() => go(current + 1), [current, go]);
+  const prev = useCallback(() => go(current - 1), [current, go]);
+
+  const resetAuto = useCallback(() => {
+    if (autoTimer.current) clearInterval(autoTimer.current);
+    autoTimer.current = setInterval(() => setCurrent((c) => (c + 1) % total), 5000);
+  }, [total]);
+
+  useEffect(() => {
+    resetAuto();
+    return () => { if (autoTimer.current) clearInterval(autoTimer.current); };
+  }, [resetAuto]);
+
+  const onPointerDown = (e: React.PointerEvent) => {
+    dragStart.current = e.clientX;
+    isDragging.current = false;
+    (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+  };
+
+  const onPointerMove = (e: React.PointerEvent) => {
+    if (dragStart.current === null) return;
+    if (Math.abs(e.clientX - dragStart.current) > 5) isDragging.current = true;
+  };
+
+  const onPointerUp = (e: React.PointerEvent) => {
+    if (dragStart.current === null) return;
+    const delta = e.clientX - dragStart.current;
+    if (Math.abs(delta) > 50) {
+      delta < 0 ? next() : prev();
+      resetAuto();
+    }
+    dragStart.current = null;
+    isDragging.current = false;
+  };
+
+  return (
+    <section
+      className="relative flex min-h-[90vh] select-none items-end overflow-hidden bg-[#0d1520] py-0 cursor-grab active:cursor-grabbing"
+      onPointerDown={onPointerDown}
+      onPointerMove={onPointerMove}
+      onPointerUp={onPointerUp}
+      onPointerLeave={() => { dragStart.current = null; isDragging.current = false; }}
+    >
+      {CAROUSEL_IMAGES.map((src, i) => (
+        <div
+          key={src}
+          className={`pointer-events-none absolute inset-0 transition-opacity duration-1000 ${
+            i === current ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          <Image
+            src={src}
+            alt={`S-Light Tower ${i + 1}`}
+            fill
+            priority={i === 0}
+            draggable={false}
+            className="object-cover opacity-60"
+            sizes="100vw"
+          />
+        </div>
+      ))}
+
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+
+      {/* Prev / Next */}
+      <button
+        onClick={(e) => { e.stopPropagation(); prev(); resetAuto(); }}
+        aria-label="Ảnh trước"
+        className="absolute left-4 top-1/2 z-20 -translate-y-1/2 rounded-full bg-black/30 p-2 text-white backdrop-blur-sm transition hover:bg-black/50 md:left-8 md:p-3"
+      >
+        <ChevronLeft className="h-5 w-5 md:h-6 md:w-6" />
+      </button>
+      <button
+        onClick={(e) => { e.stopPropagation(); next(); resetAuto(); }}
+        aria-label="Ảnh tiếp"
+        className="absolute right-4 top-1/2 z-20 -translate-y-1/2 rounded-full bg-black/30 p-2 text-white backdrop-blur-sm transition hover:bg-black/50 md:right-8 md:p-3"
+      >
+        <ChevronRight className="h-5 w-5 md:h-6 md:w-6" />
+      </button>
+
+      {/* Dots */}
+      <div className="absolute bottom-6 left-1/2 z-20 flex -translate-x-1/2 gap-2">
+        {CAROUSEL_IMAGES.map((_, i) => (
+          <button
+            key={i}
+            onClick={(e) => { e.stopPropagation(); go(i); resetAuto(); }}
+            aria-label={`Slide ${i + 1}`}
+            className={`h-1.5 rounded-full transition-all duration-300 ${
+              i === current ? "w-6 bg-[#C8A96E]" : "w-1.5 bg-white/40 hover:bg-white/70"
+            }`}
+          />
+        ))}
+      </div>
+
+      {/* Counter */}
+      <p className="pointer-events-none absolute bottom-6 right-5 z-20 text-xs font-semibold tabular-nums text-white/50 md:right-8">
+        {current + 1} / {total}
+      </p>
+
+      {/* Text */}
+      <div className="pointer-events-none relative z-10 mx-auto w-full max-w-[1440px] px-5 pb-24 md:px-20">
+        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-[#C8A96E]">
+          Sun Property · Sun NeO City
+        </p>
+        <h1 className="font-serif text-4xl font-bold text-white md:text-6xl lg:text-7xl">
+          S-LIGHT TOWER
+        </h1>
+        <p className="mt-3 text-lg font-medium text-white/90 md:text-2xl">
+          Tháp đôi biểu tượng — Cửa ngõ Nam Đà Nẵng
+        </p>
+        <p className="mt-2 text-sm text-white/70 md:text-base">
+          Tầm nhìn 360° · Sông Hàn · Núi Ngũ Hành · Biển Đông · Pháo hoa DIFF
+        </p>
+        <div className="pointer-events-auto mt-8 flex flex-col gap-3 sm:flex-row">
+          <a
+            href="#lien-he"
+            className="inline-block rounded-sm bg-[#C8A96E] px-8 py-3 font-semibold uppercase tracking-wide text-[#0d1520] transition-colors hover:bg-[#b8966a]"
+          >
+            Đăng Ký Nhận Thông Tin
+          </a>
+          <a
+            href="#tong-quan"
+            className="inline-block rounded-sm border border-white/70 px-8 py-3 font-semibold uppercase tracking-wide text-white transition-colors hover:bg-white/10"
+          >
+            Tìm Hiểu Thêm
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function SLightTowerPage() {
   return (
     <main className="bg-[#f9f9f9]">
       <HideSiteHeader />
       <SLightNav />
 
-      {/* HERO */}
-      <section className="relative flex min-h-[90vh] items-end bg-[#0d1520] py-0">
-        <Image
-          src={HERO_IMAGE}
-          alt="S-Light Tower - Tháp đôi biểu tượng tại Nam Đà Nẵng"
-          fill
-          priority
-          className="object-cover opacity-55"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
-        <div className="relative z-10 mx-auto w-full max-w-[1440px] px-5 pb-20 md:px-20">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-[#C8A96E]">
-            Sun Property · Sun NeO City
-          </p>
-          <h1 className="font-serif text-4xl font-bold text-white md:text-6xl lg:text-7xl">
-            S-LIGHT TOWER
-          </h1>
-          <p className="mt-3 text-lg font-medium text-white/90 md:text-2xl">
-            Tháp đôi biểu tượng — Cửa ngõ Nam Đà Nẵng
-          </p>
-          <p className="mt-2 text-sm text-white/70 md:text-base">
-            Tầm nhìn 360° · Sông Hàn · Núi Ngũ Hành · Biển Đông · Pháo hoa DIFF
-          </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a
-              href="#lien-he"
-              className="inline-block rounded-sm bg-[#C8A96E] px-8 py-3 font-semibold uppercase tracking-wide text-[#0d1520] transition-colors hover:bg-[#b8966a]"
-            >
-              Đăng Ký Nhận Thông Tin
-            </a>
-            <a
-              href="#tong-quan"
-              className="inline-block rounded-sm border border-white/70 px-8 py-3 font-semibold uppercase tracking-wide text-white transition-colors hover:bg-white/10"
-            >
-              Tìm Hiểu Thêm
-            </a>
+      {/* HERO CAROUSEL */}
+      <HeroCarousel />
+
+      {/* SLOGAN HIGHLIGHT */}
+      <section className="bg-gradient-to-r from-[#0d1520] to-[#1a2535] py-12 md:py-16">
+        <div className="mx-auto max-w-[1440px] px-5 md:px-20">
+          <div className="mb-6 inline-block rounded-sm bg-[#C8A96E]/20 px-4 py-2">
+            <p className="text-xs font-bold uppercase tracking-[0.3em] text-[#C8A96E]">
+              Mở Bán Đợt 1 · Cơ Hội Có Hạn
+            </p>
           </div>
+          <h2 className="font-serif text-2xl font-bold text-white md:text-3xl lg:text-4xl">
+            MỞ BÁN ĐỢT 1 CĂN HỘ MẶT SÔNG HÀN
+          </h2>
+          <p className="mt-1 text-base font-semibold text-[#C8A96E] md:text-lg">
+            Sổ đỏ Lâu Dài &mdash; 50 tr/booking &mdash; Từ CĐT Sun Group
+          </p>
+          <blockquote className="mt-6 border-l-4 border-[#C8A96E] pl-5 text-base italic leading-relaxed text-white/80 md:text-lg">
+            Tưởng tượng mỗi sáng thức dậy, bạn nhìn ra dòng sông Hàn thơ mộng
+            uốn lượn ngay trước mắt. Đó không phải giấc mơ &mdash; đó là cuộc
+            sống tại S-Light Tower.
+          </blockquote>
+          <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              "Vị trí độc tôn – tiện ích cao cấp (Gym, bể bơi, kids club..)",
+              "Kiến trúc đẳng cấp, 3 mặt view sông độc đáo DUY NHẤT Đà Nẵng.",
+              "Chỉ 396 căn/tòa – cơ hội có hạn!",
+              "PHÁP LÝ: SỞ HỮU LÂU DÀI.",
+              "Chính sách mở bán đợt 1 cực tốt – ưu tiên KH đăng ký sớm.",
+            ].map((slogan) => (
+              <li
+                key={slogan}
+                className="flex items-start gap-3 rounded-sm border border-[#C8A96E]/20 bg-white/5 px-4 py-3"
+              >
+                <span className="mt-0.5 flex-shrink-0 text-lg text-[#C8A96E]">
+                  ✓
+                </span>
+                <span className="text-sm font-medium leading-snug text-white/90">
+                  {slogan}
+                </span>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -150,11 +392,12 @@ export default function SLightTowerPage() {
             S-Light Tower Đà Nẵng
           </h2>
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[#4e453e]/80">
-            Tọa lạc ngay ngã tư Nguyễn Đình Thi - 29/3, S-Light Tower là tháp đôi cao tầng biểu tượng
-            thuộc đại đô thị Sun NeO City tại Hòa Xuân. Với cảm hứng kiến trúc &quot;Hạc Vân Thiên&quot;
-            — hình tượng chim Hạc vươn cánh lên trời mây — công trình mang đậm hơi thở văn hóa phương Đông
-            hiện đại, đặt trên thế đất &quot;minh đường tụ thủy&quot; hiếm có tại ngã ba sông Cẩm Lệ,
-            sông Hàn và sông Đô Tỏa.
+            Tọa lạc ngay ngã tư Nguyễn Đình Thi - 29/3, S-Light Tower là tháp
+            đôi cao tầng biểu tượng thuộc đại đô thị Sun NeO City tại Hòa Xuân.
+            Với cảm hứng kiến trúc &quot;Hạc Vân Thiên&quot; — hình tượng chim
+            Hạc vươn cánh lên trời mây — công trình mang đậm hơi thở văn hóa
+            phương Đông hiện đại, đặt trên thế đất &quot;minh đường tụ
+            thủy&quot; hiếm có tại ngã ba sông Cẩm Lệ, sông Hàn và sông Đô Tỏa.
           </p>
           <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
             {[
@@ -178,7 +421,9 @@ export default function SLightTowerPage() {
                 <p className="text-[11px] font-semibold uppercase tracking-wide text-[#634F3F]/60">
                   {item.label}
                 </p>
-                <p className="mt-1 text-base font-semibold text-[#4a3829]">{item.value}</p>
+                <p className="mt-1 text-base font-semibold text-[#4a3829]">
+                  {item.value}
+                </p>
               </div>
             ))}
           </div>
@@ -195,8 +440,8 @@ export default function SLightTowerPage() {
             Các Loại Căn Hộ
           </h2>
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[#4e453e]/80">
-            Studio và 1 phòng ngủ chiếm ~80% quỹ căn — đảm bảo thanh khoản vượt trội và tỷ lệ
-            lấp đầy cao khi khai thác cho thuê.
+            Studio và 1 phòng ngủ chiếm ~80% quỹ căn — đảm bảo thanh khoản vượt
+            trội và tỷ lệ lấp đầy cao khi khai thác cho thuê.
           </p>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {[
@@ -238,7 +483,9 @@ export default function SLightTowerPage() {
                     {apt.badge}
                   </span>
                 )}
-                <p className="mt-3 text-sm leading-relaxed text-[#4e453e]/80">{apt.desc}</p>
+                <p className="mt-3 text-sm leading-relaxed text-[#4e453e]/80">
+                  {apt.desc}
+                </p>
               </div>
             ))}
           </div>
@@ -255,20 +502,52 @@ export default function SLightTowerPage() {
             Tâm Mạch Nam Đà Nẵng
           </h2>
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[#4e453e]/80">
-            Hưởng lợi từ mạng lưới giao thông tỷ đô đang hoàn thiện: cầu Bùi Tá Hán kết nối
-            trực tiếp với biển Mỹ Khê, tuyến đường sắt cao tốc Bắc - Nam và hệ thống LRT kết
-            nối sân bay Đà Nẵng - Hội An - Chu Lai.
+            Hưởng lợi từ mạng lưới giao thông tỷ đô đang hoàn thiện: cầu Bùi Tá
+            Hán kết nối trực tiếp với biển Mỹ Khê, tuyến đường sắt cao tốc Bắc -
+            Nam và hệ thống LRT kết nối sân bay Đà Nẵng - Hội An - Chu Lai.
           </p>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { icon: "🏖️", title: "Biển Mỹ Khê", detail: "2,5 km · Qua cầu Bùi Tá Hán" },
-              { icon: "✈️", title: "Sân Bay Đà Nẵng", detail: "5 km · ~10 phút" },
-              { icon: "🏙️", title: "Trung Tâm Đà Nẵng", detail: "5,5 km · ~12 phút" },
-              { icon: "🏯", title: "Phố Cổ Hội An", detail: "18,6 km · ~25 phút" },
-              { icon: "🌊", title: "Ngã Ba Sông", detail: "Sông Cẩm Lệ · Hàn · Đô Tỏa" },
-              { icon: "🚄", title: "Đường Sắt Cao Tốc", detail: "Bắc - Nam (quy hoạch)" },
-              { icon: "🚋", title: "Hệ Thống LRT", detail: "226.000 tỷ · Đà Nẵng - Hội An" },
-              { icon: "⛰️", title: "Ngũ Hành Sơn", detail: "Tầm nhìn từ ban công" },
+              {
+                icon: "🏖️",
+                title: "Biển Mỹ Khê",
+                detail: "2,5 km · Qua cầu Bùi Tá Hán",
+              },
+              {
+                icon: "✈️",
+                title: "Sân Bay Đà Nẵng",
+                detail: "5 km · ~10 phút",
+              },
+              {
+                icon: "🏙️",
+                title: "Trung Tâm Đà Nẵng",
+                detail: "5,5 km · ~12 phút",
+              },
+              {
+                icon: "🏯",
+                title: "Phố Cổ Hội An",
+                detail: "18,6 km · ~25 phút",
+              },
+              {
+                icon: "🌊",
+                title: "Ngã Ba Sông",
+                detail: "Sông Cẩm Lệ · Hàn · Đô Tỏa",
+              },
+              {
+                icon: "🚄",
+                title: "Đường Sắt Cao Tốc",
+                detail: "Bắc - Nam (quy hoạch)",
+              },
+              {
+                icon: "🚋",
+                title: "Hệ Thống LRT",
+                detail: "226.000 tỷ · Đà Nẵng - Hội An",
+              },
+              {
+                icon: "⛰️",
+                title: "Ngũ Hành Sơn",
+                detail: "Tầm nhìn từ ban công",
+              },
             ].map((loc) => (
               <div
                 key={loc.title}
@@ -286,7 +565,10 @@ export default function SLightTowerPage() {
       </section>
 
       {/* TIỆN ÍCH */}
-      <section id="tien-ich" className="scroll-mt-16 bg-[#4a3829] pb-20 text-white">
+      <section
+        id="tien-ich"
+        className="scroll-mt-16 bg-[#4a3829] pb-20 text-white"
+      >
         <div className="mx-auto max-w-[1440px] px-5 md:px-20">
           <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#C8A96E]/70">
             Tiện Ích Nội Khu
@@ -295,8 +577,9 @@ export default function SLightTowerPage() {
             Trải Nghiệm Đa Chiều
           </h2>
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/80">
-            Từ shophouse sầm uất tầng trệt đến không gian giải trí và chăm sóc sức khỏe toàn
-            diện tầng 2, S-Light Tower kiến tạo hệ sinh thái sống khép kín cho cư dân tinh hoa.
+            Từ shophouse sầm uất tầng trệt đến không gian giải trí và chăm sóc
+            sức khỏe toàn diện tầng 2, S-Light Tower kiến tạo hệ sinh thái sống
+            khép kín cho cư dân tinh hoa.
           </p>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {[
@@ -347,7 +630,9 @@ export default function SLightTowerPage() {
               >
                 <span className="text-2xl">{amenity.icon}</span>
                 <p className="mt-3 font-semibold text-white">{amenity.title}</p>
-                <p className="mt-2 text-sm leading-relaxed text-white/70">{amenity.desc}</p>
+                <p className="mt-2 text-sm leading-relaxed text-white/70">
+                  {amenity.desc}
+                </p>
               </div>
             ))}
           </div>
@@ -364,7 +649,7 @@ export default function SLightTowerPage() {
             Phối Cảnh Dự Án
           </h2>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {GALLERY_IMAGES.map((src, i) => (
+            {CAROUSEL_IMAGES.map((src, i) => (
               <div
                 key={i}
                 className="relative aspect-[4/3] overflow-hidden rounded-sm bg-[#E8E2D9]"
@@ -379,7 +664,9 @@ export default function SLightTowerPage() {
               </div>
             ))}
           </div>
-          <p className="mt-4 text-xs text-[#634F3F]/50">Ảnh: Sun Property · Chỉ mang tính minh họa</p>
+          <p className="mt-4 text-xs text-[#634F3F]/50">
+            Ảnh: S-Light Tower · Sun Property
+          </p>
         </div>
       </section>
 
@@ -434,7 +721,9 @@ export default function SLightTowerPage() {
                   <p className="text-xs font-semibold uppercase tracking-wider text-[#634F3F]/60">
                     {step.date}
                   </p>
-                  <p className="mt-1 font-serif text-xl text-[#4a3829]">{step.title}</p>
+                  <p className="mt-1 font-serif text-xl text-[#4a3829]">
+                    {step.title}
+                  </p>
                   <p className="mt-1 text-sm text-[#4e453e]/80">{step.desc}</p>
                 </div>
               </div>
@@ -444,7 +733,10 @@ export default function SLightTowerPage() {
       </section>
 
       {/* LIÊN HỆ */}
-      <section id="lien-he" className="scroll-mt-16 bg-[#4a3829] pb-20 text-white">
+      <section
+        id="lien-he"
+        className="scroll-mt-16 bg-[#4a3829] pb-20 text-white"
+      >
         <div className="mx-auto max-w-[1440px] px-5 md:px-20">
           <div className="grid gap-12 md:grid-cols-2">
             <div>
@@ -455,22 +747,26 @@ export default function SLightTowerPage() {
                 Nhận Thông Tin &amp; Báo Giá
               </h2>
               <p className="mt-4 text-sm leading-relaxed text-white/80">
-                Liên hệ ngay để được tư vấn trực tiếp về S-Light Tower — lựa chọn an cư và đầu
-                tư sinh lời bền vững tại tâm mạch Nam Đà Nẵng.
+                Liên hệ ngay để được tư vấn trực tiếp về S-Light Tower — lựa
+                chọn an cư và đầu tư sinh lời bền vững tại tâm mạch Nam Đà Nẵng.
               </p>
               <div className="mt-8 space-y-4">
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-wider text-[#C8A96E]/70">
                     Chủ Đầu Tư
                   </p>
-                  <p className="mt-1 font-semibold text-white">Sun Property — Tập đoàn Sun Group</p>
+                  <p className="mt-1 font-semibold text-white">
+                    Sun Property — Tập đoàn Sun Group
+                  </p>
                 </div>
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-wider text-[#C8A96E]/70">
                     Tư Vấn Viên
                   </p>
                   <p className="mt-1 text-white/90">(GDDA) Nguyễn Thị Nguyệt</p>
-                  <p className="mt-0.5 text-white/70 text-sm">BĐS Duyên Hải - Đất Xanh Miền Bắc</p>
+                  <p className="mt-0.5 text-white/70 text-sm">
+                    BĐS Duyên Hải - Đất Xanh Miền Bắc
+                  </p>
                 </div>
                 <a
                   href="tel:0345747138"
@@ -481,52 +777,10 @@ export default function SLightTowerPage() {
               </div>
             </div>
             <div className="rounded-sm bg-white/5 p-8">
-              <p className="font-serif text-xl text-white">Đăng Ký Nhận Thông Tin</p>
-              <form
-                className="mt-6 space-y-4"
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  const form = e.currentTarget;
-                  const name = (form.elements.namedItem("name") as HTMLInputElement).value;
-                  const phone = (form.elements.namedItem("phone") as HTMLInputElement).value;
-                  alert(
-                    `Cảm ơn ${name}! Chúng tôi sẽ liên hệ lại qua số ${phone} sớm nhất.`
-                  );
-                  form.reset();
-                }}
-              >
-                <input
-                  type="text"
-                  name="name"
-                  required
-                  placeholder="Họ và tên"
-                  className="w-full rounded-sm border border-white/20 bg-white/10 px-4 py-3 text-white placeholder:text-white/50 focus:border-[#C8A96E] focus:outline-none"
-                />
-                <input
-                  type="tel"
-                  name="phone"
-                  required
-                  placeholder="Số điện thoại"
-                  className="w-full rounded-sm border border-white/20 bg-white/10 px-4 py-3 text-white placeholder:text-white/50 focus:border-[#C8A96E] focus:outline-none"
-                />
-                <select
-                  name="interest"
-                  className="w-full rounded-sm border border-white/20 bg-[#4a3829] px-4 py-3 text-white focus:border-[#C8A96E] focus:outline-none"
-                >
-                  <option value="">Quan tâm đến loại căn hộ</option>
-                  <option value="studio">Studio</option>
-                  <option value="1pn">1 Phòng Ngủ</option>
-                  <option value="2pn">2 Phòng Ngủ</option>
-                  <option value="3pn">3 Phòng Ngủ</option>
-                  <option value="penthouse">Penthouse</option>
-                </select>
-                <button
-                  type="submit"
-                  className="w-full rounded-sm bg-[#C8A96E] py-3 font-semibold uppercase tracking-wide text-[#0d1520] transition-colors hover:bg-[#b8966a]"
-                >
-                  Gửi Yêu Cầu Tư Vấn
-                </button>
-              </form>
+              <p className="font-serif text-xl text-white">
+                Đăng Ký Nhận Thông Tin
+              </p>
+              <SLightContactForm />
             </div>
           </div>
         </div>

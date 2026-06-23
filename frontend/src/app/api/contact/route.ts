@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, email, phone, message } = body;
+    const { name, email, phone, message, project } = body;
 
     // Validate required fields
     if (!name) {
@@ -29,6 +29,7 @@ export async function POST(request: NextRequest) {
       email: email ? email.trim() : "",
       phone: phone ? phone.trim() : "",
       message: message ? message.trim() : "",
+      project: project ? project.trim() : "",
     };
 
     // Send data to Google Apps Script Web App

@@ -6,6 +6,75 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { HideSiteHeader } from "@/components/projects/HideSiteHeader";
 
+function SunFoursContactForm() {
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [interest, setInterest] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, phone, message: interest || undefined, project: "Sun Fours Tower" }),
+      });
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error || "Failed");
+      }
+      setSubmitted(true);
+      setName(""); setPhone(""); setInterest("");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Có lỗi xảy ra");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const inputCls =
+    "w-full rounded-sm border border-white/20 bg-white/10 px-4 py-3 text-white placeholder:text-white/50 focus:border-[#E3C284] focus:outline-none";
+
+  if (submitted) {
+    return (
+      <div className="flex flex-col items-center justify-center py-12 text-center">
+        <p className="font-serif text-2xl text-white">Cảm ơn bạn!</p>
+        <p className="mt-2 text-sm text-white/70">Chúng tôi sẽ liên hệ lại sớm nhất.</p>
+      </div>
+    );
+  }
+
+  return (
+    <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
+      {error && (
+        <p className="rounded-sm bg-red-900/40 px-3 py-2 text-sm text-red-300">{error}</p>
+      )}
+      <input type="text" name="name" required placeholder="Họ và tên" value={name}
+        onChange={(e) => setName(e.target.value)} className={inputCls} />
+      <input type="tel" name="phone" required placeholder="Số điện thoại" value={phone}
+        onChange={(e) => setPhone(e.target.value)} className={inputCls} />
+      <select name="interest" value={interest} onChange={(e) => setInterest(e.target.value)}
+        className="w-full rounded-sm border border-white/20 bg-[#1e2433] px-4 py-3 text-white focus:border-[#E3C284] focus:outline-none">
+        <option value="">Quan tâm đến loại căn hộ</option>
+        <option value="Studio (33–35 m²)">Studio (33–35 m²)</option>
+        <option value="1 Phòng Ngủ (45–54 m²)">1 Phòng Ngủ (45–54 m²)</option>
+        <option value="2 Phòng Ngủ (60–73 m²)">2 Phòng Ngủ (60–73 m²)</option>
+        <option value="3 Phòng Ngủ (84–104 m²)">3 Phòng Ngủ (84–104 m²)</option>
+        <option value="Căn Hộ Sân Vườn">Căn Hộ Sân Vườn</option>
+      </select>
+      <button type="submit" disabled={loading}
+        className="w-full rounded-sm bg-[#E3C284] py-3 font-semibold uppercase tracking-wide text-[#1a2033] transition-colors hover:bg-[#d4b070] disabled:opacity-60 disabled:cursor-not-allowed">
+        {loading ? "Đang gửi..." : "Gửi Yêu Cầu Tư Vấn"}
+      </button>
+    </form>
+  );
+}
+
 const navLinks = [
   { href: "#tong-quan", label: "Tổng Quan" },
   { href: "#can-ho", label: "Căn Hộ" },
@@ -464,51 +533,7 @@ export default function SunFoursTowerPage() {
             </div>
             <div className="rounded-sm bg-white/5 p-8">
               <p className="font-serif text-xl text-white">Đăng Ký Nhận Thông Tin</p>
-              <form
-                className="mt-6 space-y-4"
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  const form = e.currentTarget;
-                  const name = (form.elements.namedItem("name") as HTMLInputElement).value;
-                  const phone = (form.elements.namedItem("phone") as HTMLInputElement).value;
-                  alert(
-                    `Cảm ơn ${name}! Chúng tôi sẽ liên hệ lại qua số ${phone} sớm nhất.`
-                  );
-                  form.reset();
-                }}
-              >
-                <input
-                  type="text"
-                  name="name"
-                  required
-                  placeholder="Họ và tên"
-                  className="w-full rounded-sm border border-white/20 bg-white/10 px-4 py-3 text-white placeholder:text-white/50 focus:border-[#E3C284] focus:outline-none"
-                />
-                <input
-                  type="tel"
-                  name="phone"
-                  required
-                  placeholder="Số điện thoại"
-                  className="w-full rounded-sm border border-white/20 bg-white/10 px-4 py-3 text-white placeholder:text-white/50 focus:border-[#E3C284] focus:outline-none"
-                />
-                <select
-                  name="interest"
-                  className="w-full rounded-sm border border-white/20 bg-[#4a3829] px-4 py-3 text-white focus:border-[#E3C284] focus:outline-none"
-                >
-                  <option value="">Quan tâm đến loại căn hộ</option>
-                  <option value="studio">Studio (33–35 m²)</option>
-                  <option value="1pn">1 Phòng Ngủ (45–54 m²)</option>
-                  <option value="2pn">2 Phòng Ngủ (60–73 m²)</option>
-                  <option value="3pn">3 Phòng Ngủ (84–104 m²)</option>
-                  <option value="san-vuon">Căn Hộ Sân Vườn</option>
-                </select>
-                <button
-                  type="submit"
-                  className="w-full rounded-sm bg-[#E3C284] py-3 font-semibold uppercase tracking-wide text-[#1a2033] transition-colors hover:bg-[#d4b070]"
-                >
-                  Gửi Yêu Cầu Tư Vấn
-                </button>
-              </form>
+              <SunFoursContactForm />
             </div>
           </div>
         </div>
