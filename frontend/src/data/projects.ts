@@ -23,6 +23,18 @@ export const projects: Project[] = [
     status: "Đang mở bán",
   },
   {
+    id: "the-legend-danang",
+    slug: "the-legend-danang",
+    title: "The Legend Đà Nẵng",
+    location: "Sơn Trà, Đà Nẵng, Việt Nam",
+    description:
+      "Biểu tượng thượng lưu tọa lạc tại tứ giác vàng trung tâm Đà Nẵng — cách Cầu Rồng 500m, sát bờ sông Hàn. Studio đến 3PN+, tầm nhìn sông và thành phố, tiện ích 5 sao.",
+    image:
+      "https://thelegendcity.com/wp-content/uploads/2026/03/z6746423291924_78db9a9e5e95689ad6258a017dbdfe25-scaled.jpg",
+    imageAlt: "The Legend Đà Nẵng - biểu tượng thượng lưu tại tứ giác vàng",
+    status: "Đang mở bán",
+  },
+  {
     id: "symphony5",
     slug: "symphony5",
     title: "Sun Symphony Residence 5",
@@ -54,29 +66,5 @@ export const projects: Project[] = [
     image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80",
     imageAlt: "Sun FourS Tower Đà Nẵng căn hộ phía Nam",
     status: "Đang mở bán",
-  },
-  {
-    id: "the-legend-danang",
-    slug: "the-legend-danang",
-    title: "The Legend Da Nang",
-    location: "Amalfi Coast, IT",
-    description:
-      "Terraced villas overlooking limestone cliffs and cobalt waters — a study in Mediterranean restraint.",
-    image:
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80",
-    imageAlt: "Coastal cliffs and blue water",
-    status: "Coming Soon",
-  },
-  {
-    id: "the-zenith-tower",
-    slug: "the-zenith-tower",
-    title: "The Zenith Tower",
-    location: "Singapore",
-    description:
-      "A vertical landmark of textured bronze and glass, redefining skyline living in the heart of Marina Bay.",
-    image:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
-    imageAlt: "Skyscraper facade against sunset sky",
-    status: "For Sale",
   },
 ];

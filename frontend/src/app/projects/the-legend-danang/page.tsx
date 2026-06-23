@@ -4,12 +4,6 @@ import { LegendHero } from "@/components/projects/legend-hero";
 import { LegendGallery } from "@/components/projects/legend-gallery";
 import { LegendAbout } from "@/components/projects/legend-about";
 import { LegendAmenities } from "@/components/projects/legend-amenities";
-import ContactPopup from "@/components/ContactPopup/ContactPopup";
-
-export const metadata = {
-  title: "The Legend Đà Nẵng | Project",
-  description: "Biểu tượng thượng lưu - Đỉnh cao sống sang, đầu tư vững",
-};
 
 export default function TheLegendDanangPage() {
   return (
@@ -69,7 +63,6 @@ export default function TheLegendDanangPage() {
         </Link>
       </section>
 
-      <ContactPopup />
     </main>
   );
 }
