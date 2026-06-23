@@ -25,13 +25,13 @@ export const projects: Project[] = [
   {
     id: "the-legend-danang",
     slug: "the-legend-danang",
-    title: "The Legend Đà Nẵng",
-    location: "Sơn Trà, Đà Nẵng, Việt Nam",
+    title: "The Legend Đà Nẵng · ROX Signature",
+    location: "A20 Võ Văn Kiệt, An Hải, Đà Nẵng",
     description:
-      "Biểu tượng thượng lưu tọa lạc tại tứ giác vàng trung tâm Đà Nẵng — cách Cầu Rồng 500m, sát bờ sông Hàn. Studio đến 3PN+, tầm nhìn sông và thành phố, tiện ích 5 sao.",
+      "Tổ hợp khách sạn Hyde Hotels 5 sao (Accor) và căn hộ cao cấp tựa mình bên Cầu Rồng. CĐT Vipico · CBRE tư vấn · Bàn giao Q1/2028. Loại căn 1–3PN, tổng diện tích 11.487m².",
     image:
       "https://thelegendcity.com/wp-content/uploads/2026/03/z6746423291924_78db9a9e5e95689ad6258a017dbdfe25-scaled.jpg",
-    imageAlt: "The Legend Đà Nẵng - biểu tượng thượng lưu tại tứ giác vàng",
+    imageAlt: "The Legend Đà Nẵng ROX Signature - tổ hợp khách sạn Hyde Hotels và căn hộ cao cấp",
     status: "Đang mở bán",
   },
   {

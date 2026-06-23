@@ -109,33 +109,37 @@ export const projectsSEO: ProjectSEO[] = [
   },
   {
     slug: "the-legend-danang",
-    title: "The Legend Đà Nẵng | Biểu Tượng Thượng Lưu – Đỉnh Cao Sống Sang",
+    title: "The Legend Đà Nẵng | ROX Signature – Hyde Hotels · Cầu Rồng",
     description:
-      "The Legend Đà Nẵng – biểu tượng thượng lưu tại Đà Nẵng. Đỉnh cao sống sang kết hợp đầu tư vững chắc. Kiến trúc đẳng cấp, tiện ích 5 sao. Đăng ký nhận thông tin tư vấn.",
+      "The Legend Đà Nẵng ROX Signature – tổ hợp khách sạn Hyde Hotels 5 sao (Accor) và căn hộ cao cấp tại A20 Võ Văn Kiệt, sát Cầu Rồng. CĐT Vipico · CBRE · Bàn giao Q1/2028. Đăng ký nhận tư vấn.",
     keywords: [
       "The Legend Đà Nẵng",
-      "căn hộ thượng lưu Đà Nẵng",
-      "biệt thự cao cấp Đà Nẵng",
+      "The Legend ROX Signature",
+      "Hyde Hotels Đà Nẵng",
+      "căn hộ Cầu Rồng Đà Nẵng",
+      "căn hộ cao cấp An Hải Đà Nẵng",
+      "Vipico Đà Nẵng",
+      "căn hộ khách sạn Đà Nẵng 2028",
       "bất động sản hạng sang Đà Nẵng",
-      "đầu tư bất động sản Đà Nẵng",
+      "đầu tư căn hộ Đà Nẵng",
     ],
     og: {
-      title: "The Legend Đà Nẵng – Biểu Tượng Thượng Lưu",
+      title: "The Legend Đà Nẵng – Biểu Tượng Tương Lai, Xứng Tầm Huyền Thoại",
       description:
-        "Kiến trúc đẳng cấp · Tiện ích 5 sao · Đầu tư vững chắc. Đỉnh cao sống sang tại Đà Nẵng.",
+        "Hyde Hotels 5 sao · CBRE tư vấn · Sát Cầu Rồng · Bàn giao Q1/2028. CĐT Vipico.",
       image:
-        "https://lh3.googleusercontent.com/aida-public/AB6AXuDmC05CVKPxhLPcb5CFqqgfcyExn1KUaem35XTncs57hw-LSL1GwINpGUZSGfC0nq8MOTwD13iBErs8y2ckhtVyAKE-I0Zx2boLQOK6IOwPpTu-O9QM9NgbXnKW9fAXIlsvw5W0GndVMJqSsRTXCSGCnkzN0TQ3KB5nal-VmFZP66MbIa1UG6pXQq_YTOxw-VQYWgjCVtkGRgLe934BGWeB0TvLqIWZ8yPL4p9S6sLsDCF_wXxhc-LTMPwXo3Rd9KWPymEMCPZ4",
-      imageAlt: "The Legend Đà Nẵng – biệt thự và căn hộ thượng lưu",
+        "https://thelegendcity.com/wp-content/uploads/2026/03/z6746423291924_78db9a9e5e95689ad6258a017dbdfe25-scaled.jpg",
+      imageAlt: "The Legend Đà Nẵng ROX Signature – tổ hợp Hyde Hotels và căn hộ cao cấp sát Cầu Rồng",
     },
     jsonLd: {
-      name: "The Legend Đà Nẵng",
+      name: "The Legend Đà Nẵng · ROX Signature",
       description:
-        "Biểu tượng thượng lưu tại Đà Nẵng – đỉnh cao sống sang, đầu tư vững.",
-      streetAddress: "Đà Nẵng",
-      locality: "Đà Nẵng",
-      geo: { lat: 16.0544, lng: 108.2022 },
-      amenities: ["Hồ bơi", "Gym & Spa", "An ninh 24/7", "Tiện ích 5 sao"],
-      seller: SITE_NAME,
+        "Tổ hợp khách sạn Hyde Hotels 5 sao (Accor) và căn hộ cao cấp tại lõi đô thị Đà Nẵng, sát Cầu Rồng. CĐT Vipico, tư vấn vận hành CBRE.",
+      streetAddress: "A20 Võ Văn Kiệt",
+      locality: "An Hải",
+      geo: { lat: 16.0614, lng: 108.2275 },
+      amenities: ["Season Pool", "Gym & Wellness", "Spa & Ozone", "Business Lounge", "Kidzone", "An ninh 24/7"],
+      seller: "Vipico",
     },
   },
 ];

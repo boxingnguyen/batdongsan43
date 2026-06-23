@@ -1,23 +1,25 @@
 export const theLegendDanang = {
   title: "The Legend Đà Nẵng",
-  tagline: "Biểu Tượng Thượng Lưu",
-  subtitle: "Đỉnh Cao Sống Sang, Đầu Tư Vững",
-  location: "Lý Nam Đế, Sơn Trà, TP Đà Nẵng, Việt Nam",
+  tagline: "Biểu Tượng Tương Lai",
+  subtitle: "Xứng Tầm Huyền Thoại",
+  location: "A20 Võ Văn Kiệt, An Hải, Đà Nẵng",
   status: "Đang Mở Bán",
 
   heroImage: "https://thelegendcity.com/wp-content/uploads/2026/03/z6746423291924_78db9a9e5e95689ad6258a017dbdfe25-scaled.jpg",
 
   overview: [
-    "Không chỉ là một nơi để ở mà còn là biểu tượng của kiến trúc đỉnh cao, hòa quyện giữa vị trí đắc địa, thiết kế tinh tế và tầm nhìn tuyệt mỹ.",
-    "Tự hào sở hữu vị trí hiếm có, nằm ngay sát bờ sông Hàn thơ mộng, nơi mang lại tầm nhìn tuyệt mỹ và không gian sống trong lành.",
-    "Nằm tại 'tứ giác vàng' – vị trí vàng ngay trung tâm thành phố, The Legend Đà Nẵng mang đến không gian sống đẳng cấp, tinh tế và phong cách sống quốc tế."
+    "Tựa mình bên biểu tượng Cầu Rồng huyền thoại, The Legend Đà Nẵng — ROX Signature vươn mình kiêu hãnh giữa lõi đô thị, tái định nghĩa chuẩn mực sống đẳng cấp tại Đà Nẵng.",
+    "Tổ hợp gồm khách sạn Hyde Hotels vận hành theo tiêu chuẩn Accor và tháp căn hộ cao cấp được tư vấn bởi CBRE — hai thực thể quốc tế đảm bảo chất lượng vận hành 5 sao.",
+    "Vị trí tứ giác vàng A20 Võ Văn Kiệt, phường An Hải — ngay trung tâm thành phố, sát sông Hàn, cách Cầu Rồng chỉ vài bước chân."
   ],
 
   stats: [
-    { label: "Loại Căn Hộ", value: "Studio - 3BR+" },
-    { label: "Diện Tích", value: "40 - 415 m²" },
-    { label: "Vị Trí", value: "Tứ Giác Vàng" },
-    { label: "Tầm Nhìn", value: "Sông Hàn & Thành Phố" }
+    { label: "Chủ Đầu Tư", value: "Vipico" },
+    { label: "Vận Hành", value: "Hyde Hotels (Accor)" },
+    { label: "Loại Căn Hộ", value: "1PN · 1PN+1 · 2PN · 3PN" },
+    { label: "Tổng Diện Tích", value: "11.487 m²" },
+    { label: "Bàn Giao", value: "Quý 1 / 2028" },
+    { label: "Vị Trí", value: "Tứ Giác Vàng · An Hải" }
   ],
 
   gallery: [
@@ -41,77 +43,72 @@ export const theLegendDanang = {
   amenities: [
     {
       icon: "pool",
-      title: "Bể Bơi Olympic",
-      subtitle: "Hệ thống bể bơi chuẩn quốc tế với tiện ích 5 sao"
+      title: "Season Pool",
+      subtitle: "Hồ bơi theo mùa tiêu chuẩn quốc tế, không gian thư giãn đẳng cấp"
     },
     {
       icon: "fitness_center",
-      title: "Phòng Gym Hiện Đại",
-      subtitle: "Trang thiết bị tập luyện hàng đầu, huấn luyện viên chuyên nghiệp"
+      title: "Gym & Wellness",
+      subtitle: "Phòng tập hiện đại kết hợp spa và ozone — chăm sóc sức khoẻ toàn diện"
     },
     {
       icon: "spa",
-      title: "Spa & Wellness Center",
-      subtitle: "Dịch vụ chăm sóc sức khỏe đẳng cấp quốc tế"
+      title: "Spa & Ozone",
+      subtitle: "Liệu pháp phục hồi và chăm sóc sức khoẻ chuẩn 5 sao"
     },
     {
-      icon: "self_care",
-      title: "Yoga Studio",
-      subtitle: "Không gian yên tĩnh để thiền và rèn luyện"
+      icon: "business_center",
+      title: "Business Lounge",
+      subtitle: "Không gian làm việc và tiếp khách cao cấp dành cho cư dân"
+    },
+    {
+      icon: "park",
+      title: "Cảnh Quan NDA Group",
+      subtitle: "Thiết kế cảnh quan độc quyền bởi NDA Group — kiến tạo không gian xanh"
+    },
+    {
+      icon: "school",
+      title: "Kidzone",
+      subtitle: "Khu vui chơi an toàn, sáng tạo và hiện đại dành cho trẻ em"
     },
     {
       icon: "shopping_cart",
       title: "Trung Tâm Thương Mại",
-      subtitle: "Khu mua sắm, ăn uống và giải trí chuẩn 5 sao"
-    },
-    {
-      icon: "park",
-      title: "Công Viên Xanh",
-      subtitle: "Khoảng không gian xanh thoáng đãng cho cư dân"
+      subtitle: "Mua sắm, ẩm thực và giải trí ngay trong tổ hợp"
     },
     {
       icon: "security",
-      title: "Bảo Mật 24/7",
-      subtitle: "Hệ thống an ninh điện tử tiêu chuẩn quốc tế"
-    },
-    {
-      icon: "meeting_room",
-      title: "Trung Tâm Hội Nghị",
-      subtitle: "Các phòng họp hiện đại cho sự kiện và hội thảo"
-    },
-    {
-      icon: "school",
-      title: "Khu Vui Chơi Trẻ Em",
-      subtitle: "Sân chơi an toàn với các hoạt động giáo dục"
+      title: "An Ninh 24/7",
+      subtitle: "Hệ thống bảo mật điện tử tiêu chuẩn quốc tế, quản lý chuyên nghiệp"
     }
   ],
 
   highlights: [
     {
-      title: "Vị Trí Đắc Địa",
-      description: "Cách Cầu Rồng 500m, Mỹ Khê Beach 1km, Sân Bay 3km"
+      title: "Vị Trí Cầu Rồng",
+      description: "A20 Võ Văn Kiệt — tựa mình bên biểu tượng Cầu Rồng, lõi đô thị Đà Nẵng"
     },
     {
-      title: "Thiết Kế Hiện Đại",
-      description: "Kiến trúc độc đáo, không gian mở, ánh sáng tự nhiên"
+      title: "Hyde Hotels · Accor",
+      description: "Tháp khách sạn 5 sao vận hành bởi Hyde Hotels theo tiêu chuẩn Accor"
     },
     {
-      title: "Tiện Ích Đầy Đủ",
-      description: "9+ tiện ích cao cấp cho cuộc sống hoàn hảo"
+      title: "CBRE Tư Vấn",
+      description: "Tháp căn hộ được tư vấn vận hành bởi CBRE — đảm bảo giá trị đầu tư"
     },
     {
-      title: "Đầu Tư Thông Minh",
-      description: "Tiềm năng tăng giá cao, dòng tiền ổn định"
+      title: "Bàn Giao Q1/2028",
+      description: "Tiến độ cam kết rõ ràng — cơ hội đặt chỗ sớm với ưu đãi tốt nhất"
     }
   ],
 
-  priceRange: "Từ $200,000 USD",
-  monthlyEstimate: "Est. Rental: $1,200 - $3,500/mo",
+  priceRange: "Liên hệ để nhận bảng giá",
+  monthlyEstimate: "",
 
   agent: {
-    name: "Liên Hệ Đội Bán Hàng",
-    title: "The Legend Đà Nẵng",
-    phone: "+84 (0) 123 456 789",
-    email: "info@thelegendcity.com"
+    name: "Liên Hệ Tư Vấn",
+    title: "The Legend Đà Nẵng · ROX Signature",
+    phone: "1800 2822 68",
+    email: "cs@thelegenddanang.vn"
   }
 };
