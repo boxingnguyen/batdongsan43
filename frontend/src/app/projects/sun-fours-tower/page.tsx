@@ -3,111 +3,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Umbrella, ShoppingCart, Leaf, Plane, Building2, Castle, Hotel, Hospital, Waves, Dumbbell, ShoppingBag, FerrisWheel, Trees, Lock, SquareParking, Sunrise } from "lucide-react";
 import { HideSiteHeader } from "@/components/projects/HideSiteHeader";
 import { SITE_NAME } from "@/config/site";
 import { ProjectScrollPopup } from "@/components/projects/ProjectScrollPopup";
 
-function SunFoursContactForm() {
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [interest, setInterest] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState("");
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    setError("");
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name,
-          phone,
-          message: interest || undefined,
-          project: "Sun Fours Tower",
-        }),
-      });
-      if (!res.ok) {
-        const data = await res.json();
-        throw new Error(data.error || "Failed");
-      }
-      setSubmitted(true);
-      setName("");
-      setPhone("");
-      setInterest("");
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Có lỗi xảy ra");
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const inputCls =
-    "w-full rounded-sm border border-white/20 bg-white/10 px-4 py-3 text-white placeholder:text-white/50 focus:border-[#E3C284] focus:outline-none";
-
-  if (submitted) {
-    return (
-      <div className="flex flex-col items-center justify-center py-12 text-center">
-        <p className="font-serif text-2xl text-white">Cảm ơn bạn!</p>
-        <p className="mt-2 text-sm text-white/70">
-          Chúng tôi sẽ liên hệ lại sớm nhất.
-        </p>
-      </div>
-    );
-  }
-
-  return (
-    <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
-      {error && (
-        <p className="rounded-sm bg-red-900/40 px-3 py-2 text-sm text-red-300">
-          {error}
-        </p>
-      )}
-      <input
-        type="text"
-        name="name"
-        required
-        placeholder="Họ và tên"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        className={inputCls}
-      />
-      <input
-        type="tel"
-        name="phone"
-        required
-        placeholder="Số điện thoại"
-        value={phone}
-        onChange={(e) => setPhone(e.target.value)}
-        className={inputCls}
-      />
-      <select
-        name="interest"
-        value={interest}
-        onChange={(e) => setInterest(e.target.value)}
-        className="w-full rounded-sm border border-white/20 bg-[#1e2433] px-4 py-3 text-white focus:border-[#E3C284] focus:outline-none"
-      >
-        <option value="">Quan tâm đến loại căn hộ</option>
-        <option value="Studio (33–35 m²)">Studio (33–35 m²)</option>
-        <option value="1 Phòng Ngủ (45–54 m²)">1 Phòng Ngủ (45–54 m²)</option>
-        <option value="2 Phòng Ngủ (60–73 m²)">2 Phòng Ngủ (60–73 m²)</option>
-        <option value="3 Phòng Ngủ (84–104 m²)">3 Phòng Ngủ (84–104 m²)</option>
-        <option value="Căn Hộ Sân Vườn">Căn Hộ Sân Vườn</option>
-      </select>
-      <button
-        type="submit"
-        disabled={loading}
-        className="w-full rounded-sm bg-[#E3C284] py-3 font-semibold uppercase tracking-wide text-[#1a2033] transition-colors hover:bg-[#d4b070] disabled:opacity-60 disabled:cursor-not-allowed"
-      >
-        {loading ? "Đang gửi..." : "Gửi Yêu Cầu Tư Vấn"}
-      </button>
-    </form>
-  );
-}
 
 const navLinks = [
   { href: "#tong-quan", label: "Tổng Quan" },
@@ -116,7 +17,6 @@ const navLinks = [
   { href: "#tien-ich", label: "Tiện Ích" },
   { href: "#chinh-sach", label: "Chính Sách" },
   { href: "#tien-do", label: "Tiến Độ" },
-  { href: "#lien-he", label: "Liên Hệ" },
 ];
 
 function SunFoursNav() {
@@ -154,12 +54,7 @@ function SunFoursNav() {
             </a>
           ))}
         </nav>
-        <a
-          href="#lien-he"
-          className="hidden lg:inline-flex items-center rounded-sm bg-[#4a3829] px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#6f5a4a]"
-        >
-          Đăng Ký
-        </a>
+
         <button
           type="button"
           className="p-2 text-[#4a3829] lg:hidden"
@@ -220,12 +115,7 @@ export default function SunFoursTowerPage() {
             Chỉ từ 1,5 tỷ
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a
-              href="#lien-he"
-              className="inline-block rounded-sm bg-[#E3C284] px-8 py-3 font-semibold uppercase tracking-wide text-[#1a2033] transition-colors hover:bg-[#d4b070]"
-            >
-              Đăng Ký Báo Giá
-            </a>
+
             <a
               href="#tong-quan"
               className="inline-block rounded-sm border border-white/70 px-8 py-3 font-semibold uppercase tracking-wide text-white transition-colors hover:bg-white/10"
@@ -355,38 +245,38 @@ export default function SunFoursTowerPage() {
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
               {
-                icon: "🏖️",
+                icon: Umbrella,
                 title: "Bãi Biển",
                 detail: "5 phút · ~1,5km đến Mỹ Khê",
               },
-              { icon: "🛒", title: "AEON MALL", detail: "10 phút · ~3km" },
+              { icon: ShoppingCart, title: "AEON MALL", detail: "10 phút · ~3km" },
               {
-                icon: "🌿",
+                icon: Leaf,
                 title: "Công Viên Sinh Thái",
                 detail: "3 phút · ~700m · 50ha",
               },
               {
-                icon: "✈️",
+                icon: Plane,
                 title: "Sân Bay Quốc Tế",
                 detail: "15 phút · Đà Nẵng",
               },
               {
-                icon: "🏙️",
+                icon: Building2,
                 title: "Trung Tâm Đà Nẵng",
                 detail: "10 phút lái xe",
               },
               {
-                icon: "🏯",
+                icon: Castle,
                 title: "Phố Cổ Hội An",
                 detail: "25 phút · theo QL1A",
               },
               {
-                icon: "🏨",
+                icon: Hotel,
                 title: "Resort 5 Sao",
                 detail: "Crowne Plaza, Hyatt Regency gần kề",
               },
               {
-                icon: "🏥",
+                icon: Hospital,
                 title: "Tiện Ích Xã Hội",
                 detail: "Trường học, bệnh viện lân cận",
               },
@@ -395,7 +285,9 @@ export default function SunFoursTowerPage() {
                 key={loc.title}
                 className="flex items-start gap-4 rounded-sm border border-[#E8E2D9] bg-white p-5 shadow-sm"
               >
-                <span className="text-2xl">{loc.icon}</span>
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#E3C284]/15 text-[#b59556]">
+                  <loc.icon className="h-5 w-5" />
+                </div>
                 <div>
                   <p className="font-semibold text-[#4a3829]">{loc.title}</p>
                   <p className="mt-1 text-sm text-[#4e453e]/70">{loc.detail}</p>
@@ -425,52 +317,54 @@ export default function SunFoursTowerPage() {
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {[
               {
-                icon: "🏊",
+                icon: Waves,
                 title: "Hồ Bơi 4 Mùa",
                 desc: "Bơi lội quanh năm, view mở thoáng đãng tại tầng 2",
               },
               {
-                icon: "💪",
+                icon: Dumbbell,
                 title: "Gym · Spa · Yoga",
                 desc: "Khu thể thao và chăm sóc sức khỏe tiêu chuẩn 5 sao",
               },
               {
-                icon: "🛍️",
+                icon: ShoppingBag,
                 title: "Shophouse Thương Mại",
                 desc: "Tầng trệt sôi động với chuỗi tiện ích mua sắm, ẩm thực",
               },
               {
-                icon: "🎠",
+                icon: FerrisWheel,
                 title: "Khu Vui Chơi Trẻ Em",
                 desc: "Không gian an toàn, sáng tạo cho thiếu nhi",
               },
               {
-                icon: "🌳",
+                icon: Trees,
                 title: "Sân Vườn Nội Khu",
                 desc: "Cảnh quan xanh mát, không gian thư giãn cộng đồng",
               },
               {
-                icon: "🔒",
+                icon: Lock,
                 title: "An Ninh 24/7",
                 desc: "Hệ thống camera và bảo vệ chuyên nghiệp",
               },
               {
-                icon: "🅿️",
+                icon: SquareParking,
                 title: "Hầm Đỗ Xe",
                 desc: "2 tầng hầm rộng rãi cho cư dân",
               },
               {
-                icon: "🌅",
+                icon: Sunrise,
                 title: "Kính Cong Panorama",
                 desc: "Lần đầu tiên tại Đà Nẵng — tầm view 360° vượt trội",
               },
             ].map((amenity) => (
               <div
                 key={amenity.title}
-                className="rounded-sm border border-white/10 bg-white/5 p-5 transition-colors hover:bg-white/10"
+                className="rounded-sm border border-white/10 bg-white/5 p-5 transition-colors hover:bg-white/10 group"
               >
-                <span className="text-2xl">{amenity.icon}</span>
-                <p className="mt-3 font-semibold text-white">{amenity.title}</p>
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#E3C284]/20 text-[#E3C284] transition-colors group-hover:bg-[#E3C284] group-hover:text-[#1a2033]">
+                  <amenity.icon className="h-6 w-6" />
+                </div>
+                <p className="mt-4 font-semibold text-white">{amenity.title}</p>
                 <p className="mt-2 text-sm leading-relaxed text-white/70">
                   {amenity.desc}
                 </p>
@@ -607,64 +501,7 @@ export default function SunFoursTowerPage() {
         </div>
       </section>
 
-      {/* LIÊN HỆ */}
-      <section
-        id="lien-he"
-        className="scroll-mt-16 bg-[#4a3829] pb-20 text-white"
-      >
-        <div className="mx-auto max-w-[1440px] px-5 md:px-20">
-          <div className="grid gap-12 md:grid-cols-2">
-            <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#E3C284]/70">
-                Liên Hệ Tư Vấn
-              </p>
-              <h2 className="mt-3 font-serif text-3xl text-white md:text-4xl">
-                Nhận Bảng Giá &amp; Ưu Đãi
-              </h2>
-              <p className="mt-4 text-sm leading-relaxed text-white/80">
-                Đội ngũ tư vấn chuyên nghiệp của Dana Realty sẵn sàng hỗ trợ bạn
-                chọn căn hộ phù hợp và tư vấn phương án đầu tư tối ưu.
-              </p>
-              <div className="mt-8 space-y-4">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-[#E3C284]/70">
-                    Đơn Vị Phân Phối
-                  </p>
-                  <p className="mt-1 font-semibold text-white">
-                    Dana Realty Co., Ltd.
-                  </p>
-                </div>
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-[#E3C284]/70">
-                    Địa Chỉ
-                  </p>
-                  <p className="mt-1 text-white/90">
-                    472 Đường 2/9, Hải Châu, Đà Nẵng
-                  </p>
-                </div>
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-[#E3C284]/70">
-                    Tư Vấn Viên
-                  </p>
-                  <p className="mt-1 text-white/90">Ms. Hoài Linh</p>
-                </div>
-                <a
-                  href="tel:0868170127"
-                  className="mt-2 inline-flex items-center gap-2 rounded-sm bg-[#E3C284] px-6 py-3 font-semibold text-[#1a2033] transition-colors hover:bg-[#d4b070]"
-                >
-                  📞 0868 170 127
-                </a>
-              </div>
-            </div>
-            <div className="rounded-sm bg-white/5 p-8">
-              <p className="font-serif text-xl text-white">
-                Đăng Ký Nhận Thông Tin
-              </p>
-              <SunFoursContactForm />
-            </div>
-          </div>
-        </div>
-      </section>
+
       <ProjectScrollPopup projectName="Sun FourS Tower" accent="#E3C284" />
     </main>
   );

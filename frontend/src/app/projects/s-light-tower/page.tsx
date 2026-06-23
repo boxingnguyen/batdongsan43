@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect, useCallback, useRef } from "react";
-import { Menu, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { Menu, X, ChevronLeft, ChevronRight, Umbrella, Plane, Building2, Castle, Waves, Train, TramFront, Mountain, Dumbbell, ShoppingBag, FerrisWheel, Gamepad2, BookOpen, Lock, SquareParking } from "lucide-react";
 import { HideSiteHeader } from "@/components/projects/HideSiteHeader";
 import { SITE_NAME } from "@/config/site";
 import { ProjectScrollPopup } from "@/components/projects/ProjectScrollPopup";
@@ -26,109 +26,9 @@ const navLinks = [
   { href: "#tien-ich", label: "Tiện Ích" },
   { href: "#hinh-anh", label: "Hình Ảnh" },
   { href: "#tien-do", label: "Tiến Độ" },
-  { href: "#lien-he", label: "Liên Hệ" },
 ];
 
-function SLightContactForm() {
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [interest, setInterest] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState("");
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    setError("");
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name,
-          phone,
-          message: interest || undefined,
-          project: "S-Light Tower",
-        }),
-      });
-      if (!res.ok) {
-        const data = await res.json();
-        throw new Error(data.error || "Failed");
-      }
-      setSubmitted(true);
-      setName("");
-      setPhone("");
-      setInterest("");
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Có lỗi xảy ra");
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const inputCls =
-    "w-full rounded-sm border border-white/20 bg-white/10 px-4 py-3 text-white placeholder:text-white/50 focus:border-[#C8A96E] focus:outline-none";
-
-  if (submitted) {
-    return (
-      <div className="flex h-full flex-col items-center justify-center py-12 text-center">
-        <p className="font-serif text-2xl text-white">Cảm ơn bạn!</p>
-        <p className="mt-2 text-sm text-white/70">
-          Chúng tôi sẽ liên hệ lại qua số {phone} sớm nhất.
-        </p>
-      </div>
-    );
-  }
-
-  return (
-    <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
-      {error && (
-        <p className="rounded-sm bg-red-900/40 px-3 py-2 text-sm text-red-300">
-          {error}
-        </p>
-      )}
-      <input
-        type="text"
-        name="name"
-        required
-        placeholder="Họ và tên"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        className={inputCls}
-      />
-      <input
-        type="tel"
-        name="phone"
-        required
-        placeholder="Số điện thoại"
-        value={phone}
-        onChange={(e) => setPhone(e.target.value)}
-        className={inputCls}
-      />
-      <select
-        name="interest"
-        value={interest}
-        onChange={(e) => setInterest(e.target.value)}
-        className="w-full rounded-sm border border-white/20 bg-[#4a3829] px-4 py-3 text-white focus:border-[#C8A96E] focus:outline-none"
-      >
-        <option value="">Quan tâm đến loại căn hộ</option>
-        <option value="Studio">Studio</option>
-        <option value="1 Phòng Ngủ">1 Phòng Ngủ</option>
-        <option value="2 Phòng Ngủ">2 Phòng Ngủ</option>
-        <option value="3 Phòng Ngủ">3 Phòng Ngủ</option>
-        <option value="Penthouse">Penthouse</option>
-      </select>
-      <button
-        type="submit"
-        disabled={loading}
-        className="w-full rounded-sm bg-[#C8A96E] py-3 font-semibold uppercase tracking-wide text-[#0d1520] transition-colors hover:bg-[#b8966a] disabled:opacity-60 disabled:cursor-not-allowed"
-      >
-        {loading ? "Đang gửi..." : "Gửi Yêu Cầu Tư Vấn"}
-      </button>
-    </form>
-  );
-}
 
 function SLightNav() {
   const [open, setOpen] = useState(false);
@@ -165,12 +65,7 @@ function SLightNav() {
             </a>
           ))}
         </nav>
-        <a
-          href="#lien-he"
-          className="hidden lg:inline-flex items-center rounded-sm bg-[#4a3829] px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#6f5a4a]"
-        >
-          Đăng Ký
-        </a>
+
         <button
           type="button"
           className="p-2 text-[#4a3829] lg:hidden"
@@ -288,6 +183,7 @@ function HeroCarousel() {
 
       {/* Prev / Next */}
       <button
+        onPointerDown={(e) => e.stopPropagation()}
         onClick={(e) => {
           e.stopPropagation();
           prev();
@@ -299,6 +195,7 @@ function HeroCarousel() {
         <ChevronLeft className="h-5 w-5 md:h-6 md:w-6" />
       </button>
       <button
+        onPointerDown={(e) => e.stopPropagation()}
         onClick={(e) => {
           e.stopPropagation();
           next();
@@ -315,6 +212,7 @@ function HeroCarousel() {
         {CAROUSEL_IMAGES.map((_, i) => (
           <button
             key={i}
+            onPointerDown={(e) => e.stopPropagation()}
             onClick={(e) => {
               e.stopPropagation();
               go(i);
@@ -350,12 +248,7 @@ function HeroCarousel() {
           Tầm nhìn 360° · Sông Hàn · Núi Ngũ Hành · Biển Đông · Pháo hoa DIFF
         </p>
         <div className="pointer-events-auto mt-8 flex flex-col gap-3 sm:flex-row">
-          <a
-            href="#lien-he"
-            className="inline-block rounded-sm bg-[#C8A96E] px-8 py-3 font-semibold uppercase tracking-wide text-[#0d1520] transition-colors hover:bg-[#b8966a]"
-          >
-            Đăng Ký Nhận Thông Tin
-          </a>
+
           <a
             href="#tong-quan"
             className="inline-block rounded-sm border border-white/70 px-8 py-3 font-semibold uppercase tracking-wide text-white transition-colors hover:bg-white/10"
@@ -369,6 +262,8 @@ function HeroCarousel() {
 }
 
 export default function SLightTowerPage() {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   return (
     <main className="bg-[#f9f9f9]">
       <HideSiteHeader />
@@ -547,42 +442,42 @@ export default function SLightTowerPage() {
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
               {
-                icon: "🏖️",
+                icon: Umbrella,
                 title: "Biển Mỹ Khê",
                 detail: "2,5 km · Qua cầu Bùi Tá Hán",
               },
               {
-                icon: "✈️",
+                icon: Plane,
                 title: "Sân Bay Đà Nẵng",
                 detail: "5 km · ~10 phút",
               },
               {
-                icon: "🏙️",
+                icon: Building2,
                 title: "Trung Tâm Đà Nẵng",
                 detail: "5,5 km · ~12 phút",
               },
               {
-                icon: "🏯",
+                icon: Castle,
                 title: "Phố Cổ Hội An",
                 detail: "18,6 km · ~25 phút",
               },
               {
-                icon: "🌊",
+                icon: Waves,
                 title: "Ngã Ba Sông",
                 detail: "Sông Cẩm Lệ · Hàn · Đô Tỏa",
               },
               {
-                icon: "🚄",
+                icon: Train,
                 title: "Đường Sắt Cao Tốc",
                 detail: "Bắc - Nam (quy hoạch)",
               },
               {
-                icon: "🚋",
+                icon: TramFront,
                 title: "Hệ Thống LRT",
                 detail: "226.000 tỷ · Đà Nẵng - Hội An",
               },
               {
-                icon: "⛰️",
+                icon: Mountain,
                 title: "Ngũ Hành Sơn",
                 detail: "Tầm nhìn từ ban công",
               },
@@ -591,7 +486,9 @@ export default function SLightTowerPage() {
                 key={loc.title}
                 className="flex items-start gap-4 rounded-sm border border-[#E8E2D9] bg-white p-5 shadow-sm"
               >
-                <span className="text-2xl">{loc.icon}</span>
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#C8A96E]/10 text-[#C8A96E]">
+                  <loc.icon className="h-5 w-5" />
+                </div>
                 <div>
                   <p className="font-semibold text-[#4a3829]">{loc.title}</p>
                   <p className="mt-1 text-sm text-[#4e453e]/70">{loc.detail}</p>
@@ -622,52 +519,54 @@ export default function SLightTowerPage() {
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {[
               {
-                icon: "🏊",
+                icon: Waves,
                 title: "Hồ Bơi",
                 desc: "Không gian bơi lội thư giãn tại tầng 2, view mở thoáng đãng",
               },
               {
-                icon: "💪",
+                icon: Dumbbell,
                 title: "Gym · Spa",
                 desc: "Khu thể thao và chăm sóc sức khỏe tiêu chuẩn cao cấp",
               },
               {
-                icon: "🛍️",
+                icon: ShoppingBag,
                 title: "Shophouse",
                 desc: "Tầng trệt sôi động, đáp ứng toàn bộ nhu cầu mua sắm thường nhật",
               },
               {
-                icon: "🎠",
+                icon: FerrisWheel,
                 title: "Kids Club",
                 desc: "Khu vui chơi trẻ em an toàn, sáng tạo và hiện đại",
               },
               {
-                icon: "🎮",
+                icon: Gamepad2,
                 title: "Family Game Lounge",
                 desc: "Không gian giải trí gia đình đa thế hệ",
               },
               {
-                icon: "📚",
+                icon: BookOpen,
                 title: "Thư Viện",
                 desc: "Môi trường workcation lý tưởng cho tầng lớp trí thức",
               },
               {
-                icon: "🔒",
+                icon: Lock,
                 title: "An Ninh 24/7",
                 desc: "Hệ thống bảo mật hiện đại, quản lý chuyên nghiệp",
               },
               {
-                icon: "🅿️",
+                icon: SquareParking,
                 title: "3 Tầng Hầm",
                 desc: "Bãi đỗ xe rộng rãi, đáp ứng toàn bộ cư dân",
               },
             ].map((amenity) => (
               <div
                 key={amenity.title}
-                className="rounded-sm border border-white/10 bg-white/5 p-5 transition-colors hover:bg-white/10"
+                className="rounded-sm border border-white/10 bg-white/5 p-5 transition-colors hover:bg-white/10 group"
               >
-                <span className="text-2xl">{amenity.icon}</span>
-                <p className="mt-3 font-semibold text-white">{amenity.title}</p>
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#C8A96E]/20 text-[#C8A96E] transition-colors group-hover:bg-[#C8A96E] group-hover:text-[#0d1520]">
+                  <amenity.icon className="h-6 w-6" />
+                </div>
+                <p className="mt-4 font-semibold text-white">{amenity.title}</p>
                 <p className="mt-2 text-sm leading-relaxed text-white/70">
                   {amenity.desc}
                 </p>
@@ -690,15 +589,21 @@ export default function SLightTowerPage() {
             {CAROUSEL_IMAGES.map((src, i) => (
               <div
                 key={i}
-                className="relative aspect-[4/3] overflow-hidden rounded-sm bg-[#E8E2D9]"
+                className="group relative aspect-[4/3] cursor-pointer overflow-hidden rounded-sm bg-[#E8E2D9]"
+                onClick={() => setSelectedImage(src)}
               >
                 <Image
                   src={src}
                   alt={`S-Light Tower phối cảnh ${i + 1}`}
                   fill
-                  className="object-cover transition-transform duration-500 hover:scale-[1.04]"
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 />
+                <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition-all duration-300 group-hover:bg-black/20 group-hover:opacity-100">
+                  <span className="rounded-sm bg-white/90 px-3 py-1.5 text-sm font-semibold text-[#4a3829] shadow-sm backdrop-blur-sm">
+                    Xem Lớn
+                  </span>
+                </div>
               </div>
             ))}
           </div>
@@ -770,60 +675,37 @@ export default function SLightTowerPage() {
         </div>
       </section>
 
-      {/* LIÊN HỆ */}
-      <section
-        id="lien-he"
-        className="scroll-mt-16 bg-[#4a3829] pb-20 text-white"
-      >
-        <div className="mx-auto max-w-[1440px] px-5 md:px-20">
-          <div className="grid gap-12 md:grid-cols-2">
-            <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#C8A96E]/70">
-                Liên Hệ Tư Vấn
-              </p>
-              <h2 className="mt-3 font-serif text-3xl text-white md:text-4xl">
-                Nhận Thông Tin &amp; Báo Giá
-              </h2>
-              <p className="mt-4 text-sm leading-relaxed text-white/80">
-                Liên hệ ngay để được tư vấn trực tiếp về S-Light Tower — lựa
-                chọn an cư và đầu tư sinh lời bền vững tại tâm mạch Nam Đà Nẵng.
-              </p>
-              <div className="mt-8 space-y-4">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-[#C8A96E]/70">
-                    Chủ Đầu Tư
-                  </p>
-                  <p className="mt-1 font-semibold text-white">
-                    Sun Property — Tập đoàn Sun Group
-                  </p>
-                </div>
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-[#C8A96E]/70">
-                    Tư Vấn Viên
-                  </p>
-                  <p className="mt-1 text-white/90">(GDDA) Nguyễn Thị Nguyệt</p>
-                  <p className="mt-0.5 text-white/70 text-sm">
-                    BĐS Duyên Hải - Đất Xanh Miền Bắc
-                  </p>
-                </div>
-                <a
-                  href="tel:0345747138"
-                  className="mt-2 inline-flex items-center gap-2 rounded-sm bg-[#C8A96E] px-6 py-3 font-semibold text-[#0d1520] transition-colors hover:bg-[#b8966a]"
-                >
-                  📞 0345 747 138
-                </a>
-              </div>
-            </div>
-            <div className="rounded-sm bg-white/5 p-8">
-              <p className="font-serif text-xl text-white">
-                Đăng Ký Nhận Thông Tin
-              </p>
-              <SLightContactForm />
-            </div>
+
+      <ProjectScrollPopup projectName="S-Light Tower" accent="#C8A96E" />
+
+      {/* LIGHTBOX MODAL */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 backdrop-blur-sm"
+          onClick={() => setSelectedImage(null)}
+        >
+          <button
+            className="absolute right-4 top-4 z-10 rounded-full bg-white/10 p-2 text-white transition-colors hover:bg-white/20 md:right-8 md:top-8"
+            onClick={() => setSelectedImage(null)}
+            aria-label="Đóng"
+          >
+            <X className="h-6 w-6 md:h-8 md:w-8" />
+          </button>
+          <div
+            className="relative h-full w-full max-w-6xl p-4 md:p-8"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Image
+              src={selectedImage}
+              alt="S-Light Tower phối cảnh chi tiết"
+              fill
+              className="object-contain"
+              sizes="100vw"
+              priority
+            />
           </div>
         </div>
-      </section>
-      <ProjectScrollPopup projectName="S-Light Tower" accent="#C8A96E" />
+      )}
     </main>
   );
 }

@@ -4,7 +4,7 @@ import { FooterRegisterForm } from "@/components/ethereal/footer-register-form";
 
 export function SiteFooter() {
   return (
-    <footer className="bg-[#eeeeee] py-16 mt-24">
+    <footer className="bg-[#eeeeee] py-16">
       <div className="max-w-[1440px] mx-auto px-5 md:px-20">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 mb-16">
           {/* Brand & Contact */}

@@ -16,7 +16,7 @@ export function FooterRegisterForm() {
     setError("");
 
     try {
-      const response = await fetch("/api/submit-contact", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
