@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { SITE_NAME } from "@/config/site";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -37,7 +38,7 @@ export function ProjectHeroNav() {
     >
       <div className="mx-auto flex h-16 max-w-[1440px] items-center justify-between px-5 md:px-20">
         <Link href="/" className="font-serif text-xl tracking-tight text-[#4a3829]">
-          Ethereal Estate
+          {SITE_NAME}
         </Link>
         <nav className="hidden items-center gap-6 lg:flex">
           {links.map((link) => (

@@ -1,4 +1,5 @@
 import type { ProjectSEO } from "@/lib/seo";
+import { SITE_NAME } from "@/config/site";
 
 export const projectsSEO: ProjectSEO[] = [
   {
@@ -134,7 +135,7 @@ export const projectsSEO: ProjectSEO[] = [
       locality: "Đà Nẵng",
       geo: { lat: 16.0544, lng: 108.2022 },
       amenities: ["Hồ bơi", "Gym & Spa", "An ninh 24/7", "Tiện ích 5 sao"],
-      seller: "Ethereal Estate",
+      seller: SITE_NAME,
     },
   },
 ];

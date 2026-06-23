@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SITE_NAME } from "@/config/site";
 
 const navLinks = [
   { href: "/", label: "Trang Chủ" },
@@ -27,7 +28,7 @@ export function SiteFooter() {
           <div className="space-y-6 md:col-span-5">
             <div>
               <p className="font-serif text-3xl font-medium text-white">
-                Ethereal Estate
+                {SITE_NAME}
               </p>
               <p className="mt-3 max-w-sm text-sm leading-relaxed text-white/60">
                 Tư vấn bất động sản cao cấp tại Đà Nẵng — an cư, đầu tư, ngôi nhà thứ hai.
@@ -134,7 +135,7 @@ export function SiteFooter() {
         {/* Bottom bar */}
         <div className="flex flex-col gap-2 border-t border-white/10 py-6 md:flex-row md:items-center md:justify-between">
           <p className="text-xs text-white/30">
-            © {new Date().getFullYear()} Ethereal Estate. Bảo lưu mọi quyền.
+            © {new Date().getFullYear()} {SITE_NAME}. Bảo lưu mọi quyền.
           </p>
           <p className="text-xs text-white/20">
             Bất động sản cao cấp · Đà Nẵng, Việt Nam

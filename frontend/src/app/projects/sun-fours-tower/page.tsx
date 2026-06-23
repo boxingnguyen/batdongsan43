@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { HideSiteHeader } from "@/components/projects/HideSiteHeader";
+import { SITE_NAME } from "@/config/site";
 
 function SunFoursContactForm() {
   const [name, setName] = useState("");
@@ -104,7 +105,7 @@ function SunFoursNav() {
     >
       <div className="mx-auto flex h-16 max-w-[1440px] items-center justify-between px-5 md:px-20">
         <Link href="/" className="font-serif text-xl tracking-tight text-[#4a3829]">
-          Ethereal Estate
+          {SITE_NAME}
         </Link>
         <nav className="hidden items-center gap-6 lg:flex">
           {navLinks.map((link) => (

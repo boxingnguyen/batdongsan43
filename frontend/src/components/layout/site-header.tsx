@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { SITE_NAME } from "@/config/site";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
@@ -37,7 +38,7 @@ export function SiteHeader() {
           href="/"
           className="font-serif text-3xl font-medium italic tracking-tight text-[#4a3829] dark:text-[#faddc8] transition-colors"
         >
-          Ethereal Estate
+          {SITE_NAME}
         </Link>
 
         {/* Desktop Navigation Links - Disabled */}

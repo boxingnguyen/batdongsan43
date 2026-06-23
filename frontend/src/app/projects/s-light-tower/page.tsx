@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState, useEffect, useCallback, useRef } from "react";
 import { Menu, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { HideSiteHeader } from "@/components/projects/HideSiteHeader";
+import { SITE_NAME } from "@/config/site";
 
 const CAROUSEL_IMAGES = [
   "/images/slight_images/slight4.jpg",
@@ -150,7 +151,7 @@ function SLightNav() {
           href="/"
           className="font-serif text-xl tracking-tight text-[#4a3829]"
         >
-          Ethereal Estate
+          {SITE_NAME}
         </Link>
         <nav className="hidden items-center gap-6 lg:flex">
           {navLinks.map((link) => (

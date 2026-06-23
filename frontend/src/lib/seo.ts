@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_NAME } from "@/config/site";
 
 export type ProjectSEO = {
   slug: string;
@@ -42,7 +43,7 @@ export function buildMetadata(seo: ProjectSEO): Metadata {
       type: "website",
       locale: "vi_VN",
       url: canonical,
-      siteName: "Ethereal Estate",
+      siteName: SITE_NAME,
       title: seo.og.title,
       description: seo.og.description,
       images: [{ url: ogImage, width: 1200, height: 630, alt: seo.og.imageAlt }],
