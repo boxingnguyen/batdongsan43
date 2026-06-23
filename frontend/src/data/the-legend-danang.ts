@@ -5,7 +5,7 @@ export const theLegendDanang = {
   location: "A20 Võ Văn Kiệt, An Hải, Đà Nẵng",
   status: "Đang Mở Bán",
 
-  heroImage: "https://thelegendcity.com/wp-content/uploads/2026/03/z6746423291924_78db9a9e5e95689ad6258a017dbdfe25-scaled.jpg",
+  heroImage: "/images/legend_images/Cover-website-1.jpg",
 
   overview: [
     "Tựa mình bên biểu tượng Cầu Rồng huyền thoại, The Legend Đà Nẵng — ROX Signature vươn mình kiêu hãnh giữa lõi đô thị, tái định nghĩa chuẩn mực sống đẳng cấp tại Đà Nẵng.",
@@ -24,18 +24,18 @@ export const theLegendDanang = {
 
   gallery: [
     {
-      src: "https://thelegendcity.com/wp-content/uploads/2026/01/vi-tri-the-legend-da-nang-4-2048x1118-1-1.png",
-      alt: "Vị trí The Legend Đà Nẵng - Bản đồ chiến lược",
+      src: "/images/legend_images/TL_PV02_Tongthdecaurong-1.jpg",
+      alt: "The Legend Đà Nẵng - Tầm nhìn toàn cảnh tòa tháp và Cầu Rồng",
       layout: "main" as const
     },
     {
-      src: "https://thelegendcity.com/wp-content/uploads/2026/01/THE-LEGEND-TMB-T5-26-01-01-1.jpg",
-      alt: "The Legend Đà Nẵng - Toàn cảnh tòa tháp",
+      src: "/images/legend_images/TL_PV08_Facade.jpg",
+      alt: "The Legend Đà Nẵng - Kiến trúc mặt đứng tòa tháp",
       layout: "secondary" as const
     },
     {
-      src: "https://thelegendcity.com/wp-content/uploads/2026/01/Tien-ich-can-ho-Legend-Da-Nang-The-Legend-City-Da-Nang.jpg",
-      alt: "Tiện ích căn hộ The Legend Đà Nẵng",
+      src: "/images/legend_images/tongquan_4-1.jpg",
+      alt: "The Legend Đà Nẵng - Tổng quan dự án",
       layout: "secondary" as const
     }
   ],

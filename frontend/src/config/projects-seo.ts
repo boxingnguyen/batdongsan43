@@ -127,8 +127,7 @@ export const projectsSEO: ProjectSEO[] = [
       title: "The Legend Đà Nẵng – Biểu Tượng Tương Lai, Xứng Tầm Huyền Thoại",
       description:
         "Hyde Hotels 5 sao · CBRE tư vấn · Sát Cầu Rồng · Bàn giao Q1/2028. CĐT Vipico.",
-      image:
-        "https://thelegendcity.com/wp-content/uploads/2026/03/z6746423291924_78db9a9e5e95689ad6258a017dbdfe25-scaled.jpg",
+      image: "/images/legend_images/Cover-website-1.jpg",
       imageAlt: "The Legend Đà Nẵng ROX Signature – tổ hợp Hyde Hotels và căn hộ cao cấp sát Cầu Rồng",
     },
     jsonLd: {

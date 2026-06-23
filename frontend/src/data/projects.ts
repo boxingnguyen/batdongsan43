@@ -29,8 +29,7 @@ export const projects: Project[] = [
     location: "A20 Võ Văn Kiệt, An Hải, Đà Nẵng",
     description:
       "Tổ hợp khách sạn Hyde Hotels 5 sao (Accor) và căn hộ cao cấp tựa mình bên Cầu Rồng. CĐT Vipico · CBRE tư vấn · Bàn giao Q1/2028. Loại căn 1–3PN, tổng diện tích 11.487m².",
-    image:
-      "https://thelegendcity.com/wp-content/uploads/2026/03/z6746423291924_78db9a9e5e95689ad6258a017dbdfe25-scaled.jpg",
+    image: "/images/legend_images/TL_PV11_Hero.jpg",
     imageAlt: "The Legend Đà Nẵng ROX Signature - tổ hợp khách sạn Hyde Hotels và căn hộ cao cấp",
     status: "Đang mở bán",
   },
