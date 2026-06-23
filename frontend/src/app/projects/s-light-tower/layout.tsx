@@ -1,15 +1,23 @@
 import type { Metadata } from "next";
+import { buildMetadata, buildJsonLd } from "@/lib/seo";
+import { projectsSEO } from "@/config/projects-seo";
 
-export const metadata: Metadata = {
-  title: "S-Light Tower Đà Nẵng | Tháp đôi biểu tượng Nam Đà Nẵng",
-  description:
-    "S-Light Tower — tháp đôi 22 tầng biểu tượng tại Sun NeO City, Nam Đà Nẵng. Gần 800 căn hộ, tầm nhìn 360° sông Hàn - núi - biển - pháo hoa DIFF. Pháp lý lâu dài. Đăng ký nhận thông tin.",
-};
+const seo = projectsSEO.find((p) => p.slug === "s-light-tower")!;
+
+export const metadata: Metadata = buildMetadata(seo);
 
 export default function SLightTowerLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: buildJsonLd(seo) }}
+      />
+      {children}
+    </>
+  );
 }
