@@ -10,7 +10,7 @@ export function MainWrapper({ children }: { children: React.ReactNode }) {
   return (
     <>
       <main className={`${isProjectPage ? "" : "pt-20"}`}>{children}</main>
-      {!isProjectPage && <SiteFooter />}
+      <SiteFooter />
     </>
   );
 }
