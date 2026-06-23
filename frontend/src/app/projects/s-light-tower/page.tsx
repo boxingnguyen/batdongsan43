@@ -6,6 +6,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { Menu, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { HideSiteHeader } from "@/components/projects/HideSiteHeader";
 import { SITE_NAME } from "@/config/site";
+import { ProjectScrollPopup } from "@/components/projects/ProjectScrollPopup";
 
 const CAROUSEL_IMAGES = [
   "/images/slight_images/slight4.jpg",
@@ -822,6 +823,7 @@ export default function SLightTowerPage() {
           </div>
         </div>
       </section>
+      <ProjectScrollPopup projectName="S-Light Tower" accent="#C8A96E" />
     </main>
   );
 }

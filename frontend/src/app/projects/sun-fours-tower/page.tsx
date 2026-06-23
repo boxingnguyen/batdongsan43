@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { HideSiteHeader } from "@/components/projects/HideSiteHeader";
 import { SITE_NAME } from "@/config/site";
+import { ProjectScrollPopup } from "@/components/projects/ProjectScrollPopup";
 
 function SunFoursContactForm() {
   const [name, setName] = useState("");
@@ -549,6 +550,7 @@ export default function SunFoursTowerPage() {
           &larr; Quay lại Danh Sách Dự Án
         </Link>
       </div>
+      <ProjectScrollPopup projectName="Sun FourS Tower" accent="#E3C284" />
     </main>
   );
 }

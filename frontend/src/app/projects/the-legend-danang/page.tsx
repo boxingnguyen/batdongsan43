@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ProjectScrollPopup } from "@/components/projects/ProjectScrollPopup";
 import { theLegendDanang } from "@/data/the-legend-danang";
 import { LegendHero } from "@/components/projects/legend-hero";
 import { LegendGallery } from "@/components/projects/legend-gallery";
@@ -62,7 +63,7 @@ export default function TheLegendDanangPage() {
           &larr; Quay lại Trang Chủ
         </Link>
       </section>
-
+      <ProjectScrollPopup projectName="The Legend Đà Nẵng" accent="#07be8a" />
     </main>
   );
 }
