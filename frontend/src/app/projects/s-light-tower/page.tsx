@@ -43,14 +43,21 @@ function SLightContactForm() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, phone, message: interest || undefined, project: "S-Light Tower" }),
+        body: JSON.stringify({
+          name,
+          phone,
+          message: interest || undefined,
+          project: "S-Light Tower",
+        }),
       });
       if (!res.ok) {
         const data = await res.json();
         throw new Error(data.error || "Failed");
       }
       setSubmitted(true);
-      setName(""); setPhone(""); setInterest("");
+      setName("");
+      setPhone("");
+      setInterest("");
     } catch (err) {
       setError(err instanceof Error ? err.message : "Có lỗi xảy ra");
     } finally {
@@ -65,7 +72,9 @@ function SLightContactForm() {
     return (
       <div className="flex h-full flex-col items-center justify-center py-12 text-center">
         <p className="font-serif text-2xl text-white">Cảm ơn bạn!</p>
-        <p className="mt-2 text-sm text-white/70">Chúng tôi sẽ liên hệ lại qua số {phone} sớm nhất.</p>
+        <p className="mt-2 text-sm text-white/70">
+          Chúng tôi sẽ liên hệ lại qua số {phone} sớm nhất.
+        </p>
       </div>
     );
   }
@@ -73,7 +82,9 @@ function SLightContactForm() {
   return (
     <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
       {error && (
-        <p className="rounded-sm bg-red-900/40 px-3 py-2 text-sm text-red-300">{error}</p>
+        <p className="rounded-sm bg-red-900/40 px-3 py-2 text-sm text-red-300">
+          {error}
+        </p>
       )}
       <input
         type="text"
@@ -194,21 +205,29 @@ function HeroCarousel() {
   const isDragging = useRef(false);
   const autoTimer = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  const go = useCallback((index: number) => {
-    setCurrent(((index % total) + total) % total);
-  }, [total]);
+  const go = useCallback(
+    (index: number) => {
+      setCurrent(((index % total) + total) % total);
+    },
+    [total],
+  );
 
   const next = useCallback(() => go(current + 1), [current, go]);
   const prev = useCallback(() => go(current - 1), [current, go]);
 
   const resetAuto = useCallback(() => {
     if (autoTimer.current) clearInterval(autoTimer.current);
-    autoTimer.current = setInterval(() => setCurrent((c) => (c + 1) % total), 5000);
+    autoTimer.current = setInterval(
+      () => setCurrent((c) => (c + 1) % total),
+      5000,
+    );
   }, [total]);
 
   useEffect(() => {
     resetAuto();
-    return () => { if (autoTimer.current) clearInterval(autoTimer.current); };
+    return () => {
+      if (autoTimer.current) clearInterval(autoTimer.current);
+    };
   }, [resetAuto]);
 
   const onPointerDown = (e: React.PointerEvent) => {
@@ -239,7 +258,10 @@ function HeroCarousel() {
       onPointerDown={onPointerDown}
       onPointerMove={onPointerMove}
       onPointerUp={onPointerUp}
-      onPointerLeave={() => { dragStart.current = null; isDragging.current = false; }}
+      onPointerLeave={() => {
+        dragStart.current = null;
+        isDragging.current = false;
+      }}
     >
       {CAROUSEL_IMAGES.map((src, i) => (
         <div
@@ -264,14 +286,22 @@ function HeroCarousel() {
 
       {/* Prev / Next */}
       <button
-        onClick={(e) => { e.stopPropagation(); prev(); resetAuto(); }}
+        onClick={(e) => {
+          e.stopPropagation();
+          prev();
+          resetAuto();
+        }}
         aria-label="Ảnh trước"
         className="absolute left-4 top-1/2 z-20 -translate-y-1/2 rounded-full bg-black/30 p-2 text-white backdrop-blur-sm transition hover:bg-black/50 md:left-8 md:p-3"
       >
         <ChevronLeft className="h-5 w-5 md:h-6 md:w-6" />
       </button>
       <button
-        onClick={(e) => { e.stopPropagation(); next(); resetAuto(); }}
+        onClick={(e) => {
+          e.stopPropagation();
+          next();
+          resetAuto();
+        }}
         aria-label="Ảnh tiếp"
         className="absolute right-4 top-1/2 z-20 -translate-y-1/2 rounded-full bg-black/30 p-2 text-white backdrop-blur-sm transition hover:bg-black/50 md:right-8 md:p-3"
       >
@@ -283,10 +313,16 @@ function HeroCarousel() {
         {CAROUSEL_IMAGES.map((_, i) => (
           <button
             key={i}
-            onClick={(e) => { e.stopPropagation(); go(i); resetAuto(); }}
+            onClick={(e) => {
+              e.stopPropagation();
+              go(i);
+              resetAuto();
+            }}
             aria-label={`Slide ${i + 1}`}
             className={`h-1.5 rounded-full transition-all duration-300 ${
-              i === current ? "w-6 bg-[#C8A96E]" : "w-1.5 bg-white/40 hover:bg-white/70"
+              i === current
+                ? "w-6 bg-[#C8A96E]"
+                : "w-1.5 bg-white/40 hover:bg-white/70"
             }`}
           />
         ))}
@@ -785,16 +821,6 @@ export default function SLightTowerPage() {
           </div>
         </div>
       </section>
-
-      {/* BACK LINK */}
-      <div className="mx-auto max-w-[1440px] px-5 py-8 md:px-20">
-        <Link
-          href="/"
-          className="text-sm font-semibold tracking-wide text-[#4a3829]/70 transition-colors hover:text-[#4a3829]"
-        >
-          &larr; Quay lại Trang Chủ
-        </Link>
-      </div>
     </main>
   );
 }
