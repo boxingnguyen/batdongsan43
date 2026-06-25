@@ -382,7 +382,7 @@ export default function SLightTowerPage() {
                 desc: "tháng",
               },
               {
-                label: "Trì Tiền Đỗ",
+                label: "TT Tiến Độ",
                 value: "48",
                 desc: "tháng",
               },
