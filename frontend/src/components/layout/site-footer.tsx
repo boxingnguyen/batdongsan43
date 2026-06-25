@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Facebook, Instagram } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
 import { FooterRegisterForm } from "@/components/ethereal/footer-register-form";
 
 export function SiteFooter() {
@@ -48,14 +48,52 @@ export function SiteFooter() {
               <a
                 aria-label="Instagram"
                 className="w-10 h-10 border border-[#d2c4bb]/30 flex items-center justify-center text-[#4e453e] hover:bg-[#4a3829] hover:text-white transition-all duration-300"
-                href="#"
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <Instagram className="h-5 w-5" />
               </a>
               <a
-                aria-label="Tiktok"
+                aria-label="YouTube"
                 className="w-10 h-10 border border-[#d2c4bb]/30 flex items-center justify-center text-[#4e453e] hover:bg-[#4a3829] hover:text-white transition-all duration-300"
-                href="#"
+                href="https://youtube.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Youtube className="h-5 w-5" />
+              </a>
+              <a
+                aria-label="LinkedIn"
+                className="w-10 h-10 border border-[#d2c4bb]/30 flex items-center justify-center text-[#4e453e] hover:bg-[#4a3829] hover:text-white transition-all duration-300"
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Linkedin className="h-5 w-5" />
+              </a>
+              <a
+                aria-label="X (Twitter)"
+                className="w-10 h-10 border border-[#d2c4bb]/30 flex items-center justify-center text-[#4e453e] hover:bg-[#4a3829] hover:text-white transition-all duration-300"
+                href="https://x.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg
+                  className="h-5 w-5"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.514l-5.106-6.685-5.829 6.685h-3.307l7.73-8.835L2.45 2.25h6.68l4.764 6.312 5.35-6.312zM17.002 18.807h1.844L6.983 4.126H5.025l11.977 14.681z" />
+                </svg>
+              </a>
+              <a
+                aria-label="TikTok"
+                className="w-10 h-10 border border-[#d2c4bb]/30 flex items-center justify-center text-[#4e453e] hover:bg-[#4a3829] hover:text-white transition-all duration-300"
+                href="https://tiktok.com"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <svg
                   className="h-5 w-5"
