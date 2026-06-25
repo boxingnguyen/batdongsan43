@@ -3,7 +3,27 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect, useCallback, useRef } from "react";
-import { Menu, X, ChevronLeft, ChevronRight, Umbrella, Plane, Building2, Castle, Waves, Train, TramFront, Mountain, Dumbbell, ShoppingBag, FerrisWheel, Gamepad2, BookOpen, Lock, SquareParking } from "lucide-react";
+import {
+  Menu,
+  X,
+  ChevronLeft,
+  ChevronRight,
+  Umbrella,
+  Plane,
+  Building2,
+  Castle,
+  Waves,
+  Train,
+  TramFront,
+  Mountain,
+  Dumbbell,
+  ShoppingBag,
+  FerrisWheel,
+  Gamepad2,
+  BookOpen,
+  Lock,
+  SquareParking,
+} from "lucide-react";
 import { HideSiteHeader } from "@/components/projects/HideSiteHeader";
 import { SITE_NAME } from "@/config/site";
 import { ProjectScrollPopup } from "@/components/projects/ProjectScrollPopup";
@@ -27,8 +47,6 @@ const navLinks = [
   { href: "#hinh-anh", label: "Hình Ảnh" },
   { href: "#tien-do", label: "Tiến Độ" },
 ];
-
-
 
 function SLightNav() {
   const [open, setOpen] = useState(false);
@@ -248,7 +266,6 @@ function HeroCarousel() {
           Tầm nhìn 360° · Sông Hàn · Núi Ngũ Hành · Biển Đông · Pháo hoa DIFF
         </p>
         <div className="pointer-events-auto mt-8 flex flex-col gap-3 sm:flex-row">
-
           <a
             href="#tong-quan"
             className="inline-block rounded-sm border border-white/70 px-8 py-3 font-semibold uppercase tracking-wide text-white transition-colors hover:bg-white/10"
@@ -325,14 +342,19 @@ export default function SLightTowerPage() {
             Sun Early Key — Cơ Hội Vàng
           </h2>
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/80">
-            Chính sách ưu tiên độc quyền dành cho khách hàng đăng ký sớm. Thanh toán linh hoạt, hỗ trợ lãi suất và các ưu đãi tối ưu.
+            Chính sách ưu tiên độc quyền dành cho khách hàng đăng ký sớm. Thanh
+            toán linh hoạt, hỗ trợ lãi suất và các ưu đãi tối ưu.
           </p>
 
           <div className="mt-10 grid gap-6 lg:grid-cols-2">
             {/* Image 1 */}
             <div
               className="group relative aspect-[3/4] overflow-hidden rounded-lg bg-white/10 shadow-lg cursor-pointer"
-              onClick={() => setSelectedImage("/images/slight_images/s-light-tower-gia-rumor-tang-15.jpg")}
+              onClick={() =>
+                setSelectedImage(
+                  "/images/slight_images/s-light-tower-gia-rumor-tang-15.jpg",
+                )
+              }
             >
               <Image
                 src="/images/slight_images/s-light-tower-gia-rumor-tang-15.jpg"
@@ -343,7 +365,7 @@ export default function SLightTowerPage() {
               />
               <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition-all duration-300 group-hover:bg-black/20 group-hover:opacity-100">
                 <span className="rounded-sm bg-white/90 px-3 py-1.5 text-sm font-semibold text-[#4a3829] shadow-sm backdrop-blur-sm">
-                  Xem Lớn
+                  Xem
                 </span>
               </div>
             </div>
@@ -351,7 +373,11 @@ export default function SLightTowerPage() {
             {/* Image 2 */}
             <div
               className="group relative aspect-[3/4] overflow-hidden rounded-lg bg-white/10 shadow-lg cursor-pointer"
-              onClick={() => setSelectedImage("/images/slight_images/s-light-tower-chinh-sach-sun-early-key.jpg")}
+              onClick={() =>
+                setSelectedImage(
+                  "/images/slight_images/s-light-tower-chinh-sach-sun-early-key.jpg",
+                )
+              }
             >
               <Image
                 src="/images/slight_images/s-light-tower-chinh-sach-sun-early-key.jpg"
@@ -362,7 +388,7 @@ export default function SLightTowerPage() {
               />
               <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition-all duration-300 group-hover:bg-black/20 group-hover:opacity-100">
                 <span className="rounded-sm bg-white/90 px-3 py-1.5 text-sm font-semibold text-[#4a3829] shadow-sm backdrop-blur-sm">
-                  Xem Lớn
+                  Xem
                 </span>
               </div>
             </div>
@@ -403,7 +429,8 @@ export default function SLightTowerPage() {
           </div>
 
           <p className="mt-8 text-xs text-white/50">
-            * Giá dự tính từ 2.4 tỷ. Đã bao gồm VAT + KBBT. Chi tiết tại trang thông tin dự án.
+            * Giá dự tính từ 2.4 tỷ. Đã bao gồm VAT + KBBT. Chi tiết tại trang
+            thông tin dự án.
           </p>
         </div>
       </section>
@@ -694,7 +721,7 @@ export default function SLightTowerPage() {
                 />
                 <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition-all duration-300 group-hover:bg-black/20 group-hover:opacity-100">
                   <span className="rounded-sm bg-white/90 px-3 py-1.5 text-sm font-semibold text-[#4a3829] shadow-sm backdrop-blur-sm">
-                    Xem Lớn
+                    Xem
                   </span>
                 </div>
               </div>
@@ -767,7 +794,6 @@ export default function SLightTowerPage() {
           </div>
         </div>
       </section>
-
 
       <ProjectScrollPopup projectName="S-Light Tower" accent="#C8A96E" />
 
