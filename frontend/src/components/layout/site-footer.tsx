@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
 import { FooterRegisterForm } from "@/components/ethereal/footer-register-form";
+import { SITE_NAME } from "@/config/site";
 
 export function SiteFooter() {
   return (
@@ -11,7 +12,7 @@ export function SiteFooter() {
           <div className="md:col-span-4 space-y-8">
             <div className="space-y-4">
               <h2 className="font-serif text-[24px] font-medium leading-[32px] text-[#4a3829]">
-                Ethereal Estate
+                {SITE_NAME}
               </h2>
               <p className="text-[16px] font-normal leading-[24px] font-hanken text-[#4e453e] max-w-xs">
                 Không gian sống tinh tế cho cuộc sống đẳng cấp. Mạng lưới toàn cầu, thấu hiểu địa phương.
@@ -204,7 +205,7 @@ export function SiteFooter() {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-[#d2c4bb]/20 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e]">
-            © {new Date().getFullYear()} Ethereal Estate. Bảo lưu mọi quyền. Riêng tư &amp; Bảo mật.
+            © {new Date().getFullYear()} {SITE_NAME}. Bảo lưu mọi quyền. Riêng tư &amp; Bảo mật.
           </p>
           <div className="flex gap-6">
             <Link

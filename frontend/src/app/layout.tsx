@@ -20,7 +20,7 @@ const font = Montserrat({
 
 // 3. METADATA - Static root metadata
 const metadata: Metadata = {
-  title: "Ethereal Estate – Bất Động Sản Cao Cấp Đà Nẵng",
+  title: `${SITE_NAME} – Bất Động Sản Cao Cấp Đà Nẵng`,
   description: "Dự án bất động sản cao cấp tại Đà Nẵng: S-Light Tower, Sun FourS Tower, The Legend, Symphony Residence. Căn hộ ven sông, sở hữu lâu dài.",
   keywords: [
     "bất động sản Đà Nẵng",
