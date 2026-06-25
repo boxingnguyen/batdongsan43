@@ -33,7 +33,7 @@ const metadata: Metadata = {
   authors: [{ name: SITE_NAME }],
   creator: SITE_NAME,
   publisher: SITE_NAME,
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://thesoleil.vn"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://canhocaocapdanang.info"),
   alternates: {
     canonical: "/",
     languages: {
@@ -80,14 +80,13 @@ export default async function RootLayout({
   // const locale = await getLocale() // <-- This line is no longer needed
   const messages = await getMessages();
   // const t = await getTranslations({ locale, namespace: 'meta' })
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://thesoleil.vn";
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://canhocaocapdanang.info";
 
   // Structured Data (JSON-LD) for SEO
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "ResidentialComplex",
-    name: "The Soleil Đà Nẵng",
-    alternateName: "Wyndham Soleil Đà Nẵng",
+    name: SITE_NAME,
     description: "Khám phá các dự án bất động sản đẳng cấp tại Đà Nẵng",
     url: baseUrl,
     address: {
@@ -143,7 +142,7 @@ export default async function RootLayout({
     ],
     image: `${baseUrl}/images/home/cover-image.jpg`,
     telephone: "+84345747138",
-    email: "Thesoleildanangofficial@gmail.com",
+    email: "contact@canhocaocapdanang.info",
   };
 
   return (

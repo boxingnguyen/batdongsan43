@@ -11,6 +11,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 import { projects } from "@/data/projects";
+import { SITE_URL } from "@/config/site";
 
 const heroSlides = [
   "/images/home/sym1.png",
@@ -159,7 +160,7 @@ export function EtherealHomeClient() {
                   key={project.id}
                   href={
                     isSoleil
-                      ? "https://thesoleil.vn/"
+                      ? `${SITE_URL}/`
                       : `/projects/${project.slug}`
                   }
                   target={isSoleil ? "_blank" : undefined}

@@ -13,10 +13,10 @@ export function HeaderSelector() {
     setMounted(true);
   }, []);
 
-  // Determine if we are on a Wyndham Soleil page
-  // The Wyndham Soleil pages are: /introduction, /connection, /partners, /facility, /apartment, /news, /gallery, /contact-us, /media
-  // under any locale prefix like /vi/introduction, /en/introduction, or /introduction
-  const isSoleilPage = pathname.match(
+  // Determine if we are on a content page (introduction, connection, etc.)
+  // These pages use the full-width header instead of the compact header
+  // Pages: /introduction, /connection, /partners, /facility, /apartment, /news, /gallery, /contact-us, /media
+  const isContentPage = pathname.match(
     /^\/(vi|en)?\/?(introduction|connection|partners|facility|apartment|news|gallery|contact-us|media)/,
   );
 
@@ -24,7 +24,7 @@ export function HeaderSelector() {
     return <SiteHeader />;
   }
 
-  if (isSoleilPage) {
+  if (isContentPage) {
     return <Header />;
   }
 

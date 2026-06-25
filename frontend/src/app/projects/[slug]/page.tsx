@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { projects } from "@/data/projects";
+import { SITE_URL } from "@/config/site";
 
 interface ProjectDetailPageProps {
   params: Promise<{ slug: string }>;
@@ -48,7 +49,7 @@ export default async function ProjectDetailPage({
   if (!project) notFound();
 
   if (slug === "wyndham-soleil-danang") {
-    return <ExternalRedirect url="https://thesoleil.vn/" />;
+    return <ExternalRedirect url={`${SITE_URL}/`} />;
   }
 
   return (

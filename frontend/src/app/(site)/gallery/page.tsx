@@ -4,12 +4,12 @@ import { getTranslations, getLocale } from 'next-intl/server';
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
   const t = await getTranslations({ locale, namespace: 'gallery' });
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://thesoleil.vn'
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://canhocaocapdanang.info'
   const localeUrl = locale === 'vi' ? `${baseUrl}/gallery` : `${baseUrl}/${locale}/gallery`
   
   return {
     title: t('title'),
-    description: `Explore our gallery of images and videos showcasing Wyndham Soleil Đà Nẵng - luxury apartments, facilities, and stunning views.`,
+    description: `Explore our gallery of images and videos showcasing Căn hộ cao cấp Đà Nẵng - luxury apartments, facilities, and stunning views.`,
     alternates: {
       canonical: localeUrl,
       languages: {
@@ -21,7 +21,7 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     openGraph: {
       title: t('title'),
-      description: `Gallery of Wyndham Soleil Đà Nẵng`,
+      description: `Gallery of Căn hộ cao cấp Đà Nẵng`,
       url: localeUrl,
       images: [
         {
