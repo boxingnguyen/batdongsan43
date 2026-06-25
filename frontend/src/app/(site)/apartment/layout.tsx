@@ -4,7 +4,7 @@ import { getTranslations, getLocale } from 'next-intl/server';
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
   const t = await getTranslations({ locale, namespace: 'Apartment' });
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://thesoleil.vn'
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://canhocaocapdanang.info'
   const localeUrl = locale === 'vi' ? `${baseUrl}/apartment` : `${baseUrl}/${locale}/apartment`
   
   return {

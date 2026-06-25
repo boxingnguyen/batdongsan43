@@ -33,7 +33,7 @@ const metadata: Metadata = {
   authors: [{ name: SITE_NAME }],
   creator: SITE_NAME,
   publisher: SITE_NAME,
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://thesoleil.vn"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://canhocaocapdanang.info"),
   alternates: {
     canonical: "/",
     languages: {
@@ -80,7 +80,7 @@ export default async function RootLayout({
   // const locale = await getLocale() // <-- This line is no longer needed
   const messages = await getMessages();
   // const t = await getTranslations({ locale, namespace: 'meta' })
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://thesoleil.vn";
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://canhocaocapdanang.info";
 
   // Structured Data (JSON-LD) for SEO
   const structuredData = {
