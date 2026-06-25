@@ -39,7 +39,7 @@ const CAROUSEL_IMAGES = [
 const navLinks = [
   { href: "#chinh-sach", label: "Chính Sách" },
   { href: "#tong-quan", label: "Tổng Quan" },
-  { href: "#can-ho", label: "Căn Hộ" },
+  { href: "#can-ho", label: "Căn Hộ & Sơ Đồ" },
   { href: "#vi-tri", label: "Vị Trí" },
   { href: "#tien-ich", label: "Tiện Ích" },
   { href: "#hinh-anh", label: "Hình Ảnh" },
@@ -278,6 +278,7 @@ function HeroCarousel() {
 
 export default function SLightTowerPage() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedLayout, setSelectedLayout] = useState<string | null>(null);
 
   return (
     <main className="bg-[#f9f9f9]">
@@ -481,64 +482,139 @@ export default function SLightTowerPage() {
         </div>
       </section>
 
-      {/* LOẠI CĂN HỘ */}
+      {/* LOẠI CĂN HỘ & SƠ ĐỒ */}
       <section id="can-ho" className="scroll-mt-16 bg-white pb-20">
         <div className="mx-auto max-w-[1440px] px-5 md:px-20">
           <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#634F3F]/70">
-            Sản Phẩm
+            Sản Phẩm & Thiết Kế
           </p>
           <h2 className="mt-3 font-serif text-3xl text-[#4a3829] md:text-4xl">
-            Các Loại Căn Hộ
+            Các Loại Căn Hộ & Sơ Đồ Chi Tiết
           </h2>
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[#4e453e]/80">
-            Studio và 1 phòng ngủ chiếm ~80% quỹ căn — đảm bảo thanh khoản vượt
-            trội và tỷ lệ lấp đầy cao khi khai thác cho thuê.
+            Studio và 1 phòng ngủ chiếm ~70% quỹ căn với thiết kế tối ưu không gian, đảm bảo thanh khoản vượt trội và tỷ lệ lấp đầy cao khi khai thác cho thuê.
           </p>
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-            {[
-              {
-                type: "Studio",
-                badge: "~80% quỹ căn",
-                desc: "Tối ưu đầu tư cho thuê, thanh khoản cao",
-              },
-              {
-                type: "1 Phòng Ngủ",
-                badge: "~80% quỹ căn",
-                desc: "Lý tưởng cho cặp đôi và chuyên gia",
-              },
-              {
-                type: "2 Phòng Ngủ",
-                badge: "",
-                desc: "Không gian rộng rãi cho gia đình nhỏ",
-              },
-              {
-                type: "3 Phòng Ngủ",
-                badge: "",
-                desc: "Căn hộ gia đình với diện tích thoải mái",
-              },
-              {
-                type: "Penthouse",
-                badge: "Đỉnh cao",
-                desc: "Tầng cao nhất, tầm nhìn toàn cảnh sông - biển - pháo hoa",
-              },
-            ].map((apt) => (
-              <div
-                key={apt.type}
-                className="group rounded-sm border border-[#E8E2D9] p-6 transition-shadow hover:shadow-md"
-              >
-                <p className="font-serif text-xl font-semibold text-[#4a3829] group-hover:text-[#634F3F]">
-                  {apt.type}
-                </p>
-                {apt.badge && (
-                  <span className="mt-2 inline-block rounded-sm bg-[#C8A96E]/15 px-2 py-0.5 text-[11px] font-semibold text-[#8a6a3a]">
-                    {apt.badge}
-                  </span>
-                )}
-                <p className="mt-3 text-sm leading-relaxed text-[#4e453e]/80">
-                  {apt.desc}
-                </p>
-              </div>
-            ))}
+
+          {/* Room Type Cards */}
+          <div className="mt-12">
+            <h3 className="font-serif text-2xl font-semibold text-[#4a3829]">Các Loại Căn Hộ</h3>
+            <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+              {[
+                {
+                  type: "Studio",
+                  size: "33,3 m²",
+                  badge: "~20% quỹ căn",
+                  desc: "1 phòng ngủ · Bếp · Phòng vệ sinh · Ban công",
+                  id: "layout-studio",
+                },
+                {
+                  type: "1BR Plus",
+                  size: "49,3 m²",
+                  badge: "~50% quỹ căn",
+                  desc: "1 phòng ngủ · Phòng khách · Bếp · 1 vệ sinh · Ban công",
+                  id: "layout-1br-plus",
+                },
+                {
+                  type: "2 Phòng Ngủ",
+                  size: "76 m²",
+                  badge: "",
+                  desc: "2 phòng ngủ · Phòng khách · Bếp · 2 vệ sinh",
+                  id: "layout-2br",
+                },
+                {
+                  type: "3 Phòng Ngủ",
+                  size: "95,1 m²",
+                  badge: "",
+                  desc: "3 phòng ngủ · Phòng khách · Bếp · 2 vệ sinh",
+                  id: "layout-3br",
+                },
+              ].map((apt) => (
+                <div
+                  key={apt.type}
+                  onClick={() => {
+                    setSelectedLayout(apt.id);
+                    const element = document.getElementById(apt.id);
+                    element?.scrollIntoView({ behavior: "smooth", block: "start" });
+                  }}
+                  className="group cursor-pointer rounded-sm border border-[#E8E2D9] p-6 transition-all hover:shadow-md hover:border-[#C8A96E] hover:bg-[#f9f9f9]"
+                >
+                  <p className="font-serif text-xl font-semibold text-[#4a3829] group-hover:text-[#C8A96E]">
+                    {apt.type}
+                  </p>
+                  <p className="text-sm font-semibold text-[#C8A96E]">{apt.size}</p>
+                  {apt.badge && (
+                    <span className="mt-2 inline-block rounded-sm bg-[#C8A96E]/15 px-2 py-0.5 text-[11px] font-semibold text-[#8a6a3a]">
+                      {apt.badge}
+                    </span>
+                  )}
+                  <p className="mt-3 text-sm leading-relaxed text-[#4e453e]/80">
+                    {apt.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Floor Plans */}
+          <div className="mt-12">
+            <h3 className="font-serif text-2xl font-semibold text-[#4a3829]">Sơ Đồ Căn Hộ Chi Tiết</h3>
+            <div className="mt-6 grid gap-6 sm:grid-cols-2">
+              {[
+                {
+                  name: "Studio\n33.3 m²",
+                  image: "/images/slight_images/layout/s-light-tower-layout-studio-33m2.jpg",
+                  id: "layout-studio",
+                },
+                {
+                  name: "1BR Plus\n49.3 m²",
+                  image: "/images/slight_images/layout/s-light-tower-layout-1br-plus-49m2.jpg",
+                  id: "layout-1br-plus",
+                },
+                {
+                  name: "2 Phòng Ngủ\n76 m²",
+                  image: "/images/slight_images/layout/s-light-tower-layout-2br-76m2.jpg",
+                  id: "layout-2br",
+                },
+                {
+                  name: "3 Phòng Ngủ\n95.1 m²",
+                  image: "/images/slight_images/layout/s-light-tower-layout-3br-95m2.jpg",
+                  id: "layout-3br",
+                },
+              ].map((layout) => (
+                <div
+                  key={layout.id}
+                  id={layout.id}
+                  className={`group relative cursor-pointer overflow-hidden rounded-sm border-2 transition-all ${
+                    selectedLayout === layout.id
+                      ? "border-[#C8A96E] shadow-lg"
+                      : "border-[#E8E2D9] hover:shadow-lg"
+                  }`}
+                  onClick={() => {
+                    setSelectedLayout(layout.id);
+                    setSelectedImage(layout.image);
+                  }}
+                >
+                  <div className="relative aspect-[3/4] overflow-hidden bg-[#E8E2D9]">
+                    <Image
+                      src={layout.image}
+                      alt={layout.name}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      sizes="(max-width: 640px) 100vw, 50vw"
+                    />
+                    {/* Overlay Background */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent transition-opacity duration-300 group-hover:from-black/80 group-hover:via-black/40" />
+
+                    {/* Text Overlay */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <p className="text-center text-xl font-bold text-white drop-shadow-lg whitespace-pre-line">
+                        {layout.name}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
