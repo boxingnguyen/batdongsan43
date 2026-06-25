@@ -315,6 +315,83 @@ export default function SLightTowerPage() {
         </div>
       </section>
 
+      {/* CHÍNH SÁCH */}
+      <section className="scroll-mt-16 bg-gradient-to-b from-[#4a3829] to-[#3a2f28] pb-20 text-white">
+        <div className="mx-auto max-w-[1440px] px-5 md:px-20">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#C8A96E]/70">
+            Chính Sách Mở Bán
+          </p>
+          <h2 className="mt-3 font-serif text-3xl text-white md:text-4xl">
+            Sun Early Key — Cơ Hội Vàng
+          </h2>
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/80">
+            Chính sách ưu tiên độc quyền dành cho khách hàng đăng ký sớm. Thanh toán linh hoạt, hỗ trợ lãi suất và các ưu đãi tối ưu.
+          </p>
+
+          <div className="mt-10 grid gap-6 lg:grid-cols-2">
+            {/* Image 1 */}
+            <div className="group relative aspect-[3/4] overflow-hidden rounded-lg bg-white/10 shadow-lg">
+              <Image
+                src="/images/slight_images/z7972307294196_01fc7b9ca16e0b74a674a2aec2829ef3.jpg"
+                alt="Giá Rumor Tầng 15 - S-Light Tower"
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
+
+            {/* Image 2 */}
+            <div className="group relative aspect-[3/4] overflow-hidden rounded-lg bg-white/10 shadow-lg">
+              <Image
+                src="/images/slight_images/z7972307303333_f4521bf0d8b295fc7298f1d994af4314.jpg"
+                alt="Chính Sách Sun Early Key - S-Light Tower"
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
+          </div>
+
+          {/* Key Benefits */}
+          <div className="mt-12 grid gap-4 sm:grid-cols-3">
+            {[
+              {
+                label: "Thanh Toán",
+                value: "70%",
+                desc: "nhận nhà",
+              },
+              {
+                label: "Hỗ Trợ Lãi Suất",
+                value: "24",
+                desc: "tháng",
+              },
+              {
+                label: "Trì Tiền Đỗ",
+                value: "48",
+                desc: "tháng",
+              },
+            ].map((benefit) => (
+              <div
+                key={benefit.label}
+                className="rounded-lg border border-[#C8A96E]/30 bg-white/5 p-6 text-center backdrop-blur-sm"
+              >
+                <p className="text-xs font-semibold uppercase tracking-wide text-[#C8A96E]/70">
+                  {benefit.label}
+                </p>
+                <p className="mt-3 font-serif text-3xl font-bold text-[#C8A96E]">
+                  {benefit.value}
+                </p>
+                <p className="mt-1 text-sm text-white/70">{benefit.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <p className="mt-8 text-xs text-white/50">
+            * Giá dự tính từ 2.4 tỷ. Đã bao gồm VAT + KBBT. Chi tiết tại trang thông tin dự án.
+          </p>
+        </div>
+      </section>
+
       {/* TỔNG QUAN */}
       <section id="tong-quan" className="scroll-mt-16 pb-20">
         <div className="mx-auto max-w-[1440px] px-5 md:px-20">

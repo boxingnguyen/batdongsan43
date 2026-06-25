@@ -171,7 +171,7 @@ export default function FakeSocialProof() {
             }
           />
         ),
-        { id: "viewing-toast", position: "bottom-left", duration: 30000 }
+        { id: "viewing-toast", position: "bottom-left", duration: 5000 }
       );
       registerToastId(id);
     };
@@ -205,7 +205,7 @@ export default function FakeSocialProof() {
             timeText={isEn ? "Today's activity" : "Hoạt động hôm nay"}
           />
         ),
-        { id: "submissions-toast", position: "bottom-left", duration: 30000 }
+        { id: "submissions-toast", position: "bottom-left", duration: 5000 }
       );
       registerToastId(id);
     };
@@ -273,26 +273,26 @@ export default function FakeSocialProof() {
             timeText={timeText}
           />
         ),
-        { position: "bottom-left", duration: 30000 }
+        { position: "bottom-left", duration: 5000 }
       );
       registerToastId(id);
     };
 
     // --- TIMING CYCLE TRIGGER ---
-    // First Toast: Active viewers count at 4s
+    // First Toast: Active viewers count at 8s
     const timer1 = setTimeout(() => {
       showViewingToast();
-    }, 4000);
+    }, 8000);
 
-    // Second Toast: Today's lead submission count at 12s
+    // Second Toast: Today's lead submission count at 30s
     const timer2 = setTimeout(() => {
       showTodaySubmissionsToast();
-    }, 12000);
+    }, 30000);
 
-    // Third Toast & Loop: Individual submissions starting at 20s, repeated every 18s
+    // Third Toast & Loop: Individual submissions starting at 50s, repeated every 120s (2 minutes)
     const timer3 = setTimeout(() => {
       showRandomLeadToast();
-      
+
       const interval = setInterval(() => {
         const r = Math.random();
         if (r < 0.25) {
@@ -302,7 +302,7 @@ export default function FakeSocialProof() {
         } else {
           showRandomLeadToast();
         }
-      }, 18000);
+      }, 120000);
 
       return () => clearInterval(interval);
     }, 20000);
