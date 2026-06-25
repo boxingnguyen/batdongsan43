@@ -2,6 +2,10 @@
   "home": "Trang chủ",
   "projects": "Dự án",
   "properties": "Bất động sản",
+  "meta": {
+    "title": "Ethereal Estate – Bất Động Sản Cao Cấp Đà Nẵng",
+    "description": "Khám phá các dự án bất động sản đẳng cấp tại Đà Nẵng: S-Light Tower, Sun FourS Tower, The Legend và Symphony Residence. Sở hữu lâu dài, mở bán đợt 1."
+  },
   "contact": {
     "title": "Liên Hệ Với Chúng Tôi",
     "form": {
@@ -10,6 +14,11 @@
       "phone": "Số Điện Thoại",
       "message": "Tin Nhắn",
       "submit": "Gửi"
+    },
+    "errors": {
+      "nameRequired": "Vui lòng nhập họ và tên",
+      "emailInvalid": "Email không hợp lệ",
+      "phoneRequired": "Vui lòng nhập số điện thoại"
     }
   }
 }

@@ -9,106 +9,42 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, getLocale } from "next-intl/server";
 import Toaster from "@/components/Toaster";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
-import Image from "next/image"; // <-- 1. IMPORT IMAGE
-import { ReactNode } from "react"; // <-- 2. IMPORT REACTNODE
+import Image from "next/image";
+import { ReactNode } from "react";
+import { SITE_NAME } from "@/config/site";
 
 const font = Montserrat({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800"],
 });
 
-// 3. FIX METADATA FUNCTION (Must accept params)
-// export async function generateMetadata({
-//   params
-// }: {
-//   params?: Promise<{ locale?: string }>
-// }): Promise<Metadata> {
-//   // Get locale from params if available, otherwise use getLocale()
-//   const paramsData = params ? await params : null;
-//   const localeFromParams = paramsData?.locale;
-//   const resolvedLocale = localeFromParams || await getLocale() || 'vi';
-//   // Ensure locale is always 'vi' or 'en'
-//   const locale = (resolvedLocale === 'en' || resolvedLocale === 'vi') ? resolvedLocale : 'vi';
+// 3. METADATA - Static root metadata
+const metadata: Metadata = {
+  title: "Ethereal Estate – Bất Động Sản Cao Cấp Đà Nẵng",
+  description: "Khám phá các dự án bất động sản đẳng cấp tại Đà Nẵng: S-Light Tower, Sun FourS Tower, The Legend và Symphony Residence. Sở hữu lâu dài, mở bán đợt 1.",
+  keywords: [
+    "bất động sản Đà Nẵng",
+    "căn hộ Đà Nẵng",
+    "chung cư cao cấp Đà Nẵng",
+    "đầu tư bất động sản",
+    "căn hộ ven sông",
+    "căn hộ biển Đà Nẵng",
+  ],
+  authors: [{ name: SITE_NAME }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+};
 
-//   const t = await getTranslations({ locale, namespace: 'meta' })
-//   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://thesoleil.vn'
-//   const siteName = 'The Soleil Đà Nẵng'
-//   const title = t('title')
-//   const description = t('description')
-//   const localeUrl = locale === 'vi' ? baseUrl : `${baseUrl}/${locale}`
+export { metadata };
 
-//   return {
-//     title: {
-//       default: title,
-//       template: `%s | ${siteName}`
-//     },
-//     description,
-//     keywords: [
-//       'Wyndham Soleil Đà Nẵng',
-//       'căn hộ Đà Nẵng',
-//       'chung cư cao cấp Đà Nẵng',
-//       'bất động sản Đà Nẵng',
-//       'căn hộ ven biển',
-//       'Wyndham Hotel',
-//       'Da Nang apartments',
-//       'luxury apartments Da Nang',
-//       'real estate Da Nang'
-//     ],
-//     authors: [{ name: 'PPC An Thịnh Đà Nẵng' }],
-//     creator: 'PPC An Thịnh Đà Nẵng',
-//     publisher: 'PPC An Thịnh Đà Nẵng',
-//     metadataBase: new URL(baseUrl),
-//     alternates: {
-//       // Don't set canonical here - let each page set its own canonical URL
-//       // canonical: localeUrl,
-//       languages: {
-//         'vi': baseUrl,
-//         'en': `${baseUrl}/en`,
-//         'x-default': baseUrl,
-//         [locale]: localeUrl // Self-referential alternate link (locale is guaranteed to be 'vi' or 'en')
-//       }
-//     },
-//     openGraph: {
-//       type: 'website',
-//       locale: locale === 'vi' ? 'vi_VN' : 'en_US',
-//       url: localeUrl,
-//       siteName,
-//       title,
-//       description,
-//       images: [
-//         {
-//           url: `${baseUrl}/images/home/cover-image.jpg`,
-//           width: 1200,
-//           height: 630,
-//           alt: title,
-//         },
-//       ],
-//     },
-//     twitter: {
-//       card: 'summary_large_image',
-//       title,
-//       description,
-//       images: [`${baseUrl}/images/home/cover-image.jpg`],
-//     },
-//     robots: {
-//       index: true,
-//       follow: true,
-//       googleBot: {
-//         index: true,
-//         follow: true,
-//         'max-video-preview': -1,
-//         'max-image-preview': 'large',
-//         'max-snippet': -1,
-//       },
-//     },
-//     verification: {
-//       // Add your verification codes here when available
-//       // google: 'your-google-verification-code',
-//       // yandex: 'your-yandex-verification-code',
-//       // yahoo: 'your-yahoo-verification-code',
-//     },
-//   }
-// }
 
 // 4. FIX ROOTLAYOUT FUNCTION (Must accept params)
 export default async function RootLayout({

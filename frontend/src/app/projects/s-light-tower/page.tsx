@@ -251,7 +251,7 @@ function HeroCarousel() {
           Sun Property · Sun NeO City
         </p>
         <h1 className="font-serif text-4xl font-bold text-white md:text-6xl lg:text-7xl">
-          S-LIGHT TOWER
+          S-Light Tower Đà Nẵng – Căn Hộ View Sông Hàn 270°
         </h1>
         <p className="mt-3 text-lg font-medium text-white/90 md:text-2xl">
           Tháp đôi biểu tượng — Cửa ngõ Nam Đà Nẵng

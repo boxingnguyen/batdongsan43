@@ -43,8 +43,9 @@ export function FooterRegisterForm() {
       setTimeout(() => {
         setSuccess(false);
       }, 5000);
-    } catch (err: any) {
-      setError(err.message || "Có lỗi xảy ra, vui lòng thử lại sau.");
+    } catch (err) {
+      const errorMessage = err instanceof Error ? err.message : "Có lỗi xảy ra, vui lòng thử lại sau.";
+      setError(errorMessage);
     } finally {
       setLoading(false);
     }
