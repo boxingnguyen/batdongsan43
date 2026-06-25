@@ -8,6 +8,7 @@ import NextTopLoader from "nextjs-toploader";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, getLocale } from "next-intl/server";
 import Toaster from "@/components/Toaster";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 import Image from "next/image"; // <-- 1. IMPORT IMAGE
 import { ReactNode } from "react"; // <-- 2. IMPORT REACTNODE
 
@@ -208,6 +209,7 @@ export default async function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
+        <GoogleAnalytics />
       </head>
       <body
         className={`${font.className} bg-white dark:bg-black antialiased relative`}
