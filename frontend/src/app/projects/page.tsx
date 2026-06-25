@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { projects } from "@/data/projects";
+import { SITE_URL } from "@/config/site";
 
 export const metadata = {
   title: "Projects",
@@ -28,7 +29,7 @@ export default function ProjectsPage() {
           return (
             <Link
               key={project.id}
-              href={isSoleil ? "https://thesoleil.vn/" : `/projects/${project.slug}`}
+              href={isSoleil ? `${SITE_URL}/` : `/projects/${project.slug}`}
               target={isSoleil ? "_blank" : undefined}
               rel={isSoleil ? "noopener noreferrer" : undefined}
               className="group flex flex-col overflow-hidden rounded-[4px] bg-white shadow-sm transition-shadow hover:shadow-md"
