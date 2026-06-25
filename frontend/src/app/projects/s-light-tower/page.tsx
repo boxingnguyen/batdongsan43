@@ -22,6 +22,10 @@ import { SITE_NAME } from "@/config/site";
 import { ProjectScrollPopup } from "@/components/projects/ProjectScrollPopup";
 
 const CAROUSEL_IMAGES = [
+  "/images/slight_images/s-light-tower-toa-nha-doi-phao-hoa-dem.jpg",
+  "/images/slight_images/s-light-tower-toa-nha-doi-ban-ngay.jpg",
+  "/images/slight_images/s-light-tower-phong-ngu-view-song-han.jpg",
+  "/images/slight_images/s-light-tower-ban-cong-phao-hoa-diff.jpg",
   "/images/slight_images/slight4.jpg",
   "/images/slight_images/slight6.jpg",
   "/images/slight_images/slight7.jpg",
