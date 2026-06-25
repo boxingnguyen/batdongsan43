@@ -90,11 +90,16 @@ export function EtherealHomeClient() {
 
         {/* Content */}
         <div className="relative z-30 w-full max-w-4xl px-5 md:px-0 text-center text-white">
-          <h1 className="font-serif text-[40px] md:text-[64px] font-normal leading-[48px] md:leading-[72px] tracking-[-0.01em] md:tracking-[-0.02em] mb-8 drop-shadow-lg">
-            Tìm Nơi Trú Ngụ Của Bạn
+          <h1
+            className="text-[40px] md:text-[64px] font-light leading-[48px] md:leading-[72px] tracking-[0.05em] md:tracking-[0.08em] mb-8 drop-shadow-xl"
+            style={{ fontFamily: 'EB Garamond, serif', letterSpacing: '0.05em' }}
+          >
+            Căn hộ tinh túy nâng tầm trải nghiệm.
           </h1>
-          <p className="font-hanken text-[18px] font-normal leading-[28px] opacity-90 max-w-2xl mx-auto drop-shadow-md">
-            Tuyển chọn những kiệt tác kiến trúc xuất sắc nhất trên thế giới.
+          <p className="font-hanken text-[18px] font-light leading-[28px] opacity-95 max-w-2xl mx-auto drop-shadow-md tracking-wide">
+            Thức dậy với bình minh tráng lệ trên biển Mỹ Khê, tối về ngắm hoàng
+            hôn cùng pháo hoa bên sông Hàn rực rỡ. Biến ban công của bạn thành
+            tầm view triệu $ độc bản giữa lòng Đà Nẵng.
           </p>
         </div>
 
@@ -158,11 +163,7 @@ export function EtherealHomeClient() {
               return (
                 <Link
                   key={project.id}
-                  href={
-                    isSoleil
-                      ? `${SITE_URL}/`
-                      : `/projects/${project.slug}`
-                  }
+                  href={isSoleil ? `${SITE_URL}/` : `/projects/${project.slug}`}
                   target={isSoleil ? "_blank" : undefined}
                   rel={isSoleil ? "noopener noreferrer" : undefined}
                   className="group flex flex-col overflow-hidden rounded-[4px] bg-white shadow-sm transition-shadow hover:shadow-md"
@@ -248,8 +249,8 @@ export function EtherealHomeClient() {
                     Tuyệt Đối Bảo Mật
                   </h4>
                   <p className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e]">
-                    Xem nhà riêng tư và đàm phán bảo mật là tiêu chuẩn của
-                    chúng tôi.
+                    Xem nhà riêng tư và đàm phán bảo mật là tiêu chuẩn của chúng
+                    tôi.
                   </p>
                 </div>
               </div>
@@ -263,7 +264,6 @@ export function EtherealHomeClient() {
           </div>
         </div>
       </section>
-
     </div>
   );
 }
