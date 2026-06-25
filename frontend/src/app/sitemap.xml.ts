@@ -2,23 +2,6 @@ import { NextResponse } from 'next/server'
 
 const baseUrl = 'https://canhocaocapdanang.info'
 
-function buildUrl(loc: string, alternates?: { vi?: string; en?: string }, lastmod?: string, changefreq?: string, priority?: string) {
-  let xml = '  <url>\n'
-  xml += `    <loc>${loc}</loc>\n`
-
-  if (alternates) {
-    if (alternates.vi) xml += `    <xhtml:link rel="alternate" hreflang="vi" href="${alternates.vi}" />\n`
-    if (alternates.en) xml += `    <xhtml:link rel="alternate" hreflang="en" href="${alternates.en}" />\n`
-  }
-
-  if (lastmod) xml += `    <lastmod>${lastmod}</lastmod>\n`
-  if (changefreq) xml += `    <changefreq>${changefreq}</changefreq>\n`
-  if (priority) xml += `    <priority>${priority}</priority>\n`
-
-  xml += '  </url>\n'
-  return xml
-}
-
 export async function GET() {
   const pages = [
     '',
@@ -33,7 +16,11 @@ export async function GET() {
   ]
 
   const currentDate = new Date().toISOString()
-  let xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n`
+
+  // Build XML string with proper formatting
+  let xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+`
 
   // Vietnamese pages
   pages.forEach((page) => {
@@ -41,16 +28,15 @@ export async function GET() {
     const changeFreq = page === 'news' ? 'daily' : page === '' ? 'weekly' : 'monthly'
     const priority = page === '' ? '1.0' : page === 'introduction' ? '0.9' : '0.8'
 
-    xml += buildUrl(
-      url,
-      {
-        vi: url,
-        en: `${baseUrl}/en/${page}`,
-      },
-      currentDate,
-      changeFreq,
-      priority
-    )
+    xml += `  <url>
+    <loc>${url}</loc>
+    <xhtml:link rel="alternate" hreflang="vi" href="${url}" />
+    <xhtml:link rel="alternate" hreflang="en" href="${baseUrl}/en/${page}" />
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>${changeFreq}</changefreq>
+    <priority>${priority}</priority>
+  </url>
+`
   })
 
   // English pages
@@ -59,16 +45,15 @@ export async function GET() {
     const changeFreq = page === 'news' ? 'daily' : page === '' ? 'weekly' : 'monthly'
     const priority = page === '' ? '1.0' : page === 'introduction' ? '0.9' : '0.8'
 
-    xml += buildUrl(
-      url,
-      {
-        vi: `${baseUrl}/${page}`,
-        en: url,
-      },
-      currentDate,
-      changeFreq,
-      priority
-    )
+    xml += `  <url>
+    <loc>${url}</loc>
+    <xhtml:link rel="alternate" hreflang="vi" href="${baseUrl}/${page}" />
+    <xhtml:link rel="alternate" hreflang="en" href="${url}" />
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>${changeFreq}</changefreq>
+    <priority>${priority}</priority>
+  </url>
+`
   })
 
   // Project pages
@@ -81,7 +66,13 @@ export async function GET() {
 
   projects.forEach(({ slug, priority }) => {
     const url = `${baseUrl}/projects/${slug}`
-    xml += buildUrl(url, undefined, currentDate, 'weekly', priority)
+    xml += `  <url>
+    <loc>${url}</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>${priority}</priority>
+  </url>
+`
   })
 
   xml += '</urlset>'
@@ -89,7 +80,7 @@ export async function GET() {
   return new NextResponse(xml, {
     headers: {
       'Content-Type': 'application/xml; charset=utf-8',
-      'Cache-Control': 'public, max-age=0, s-maxage=0, must-revalidate',
+      'Cache-Control': 'no-cache, no-store, must-revalidate',
     },
   })
 }
