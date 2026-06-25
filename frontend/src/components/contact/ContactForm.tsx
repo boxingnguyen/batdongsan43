@@ -28,6 +28,13 @@ export function ContactForm() {
     setLoading(true);
     setError("");
 
+    // Validate: either phone or email is required
+    if (!formData.email && !formData.phone) {
+      setError("Vui lòng nhập email hoặc số điện thoại");
+      setLoading(false);
+      return;
+    }
+
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
@@ -85,14 +92,13 @@ export function ContactForm() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-1">
           <label className="text-xs uppercase tracking-[0.2em] text-[#4e453e] dark:text-[#d2c4bb]">
-            Email *
+            Email
           </label>
           <input
             type="email"
             name="email"
             value={formData.email}
             onChange={handleChange}
-            required
             placeholder="email@example.com"
             className="w-full border-b border-[#8C7B6E] dark:border-[#d2c4bb]/50 bg-[#e5e2dd]/30 dark:bg-[#2a2a2a]/50 p-3 outline-none transition-all focus:border-[#4a3829] dark:focus:border-[#faddc8] text-[#4a3829] dark:text-[#faddc8] placeholder:text-[#8C7B6E] dark:placeholder:text-[#b0a497]"
           />

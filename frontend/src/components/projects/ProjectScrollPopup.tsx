@@ -9,7 +9,8 @@ interface Props {
   scrollThreshold?: number;
 }
 
-const SESSION_KEY = "project_popup_dismissed";
+const SESSION_KEY = "project_popup_last_shown";
+const SHOW_INTERVAL = 60000; // 1 minute in milliseconds
 
 export function ProjectScrollPopup({
   projectName,
@@ -19,11 +20,19 @@ export function ProjectScrollPopup({
   const [visible, setVisible] = useState(false);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
 
   useEffect(() => {
-    if (sessionStorage.getItem(SESSION_KEY)) return;
+    const lastShown = sessionStorage.getItem(SESSION_KEY);
+    const now = Date.now();
+
+    // Check if we should show based on time interval
+    if (lastShown && now - parseInt(lastShown) < SHOW_INTERVAL) {
+      return;
+    }
 
     let triggered = false;
     const onScroll = () => {
@@ -39,22 +48,35 @@ export function ProjectScrollPopup({
 
   const dismiss = useCallback(() => {
     setVisible(false);
-    sessionStorage.setItem(SESSION_KEY, "1");
+    sessionStorage.setItem(SESSION_KEY, Date.now().toString());
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError("");
+
+    // Validate: either phone or email is required
+    if (!phone && !email) {
+      setError("Vui lòng nhập số điện thoại hoặc email");
+      return;
+    }
+
     setLoading(true);
     try {
       await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, phone, project: projectName }),
+        body: JSON.stringify({
+          name,
+          phone: phone || "",
+          email: email || "",
+          project: projectName,
+        }),
       });
       setSubmitted(true);
       setTimeout(dismiss, 2500);
     } catch {
-      // silent
+      setError("Đã xảy ra lỗi. Vui lòng thử lại.");
     } finally {
       setLoading(false);
     }
@@ -119,13 +141,23 @@ export function ProjectScrollPopup({
                 />
                 <input
                   type="tel"
-                  required
                   placeholder="Số điện thoại"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   className="w-full rounded-sm border border-white/15 bg-white/8 px-4 py-3 text-sm text-white placeholder:text-white/35 focus:border-white/40 focus:outline-none"
                   style={{ backgroundColor: "rgba(255,255,255,0.05)" }}
                 />
+                <input
+                  type="email"
+                  placeholder="Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full rounded-sm border border-white/15 bg-white/8 px-4 py-3 text-sm text-white placeholder:text-white/35 focus:border-white/40 focus:outline-none"
+                  style={{ backgroundColor: "rgba(255,255,255,0.05)" }}
+                />
+                {error && (
+                  <p className="text-xs text-red-400">{error}</p>
+                )}
                 <button
                   type="submit"
                   disabled={loading}

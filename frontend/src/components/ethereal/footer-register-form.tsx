@@ -10,7 +10,10 @@ export function FooterRegisterForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.phone) return;
+    if (!formData.name || (!formData.phone && !formData.email)) {
+      setError("Vui lòng nhập số điện thoại hoặc email");
+      return;
+    }
 
     setLoading(true);
     setError("");
@@ -68,15 +71,14 @@ export function FooterRegisterForm() {
         />
         <input
           className="w-full bg-[#f9f9f9] border border-[#d2c4bb]/30 px-4 py-3 text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken focus:ring-1 focus:ring-[#4a3829] focus:border-[#4a3829] outline-none transition-all"
-          placeholder="Số điện thoại *"
+          placeholder="Số điện thoại"
           type="tel"
-          required
           value={formData.phone}
           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
         />
         <input
           className="w-full bg-[#f9f9f9] border border-[#d2c4bb]/30 px-4 py-3 text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken focus:ring-1 focus:ring-[#4a3829] focus:border-[#4a3829] outline-none transition-all"
-          placeholder="Email (Không bắt buộc)"
+          placeholder="Email"
           type="email"
           value={formData.email}
           onChange={(e) => setFormData({ ...formData, email: e.target.value })}

@@ -16,13 +16,6 @@ import {
   Train,
   TramFront,
   Mountain,
-  Dumbbell,
-  ShoppingBag,
-  FerrisWheel,
-  Gamepad2,
-  BookOpen,
-  Lock,
-  SquareParking,
 } from "lucide-react";
 import { HideSiteHeader } from "@/components/projects/HideSiteHeader";
 import { SITE_NAME } from "@/config/site";
@@ -637,60 +630,58 @@ export default function SLightTowerPage() {
             sức khỏe toàn diện tầng 2, S-Light Tower kiến tạo hệ sinh thái sống
             khép kín cho cư dân tinh hoa.
           </p>
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {[
               {
-                icon: Waves,
                 title: "Hồ Bơi",
                 desc: "Không gian bơi lội thư giãn tại tầng 2, view mở thoáng đãng",
+                image: "/images/home/cover-pool.png",
               },
               {
-                icon: Dumbbell,
                 title: "Gym · Spa",
                 desc: "Khu thể thao và chăm sóc sức khỏe tiêu chuẩn cao cấp",
+                image: "/images/home/cover-gym.jpg",
               },
               {
-                icon: ShoppingBag,
                 title: "Shophouse",
                 desc: "Tầng trệt sôi động, đáp ứng toàn bộ nhu cầu mua sắm thường nhật",
+                image: "/images/home/cover-shopping.jpg",
               },
               {
-                icon: FerrisWheel,
                 title: "Kids Club",
                 desc: "Khu vui chơi trẻ em an toàn, sáng tạo và hiện đại",
+                image: "/images/home/cover-kid-club.jpg",
               },
               {
-                icon: Gamepad2,
-                title: "Family Game Lounge",
-                desc: "Không gian giải trí gia đình đa thế hệ",
+                title: "Nhà Hàng",
+                desc: "Không gian ẩm thực đa dạng với đẳng cấp quốc tế",
+                image: "/images/home/cover-restaurant.png",
               },
               {
-                icon: BookOpen,
-                title: "Thư Viện",
-                desc: "Môi trường workcation lý tưởng cho tầng lớp trí thức",
-              },
-              {
-                icon: Lock,
-                title: "An Ninh 24/7",
-                desc: "Hệ thống bảo mật hiện đại, quản lý chuyên nghiệp",
-              },
-              {
-                icon: SquareParking,
-                title: "3 Tầng Hầm",
-                desc: "Bãi đỗ xe rộng rãi, đáp ứng toàn bộ cư dân",
+                title: "Quản Lý & An Ninh",
+                desc: "Hệ thống bảo mật hiện đại, quản lý chuyên nghiệp 24/7",
+                image: "/images/home/cover-manage.jpg",
               },
             ].map((amenity) => (
               <div
                 key={amenity.title}
-                className="rounded-sm border border-white/10 bg-white/5 p-5 transition-colors hover:bg-white/10 group"
+                className="group relative overflow-hidden rounded-lg border border-white/10 bg-white/5 transition-all hover:shadow-lg"
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#C8A96E]/20 text-[#C8A96E] transition-colors group-hover:bg-[#C8A96E] group-hover:text-[#0d1520]">
-                  <amenity.icon className="h-6 w-6" />
+                <div className="relative h-48 overflow-hidden">
+                  <Image
+                    src={amenity.image}
+                    alt={amenity.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                 </div>
-                <p className="mt-4 font-semibold text-white">{amenity.title}</p>
-                <p className="mt-2 text-sm leading-relaxed text-white/70">
-                  {amenity.desc}
-                </p>
+                <div className="relative p-5">
+                  <p className="font-semibold text-white">{amenity.title}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-white/70">
+                    {amenity.desc}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
