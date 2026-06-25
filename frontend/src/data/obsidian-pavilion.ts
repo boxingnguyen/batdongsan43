@@ -4,7 +4,7 @@ export const WYNDHAM_SOLEIL_DANANG_SLUG = "wyndham-soleil-danang";
 
 export const wyndhamsoleildanang: PropertyDetailContent = {
   slug: WYNDHAM_SOLEIL_DANANG_SLUG,
-  title: "Wyndham Soleil Đà Nẵng",
+  title: "Căn hộ cao cấp Đà Nẵng",
   price: 8500000,
   monthlyEstimate: "$45,000/mo",
   beds: "4 Beds",
@@ -13,7 +13,7 @@ export const wyndhamsoleildanang: PropertyDetailContent = {
   location: "Đà Nẵng, Việt Nam",
   badge: "Luxury Resort Collection",
   description: [
-    "Wyndham Soleil Đà Nẵng is a premier beachfront resort destination that combines world-class hospitality with stunning natural beauty. This exclusive property features modern Vietnamese architecture blended with contemporary luxury, offering guests an unforgettable experience.",
+    "Căn hộ cao cấp Đà Nẵng is a premier beachfront resort destination that combines world-class hospitality with stunning natural beauty. This exclusive property features modern Vietnamese architecture blended with contemporary luxury, offering guests an unforgettable experience.",
     "Located on pristine Mỹ Khê Beach, the resort provides breathtaking ocean views, direct beach access, and exceptional service. The property features spacious suites, fine dining restaurants, a championship-level spa, and comprehensive recreational facilities.",
   ],
   amenities: [

@@ -9,7 +9,7 @@ export async function generateMetadata(): Promise<Metadata> {
   
   return {
     title: t('title'),
-    description: `Contact Wyndham Soleil Đà Nẵng. Hotline: ${t('info.hotline1_value')}, ${t('info.hotline2_value')}. Email: ${t('info.email_value')}. Address: ${t('info.address_value')}`,
+    description: `Contact Căn hộ cao cấp Đà Nẵng. Hotline: ${t('info.hotline1_value')}, ${t('info.hotline2_value')}. Email: ${t('info.email_value')}. Address: ${t('info.address_value')}`,
     alternates: {
       canonical: localeUrl,
       languages: {
@@ -21,7 +21,7 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     openGraph: {
       title: t('title'),
-      description: `Contact Wyndham Soleil Đà Nẵng for inquiries about luxury apartments`,
+      description: `Contact Căn hộ cao cấp Đà Nẵng for inquiries about luxury apartments`,
       url: localeUrl,
       images: [
         {

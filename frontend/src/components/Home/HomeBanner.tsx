@@ -56,7 +56,7 @@ const HomeBanner = () => {
   return (
     <div className="w-full h-[600px] lg:h-screen relative">
       {/* H1 Tag for SEO - Screen reader accessible */}
-      <h1 className="sr-only">The Soleil Đà Nẵng - Wyndham Soleil Đà Nẵng</h1>
+      <h1 className="sr-only">Dự án bất động sản Đà Nẵng - Căn hộ cao cấp Đà Nẵng</h1>
       
       {/* Background for mobile */}
       <div

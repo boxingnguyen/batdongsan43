@@ -9,7 +9,7 @@ export async function generateMetadata(): Promise<Metadata> {
   
   return {
     title: t('hero_title'),
-    description: `Explore luxury apartments at Wyndham Soleil Đà Nẵng. ${t('content_5_23_desc')} ${t('content_27_45_desc')} ${t('content_47_48_desc')}`,
+    description: `Explore luxury apartments at Căn hộ cao cấp Đà Nẵng. ${t('content_5_23_desc')} ${t('content_27_45_desc')} ${t('content_47_48_desc')}`,
     alternates: {
       canonical: localeUrl,
       languages: {
@@ -21,7 +21,7 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     openGraph: {
       title: t('hero_title'),
-      description: `Explore luxury apartments at Wyndham Soleil Đà Nẵng`,
+      description: `Explore luxury apartments at Căn hộ cao cấp Đà Nẵng`,
       url: localeUrl,
       images: [
         {

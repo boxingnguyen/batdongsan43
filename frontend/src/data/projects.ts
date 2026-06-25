@@ -47,10 +47,10 @@ export const projects: Project[] = [
   {
     id: "wyndham-soleil-danang",
     slug: "wyndham-soleil-danang",
-    title: "Wyndham Soleil Đà Nẵng",
+    title: "Căn hộ cao cấp Đà Nẵng",
     location: "Đà Nẵng, Việt Nam",
     description:
-      "The Soleil Đà Nẵng – biểu tượng sống và đầu tư bên bờ biển Mỹ Khê, sở hữu vị trí kim cương 4 mặt tiền hiếm có. Tổ hợp căn hộ khách sạn hạng sang với hệ tiện ích chuẩn 5 sao và vận hành quốc tế. Kiệt tác dành cho những chủ nhân tìm kiếm giá trị nghỉ dưỡng, dòng tiền và tiềm năng gia tăng tài sản.",
+      "Dự án bất động sản Đà Nẵng – biểu tượng sống và đầu tư bên bờ biển Mỹ Khê, sở hữu vị trí kim cương 4 mặt tiền hiếm có. Tổ hợp căn hộ khách sạn hạng sang với hệ tiện ích chuẩn 5 sao và vận hành quốc tế. Kiệt tác dành cho những chủ nhân tìm kiếm giá trị nghỉ dưỡng, dòng tiền và tiềm năng gia tăng tài sản.",
     image: "/images/home/banner-1.jpg",
     imageAlt: "Wyndham Soleil Danang beachfront",
     status: "Đang mở bán",

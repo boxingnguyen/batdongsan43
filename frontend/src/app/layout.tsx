@@ -86,8 +86,7 @@ export default async function RootLayout({
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "ResidentialComplex",
-    name: "The Soleil Đà Nẵng",
-    alternateName: "Wyndham Soleil Đà Nẵng",
+    name: SITE_NAME,
     description: "Khám phá các dự án bất động sản đẳng cấp tại Đà Nẵng",
     url: baseUrl,
     address: {
@@ -143,7 +142,7 @@ export default async function RootLayout({
     ],
     image: `${baseUrl}/images/home/cover-image.jpg`,
     telephone: "+84345747138",
-    email: "Thesoleildanangofficial@gmail.com",
+    email: "contact@canhocaocapdanang.info",
   };
 
   return (

@@ -9,7 +9,7 @@ export async function generateMetadata(): Promise<Metadata> {
   
   return {
     title: t('hero_title'),
-    description: `Latest news and updates about Wyndham Soleil Đà Nẵng - luxury apartments, project progress, and real estate insights in Da Nang.`,
+    description: `Latest news and updates about Căn hộ cao cấp Đà Nẵng - luxury apartments, project progress, and real estate insights in Da Nang.`,
     alternates: {
       canonical: localeUrl,
       languages: {
@@ -21,7 +21,7 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     openGraph: {
       title: t('hero_title'),
-      description: `Latest news and updates about Wyndham Soleil Đà Nẵng`,
+      description: `Latest news and updates about Căn hộ cao cấp Đà Nẵng`,
       url: localeUrl,
       type: 'article',
       images: [
