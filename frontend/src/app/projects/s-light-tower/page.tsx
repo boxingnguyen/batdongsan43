@@ -40,6 +40,7 @@ const CAROUSEL_IMAGES = [
 ];
 
 const navLinks = [
+  { href: "#chinh-sach", label: "Chính Sách" },
   { href: "#tong-quan", label: "Tổng Quan" },
   { href: "#can-ho", label: "Căn Hộ" },
   { href: "#vi-tri", label: "Vị Trí" },
@@ -333,7 +334,7 @@ export default function SLightTowerPage() {
       </section>
 
       {/* CHÍNH SÁCH */}
-      <section className="scroll-mt-16 bg-gradient-to-b from-[#4a3829] to-[#3a2f28] pb-20 text-white">
+      <section id="chinh-sach" className="scroll-mt-16 bg-gradient-to-b from-[#4a3829] to-[#3a2f28] pb-20 text-white">
         <div className="mx-auto max-w-[1440px] px-5 md:px-20">
           <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#C8A96E]/70">
             Chính Sách Mở Bán
