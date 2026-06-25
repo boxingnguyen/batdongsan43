@@ -330,25 +330,41 @@ export default function SLightTowerPage() {
 
           <div className="mt-10 grid gap-6 lg:grid-cols-2">
             {/* Image 1 */}
-            <div className="group relative aspect-[3/4] overflow-hidden rounded-lg bg-white/10 shadow-lg">
+            <div
+              className="group relative aspect-[3/4] overflow-hidden rounded-lg bg-white/10 shadow-lg cursor-pointer"
+              onClick={() => setSelectedImage("/images/slight_images/s-light-tower-gia-rumor-tang-15.jpg")}
+            >
               <Image
-                src="/images/slight_images/z7972307294196_01fc7b9ca16e0b74a674a2aec2829ef3.jpg"
-                alt="Giá Rumor Tầng 15 - S-Light Tower"
+                src="/images/slight_images/s-light-tower-gia-rumor-tang-15.jpg"
+                alt="Giá Rumor Tầng 15 - S-Light Tower căn hộ mặt sông Hàn"
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
+              <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition-all duration-300 group-hover:bg-black/20 group-hover:opacity-100">
+                <span className="rounded-sm bg-white/90 px-3 py-1.5 text-sm font-semibold text-[#4a3829] shadow-sm backdrop-blur-sm">
+                  Xem Lớn
+                </span>
+              </div>
             </div>
 
             {/* Image 2 */}
-            <div className="group relative aspect-[3/4] overflow-hidden rounded-lg bg-white/10 shadow-lg">
+            <div
+              className="group relative aspect-[3/4] overflow-hidden rounded-lg bg-white/10 shadow-lg cursor-pointer"
+              onClick={() => setSelectedImage("/images/slight_images/s-light-tower-chinh-sach-sun-early-key.jpg")}
+            >
               <Image
-                src="/images/slight_images/z7972307303333_f4521bf0d8b295fc7298f1d994af4314.jpg"
-                alt="Chính Sách Sun Early Key - S-Light Tower"
+                src="/images/slight_images/s-light-tower-chinh-sach-sun-early-key.jpg"
+                alt="Chính Sách Sun Early Key - S-Light Tower thanh toán 70% nhận nhà"
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
+              <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition-all duration-300 group-hover:bg-black/20 group-hover:opacity-100">
+                <span className="rounded-sm bg-white/90 px-3 py-1.5 text-sm font-semibold text-[#4a3829] shadow-sm backdrop-blur-sm">
+                  Xem Lớn
+                </span>
+              </div>
             </div>
           </div>
 
