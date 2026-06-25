@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { HeaderSelector } from "@/components/layout/HeaderSelector";
@@ -21,7 +21,7 @@ const font = Montserrat({
 // 3. METADATA - Static root metadata
 const metadata: Metadata = {
   title: "Ethereal Estate – Bất Động Sản Cao Cấp Đà Nẵng",
-  description: "Khám phá các dự án bất động sản đẳng cấp tại Đà Nẵng: S-Light Tower, Sun FourS Tower, The Legend và Symphony Residence. Sở hữu lâu dài, mở bán đợt 1.",
+  description: "Dự án bất động sản cao cấp tại Đà Nẵng: S-Light Tower, Sun FourS Tower, The Legend, Symphony Residence. Căn hộ ven sông, sở hữu lâu dài.",
   keywords: [
     "bất động sản Đà Nẵng",
     "căn hộ Đà Nẵng",
@@ -33,6 +33,14 @@ const metadata: Metadata = {
   authors: [{ name: SITE_NAME }],
   creator: SITE_NAME,
   publisher: SITE_NAME,
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://thesoleil.vn"),
+  alternates: {
+    canonical: "/",
+    languages: {
+      "vi-VN": "/vi",
+      "en-US": "/en",
+    },
+  },
   robots: {
     index: true,
     follow: true,
@@ -41,6 +49,13 @@ const metadata: Metadata = {
       follow: true,
     },
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
 };
 
 export { metadata };

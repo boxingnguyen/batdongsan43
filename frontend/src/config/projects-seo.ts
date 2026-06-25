@@ -6,7 +6,7 @@ export const projectsSEO: ProjectSEO[] = [
     slug: "s-light-tower",
     title: "S-Light Tower Đà Nẵng | Căn Hộ View Sông Hàn 270° – Sun NeO City",
     description:
-      "S-Light Tower – tháp đôi biểu tượng Sun NeO City, Nam Đà Nẵng. 396 căn/tòa, view sông Hàn 3 mặt độc nhất, pháp lý sở hữu lâu dài. Mở bán đợt 1 – chỉ từ 50 tr booking. Đăng ký nhận bảng giá.",
+      "S-Light Tower – tháp đôi Sun NeO City, Nam Đà Nẵng. 396 căn, view sông Hàn 3 mặt, sở hữu lâu dài. Mở bán đợt 1.",
     keywords: [
       "S-Light Tower",
       "S Light Tower Đà Nẵng",
