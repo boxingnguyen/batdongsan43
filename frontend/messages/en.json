@@ -2,6 +2,10 @@
   "home": "Home",
   "projects": "Projects",
   "properties": "Properties",
+  "meta": {
+    "title": "Ethereal Estate – Premium Real Estate in Da Nang",
+    "description": "Discover premium real estate projects in Da Nang: S-Light Tower, Sun FourS Tower, The Legend, and Symphony Residence. Long-term ownership, first phase openings."
+  },
   "contact": {
     "title": "Get In Touch",
     "form": {
@@ -10,6 +14,11 @@
       "phone": "Phone Number",
       "message": "Message",
       "submit": "Send"
+    },
+    "errors": {
+      "nameRequired": "Please enter your full name",
+      "emailInvalid": "Invalid email address",
+      "phoneRequired": "Please enter your phone number"
     }
   }
 }

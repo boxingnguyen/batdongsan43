@@ -43,6 +43,11 @@ const nextConfig: NextConfig = {
         hostname: "sundanangcity.com",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "sun-ecommerce-cdn.azureedge.net",
+        pathname: "/**",
+      },
     ],
   },
   env: {

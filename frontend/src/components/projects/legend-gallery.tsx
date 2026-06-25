@@ -15,7 +15,7 @@ export function LegendGallery({ gallery }: LegendGalleryProps) {
   const secondaryImages = gallery.filter(i => i.layout === "secondary");
 
   return (
-    <section className="mx-auto max-w-[1440px] px-5 py-12 md:px-20">
+    <section className="mx-auto max-w-[1440px] px-5 pb-12 md:px-20">
       <div className="grid grid-cols-1 gap-2 md:grid-cols-12">
         {mainImage && (
           <div className="group relative h-[400px] overflow-hidden rounded-lg md:col-span-8 md:h-[600px]">

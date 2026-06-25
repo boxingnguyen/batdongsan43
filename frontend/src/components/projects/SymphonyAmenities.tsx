@@ -23,7 +23,7 @@ export function SymphonyAmenities() {
   const [slide, setSlide] = useState(0);
 
   return (
-    <section id="tien-ich" className="scroll-mt-24 bg-[#f9f9f9] py-16 md:py-24">
+    <section id="tien-ich" className="scroll-mt-24 bg-[#f9f9f9] pb-16 md:pb-24">
       <div className="mx-auto max-w-[1440px] px-5 md:px-20">
         <div className="mb-10 text-center">
           <Image

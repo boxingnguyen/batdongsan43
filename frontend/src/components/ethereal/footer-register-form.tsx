@@ -1,26 +1,97 @@
 "use client";
 
+import { useState } from "react";
+
 export function FooterRegisterForm() {
+  const [formData, setFormData] = useState({ name: "", phone: "", email: "" });
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.name || (!formData.phone && !formData.email)) {
+      setError("Vui lòng nhập số điện thoại hoặc email");
+      return;
+    }
+
+    setLoading(true);
+    setError("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          message: "Đăng ký nhận tư vấn từ Footer",
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Có lỗi xảy ra");
+      }
+
+      setSuccess(true);
+      setFormData({ name: "", phone: "", email: "" });
+      
+      // Reset success message after 5 seconds
+      setTimeout(() => {
+        setSuccess(false);
+      }, 5000);
+    } catch (err) {
+      const errorMessage = err instanceof Error ? err.message : "Có lỗi xảy ra, vui lòng thử lại sau.";
+      setError(errorMessage);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (success) {
+    return (
+      <div className="bg-[#f9f9f9] p-4 border border-[#d2c4bb]/30 text-sm font-semibold tracking-wider font-hanken text-[#4a3829]">
+        Đăng ký thành công! Chúng tôi sẽ sớm liên hệ.
+      </div>
+    );
+  }
+
   return (
-    <form
-      className="flex max-w-sm flex-col gap-3"
-      onSubmit={(e) => e.preventDefault()}
-    >
-      <input
-        type="text"
-        placeholder="Name"
-        className="border-b border-[#8C7B6E]/30 bg-[#f9f9f9]/50 p-2 text-xs outline-none transition-colors focus:border-[#4a3829]"
-      />
-      <input
-        type="email"
-        placeholder="Email"
-        className="border-b border-[#8C7B6E]/30 bg-[#f9f9f9]/50 p-2 text-xs outline-none transition-colors focus:border-[#4a3829]"
-      />
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <div className="space-y-2">
+        <input
+          className="w-full bg-[#f9f9f9] border border-[#d2c4bb]/30 px-4 py-3 text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken focus:ring-1 focus:ring-[#4a3829] focus:border-[#4a3829] outline-none transition-all"
+          placeholder="Họ và tên *"
+          type="text"
+          required
+          value={formData.name}
+          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+        />
+        <input
+          className="w-full bg-[#f9f9f9] border border-[#d2c4bb]/30 px-4 py-3 text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken focus:ring-1 focus:ring-[#4a3829] focus:border-[#4a3829] outline-none transition-all"
+          placeholder="Số điện thoại"
+          type="tel"
+          value={formData.phone}
+          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+        />
+        <input
+          className="w-full bg-[#f9f9f9] border border-[#d2c4bb]/30 px-4 py-3 text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken focus:ring-1 focus:ring-[#4a3829] focus:border-[#4a3829] outline-none transition-all"
+          placeholder="Email"
+          type="email"
+          value={formData.email}
+          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+        />
+      </div>
+      {error && <p className="text-xs text-red-500">{error}</p>}
       <button
+        className="w-full bg-[#4a3829] hover:opacity-90 transition-opacity text-white py-3 text-[14px] font-semibold leading-[20px] tracking-[0.05em] font-hanken disabled:opacity-50"
         type="submit"
-        className="w-fit bg-[#4a3829] px-6 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white transition-opacity hover:opacity-90"
+        disabled={loading}
       >
-        Subscribe
+        {loading ? "ĐANG GỬI..." : "ĐĂNG KÝ"}
       </button>
     </form>
   );

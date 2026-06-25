@@ -15,8 +15,8 @@ const FloatingContactButtons = () => {
         href={ZALO_LINK}
         target="_blank"
         rel="noopener noreferrer"
-        title="Contact Zalo"
-        className="w-16 h-16 bg-[#735c00] rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow"
+        title="Liên Hệ Zalo"
+        className="w-16 h-16 bg-[#0084FF] rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow"
       >
         <Image
           src="/images/zalo-1.png" // Your Zalo icon
@@ -30,28 +30,28 @@ const FloatingContactButtons = () => {
       {/* 2. Phone Button (On bottom) */}
       <a
         href={PHONE_LINK}
-        title="Call Hotline"
+        title="Gọi Hotline"
         className="flex items-center group"
       >
         {/* Phone Icon (Left side) - 3 Layers */}
-        <div className="relative flex-shrink-0">
+        <div className="relative flex-shrink-0 w-16 h-16">
           {/* Layer 2 (z-10): Circle background */}
-          <div className="absolute inset-0 bg-[#735c00] rounded-full z-10"></div>
+          <div className="absolute inset-1 bg-red-500 rounded-full z-10"></div>
 
           {/* Layer 3 (z-20): Phone Icon */}
           <Image
-            src="/images/icon-1.png" // Your Phone icon
+            src="/images/icon-1.png"
             width={64}
             height={64}
-            alt="Phone"
-            className="w-16 h-16 relative z-20" // 64px size
+            alt="Điện Thoại"
+            className="w-16 h-16 relative z-20 p-2"
           />
         </div>
 
-        {/* Red Bar with Number (Right side) */}
+        {/* Bar with Number (Right side) */}
         <div
           className="
-            bg-[#4a3829] text-white text-[14px] font-bold px-5 py-3 
+            bg-red-500 text-white text-[14px] font-bold px-5 py-3
             rounded-r-full shadow-lg
             ml-[-16px] /* Connects to the icon */
             relative z-0 /* Layer 1 (z-0): Bottom layer */

@@ -74,9 +74,6 @@ html {
   /* Firefox */
 }
 
-section {
-  @apply py-24
-}
 
 @keyframes IconUtilitisActive {
   0% {
@@ -84,6 +81,7 @@ section {
     height: 70px;
     opacity: 1;
   }
+
   100% {
     width: 90px;
     height: 90px;
@@ -133,6 +131,7 @@ section {
     transform: scale(0.8);
     opacity: 0.8;
   }
+
   100% {
     transform: scale(2.5);
     opacity: 0;
@@ -142,10 +141,13 @@ section {
 .animate-pulse-radar {
   position: absolute;
   inset: 0;
-  border-radius: 9999px; /* rounded-full */
+  border-radius: 9999px;
+  /* rounded-full */
   animation: pulse-radar 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-  background-color: currentColor; /* Tự động lấy màu chữ (text-blue-500, v.v.) */
-  z-index: 0; /* Nằm dưới icon */
+  background-color: currentColor;
+  /* Tự động lấy màu chữ (text-blue-500, v.v.) */
+  z-index: 0;
+  /* Nằm dưới icon */
 }
 
 /* Hide Ethereal site header on Symphony 5 custom landing page */
@@ -153,3 +155,6 @@ body.symphony5-page .site-header {
   display: none !important;
 }
 
+section {
+  @apply py-24
+}

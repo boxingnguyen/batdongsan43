@@ -52,6 +52,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   })
 
-  return routes
+  // Project landing pages (VI only, high priority — ads targets)
+  const projectSlugs: { slug: string; priority: number }[] = [
+    { slug: "s-light-tower", priority: 0.9 },
+    { slug: "sun-fours-tower", priority: 0.85 },
+    { slug: "symphony5", priority: 0.85 },
+    { slug: "the-legend-danang", priority: 0.85 },
+  ];
+
+  projectSlugs.forEach(({ slug, priority }) => {
+    routes.push({
+      url: `${baseUrl}/projects/${slug}`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority,
+    });
+  });
+
+  return routes;
 }
 

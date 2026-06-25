@@ -1,4 +1,5 @@
 import { HideSiteHeader } from "@/components/projects/HideSiteHeader";
+import { ProjectScrollPopup } from "@/components/projects/ProjectScrollPopup";
 import { ProjectHeroNav } from "@/components/projects/ProjectHeroNav";
 import { SymphonyHero } from "@/components/projects/SymphonyHero";
 import { SymphonyIntro } from "@/components/projects/SymphonyIntro";
@@ -28,6 +29,7 @@ export default function Symphony5Page() {
         <SymphonyPolicy />
         <SymphonyDtl />
       </div>
+      <ProjectScrollPopup projectName="Sun Symphony Residence 5" accent="#C8A96E" />
     </>
   );
 }

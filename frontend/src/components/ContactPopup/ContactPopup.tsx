@@ -18,8 +18,9 @@ const PopupContact = () => {
     phone: "",
     message: "",
   });
-  
+
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
   // === TIMER LOGIC ===
   useEffect(() => {
@@ -48,13 +49,21 @@ const PopupContact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // --- NO VALIDATION REQUIRED ---
-    
+    setError("");
+
+    // Validate: either phone or email is required
+    if (!formData.email && !formData.phone) {
+      const errorMsg = locale === "vi"
+        ? "Vui lòng nhập email hoặc số điện thoại"
+        : "Please enter email or phone number";
+      setError(errorMsg);
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("/api/submit-contact", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -74,18 +83,18 @@ const PopupContact = () => {
           ? "Gửi thành công! Chúng tôi sẽ liên hệ sớm."
           : "Submitted successfully! We will contact you soon."
       );
-      
+
       // Reset & Close
       setFormData({ name: "", email: "", phone: "", message: "" });
-      handleClose(); 
+      handleClose();
 
     } catch (error) {
       console.error("Error submitting form:", error);
-      toast.error(
-        locale === "vi"
-          ? "Có lỗi xảy ra. Vui lòng thử lại sau."
-          : "An error occurred. Please try again later."
-      );
+      const errorMsg = locale === "vi"
+        ? "Có lỗi xảy ra. Vui lòng thử lại sau."
+        : "An error occurred. Please try again later.";
+      setError(errorMsg);
+      toast.error(errorMsg);
     } finally {
       setIsSubmitting(false);
     }
@@ -136,6 +145,11 @@ const PopupContact = () => {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-3">
+            {error && (
+              <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
+                {error}
+              </div>
+            )}
             <div>
               <input
                 type="text"

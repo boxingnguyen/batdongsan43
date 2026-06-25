@@ -1,15 +1,10 @@
 import Link from "next/link";
+import { ProjectScrollPopup } from "@/components/projects/ProjectScrollPopup";
 import { theLegendDanang } from "@/data/the-legend-danang";
 import { LegendHero } from "@/components/projects/legend-hero";
 import { LegendGallery } from "@/components/projects/legend-gallery";
 import { LegendAbout } from "@/components/projects/legend-about";
 import { LegendAmenities } from "@/components/projects/legend-amenities";
-import ContactPopup from "@/components/ContactPopup/ContactPopup";
-
-export const metadata = {
-  title: "The Legend Đà Nẵng | Project",
-  description: "Biểu tượng thượng lưu - Đỉnh cao sống sang, đầu tư vững",
-};
 
 export default function TheLegendDanangPage() {
   return (
@@ -40,7 +35,8 @@ export default function TheLegendDanangPage() {
             Sẵn Sàng Khám Phá The Legend?
           </h2>
           <p className="mt-4 text-[#4e453e]">
-            Liên hệ với đội bán hàng chuyên nghiệp của chúng tôi để tìm hiểu thêm
+            Liên hệ với đội bán hàng chuyên nghiệp của chúng tôi để tìm hiểu
+            thêm
           </p>
           <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
             <a
@@ -59,17 +55,7 @@ export default function TheLegendDanangPage() {
         </div>
       </section>
 
-      {/* Back Link */}
-      <section className="mx-auto max-w-[1440px] px-5 py-8 md:px-20">
-        <Link
-          href="/"
-          className="text-sm font-semibold tracking-wide text-[#4a3829]/70 transition-colors hover:text-[#4a3829]"
-        >
-          &larr; Quay lại Trang Chủ
-        </Link>
-      </section>
-
-      <ContactPopup />
+      <ProjectScrollPopup projectName="The Legend Đà Nẵng" accent="#07be8a" />
     </main>
   );
 }

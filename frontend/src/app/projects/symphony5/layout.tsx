@@ -1,15 +1,23 @@
 import type { Metadata } from "next";
+import { buildMetadata, buildJsonLd } from "@/lib/seo";
+import { projectsSEO } from "@/config/projects-seo";
 
-export const metadata: Metadata = {
-  title: "Sun Symphony Residence 5 | Duyên Hải Holding",
-  description:
-    "Sun Symphony Residence 5 — căn hộ hiếm hoi sở hữu bộ tứ tầm view Sông Hàn, pháo hoa, biển và núi. Đầu tư dòng tiền và second home tại Đà Nẵng.",
-};
+const seo = projectsSEO.find((p) => p.slug === "symphony5")!;
+
+export const metadata: Metadata = buildMetadata(seo);
 
 export default function Symphony5Layout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: buildJsonLd(seo) }}
+      />
+      {children}
+    </>
+  );
 }

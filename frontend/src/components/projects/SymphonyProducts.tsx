@@ -12,7 +12,7 @@ const types = [
 
 export function SymphonyProducts() {
   return (
-    <section id="san-pham" className="scroll-mt-24 bg-[#f9f9f9] py-16 md:py-24">
+    <section id="san-pham" className="scroll-mt-24 bg-[#f9f9f9] pb-16 md:pb-24">
       <div className="mx-auto max-w-[1440px] px-5 md:px-20">
         <div className="mb-10 grid gap-10 lg:grid-cols-2">
           <div>

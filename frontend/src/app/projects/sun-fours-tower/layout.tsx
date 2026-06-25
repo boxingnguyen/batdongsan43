@@ -1,15 +1,23 @@
 import type { Metadata } from "next";
+import { buildMetadata, buildJsonLd } from "@/lib/seo";
+import { projectsSEO } from "@/config/projects-seo";
 
-export const metadata: Metadata = {
-  title: "Sun FourS Tower Đà Nẵng | Tâm điểm an cư phía Nam",
-  description:
-    "Sun FourS Tower — 4 tháp căn hộ cao cấp tại Sun Riverpolis, phía Nam Đà Nẵng. 1.281 căn hộ, kính cong panorama, hồ bơi 4 mùa. Chỉ từ 1,5 tỷ. Đăng ký nhận bảng giá.",
-};
+const seo = projectsSEO.find((p) => p.slug === "sun-fours-tower")!;
+
+export const metadata: Metadata = buildMetadata(seo);
 
 export default function SunFoursTowerLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: buildJsonLd(seo) }}
+      />
+      {children}
+    </>
+  );
 }

@@ -17,7 +17,7 @@ const facts = [
 
 export function ProjectOverview() {
   return (
-    <section id="tong-quan" className="scroll-mt-24 bg-[#f9f9f9] py-16 md:py-24">
+    <section id="tong-quan" className="scroll-mt-24 bg-[#f9f9f9] pb-16 md:pb-24">
       <div className="mx-auto max-w-[1440px] px-5 md:px-20">
         <div className="mb-10 text-center">
           <Image

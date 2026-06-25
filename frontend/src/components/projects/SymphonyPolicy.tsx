@@ -4,7 +4,7 @@ const CDN = "https://dongtayland.vn/wp-content/uploads/2026/05";
 
 export function SymphonyPolicy() {
   return (
-    <section id="csbh" className="scroll-mt-24 overflow-hidden bg-gradient-to-b from-[#0f437d] to-[#030b3a] py-16 md:py-20">
+    <section id="csbh" className="scroll-mt-24 overflow-hidden bg-gradient-to-b from-[#0f437d] to-[#030b3a] pb-16 md:pb-20">
       <div className="mx-auto max-w-[1440px] px-5 md:px-20">
         <Image
           src={`${CDN}/Chinh-sach-so-huu.png`}

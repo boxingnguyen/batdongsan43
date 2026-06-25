@@ -11,6 +11,29 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    id: "s-light-tower",
+    slug: "s-light-tower",
+    title: "S-Light Tower",
+    location: "Nam Đà Nẵng, Việt Nam",
+    description:
+      "Tháp đôi biểu tượng 22 tầng tại ngã tư Nguyễn Đình Thi - 29/3, thuộc đại đô thị Sun NeO City. Gần 800 căn hộ với tầm nhìn 360° sông Hàn - biển - pháo hoa DIFF, pháp lý lâu dài.",
+    image:
+      "https://sun-ecommerce-cdn.azureedge.net/ecommerce/service-sites/asset/SunGroup/google_docs_media/news/news-11394/AD_4nXdNKTDV0B3tTY9UW2Gx1_6zuS-RHUjYOFnTq3xCu0pM0RZgiIldfjj_Cj-mSuSBMJNgD0nHylc4OtB8ZH4Gwnbn0TbKfP36-I1AThLqkt9cOY13uYnsJWFu4ONIhtFMTxzVxvkq-ZcZcGmkHDkns33lh8ssVbbLw9lq-CgsfNzyFCrR2hhZ6Mc%3Ds2048.jpg",
+    imageAlt: "S-Light Tower - Tháp đôi biểu tượng tại mặt sông Hàn Nam Đà Nẵng",
+    status: "Đang mở bán",
+  },
+  {
+    id: "the-legend-danang",
+    slug: "the-legend-danang",
+    title: "The Legend Đà Nẵng · ROX Signature",
+    location: "A20 Võ Văn Kiệt, An Hải, Đà Nẵng",
+    description:
+      "Tổ hợp khách sạn Hyde Hotels 5 sao (Accor) và căn hộ cao cấp tựa mình bên Cầu Rồng. CĐT Vipico · CBRE tư vấn · Bàn giao Q1/2028. Loại căn 1–3PN, tổng diện tích 11.487m².",
+    image: "/images/legend_images/TL_PV11_Hero.jpg",
+    imageAlt: "The Legend Đà Nẵng ROX Signature - tổ hợp khách sạn Hyde Hotels và căn hộ cao cấp",
+    status: "Đang mở bán",
+  },
+  {
     id: "symphony5",
     slug: "symphony5",
     title: "Sun Symphony Residence 5",
@@ -42,29 +65,5 @@ export const projects: Project[] = [
     image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80",
     imageAlt: "Sun FourS Tower Đà Nẵng căn hộ phía Nam",
     status: "Đang mở bán",
-  },
-  {
-    id: "the-legend-danang",
-    slug: "the-legend-danang",
-    title: "The Legend Da Nang",
-    location: "Amalfi Coast, IT",
-    description:
-      "Terraced villas overlooking limestone cliffs and cobalt waters — a study in Mediterranean restraint.",
-    image:
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80",
-    imageAlt: "Coastal cliffs and blue water",
-    status: "Coming Soon",
-  },
-  {
-    id: "the-zenith-tower",
-    slug: "the-zenith-tower",
-    title: "The Zenith Tower",
-    location: "Singapore",
-    description:
-      "A vertical landmark of textured bronze and glass, redefining skyline living in the heart of Marina Bay.",
-    image:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
-    imageAlt: "Skyscraper facade against sunset sky",
-    status: "For Sale",
   },
 ];

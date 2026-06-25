@@ -34,17 +34,23 @@ const HomeContact = () => {
     e.preventDefault();
     const newErrors: Record<string, string> = {};
 
-    // Validation (only name and phone are required)
+    // Validation: name is required
     if (!formData.name.trim()) {
       newErrors.name = t("errors.nameRequired");
     }
-    // Email is optional, but if provided, validate format
+
+    // Validation: either phone or email is required
+    if (!formData.phone.trim() && !formData.email.trim()) {
+      newErrors.phone = locale === "vi"
+        ? "Vui lòng nhập số điện thoại hoặc email"
+        : "Please enter phone number or email";
+    }
+
+    // Email validation: if provided, validate format
     if (formData.email.trim() && !validateEmail(formData.email)) {
       newErrors.email = t("errors.emailInvalid");
     }
-    if (!formData.phone.trim()) {
-      newErrors.phone = t("errors.phoneRequired");
-    }
+
     // Message is optional, no validation needed
 
     if (Object.keys(newErrors).length > 0) {
@@ -55,7 +61,7 @@ const HomeContact = () => {
     // Submit to API
     setIsSubmitting(true);
     try {
-      const response = await fetch("/api/submit-contact", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
