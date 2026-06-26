@@ -92,20 +92,14 @@ export function EtherealHomeClient() {
         <div className="relative z-30 w-full max-w-4xl px-5 md:px-0 text-center text-white">
           <h1
             className="text-[40px] md:text-[64px] font-light leading-[48px] md:leading-[72px] tracking-[0.05em] md:tracking-[0.08em] mb-8 drop-shadow-xl italic"
-            style={{
-              fontFamily: "EB Garamond, serif",
-              letterSpacing: "0.05em",
-            }}
+            style={{ fontFamily: "EB Garamond, serif" }}
           >
             Căn hộ tinh túy, nâng tầm trải nghiệm.
           </h1>
           <p className="font-hanken text-[18px] font-light leading-[28px] opacity-95 max-w-2xl mx-auto drop-shadow-md tracking-wide">
-            Thức dậy với <span className="italic">bình minh tráng lệ</span> trên
-            biển Mỹ Khê, tối về ngắm{" "}
-            <span className="italic">hoàng hôn cùng pháo hoa</span> bên sông Hàn
-            rực rỡ. Biến ban công của bạn thành{" "}
-            <span className="italic font-semibold">tầm view triệu $</span> độc
-            bản giữa lòng Đà Nẵng.
+            Thức dậy với <span className="italic">bình minh tráng lệ</span> trên biển Mỹ Khê, tối về ngắm{" "}
+            <span className="italic">hoàng hôn cùng pháo hoa</span> bên sông Hàn rực rỡ. Biến ban công của bạn thành{" "}
+            <span className="italic font-semibold">tầm view triệu $</span> độc bản giữa lòng Đà Nẵng.
           </p>
         </div>
 
