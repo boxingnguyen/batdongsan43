@@ -282,9 +282,34 @@ function HeroCarousel() {
 
 function VrTour() {
   const [active, setActive] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Thoát chế độ tham quan khi người dùng click ra ngoài khung VR hoặc nhấn Esc.
+  useEffect(() => {
+    if (!active) return;
+
+    const onPointerDown = (e: PointerEvent) => {
+      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+        setActive(false);
+      }
+    };
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setActive(false);
+    };
+
+    document.addEventListener("pointerdown", onPointerDown);
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("pointerdown", onPointerDown);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [active]);
 
   return (
-    <div className="relative mt-10 overflow-hidden rounded-sm border border-[#E8E2D9] shadow-sm">
+    <div
+      ref={containerRef}
+      className="relative mt-10 overflow-hidden rounded-sm border border-[#E8E2D9] shadow-sm"
+    >
       <iframe
         title="Sun FourS Tower VR Tour 360"
         allow="xr-spatial-tracking;gyroscope;accelerometer;autoplay;microphone;camera"
@@ -292,6 +317,7 @@ function VrTour() {
         className="block h-[640px] w-full border-0"
         src="https://kuula.co/share/LpyGP?logo=-1&zoom=1&vr=1&priority=1&enablejs=1&history=1&info=0&fs=1&sd=1&thumbs=1&cusdomwrap=1&fid=0f25"
       />
+
       {/* Overlay chặn tương tác cho tới khi người dùng chủ động click.
           Nhờ vậy cuộn trang không bị iframe "bắt" khi lướt qua. */}
       {!active && (
@@ -305,6 +331,19 @@ function VrTour() {
             <Sunrise className="h-4 w-4 text-[#b59556]" />
             Nhấn để tham quan 360°
           </span>
+        </button>
+      )}
+
+      {/* Nút thoát khi đang tham quan */}
+      {active && (
+        <button
+          type="button"
+          onClick={() => setActive(false)}
+          aria-label="Thoát chế độ tham quan 360°"
+          className="absolute left-3 top-3 z-10 flex items-center gap-1.5 rounded-full bg-black/60 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur-sm transition hover:bg-black/80"
+        >
+          <X className="h-4 w-4" />
+          Thoát
         </button>
       )}
     </div>
