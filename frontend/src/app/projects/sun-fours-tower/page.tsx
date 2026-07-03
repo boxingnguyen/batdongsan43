@@ -3,7 +3,25 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect, useRef, useCallback } from "react";
-import { Menu, X, Umbrella, ShoppingCart, Leaf, Plane, Building2, Castle, Hotel, Hospital, Waves, Dumbbell, ShoppingBag, FerrisWheel, Trees, Lock, SquareParking, Sunrise, ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  Menu,
+  X,
+  Umbrella,
+  Leaf,
+  Plane,
+  Building2,
+  Castle,
+  Hotel,
+  Waves,
+  Dumbbell,
+  ShoppingBag,
+  FerrisWheel,
+  Trees,
+  SquareParking,
+  Sunrise,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 import { HideSiteHeader } from "@/components/projects/HideSiteHeader";
 import { SITE_NAME } from "@/config/site";
 import { ProjectScrollPopup } from "@/components/projects/ProjectScrollPopup";
@@ -18,17 +36,32 @@ const CAROUSEL_IMAGES = [
 ];
 
 const FLOOR_PLANS = [
-  { tower: "F1", label: "Tầng 3–7", image: "/images/fourS_tower/layout/f1-tang-4-7.jpg" },
-  { tower: "F1", label: "Tầng 8–19", image: "/images/fourS_tower/layout/f1-tang-8-19.jpg" },
-  { tower: "F5", label: "Tầng 3–7", image: "/images/fourS_tower/layout/f5-tang-3.jpg" },
-  { tower: "F5", label: "Tầng 8–15", image: "/images/fourS_tower/layout/f5-tang-8-15.jpg" },
+  {
+    tower: "F1",
+    label: "Tầng 3–7",
+    image: "/images/fourS_tower/layout/f1-tang-4-7.jpg",
+  },
+  {
+    tower: "F1",
+    label: "Tầng 8–19",
+    image: "/images/fourS_tower/layout/f1-tang-8-19.jpg",
+  },
+  {
+    tower: "F5",
+    label: "Tầng 3–7",
+    image: "/images/fourS_tower/layout/f5-tang-3.jpg",
+  },
+  {
+    tower: "F5",
+    label: "Tầng 8–15",
+    image: "/images/fourS_tower/layout/f5-tang-8-15.jpg",
+  },
 ];
 
 const navLinks = [
   { href: "#tong-quan", label: "Tổng Quan" },
   { href: "#can-ho", label: "Căn Hộ" },
   { href: "#mat-bang", label: "Mặt Bằng" },
-  { href: "#vr-tour", label: "VR 360°" },
   { href: "#vi-tri", label: "Vị Trí" },
   { href: "#tien-ich", label: "Tiện Ích" },
   { href: "#chinh-sach", label: "Chính Sách" },
@@ -107,7 +140,10 @@ function HeroCarousel() {
   const dragStart = useRef<number | null>(null);
   const isDragging = useRef(false);
 
-  const go = useCallback((i: number) => setCurrent((i + total) % total), [total]);
+  const go = useCallback(
+    (i: number) => setCurrent((i + total) % total),
+    [total],
+  );
   const next = useCallback(() => go(current + 1), [current, go]);
   const prev = useCallback(() => go(current - 1), [current, go]);
 
@@ -244,6 +280,76 @@ function HeroCarousel() {
   );
 }
 
+function VrTour() {
+  const [active, setActive] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Thoát chế độ tham quan khi người dùng click ra ngoài khung VR hoặc nhấn Esc.
+  useEffect(() => {
+    if (!active) return;
+
+    const onPointerDown = (e: PointerEvent) => {
+      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+        setActive(false);
+      }
+    };
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setActive(false);
+    };
+
+    document.addEventListener("pointerdown", onPointerDown);
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("pointerdown", onPointerDown);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [active]);
+
+  return (
+    <div
+      ref={containerRef}
+      className="relative mt-10 overflow-hidden rounded-sm border border-[#E8E2D9] shadow-sm"
+    >
+      <iframe
+        title="Sun FourS Tower VR Tour 360"
+        allow="xr-spatial-tracking;gyroscope;accelerometer;autoplay;microphone;camera"
+        allowFullScreen
+        className="block h-[640px] w-full border-0"
+        src="https://kuula.co/share/LpyGP?logo=-1&zoom=1&vr=1&priority=1&enablejs=1&history=1&info=0&fs=1&sd=1&thumbs=1&cusdomwrap=1&fid=0f25"
+      />
+
+      {/* Overlay chặn tương tác cho tới khi người dùng chủ động click.
+          Nhờ vậy cuộn trang không bị iframe "bắt" khi lướt qua. */}
+      {!active && (
+        <button
+          type="button"
+          onClick={() => setActive(true)}
+          aria-label="Bật tương tác VR Tour 360"
+          className="group absolute inset-0 flex items-center justify-center bg-black/30 transition-colors hover:bg-black/40"
+        >
+          <span className="flex items-center gap-2 rounded-full bg-white/90 px-5 py-2.5 text-sm font-semibold text-[#4a3829] shadow-md backdrop-blur-sm transition-transform group-hover:scale-105">
+            <Sunrise className="h-4 w-4 text-[#b59556]" />
+            Nhấn để tham quan 360°
+          </span>
+        </button>
+      )}
+
+      {/* Nút thoát khi đang tham quan */}
+      {active && (
+        <button
+          type="button"
+          onClick={() => setActive(false)}
+          aria-label="Thoát chế độ tham quan 360°"
+          className="absolute left-3 top-3 z-10 flex items-center gap-1.5 rounded-full bg-black/60 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur-sm transition hover:bg-black/80"
+        >
+          <X className="h-4 w-4" />
+          Thoát
+        </button>
+      )}
+    </div>
+  );
+}
+
 export default function SunFoursTowerPage() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
@@ -258,45 +364,67 @@ export default function SunFoursTowerPage() {
       {/* TỔNG QUAN */}
       <section id="tong-quan" className="scroll-mt-16 pb-20">
         <div className="mx-auto max-w-[1440px] px-5 md:px-20">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#634F3F]/70">
-            Tổng Quan Dự Án
-          </p>
-          <div className="mt-3 grid items-center gap-10 lg:grid-cols-2">
-            <div>
-              <h2 className="font-serif text-3xl text-[#4a3829] md:text-4xl">
-                Sun FourS Tower Đà Nẵng
-              </h2>
-              <p className="mt-4 text-sm leading-relaxed text-[#4e453e]/80">
-                Lần đầu tiên tại Đà Nẵng — căn hộ kính cong với tầm view panorama
-                toàn cảnh. Nằm trong khu đô thị sinh thái Sun Riverpolis, Sun
-                FourS Tower là tổ hợp 4 tháp căn hộ cao tầng đầu tiên tại phía
-                Nam thành phố.
-              </p>
-            </div>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-sm bg-[#E8E2D9] shadow-sm">
-              <Image
-                src="/images/fourS_tower/phoi-canh-2.jpg"
-                alt="Tổng quan Sun FourS Tower"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-            </div>
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-[#E3C284]">
+              Tổng Quan Dự Án
+            </p>
+            <h2 className="mt-3 font-serif text-3xl text-[#4a3829] md:text-4xl">
+              Sun FourS Tower Đà Nẵng
+            </h2>
+            <div className="mx-auto mt-4 h-px w-16 bg-[#E3C284]" />
+            <p className="mt-6 text-[15px] leading-relaxed text-[#4e453e]/80">
+              Tọa lạc tại giao điểm chiến lược Minh Mạng – Nguyễn Phước Lan,
+              FourS Tower do Sun Property phát triển sở hữu vị trí trung tâm của
+              khu đô thị mới phía Nam Đà Nẵng – nơi đang được quy hoạch đồng bộ,
+              hạ tầng ngày càng hoàn thiện và cộng đồng cư dân hiện đại đang dần
+              hình thành.
+            </p>
           </div>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {[
+              {
+                title: "Kết nối nhanh",
+                desc: "Giao thông thuận tiện, dễ dàng di chuyển về trung tâm hành chính, thương mại và các khu vực trọng điểm của thành phố.",
+              },
+              {
+                title: "Bao quanh đại đô thị",
+                desc: "Liền kề chuỗi đô thị hiện đại như KĐT Hòa Xuân, Sunneva Island, hình thành hệ sinh thái sống và đầu tư sôi động.",
+              },
+              {
+                title: "Gần biển, cho thuê tốt",
+                desc: "Thuận tiện tiếp cận biển và các khu nghỉ dưỡng, phù hợp an cư chất lượng cao hoặc đầu tư khai thác lưu trú.",
+              },
+            ].map((item, i) => (
+              <div
+                key={item.title}
+                className="rounded-sm border border-[#E8E2D9] bg-white p-6 shadow-sm"
+              >
+                <span className="font-serif text-3xl font-bold text-[#E3C284]">
+                  0{i + 1}
+                </span>
+                <h3 className="mt-3 font-serif text-xl text-[#4a3829]">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-[#4e453e]/80">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* VR TOUR 360 */}
+          <VrTour />
           <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
             {[
-              { label: "Chủ đầu tư", value: "Sun Group (Sun Property)" },
-              { label: "Diện tích đất", value: "8.165 m²" },
-              { label: "Số tháp", value: "4 tháp" },
-              { label: "Số tầng", value: "20 tầng + 2 hầm" },
-              { label: "Tổng căn hộ", value: "1.281 căn" },
-              { label: "Khoảng cách tháp", value: "33m" },
-              { label: "Mặt tiền", value: "Nguyễn Phước Lan (33m, 6 làn)" },
-              { label: "Bãi biển", value: "5 phút (~1,5km)" },
+              { label: "Chủ đầu tư", value: "Sun Property (Sun Group)" },
+              { label: "Số tháp", value: "4 tháp (F1–F4)" },
+              { label: "Số tầng", value: "20 tầng nổi + 2 hầm" },
+              { label: "Khu đô thị", value: "Sun Riverpolis (500ha)" },
+              { label: "Vị trí", value: "Minh Mạng – Nguyễn Phước Lan" },
+              { label: "Chiều cao trần", value: "3,5m (Penthouse 6m)" },
               { label: "Loại sở hữu", value: "Lâu dài" },
-              { label: "Khởi công", value: "Tháng 3/2026" },
-              { label: "Bàn giao", value: "Quý 1/2028" },
-              { label: "Giá từ", value: "1,5 tỷ đồng" },
+              { label: "Bàn giao", value: "Hoàn thiện trần, tường, sàn" },
             ].map((item) => (
               <div
                 key={item.label}
@@ -446,31 +574,6 @@ export default function SunFoursTowerPage() {
         </div>
       </section>
 
-      {/* VR TOUR 360 */}
-      <section id="vr-tour" className="scroll-mt-16 bg-white pb-20">
-        <div className="mx-auto max-w-[1440px] px-5 md:px-20">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#634F3F]/70">
-            Trải Nghiệm 360°
-          </p>
-          <h2 className="mt-3 font-serif text-3xl text-[#4a3829] md:text-4xl">
-            Tham Quan Thực Tế Ảo
-          </h2>
-          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[#4e453e]/80">
-            Khám phá không gian căn hộ và tiện ích dự án qua công nghệ thực tế
-            ảo 360°.
-          </p>
-          <div className="mt-10 overflow-hidden rounded-sm border border-[#E8E2D9] shadow-sm">
-            <iframe
-              title="Sun FourS Tower VR Tour 360"
-              allow="xr-spatial-tracking;gyroscope;accelerometer;autoplay;microphone;camera"
-              allowFullScreen
-              className="block h-[640px] w-full border-0"
-              src="https://kuula.co/share/LpyGP?logo=-1&zoom=1&vr=1&priority=1&enablejs=1&history=1&info=0&fs=1&sd=1&thumbs=1&cusdomwrap=1&fid=0f25"
-            />
-          </div>
-        </div>
-      </section>
-
       {/* VỊ TRÍ */}
       <section id="vi-tri" className="scroll-mt-16 pb-20">
         <div className="mx-auto max-w-[1440px] px-5 md:px-20">
@@ -481,9 +584,9 @@ export default function SunFoursTowerPage() {
             Kết Nối Đa Chiều
           </h2>
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[#4e453e]/80">
-            Tọa lạc tại đường Nguyễn Phước Lan — đại lộ 33m 6 làn xe — trung tâm
-            khu Nam Đà Nẵng. Bao quanh bởi các sông Cẩm Lệ, Cổ Cò và Sông Hàn,
-            kết nối thuận tiện đến các điểm đến quan trọng.
+            Tọa lạc tại giao điểm Minh Mạng – Nguyễn Phước Lan, trung tâm khu
+            Nam Đà Nẵng, liền kề Khu đô thị Hòa Xuân và Sunneva Island. Kết nối
+            thuận tiện đến biển, sân bay và các điểm đến trọng điểm.
           </p>
           <div className="relative mt-10 aspect-[21/9] overflow-hidden rounded-sm bg-[#E8E2D9] shadow-sm">
             <Image
@@ -498,39 +601,43 @@ export default function SunFoursTowerPage() {
             {[
               {
                 icon: Umbrella,
-                title: "Bãi Biển",
-                detail: "5 phút · ~1,5km đến Mỹ Khê",
-              },
-              { icon: ShoppingCart, title: "AEON MALL", detail: "10 phút · ~3km" },
-              {
-                icon: Leaf,
-                title: "Công Viên Sinh Thái",
-                detail: "3 phút · ~700m · 50ha",
-              },
-              {
-                icon: Plane,
-                title: "Sân Bay Quốc Tế",
-                detail: "15 phút · Đà Nẵng",
-              },
-              {
-                icon: Building2,
-                title: "Trung Tâm Đà Nẵng",
-                detail: "10 phút lái xe",
+                title: "Biển Mỹ Khê",
+                detail: "5 phút",
               },
               {
                 icon: Castle,
-                title: "Phố Cổ Hội An",
-                detail: "25 phút · theo QL1A",
+                title: "Núi Ngũ Hành Sơn",
+                detail: "5 phút",
+              },
+              {
+                icon: Plane,
+                title: "Sân Bay Quốc Tế Đà Nẵng",
+                detail: "10 phút",
+              },
+              {
+                icon: FerrisWheel,
+                title: "Asia Park",
+                detail: "10 phút",
               },
               {
                 icon: Hotel,
-                title: "Resort 5 Sao",
-                detail: "Crowne Plaza, Hyatt Regency gần kề",
+                title: "InterContinental Sơn Trà",
+                detail: "25 phút · Bán đảo Sơn Trà",
               },
               {
-                icon: Hospital,
-                title: "Tiện Ích Xã Hội",
-                detail: "Trường học, bệnh viện lân cận",
+                icon: Building2,
+                title: "KĐT Hòa Xuân",
+                detail: "Liền kề",
+              },
+              {
+                icon: Leaf,
+                title: "Sunneva Island",
+                detail: "Liền kề",
+              },
+              {
+                icon: Trees,
+                title: "Công Viên Hype Park",
+                detail: "50ha · 6 công viên chủ đề",
               },
             ].map((loc) => (
               <div
@@ -579,18 +686,13 @@ export default function SunFoursTowerPage() {
             {[
               {
                 icon: Waves,
-                title: "Hồ Bơi 4 Mùa",
-                desc: "Bơi lội quanh năm, view mở thoáng đãng tại tầng 2",
+                title: "Hồ Bơi",
+                desc: "Không gian bơi lội thư giãn ngay trong tổ hợp",
               },
               {
                 icon: Dumbbell,
-                title: "Gym · Spa · Yoga",
-                desc: "Khu thể thao và chăm sóc sức khỏe tiêu chuẩn 5 sao",
-              },
-              {
-                icon: ShoppingBag,
-                title: "Shophouse Thương Mại",
-                desc: "Tầng trệt sôi động với chuỗi tiện ích mua sắm, ẩm thực",
+                title: "Gym · Yoga · Spa",
+                desc: "Khu thể thao và chăm sóc sức khỏe hiện đại",
               },
               {
                 icon: FerrisWheel,
@@ -598,24 +700,29 @@ export default function SunFoursTowerPage() {
                 desc: "Không gian an toàn, sáng tạo cho thiếu nhi",
               },
               {
-                icon: Trees,
-                title: "Sân Vườn Nội Khu",
-                desc: "Cảnh quan xanh mát, không gian thư giãn cộng đồng",
+                icon: ShoppingBag,
+                title: "Shophouse Thương Mại",
+                desc: "Chuỗi tiện ích mua sắm, ẩm thực sôi động",
               },
               {
-                icon: Lock,
-                title: "An Ninh 24/7",
-                desc: "Hệ thống camera và bảo vệ chuyên nghiệp",
+                icon: Hotel,
+                title: "Phòng Khám Mặt Trời",
+                desc: "Chăm sóc sức khỏe tiện lợi ngay nội khu",
+              },
+              {
+                icon: Trees,
+                title: "Khu Sinh Hoạt Cộng Đồng",
+                desc: "Không gian kết nối, gắn kết cư dân",
+              },
+              {
+                icon: Sunrise,
+                title: "Công Viên Hype Park",
+                desc: "50ha với 6 công viên chủ đề đa dạng",
               },
               {
                 icon: SquareParking,
                 title: "Hầm Đỗ Xe",
                 desc: "2 tầng hầm rộng rãi cho cư dân",
-              },
-              {
-                icon: Sunrise,
-                title: "Kính Cong Panorama",
-                desc: "Lần đầu tiên tại Đà Nẵng — tầm view 360° vượt trội",
               },
             ].map((amenity) => (
               <div
@@ -761,7 +868,6 @@ export default function SunFoursTowerPage() {
           </div>
         </div>
       </section>
-
 
       {/* LIGHTBOX MẶT BẰNG */}
       {selectedImage && (
