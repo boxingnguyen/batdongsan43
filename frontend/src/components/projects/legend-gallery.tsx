@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
 
 interface GalleryImage {
   src: string;
@@ -19,7 +19,7 @@ export function LegendGallery({ gallery }: LegendGalleryProps) {
       <div className="grid grid-cols-1 gap-2 md:grid-cols-12">
         {mainImage && (
           <div className="group relative h-[400px] overflow-hidden rounded-lg md:col-span-8 md:h-[600px]">
-            <Image
+            <ImageWithSkeleton
               src={mainImage.src}
               alt={mainImage.alt}
               fill
@@ -36,7 +36,7 @@ export function LegendGallery({ gallery }: LegendGalleryProps) {
               key={image.src}
               className="group relative overflow-hidden rounded-lg"
             >
-              <Image
+              <ImageWithSkeleton
                 src={image.src}
                 alt={image.alt}
                 fill

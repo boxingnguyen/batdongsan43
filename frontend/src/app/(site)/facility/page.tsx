@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
+import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
 import { useTranslations } from "next-intl";
 import AnimateInView from "@/components/shared/AnimateInView";
 
@@ -53,7 +53,7 @@ const FacilityList = () => {
       
       {/* === HERO SECTION === */}
       <div className="relative h-[400px] w-full overflow-hidden">
-        <Image 
+        <ImageWithSkeleton 
             src="/images/home/cover-pool.png" // Hero Image
             alt={t('title')}
             fill
@@ -79,7 +79,7 @@ const FacilityList = () => {
                   
                   {/* IMAGE BLOCK */}
                   <div className="w-full lg:w-1/2 relative h-[300px] lg:h-[400px] rounded-2xl overflow-hidden shadow-2xl group">
-                    <Image
+                    <ImageWithSkeleton
                       src={item.image}
                       alt={t(item.title)}
                       fill
@@ -93,7 +93,7 @@ const FacilityList = () => {
                   <div className="w-full lg:w-1/2 flex flex-col justify-center">
                     <div className={`flex items-center gap-4 mb-6 ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} justify-center lg:justify-start`}>
                       <div className="w-16 h-16 bg-[#E3C284] rounded-full flex items-center justify-center shadow-lg flex-shrink-0">
-                        <Image
+                        <ImageWithSkeleton
                           src={item.icon}
                           alt="Icon"
                           width={32}

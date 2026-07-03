@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
 
 const highlights = [
   { time: "2 phút", text: "Đường dạo bộ sông Hàn, bến du thuyền và trung tâm tài chính quốc tế" },
@@ -18,7 +18,7 @@ export function SymphonyLocation() {
     <section id="vi-tri" className="scroll-mt-24 bg-[#f9f9f9] pb-16 md:pb-24">
       <div className="mx-auto max-w-[1440px] px-5 md:px-20">
         <div className="mb-10 text-center">
-          <Image
+          <ImageWithSkeleton
             src={`/images/symphony5/Bieu-tuong-dat-gia-ben-bo-song-Han-new-2.png`}
             alt="Vị trí bên sông Hàn"
             width={600}
@@ -62,7 +62,7 @@ export function SymphonyLocation() {
         </div>
 
         <div className="mb-12 overflow-hidden rounded-2xl">
-          <Image
+          <ImageWithSkeleton
             src={`/images/symphony5/MAP-moi_.jpg`}
             alt="Bản đồ vị trí"
             width={1600}
@@ -70,7 +70,7 @@ export function SymphonyLocation() {
             className="hidden h-auto w-full md:block"
             sizes="100vw"
           />
-          <Image
+          <ImageWithSkeleton
             src={`/images/symphony5/MAP-moi-mobile.jpg`}
             alt="Bản đồ vị trí"
             width={1209}

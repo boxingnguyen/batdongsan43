@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { projects } from "@/data/projects";
@@ -56,7 +56,7 @@ export default async function ProjectDetailPage({
     <div className="bg-[#F9F9F9] text-[#634F3F]">
       {/* Hero */}
       <section className="relative aspect-[21/9] max-h-[70vh] w-full overflow-hidden">
-        <Image
+        <ImageWithSkeleton
           src={project.image}
           alt={project.imageAlt}
           fill

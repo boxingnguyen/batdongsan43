@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
 import Link from "next/link";
 import { projects } from "@/data/projects";
 import { SITE_URL } from "@/config/site";
@@ -35,7 +35,7 @@ export default function ProjectsPage() {
               className="group flex flex-col overflow-hidden rounded-[4px] bg-white shadow-sm transition-shadow hover:shadow-md"
             >
               <div className="relative aspect-[16/10] overflow-hidden">
-                <Image
+                <ImageWithSkeleton
                   src={project.image}
                   alt={project.imageAlt}
                   fill

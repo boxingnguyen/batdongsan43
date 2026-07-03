@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { Icon } from "@iconify/react";
-import Image from "next/image";
+import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
 import toast from "react-hot-toast";
 
 const PopupContact = () => {
@@ -124,7 +124,7 @@ const PopupContact = () => {
 
         {/* Left Column: Image */}
         <div className="w-full md:w-1/2 relative h-40 md:h-auto bg-gray-100 hidden md:block">
-          <Image
+          <ImageWithSkeleton
             src="/images/home/cover-pool.png"
             alt="Promotion"
             fill

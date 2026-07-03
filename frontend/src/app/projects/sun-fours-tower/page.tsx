@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Menu, X, Umbrella, ShoppingCart, Leaf, Plane, Building2, Castle, Hotel, Hospital, Waves, Dumbbell, ShoppingBag, FerrisWheel, Trees, Lock, SquareParking, Sunrise } from "lucide-react";
@@ -92,7 +92,7 @@ export default function SunFoursTowerPage() {
 
       {/* HERO */}
       <section className="relative flex min-h-[90vh] items-end bg-[#1a2033] py-0">
-        <Image
+        <ImageWithSkeleton
           src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&q=80"
           alt="Sun FourS Tower Đà Nẵng"
           fill

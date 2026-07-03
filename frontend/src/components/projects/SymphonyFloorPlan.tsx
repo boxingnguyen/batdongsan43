@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
@@ -18,7 +18,7 @@ export function SymphonyFloorPlan() {
     <section id="mat-bang" className="scroll-mt-24 bg-[#f9f9f9] pb-16 md:pb-24">
       <div className="mx-auto max-w-[1440px] px-5 md:px-20">
         <div className="mb-10 text-center">
-          <Image
+          <ImageWithSkeleton
             src={`/images/symphony5/Mat-bang-Layout-can-ho-1.png`}
             alt="Mặt bằng layout căn hộ"
             width={600}
@@ -30,7 +30,7 @@ export function SymphonyFloorPlan() {
         <div className="mb-10 overflow-hidden rounded-2xl border border-[#d2c4bb]/30 bg-gradient-to-b from-[#e29ab2] to-[#002f73] p-4 md:p-6">
           <div className="grid gap-4 lg:grid-cols-[1.2fr_0.8fr]">
             <div className="overflow-hidden rounded-xl bg-white p-2">
-              <Image
+              <ImageWithSkeleton
                 src={`/images/symphony5/layout-toa.jpg`}
                 alt="Layout tòa"
                 width={960}
@@ -40,7 +40,7 @@ export function SymphonyFloorPlan() {
             </div>
             <div className="overflow-hidden rounded-xl">
               <div className="relative aspect-[3/4] w-full">
-                <Image
+                <ImageWithSkeleton
                   src={unitSlides[slide]}
                   alt="Mặt bằng căn"
                   fill

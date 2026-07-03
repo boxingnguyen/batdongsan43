@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
 
 interface LegendHeroProps {
   title: string;
@@ -19,7 +19,7 @@ export function LegendHero({
 }: LegendHeroProps) {
   return (
     <section className="relative aspect-[21/9] max-h-[70vh] w-full overflow-hidden">
-      <Image
+      <ImageWithSkeleton
         src={heroImage}
         alt={title}
         fill

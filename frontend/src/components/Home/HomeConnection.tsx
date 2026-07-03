@@ -1,7 +1,7 @@
 "use client"
 
-import React, { useEffect, useRef, useState } from 'react' 
-import Image from 'next/image'
+import React, { useEffect, useRef, useState } from 'react'
+import { ImageWithSkeleton } from '@/components/ui/ImageWithSkeleton'
 import Link from 'next/link'
 import { useTranslations } from 'next-intl' 
 import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel"
@@ -75,14 +75,14 @@ const HomeConnection = () => {
         <CarouselContent>
           {IMAGES.map((src, idx) => (
             <CarouselItem key={src} className="w-full h-full relative">
-              <Image
+              <ImageWithSkeleton
                 src={src}
                 alt={`Connection slide ${idx + 1}`}
-                fill 
+                fill
                 priority={idx === 0}
                 sizes="100vw"
-                className="lg:object-cover object-contain" 
-                placeholder="empty" 
+                className="lg:object-cover object-contain"
+                placeholder="empty"
               />
             </CarouselItem>
           ))}
