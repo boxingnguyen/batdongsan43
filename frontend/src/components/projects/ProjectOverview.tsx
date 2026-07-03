@@ -1,4 +1,4 @@
-import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
+import Image from "next/image";
 
 const CDN = "https://dongtayland.vn/wp-content/uploads/2026/05";
 
@@ -20,7 +20,7 @@ export function ProjectOverview() {
     <section id="tong-quan" className="scroll-mt-24 bg-[#f9f9f9] pb-16 md:pb-24">
       <div className="mx-auto max-w-[1440px] px-5 md:px-20">
         <div className="mb-10 text-center">
-          <ImageWithSkeleton
+          <Image
             src={`${CDN}/Thong-tin-du-an-fn.png`}
             alt="Thông tin dự án"
             width={600}
@@ -39,7 +39,7 @@ export function ProjectOverview() {
                 <span className="text-sm font-semibold text-[#4a3829]">{row.label}</span>
                 <div className="text-[#4e453e]">
                   {row.logo ? (
-                    <ImageWithSkeleton
+                    <Image
                       src={row.logo}
                       alt=""
                       width={220}
@@ -55,14 +55,14 @@ export function ProjectOverview() {
           </div>
 
           <div className="relative min-h-[320px] overflow-hidden rounded-2xl lg:-mt-[40%] lg:min-h-[480px]">
-            <ImageWithSkeleton
+            <Image
               src={`${CDN}/tong-quan-2-fn.png`}
               alt="Tổng quan dự án"
               fill
               className="hidden object-cover md:block"
               sizes="50vw"
             />
-            <ImageWithSkeleton
+            <Image
               src={`${CDN}/tong-quan-mobile.jpg`}
               alt="Tổng quan dự án"
               fill

@@ -1,6 +1,6 @@
 "use client";
 
-import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
+import Image from "next/image";
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -36,7 +36,7 @@ export function ImageGallery({ featured, gallery, title }: ImageGalleryProps) {
   return (
     <div className="space-y-4">
       <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-slate-100">
-        <ImageWithSkeleton
+        <Image
           src={slides[index]}
           alt={`${title} — image ${index + 1}`}
           fill
@@ -82,7 +82,7 @@ export function ImageGallery({ featured, gallery, title }: ImageGalleryProps) {
                 i === index ? "ring-emerald-500" : "ring-transparent opacity-70 hover:opacity-100"
               )}
             >
-              <ImageWithSkeleton src={src} alt="" fill className="object-cover" sizes="120px" />
+              <Image src={src} alt="" fill className="object-cover" sizes="120px" />
             </button>
           ))}
         </div>

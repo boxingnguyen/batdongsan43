@@ -2,20 +2,16 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { X } from "lucide-react";
+import { validateContact } from "@/lib/validate-contact";
 
 interface Props {
   projectName: string;
   accent?: string;
-  scrollThreshold?: number;
 }
-
-const SESSION_KEY = "project_popup_last_shown";
-const SHOW_INTERVAL = 60000; // 1 minute in milliseconds
 
 export function ProjectScrollPopup({
   projectName,
   accent = "#C8A96E",
-  scrollThreshold = 500,
 }: Props) {
   const [visible, setVisible] = useState(false);
   const [name, setName] = useState("");
@@ -26,38 +22,38 @@ export function ProjectScrollPopup({
   const [error, setError] = useState("");
 
   useEffect(() => {
-    const lastShown = sessionStorage.getItem(SESSION_KEY);
-    const now = Date.now();
-
-    // Check if we should show based on time interval
-    if (lastShown && now - parseInt(lastShown) < SHOW_INTERVAL) {
-      return;
-    }
-
     let triggered = false;
     const onScroll = () => {
-      if (triggered || window.scrollY < scrollThreshold) return;
-      triggered = true;
-      setTimeout(() => setVisible(true), 800);
-      window.removeEventListener("scroll", onScroll);
+      if (triggered) return;
+      const docHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent =
+        docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
+
+      // Show once the user scrolls past the middle of the page.
+      if (scrollPercent >= 50) {
+        triggered = true;
+        setTimeout(() => setVisible(true), 800);
+        window.removeEventListener("scroll", onScroll);
+      }
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, [scrollThreshold]);
+  }, []);
 
   const dismiss = useCallback(() => {
     setVisible(false);
-    sessionStorage.setItem(SESSION_KEY, Date.now().toString());
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
 
-    // Validate: either phone or email is required
-    if (!phone && !email) {
-      setError("Vui lòng nhập số điện thoại hoặc email");
+    // Validate: name required, phone or email required, each must match format.
+    const validationError = validateContact({ name, phone, email });
+    if (validationError) {
+      setError(validationError);
       return;
     }
 

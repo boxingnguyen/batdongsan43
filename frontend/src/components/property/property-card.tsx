@@ -1,5 +1,5 @@
-import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
 import Link from "next/link";
+import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
 import { Bath, BedDouble, Maximize2, MapPin } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";

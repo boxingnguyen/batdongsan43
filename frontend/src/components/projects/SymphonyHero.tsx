@@ -1,10 +1,10 @@
-import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
+import Image from "next/image";
 
 export function SymphonyHero() {
   return (
     <section className="relative !py-0">
       <div className="relative w-full overflow-hidden h-screen">
-        <ImageWithSkeleton
+        <Image
           src="/images/symphony5/hero-12-5.jpg"
           alt="Sun Symphony Residence 5"
           fill
@@ -12,7 +12,7 @@ export function SymphonyHero() {
           priority
           sizes="100vw"
         />
-        <ImageWithSkeleton
+        <Image
           src="/images/symphony5/hero-12-5.jpg"
           alt="Sun Symphony Residence 5"
           fill

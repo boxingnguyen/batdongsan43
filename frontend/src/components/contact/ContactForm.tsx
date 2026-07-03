@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { validateContact } from "@/lib/validate-contact";
 
 export function ContactForm() {
   const [formData, setFormData] = useState({
@@ -28,9 +29,10 @@ export function ContactForm() {
     setLoading(true);
     setError("");
 
-    // Validate: either phone or email is required
-    if (!formData.email && !formData.phone) {
-      setError("Vui lòng nhập email hoặc số điện thoại");
+    // Validate: name required, phone or email required, each must match format.
+    const validationError = validateContact(formData);
+    if (validationError) {
+      setError(validationError);
       setLoading(false);
       return;
     }

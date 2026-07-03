@@ -1,5 +1,5 @@
 import { getTranslations } from 'next-intl/server';
-import { ImageWithSkeleton } from '@/components/ui/ImageWithSkeleton';
+import Image from 'next/image';
 import AnimateInView from '@/components/shared/AnimateInView';
 import { Playfair_Display } from 'next/font/google';
 
@@ -39,8 +39,8 @@ const IntroductionPage = async () => {
     <div className="bg-white min-h-screen">
       {/* --- Hero Section --- */}
       <div className="relative h-[400px] w-full overflow-hidden">
-        <ImageWithSkeleton
-            src="/images/home/banner-4.jpg"
+        <Image 
+            src="/images/home/banner-4.jpg" 
             alt={t('hero_title')}
             fill
             priority
@@ -78,10 +78,10 @@ const IntroductionPage = async () => {
                 {/* Image Block */}
                 <div className="md:w-1/2 w-full">
                   <div className="relative aspect-[4/3] overflow-hidden rounded-lg shadow-2xl border-4 border-white/50">
-                    <ImageWithSkeleton
-                        src={section.imageSrc}
+                    <Image 
+                        src={section.imageSrc} 
                         alt={t(section.titleKey)}
-                        fill
+                        fill 
                         className="object-cover transition duration-500 hover:scale-105"
                         sizes="(max-width: 768px) 100vw, 50vw"
                     />

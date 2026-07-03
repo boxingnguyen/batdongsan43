@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
+import Image from "next/image";
 import Link from "next/link";
 import { useTranslations } from "next-intl"; 
 
@@ -96,12 +96,12 @@ const ProjectOverview = () => {
           {/* SỬA LỖI Ở ĐÂY: Xóa 'hidden' */}
           <div className="lg:w-2/5 w-full flex relative flex-col justify-center items-center">
             <div className="relative w-full rounded-lg overflow-hidden shadow-2xl">
-              <ImageWithSkeleton
+              <Image
                 src={newStaticImage}
                 alt="Update video"
-                width={800}
-                height={454}
-                className="w-full h-auto object-contain"
+                width={800} // Original aspect ratio width
+                height={454} // Original aspect ratio height
+                className="w-full h-auto object-contain" // Keeps aspect ratio
                 sizes="(max-width: 1024px) 100vw, 40vw"
               />
             </div>

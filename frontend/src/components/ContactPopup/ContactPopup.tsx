@@ -3,8 +3,9 @@
 import React, { useState, useEffect } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { Icon } from "@iconify/react";
-import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
+import Image from "next/image";
 import toast from "react-hot-toast";
+import { validateContact } from "@/lib/validate-contact";
 
 const PopupContact = () => {
   const t = useTranslations("contact");
@@ -55,12 +56,13 @@ const PopupContact = () => {
     e.preventDefault();
     setError("");
 
-    // Validate: either phone or email is required
-    if (!formData.email && !formData.phone) {
-      const errorMsg = locale === "vi"
-        ? "Vui lòng nhập email hoặc số điện thoại"
-        : "Please enter email or phone number";
-      setError(errorMsg);
+    // Validate: either phone or email required, and each must match its format.
+    const validationError = validateContact(formData, {
+      locale: locale === "en" ? "en" : "vi",
+      requireName: false,
+    });
+    if (validationError) {
+      setError(validationError);
       return;
     }
 
@@ -124,7 +126,7 @@ const PopupContact = () => {
 
         {/* Left Column: Image */}
         <div className="w-full md:w-1/2 relative h-40 md:h-auto bg-gray-100 hidden md:block">
-          <ImageWithSkeleton
+          <Image
             src="/images/home/cover-pool.png"
             alt="Promotion"
             fill

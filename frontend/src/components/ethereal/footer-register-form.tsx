@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { validateContact } from "@/lib/validate-contact";
 
 export function FooterRegisterForm() {
   const [formData, setFormData] = useState({ name: "", phone: "", email: "" });
@@ -8,10 +9,19 @@ export function FooterRegisterForm() {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
 
+  // Form is valid when it passes the same rules used on submit.
+  const isValid = validateContact(formData) === null;
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || (!formData.phone && !formData.email)) {
-      setError("Vui lòng nhập số điện thoại hoặc email");
+
+    const name = formData.name.trim();
+    const phone = formData.phone.trim();
+    const email = formData.email.trim();
+
+    const validationError = validateContact({ name, phone, email });
+    if (validationError) {
+      setError(validationError);
       return;
     }
 
@@ -23,9 +33,9 @@ export function FooterRegisterForm() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: formData.name,
-          phone: formData.phone,
-          email: formData.email,
+          name,
+          phone,
+          email,
           message: "Đăng ký nhận tư vấn từ Footer",
         }),
       });
@@ -38,13 +48,16 @@ export function FooterRegisterForm() {
 
       setSuccess(true);
       setFormData({ name: "", phone: "", email: "" });
-      
+
       // Reset success message after 5 seconds
       setTimeout(() => {
         setSuccess(false);
       }, 5000);
     } catch (err) {
-      const errorMessage = err instanceof Error ? err.message : "Có lỗi xảy ra, vui lòng thử lại sau.";
+      const errorMessage =
+        err instanceof Error
+          ? err.message
+          : "Có lỗi xảy ra, vui lòng thử lại sau.";
       setError(errorMessage);
     } finally {
       setLoading(false);
@@ -64,7 +77,7 @@ export function FooterRegisterForm() {
       <div className="space-y-2">
         <input
           className="w-full bg-[#f9f9f9] border border-[#d2c4bb]/30 px-4 py-3 text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken focus:ring-1 focus:ring-[#4a3829] focus:border-[#4a3829] outline-none transition-all"
-          placeholder="Họ và tên *"
+          placeholder="Họ và tên"
           type="text"
           required
           value={formData.name}
@@ -87,9 +100,9 @@ export function FooterRegisterForm() {
       </div>
       {error && <p className="text-xs text-red-500">{error}</p>}
       <button
-        className="w-full bg-[#4a3829] hover:opacity-90 transition-opacity text-white py-3 text-[14px] font-semibold leading-[20px] tracking-[0.05em] font-hanken disabled:opacity-50"
+        className="w-full bg-[#4a3829] hover:opacity-90 transition-opacity text-white py-3 text-[14px] font-semibold leading-[20px] tracking-[0.05em] font-hanken disabled:cursor-not-allowed disabled:opacity-50"
         type="submit"
-        disabled={loading}
+        disabled={loading || !isValid}
       >
         {loading ? "ĐANG GỬI..." : "ĐĂNG KÝ"}
       </button>

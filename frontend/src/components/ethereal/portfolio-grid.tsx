@@ -1,4 +1,4 @@
-import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
+import Image from "next/image";
 import Link from "next/link";
 import type { PortfolioItem } from "@/data/ethereal-portfolio";
 import { cn } from "@/lib/utils";
@@ -28,7 +28,7 @@ function PortfolioCard({ item }: { item: PortfolioItem }) {
           isLarge ? "aspect-[16/10]" : isTall ? "aspect-[3/5] md:aspect-auto md:min-h-[420px] md:h-full" : "aspect-[4/5]"
         )}
       >
-        <ImageWithSkeleton
+        <Image
           src={item.image}
           alt={item.imageAlt}
           fill

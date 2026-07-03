@@ -1,5 +1,5 @@
 import { getTranslations } from 'next-intl/server';
-import { ImageWithSkeleton } from '@/components/ui/ImageWithSkeleton';
+import Image from 'next/image';
 import AnimateInView from '@/components/shared/AnimateInView';
 import { Playfair_Display } from 'next/font/google';
 import type { Metadata } from 'next';
@@ -70,8 +70,8 @@ const ConnectionPage = async () => {
     <div className="bg-white min-h-screen">
       {/* 1. Hero Section/Banner */}
       <div className="relative h-[400px] w-full overflow-hidden">
-        <ImageWithSkeleton
-            src="/images/home/ketnoi.jpg"
+        <Image 
+            src="/images/home/ketnoi.jpg" 
             alt={t('hero_title') as string}
             fill
             priority
@@ -92,9 +92,9 @@ const ConnectionPage = async () => {
 
       
       {/* 2. Main Content Sections (Với ảnh nền) */}
-      <div className="relative isolate py-16 md:py-24">
-        <ImageWithSkeleton
-            src="/images/home/background.png"
+      <div className="relative isolate py-16 md:py-24"> 
+        <Image
+            src="/images/home/background.png" 
             alt="Background"
             fill
             className="-z-10 object-cover opacity-20"
@@ -119,7 +119,7 @@ const ConnectionPage = async () => {
                   className="group relative h-64 md:h-80 w-full rounded-lg overflow-hidden shadow-xl"
                 >
                   {/* Ảnh nền thẻ */}
-                  <ImageWithSkeleton
+                  <Image
                     src={loc.imageSrc}
                     alt={title as string}
                     fill

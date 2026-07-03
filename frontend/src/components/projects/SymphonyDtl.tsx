@@ -1,4 +1,4 @@
-import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
+import Image from "next/image";
 
 const benefits = [
   "Tất cả sản phẩm minh bạch, mức giá rõ ràng, pháp lý đầy đủ",
@@ -14,13 +14,12 @@ export function SymphonyDtl() {
     >
       <div className="mx-auto max-w-[1440px] px-5 md:px-20">
         <div className="mb-12 text-center">
-          <ImageWithSkeleton
+          <Image
             src={`/images/symphony5/f1_sun_group.jpg`}
             alt="Duyên Hải Holding"
-            width={1200}
-            height={780}
-            wrapperClassName="block w-full"
-            className="w-full"
+            width={600}
+            height={133}
+            className="mx-auto h-auto w-full max-w-lg"
           />
         </div>
 
@@ -43,7 +42,7 @@ export function SymphonyDtl() {
             </ul>
           </div>
           <div className="overflow-hidden rounded-2xl border border-white/20">
-            <ImageWithSkeleton
+            <Image
               src={`/images/symphony5/dtl.jpg`}
               alt="Duyên Hải Holding"
               width={960}
@@ -52,6 +51,7 @@ export function SymphonyDtl() {
             />
           </div>
         </div>
+
       </div>
     </section>
   );

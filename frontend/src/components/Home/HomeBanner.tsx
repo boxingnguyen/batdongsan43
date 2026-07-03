@@ -1,7 +1,7 @@
 "use client"
 
 import React from 'react'
-import { ImageWithSkeleton } from '@/components/ui/ImageWithSkeleton'
+import Image from 'next/image'
 import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel"
 import { useEffect, useRef, useState } from 'react'
 
@@ -73,7 +73,7 @@ const HomeBanner = () => {
         <CarouselContent>
           {IMAGES.map((src, idx) => (
             <CarouselItem key={src} className="w-full h-full relative">
-              <ImageWithSkeleton
+              <Image
                 src={src}
                 alt="Hero banner"
                 fill
