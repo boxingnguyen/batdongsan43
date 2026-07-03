@@ -15,29 +15,20 @@ const CAROUSEL_IMAGES = [
   "/images/fourS_tower/phoi-canh-4.jpg",
   "/images/fourS_tower/phoi-canh-5.jpg",
   "/images/fourS_tower/phoi-canh-6.jpg",
-  "/images/fourS_tower/phoi-canh-7.jpg",
-  "/images/fourS_tower/phoi-canh-8.jpg",
-  "/images/fourS_tower/phoi-canh-9.jpg",
-  "/images/fourS_tower/phoi-canh-10.jpg",
-  "/images/fourS_tower/phoi-canh-11.jpg",
 ];
 
 const FLOOR_PLANS = [
-  { tower: "F1", label: "Tầng 2", image: "/images/fourS_tower/layout/f1-tang-2.jpg" },
-  { tower: "F1", label: "Tầng 3", image: "/images/fourS_tower/layout/f1-tang-3.jpg" },
-  { tower: "F1", label: "Tầng 4–7", image: "/images/fourS_tower/layout/f1-tang-4-7.jpg" },
+  { tower: "F1", label: "Tầng 3–7", image: "/images/fourS_tower/layout/f1-tang-4-7.jpg" },
   { tower: "F1", label: "Tầng 8–19", image: "/images/fourS_tower/layout/f1-tang-8-19.jpg" },
-  { tower: "F5", label: "Tầng 2", image: "/images/fourS_tower/layout/f5-tang-2.jpg" },
-  { tower: "F5", label: "Tầng 3", image: "/images/fourS_tower/layout/f5-tang-3.jpg" },
+  { tower: "F5", label: "Tầng 3–7", image: "/images/fourS_tower/layout/f5-tang-3.jpg" },
   { tower: "F5", label: "Tầng 8–15", image: "/images/fourS_tower/layout/f5-tang-8-15.jpg" },
-  { tower: "F5", label: "Tầng 16", image: "/images/fourS_tower/layout/f5-tang-16.jpg" },
-  { tower: "F5", label: "Tầng 17–19", image: "/images/fourS_tower/layout/f5-tang-17-19.jpg" },
 ];
 
 const navLinks = [
   { href: "#tong-quan", label: "Tổng Quan" },
   { href: "#can-ho", label: "Căn Hộ" },
   { href: "#mat-bang", label: "Mặt Bằng" },
+  { href: "#vr-tour", label: "VR 360°" },
   { href: "#vi-tri", label: "Vị Trí" },
   { href: "#tien-ich", label: "Tiện Ích" },
   { href: "#chinh-sach", label: "Chính Sách" },
@@ -336,28 +327,28 @@ export default function SunFoursTowerPage() {
             {[
               {
                 type: "Studio",
-                area: "33–35 m²",
+                area: "34,7 m²",
                 desc: "Tối ưu đầu tư cho thuê, layout thông minh",
               },
               {
                 type: "1 Phòng Ngủ",
-                area: "45–54 m²",
+                area: "43,7 m²",
                 desc: "Không gian sống tiện nghi, phù hợp cặp đôi",
               },
               {
                 type: "2 Phòng Ngủ",
-                area: "60–73 m²",
+                area: "58 m²",
                 desc: "Lý tưởng cho gia đình nhỏ",
               },
               {
                 type: "3 Phòng Ngủ",
-                area: "84–104 m²",
+                area: "102,8 m²",
                 desc: "Không gian rộng rãi cho gia đình",
               },
               {
-                type: "Căn Hộ Sân Vườn",
-                area: "Đặc biệt",
-                desc: "Tầng thấp, sân vườn riêng, view xanh mát",
+                type: "Duplex",
+                area: "200 m²",
+                desc: "Căn hộ thông tầng đẳng cấp, không gian sang trọng",
               },
             ].map((apt) => (
               <div
@@ -389,7 +380,7 @@ export default function SunFoursTowerPage() {
             Phối Cảnh Dự Án
           </h2>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {CAROUSEL_IMAGES.map((src, i) => (
+            {CAROUSEL_IMAGES.slice(0, 4).map((src, i) => (
               <div
                 key={i}
                 className="group relative aspect-[4/3] cursor-pointer overflow-hidden rounded-sm bg-[#E8E2D9]"
@@ -429,7 +420,7 @@ export default function SunFoursTowerPage() {
             Mặt bằng chi tiết theo từng tầng của hai tháp mở bán đợt 1 — Tháp F1
             và Tháp F5. Nhấn vào từng mặt bằng để xem chi tiết.
           </p>
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid gap-5 sm:grid-cols-2">
             {FLOOR_PLANS.map((plan) => (
               <button
                 key={plan.image}
@@ -446,16 +437,36 @@ export default function SunFoursTowerPage() {
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                   <span className="absolute left-3 top-3 rounded-sm bg-[#4a3829] px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-white">
-                    Tháp {plan.tower}
+                    Tháp {plan.tower} · {plan.label}
                   </span>
-                </div>
-                <div className="p-4">
-                  <p className="font-serif text-lg text-[#4a3829]">
-                    {plan.label}
-                  </p>
                 </div>
               </button>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* VR TOUR 360 */}
+      <section id="vr-tour" className="scroll-mt-16 bg-white pb-20">
+        <div className="mx-auto max-w-[1440px] px-5 md:px-20">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#634F3F]/70">
+            Trải Nghiệm 360°
+          </p>
+          <h2 className="mt-3 font-serif text-3xl text-[#4a3829] md:text-4xl">
+            Tham Quan Thực Tế Ảo
+          </h2>
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[#4e453e]/80">
+            Khám phá không gian căn hộ và tiện ích dự án qua công nghệ thực tế
+            ảo 360°.
+          </p>
+          <div className="mt-10 overflow-hidden rounded-sm border border-[#E8E2D9] shadow-sm">
+            <iframe
+              title="Sun FourS Tower VR Tour 360"
+              allow="xr-spatial-tracking;gyroscope;accelerometer;autoplay;microphone;camera"
+              allowFullScreen
+              className="block h-[640px] w-full border-0"
+              src="https://kuula.co/share/LpyGP?logo=-1&zoom=1&vr=1&priority=1&enablejs=1&history=1&info=0&fs=1&sd=1&thumbs=1&cusdomwrap=1&fid=0f25"
+            />
           </div>
         </div>
       </section>
