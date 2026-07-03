@@ -1,8 +1,6 @@
 import Image from "next/image";
 import { ProjectLeadForm } from "./ProjectLeadForm";
 
-const CDN = "https://dongtayland.vn/wp-content/uploads/2026/05";
-
 const types = [
   { name: "Studio", area: "30 – 33m²" },
   { name: "Căn 1PN+", area: "45 – 53m²" },
@@ -17,7 +15,7 @@ export function SymphonyProducts() {
         <div className="mb-10 grid gap-10 lg:grid-cols-2">
           <div>
             <Image
-              src={`${CDN}/San-pham-da-dang-1.png`}
+              src={`/images/symphony5/San-pham-da-dang-1.png`}
               alt="Sản phẩm đa dạng"
               width={600}
               height={90}
@@ -38,7 +36,7 @@ export function SymphonyProducts() {
           </div>
           <div className="overflow-hidden rounded-2xl bg-gradient-to-br from-[#f5ecb0] to-[#ce9e51] p-2">
             <Image
-              src={`${CDN}/san-pham-1.jpg`}
+              src={`/images/symphony5/san-pham-1.jpg`}
               alt="Căn hộ mẫu"
               width={960}
               height={640}

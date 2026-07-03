@@ -5,13 +5,11 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { ProjectLeadForm } from "./ProjectLeadForm";
 
-const CDN = "https://dongtayland.vn/wp-content/uploads/2026/05";
-
 const unitSlides = [
-  `${CDN}/San-pham-STUDIO.jpg`,
-  `${CDN}/1BR.jpg`,
-  `${CDN}/1BR-2.jpg`,
-  `${CDN}/1BR-3.jpg`,
+  "/images/symphony5/San-pham-STUDIO.jpg",
+  "/images/symphony5/1BR.jpg",
+  "/images/symphony5/1BR-2.jpg",
+  "/images/symphony5/1BR-3.jpg",
 ];
 
 export function SymphonyFloorPlan() {
@@ -22,7 +20,7 @@ export function SymphonyFloorPlan() {
       <div className="mx-auto max-w-[1440px] px-5 md:px-20">
         <div className="mb-10 text-center">
           <Image
-            src={`${CDN}/Mat-bang-Layout-can-ho-1.png`}
+            src={`/images/symphony5/Mat-bang-Layout-can-ho-1.png`}
             alt="Mặt bằng layout căn hộ"
             width={600}
             height={62}
@@ -34,7 +32,7 @@ export function SymphonyFloorPlan() {
           <div className="grid gap-4 lg:grid-cols-[1.2fr_0.8fr]">
             <div className="overflow-hidden rounded-xl bg-white p-2">
               <Image
-                src={`${CDN}/layout-toa.jpg`}
+                src={`/images/symphony5/layout-toa.jpg`}
                 alt="Layout tòa"
                 width={960}
                 height={640}

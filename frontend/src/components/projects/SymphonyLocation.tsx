@@ -1,8 +1,6 @@
 import Image from "next/image";
 import { ProjectLeadForm } from "./ProjectLeadForm";
 
-const CDN = "https://dongtayland.vn/wp-content/uploads/2026/05";
-
 const highlights = [
   { time: "2 phút", text: "Đường dạo bộ sông Hàn, bến du thuyền và trung tâm tài chính quốc tế" },
   { time: "5–10 phút", text: "DIFF, biển Mỹ Khê, cầu Rồng, trung tâm hành chính" },
@@ -22,7 +20,7 @@ export function SymphonyLocation() {
       <div className="mx-auto max-w-[1440px] px-5 md:px-20">
         <div className="mb-10 text-center">
           <Image
-            src={`${CDN}/Bieu-tuong-dat-gia-ben-bo-song-Han-new-2.png`}
+            src={`/images/symphony5/Bieu-tuong-dat-gia-ben-bo-song-Han-new-2.png`}
             alt="Vị trí bên sông Hàn"
             width={600}
             height={132}
@@ -66,7 +64,7 @@ export function SymphonyLocation() {
 
         <div className="mb-12 overflow-hidden rounded-2xl">
           <Image
-            src={`${CDN}/MAP-moi_.jpg`}
+            src={`/images/symphony5/MAP-moi_.jpg`}
             alt="Bản đồ vị trí"
             width={1600}
             height={800}
@@ -74,7 +72,7 @@ export function SymphonyLocation() {
             sizes="100vw"
           />
           <Image
-            src={`${CDN}/MAP-moi-mobile.jpg`}
+            src={`/images/symphony5/MAP-moi-mobile.jpg`}
             alt="Bản đồ vị trí"
             width={1209}
             height={1615}

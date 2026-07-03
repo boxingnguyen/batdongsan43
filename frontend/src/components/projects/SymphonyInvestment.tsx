@@ -1,26 +1,24 @@
 import Image from "next/image";
 import { ProjectLeadForm } from "./ProjectLeadForm";
 
-const CDN = "https://dongtayland.vn/wp-content/uploads/2026/05";
-
 const cards = [
   {
-    icon: `${CDN}/view-2.png`,
+    icon: "/images/symphony5/view-2.png",
     title: "Tòa căn hộ có tầm view đẹp nhất",
     text: 'Vị trí "khán đài thượng hạng" thưởng thức màn pháo hoa DIFF rực rỡ',
-    image: `${CDN}/dau-tu-1-fn.png`,
+    image: "/images/symphony5/dau-tu-1-fn.png",
   },
   {
-    icon: `${CDN}/nguoi-toi-song.png`,
+    icon: "/images/symphony5/nguoi-toi-song.png",
     title: "Hơn 60% sản phẩm là căn Studio",
     text: "Phù hợp khai thác lưu trú khi lượng khách du lịch và người đến Đà Nẵng sinh sống gia tăng",
-    image: `${CDN}/dau-tu-2-fn.png`,
+    image: "/images/symphony5/dau-tu-2-fn.png",
   },
   {
-    icon: `${CDN}/gia.png`,
+    icon: "/images/symphony5/gia.png",
     title: "Thị trường cho thuê sôi động",
     text: "Tỷ lệ lấp đầy gần như tuyệt đối — Giá cho thuê khu vực 20–45 triệu đồng/tháng",
-    image: `${CDN}/dau-tu-3.png`,
+    image: "/images/symphony5/dau-tu-3.png",
   },
 ];
 
@@ -30,7 +28,7 @@ export function SymphonyInvestment() {
       <div className="mx-auto max-w-[1440px] px-5 md:px-20">
         <div className="mb-10 text-center">
           <Image
-            src={`${CDN}/San-pham-dau-tu-dong-tien-hap-dan-new-1.png`}
+            src={`/images/symphony5/San-pham-dau-tu-dong-tien-hap-dan-new-1.png`}
             alt="Sản phẩm đầu tư dòng tiền"
             width={600}
             height={132}

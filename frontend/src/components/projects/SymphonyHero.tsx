@@ -1,13 +1,11 @@
 import Image from "next/image";
 
-const CDN = "https://dongtayland.vn/wp-content/uploads/2026/05";
-
 export function SymphonyHero() {
   return (
     <section className="relative">
       <div className="relative aspect-[4/5] w-full overflow-hidden md:aspect-[21/9] md:max-h-[min(90vh,900px)]">
         <Image
-          src={`${CDN}/hero-12-5-mobile.jpg`}
+          src="/images/symphony5/hero-12-5-mobile.jpg"
           alt="Sun Symphony Residence 5"
           fill
           className="object-cover md:hidden"
@@ -15,7 +13,7 @@ export function SymphonyHero() {
           sizes="100vw"
         />
         <Image
-          src={`${CDN}/hero-12-5.jpg`}
+          src="/images/symphony5/hero-12-5.jpg"
           alt="Sun Symphony Residence 5"
           fill
           className="hidden object-cover md:block"

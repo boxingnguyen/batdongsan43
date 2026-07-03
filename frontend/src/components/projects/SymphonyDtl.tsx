@@ -1,8 +1,6 @@
 import Image from "next/image";
 import { ProjectLeadForm } from "./ProjectLeadForm";
 
-const CDN = "https://dongtayland.vn/wp-content/uploads/2026/05";
-
 const benefits = [
   "Tất cả sản phẩm minh bạch, mức giá rõ ràng, pháp lý đầy đủ",
   "Tư vấn chuyên sâu 1:1, tiếp cận giỏ hàng đa dạng nhất thị trường",
@@ -18,7 +16,7 @@ export function SymphonyDtl() {
       <div className="mx-auto max-w-[1440px] px-5 md:px-20">
         <div className="mb-12 text-center">
           <Image
-            src={`${CDN}/f1_sun_group.jpg`}
+            src={`/images/symphony5/f1_sun_group.jpg`}
             alt="Duyên Hải Holding"
             width={600}
             height={133}
@@ -46,7 +44,7 @@ export function SymphonyDtl() {
           </div>
           <div className="overflow-hidden rounded-2xl border border-white/20">
             <Image
-              src={`${CDN}/dtl.jpg`}
+              src={`/images/symphony5/dtl.jpg`}
               alt="Duyên Hải Holding"
               width={960}
               height={590}

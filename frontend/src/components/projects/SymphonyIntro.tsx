@@ -1,8 +1,6 @@
 import Image from "next/image";
 import { ProjectLeadForm } from "./ProjectLeadForm";
 
-const CDN = "https://dongtayland.vn/wp-content/uploads/2026/05";
-
 export function SymphonyIntro() {
   return (
     <section id="gioi-thieu" className="relative scroll-mt-24">
@@ -38,7 +36,7 @@ export function SymphonyIntro() {
               </div>
               <div className="overflow-hidden rounded-xl">
                 <Image
-                  src={`${CDN}/gioi-thieu-1-new.jpg`}
+                  src={`/images/symphony5/gioi-thieu-1-new.jpg`}
                   alt="Đà Nẵng"
                   width={960}
                   height={589}
@@ -67,7 +65,7 @@ export function SymphonyIntro() {
               </div>
               <div className="relative min-h-[240px] overflow-hidden rounded-[20px]">
                 <Image
-                  src={`${CDN}/gioi-thieu-2.jpg`}
+                  src={`/images/symphony5/gioi-thieu-2.jpg`}
                   alt="Symphony Residence"
                   fill
                   className="object-cover"
@@ -85,7 +83,7 @@ export function SymphonyIntro() {
 
           <div className="mt-10 overflow-hidden rounded-lg">
             <Image
-              src={`${CDN}/stransit-1-fn-new.png`}
+              src={`/images/symphony5/stransit-1-fn-new.png`}
               alt="Kết nối giao thông"
               width={1920}
               height={790}
@@ -93,7 +91,7 @@ export function SymphonyIntro() {
               sizes="100vw"
             />
             <Image
-              src={`${CDN}/stransit-1-fn-mobile-new.png`}
+              src={`/images/symphony5/stransit-1-fn-mobile-new.png`}
               alt="Kết nối giao thông"
               width={790}
               height={790}
