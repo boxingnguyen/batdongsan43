@@ -1,6 +1,6 @@
 "use client";
 
-import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
+import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect, useCallback, useRef } from "react";
 import {
@@ -183,7 +183,7 @@ function HeroCarousel() {
             i === current ? "opacity-100" : "opacity-0"
           }`}
         >
-          <ImageWithSkeleton
+          <Image
             src={src}
             alt={`S-Light Tower ${i + 1}`}
             fill
@@ -355,7 +355,7 @@ export default function SLightTowerPage() {
                 )
               }
             >
-              <ImageWithSkeleton
+              <Image
                 src="/images/slight_images/s-light-tower-gia-rumor-tang-15.jpg"
                 alt="Giá Rumor Tầng 15 - S-Light Tower căn hộ mặt sông Hàn"
                 fill
@@ -378,7 +378,7 @@ export default function SLightTowerPage() {
                 )
               }
             >
-              <ImageWithSkeleton
+              <Image
                 src="/images/slight_images/s-light-tower-chinh-sach-sun-early-key.jpg"
                 alt="Chính Sách Sun Early Key - S-Light Tower thanh toán 70% nhận nhà"
                 fill
@@ -595,7 +595,7 @@ export default function SLightTowerPage() {
                   }}
                 >
                   <div className="relative aspect-[3/4] overflow-hidden bg-[#E8E2D9]">
-                    <ImageWithSkeleton
+                    <Image
                       src={layout.image}
                       alt={layout.name}
                       fill
@@ -748,7 +748,7 @@ export default function SLightTowerPage() {
                 className="group relative overflow-hidden rounded-lg border border-white/10 bg-white/5 transition-all hover:shadow-lg"
               >
                 <div className="relative h-48 overflow-hidden">
-                  <ImageWithSkeleton
+                  <Image
                     src={amenity.image}
                     alt={amenity.title}
                     fill
@@ -784,7 +784,7 @@ export default function SLightTowerPage() {
                 className="group relative aspect-[4/3] cursor-pointer overflow-hidden rounded-sm bg-[#E8E2D9]"
                 onClick={() => setSelectedImage(src)}
               >
-                <ImageWithSkeleton
+                <Image
                   src={src}
                   alt={`S-Light Tower phối cảnh ${i + 1}`}
                   fill
@@ -886,7 +886,7 @@ export default function SLightTowerPage() {
             className="relative h-full w-full max-w-6xl p-4 md:p-8"
             onClick={(e) => e.stopPropagation()}
           >
-            <ImageWithSkeleton
+            <Image
               src={selectedImage}
               alt="S-Light Tower phối cảnh chi tiết"
               fill

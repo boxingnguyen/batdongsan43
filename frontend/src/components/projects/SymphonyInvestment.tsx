@@ -1,4 +1,4 @@
-import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
+import Image from "next/image";
 
 const cards = [
   {
@@ -26,7 +26,7 @@ export function SymphonyInvestment() {
     <section id="dau-tu" className="scroll-mt-24 overflow-hidden bg-gradient-to-b from-[#28589d] via-[#0f437d] to-[#030b3a] py-16 text-white md:py-24">
       <div className="mx-auto max-w-[1440px] px-5 md:px-20">
         <div className="mb-10 text-center">
-          <ImageWithSkeleton
+          <Image
             src={`/images/symphony5/San-pham-dau-tu-dong-tien-hap-dan-new-1.png`}
             alt="Sản phẩm đầu tư dòng tiền"
             width={600}
@@ -45,7 +45,7 @@ export function SymphonyInvestment() {
               className="overflow-hidden rounded-2xl border border-white/30 bg-gradient-to-b from-white/20 to-white/5"
             >
               <div className="p-6 text-center">
-                <ImageWithSkeleton
+                <Image
                   src={card.icon}
                   alt=""
                   width={50}
@@ -55,7 +55,7 @@ export function SymphonyInvestment() {
                 <p className="text-sm leading-relaxed text-white/95">{card.text}</p>
               </div>
               <div className="relative aspect-square">
-                <ImageWithSkeleton src={card.image} alt={card.title} fill className="object-cover" sizes="33vw" />
+                <Image src={card.image} alt={card.title} fill className="object-cover" sizes="33vw" />
               </div>
             </article>
           ))}

@@ -1,4 +1,4 @@
-import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
+import Image from "next/image";
 import { MaterialIcon } from "@/components/ui/material-icon";
 import { ContactAmbassadorForm } from "@/components/property/contact-ambassador-form";
 import { FinancialOverview } from "@/components/property/financial-overview";
@@ -28,7 +28,7 @@ export function EtherealPropertyDetail({
         <div className="grid grid-cols-1 gap-2 md:grid-cols-12">
           {mainImage && (
             <div className="group relative h-[400px] overflow-hidden md:col-span-8 md:h-[600px]">
-              <ImageWithSkeleton
+              <Image
                 src={mainImage.src}
                 alt={mainImage.alt}
                 fill
@@ -51,7 +51,7 @@ export function EtherealPropertyDetail({
                 key={image.src}
                 className="group relative overflow-hidden"
               >
-                <ImageWithSkeleton
+                <Image
                   src={image.src}
                   alt={image.alt}
                   fill
@@ -159,7 +159,7 @@ export function EtherealPropertyDetail({
             </h4>
             <div className="mb-8 flex items-center gap-4">
               <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full">
-                <ImageWithSkeleton
+                <Image
                   src={property.agent.image}
                   alt={property.agent.name}
                   fill

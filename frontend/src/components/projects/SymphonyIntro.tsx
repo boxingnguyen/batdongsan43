@@ -1,4 +1,4 @@
-import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
+import Image from "next/image";
 
 export function SymphonyIntro() {
   return (
@@ -34,7 +34,7 @@ export function SymphonyIntro() {
                 </ul>
               </div>
               <div className="overflow-hidden rounded-xl">
-                <ImageWithSkeleton
+                <Image
                   src={`/images/symphony5/gioi-thieu-1-new.jpg`}
                   alt="Đà Nẵng"
                   width={960}
@@ -63,11 +63,10 @@ export function SymphonyIntro() {
                 </ul>
               </div>
               <div className="relative min-h-[240px] overflow-hidden rounded-[20px]">
-                <ImageWithSkeleton
+                <Image
                   src={`/images/symphony5/gioi-thieu-2.jpg`}
                   alt="Symphony Residence"
-                  width={960}
-                  height={589}
+                  fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
@@ -77,7 +76,7 @@ export function SymphonyIntro() {
           </div>
 
           <div className="mt-10 overflow-hidden rounded-lg">
-            <ImageWithSkeleton
+            <Image
               src={`/images/symphony5/stransit-1-fn-new.png`}
               alt="Kết nối giao thông"
               width={1920}
@@ -85,7 +84,7 @@ export function SymphonyIntro() {
               className="hidden h-auto w-full md:block"
               sizes="100vw"
             />
-            <ImageWithSkeleton
+            <Image
               src={`/images/symphony5/stransit-1-fn-mobile-new.png`}
               alt="Kết nối giao thông"
               width={790}

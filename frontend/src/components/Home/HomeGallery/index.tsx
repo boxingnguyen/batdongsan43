@@ -8,7 +8,7 @@ import {
   TabsTrigger,
   TabsContent,
 } from "@/components/ui/tabs";
-import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
+import Image from "next/image";
 import Link from "next/link";
 
 const GALLERY_IMAGES = [
@@ -75,7 +75,7 @@ const HomeGallery = () => {
                       key={index}
                       className="relative aspect-[4/3] rounded-lg overflow-hidden cursor-pointer group"
                     >
-                      <ImageWithSkeleton
+                      <Image
                         src={image}
                         alt={`Gallery image ${
                           index + 1

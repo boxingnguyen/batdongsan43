@@ -1,4 +1,4 @@
-import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
+import Image from "next/image";
 import { Metadata } from "next";
 import { Icon } from "@iconify/react/dist/iconify.js"
 
@@ -10,7 +10,7 @@ const ErrorPage = () => {
   return (
     <>
       <section className="flex justify-center pb-0!">
-        <ImageWithSkeleton
+        <Image
           src="/images/404.png"
           alt="404"
           width={490}

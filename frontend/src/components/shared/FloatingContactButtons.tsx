@@ -1,6 +1,6 @@
 "use client";
 
-import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
+import Image from "next/image";
 
 const FloatingContactButtons = () => {
   const ZALO_LINK = "https://zalo.me/0345747138";
@@ -18,12 +18,12 @@ const FloatingContactButtons = () => {
         title="Liên Hệ Zalo"
         className="w-16 h-16 bg-[#0084FF] rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow"
       >
-        <ImageWithSkeleton
-          src="/images/zalo-1.png"
+        <Image
+          src="/images/zalo-1.png" // Your Zalo icon
           width={64}
           height={64}
           alt="Zalo"
-          className="w-14 h-14 relative z-10"
+          className="w-14 h-14 relative z-10" // 56px size
         />
       </a>
 
@@ -39,7 +39,7 @@ const FloatingContactButtons = () => {
           <div className="absolute inset-1 bg-red-500 rounded-full z-10"></div>
 
           {/* Layer 3 (z-20): Phone Icon */}
-          <ImageWithSkeleton
+          <Image
             src="/images/icon-1.png"
             width={64}
             height={64}

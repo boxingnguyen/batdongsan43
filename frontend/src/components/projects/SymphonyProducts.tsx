@@ -1,4 +1,4 @@
-import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
+import Image from "next/image";
 
 const types = [
   { name: "Studio", area: "30 – 33m²" },
@@ -13,7 +13,7 @@ export function SymphonyProducts() {
       <div className="mx-auto max-w-[1440px] px-5 md:px-20">
         <div className="mb-10 grid gap-10 lg:grid-cols-2">
           <div>
-            <ImageWithSkeleton
+            <Image
               src={`/images/symphony5/San-pham-da-dang-1.png`}
               alt="Sản phẩm đa dạng"
               width={600}
@@ -34,7 +34,7 @@ export function SymphonyProducts() {
             </ul>
           </div>
           <div className="overflow-hidden rounded-2xl bg-gradient-to-br from-[#f5ecb0] to-[#ce9e51] p-2">
-            <ImageWithSkeleton
+            <Image
               src={`/images/symphony5/san-pham-1.jpg`}
               alt="Căn hộ mẫu"
               width={960}

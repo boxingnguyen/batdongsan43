@@ -1,6 +1,6 @@
 "use client";
 
-import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
+import Image from "next/image";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
@@ -24,7 +24,7 @@ export function SymphonyAmenities() {
     <section id="tien-ich" className="scroll-mt-24 bg-[#f9f9f9] pb-16 md:pb-24">
       <div className="mx-auto max-w-[1440px] px-5 md:px-20">
         <div className="mb-10 text-center">
-          <ImageWithSkeleton
+          <Image
             src="/images/symphony5/Tron-ven-he-tien-ich-cua-To-hop-dang-cap-tu-Sun-Group-1.png"
             alt="Tiện ích"
             width={600}
@@ -35,7 +35,7 @@ export function SymphonyAmenities() {
 
         <div className="mb-8 overflow-hidden rounded-2xl bg-white shadow-lg">
           <div className="relative aspect-[21/9] w-full">
-            <ImageWithSkeleton
+            <Image
               src={mapSlides[slide]}
               alt="Sơ đồ tiện ích"
               fill

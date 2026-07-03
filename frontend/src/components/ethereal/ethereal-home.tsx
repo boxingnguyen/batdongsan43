@@ -1,4 +1,4 @@
-import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
+import Image from "next/image";
 import Link from "next/link";
 import { PortfolioGrid } from "@/components/ethereal/portfolio-grid";
 import { Button } from "@/components/ui/button";
@@ -34,7 +34,7 @@ export function EtherealHome() {
       {/* Featured development */}
       <section className="pb-20 md:pb-28">
         <div className="relative mx-auto aspect-[21/9] max-w-[1400px] overflow-hidden md:aspect-[2.4/1]">
-          <ImageWithSkeleton
+          <Image
             src={featuredDevelopment.image}
             alt={featuredDevelopment.imageAlt}
             fill
