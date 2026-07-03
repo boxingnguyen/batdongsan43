@@ -5,6 +5,7 @@ import { useTranslations, useLocale } from "next-intl";
 import { Icon } from "@iconify/react";
 import Image from "next/image";
 import toast from "react-hot-toast";
+import { validateContact } from "@/lib/validate-contact";
 
 const PopupContact = () => {
   const t = useTranslations("contact");
@@ -55,12 +56,13 @@ const PopupContact = () => {
     e.preventDefault();
     setError("");
 
-    // Validate: either phone or email is required
-    if (!formData.email && !formData.phone) {
-      const errorMsg = locale === "vi"
-        ? "Vui lòng nhập email hoặc số điện thoại"
-        : "Please enter email or phone number";
-      setError(errorMsg);
+    // Validate: either phone or email required, and each must match its format.
+    const validationError = validateContact(formData, {
+      locale: locale === "en" ? "en" : "vi",
+      requireName: false,
+    });
+    if (validationError) {
+      setError(validationError);
       return;
     }
 

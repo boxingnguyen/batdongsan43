@@ -51,6 +51,15 @@ const HomeContact = () => {
       newErrors.email = t("errors.emailInvalid");
     }
 
+    // Phone validation: if provided, must be a valid VN phone number
+    if (
+      formData.phone.trim() &&
+      !/^(0|\+84)\d{9,10}$/.test(formData.phone.replace(/[\s.]/g, ""))
+    ) {
+      newErrors.phone =
+        locale === "vi" ? "Số điện thoại không hợp lệ" : "Invalid phone number";
+    }
+
     // Message is optional, no validation needed
 
     if (Object.keys(newErrors).length > 0) {

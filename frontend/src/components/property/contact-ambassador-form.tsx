@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { validateContact } from "@/lib/validate-contact";
 
 export function ContactAmbassadorForm() {
   const [name, setName] = useState("");
@@ -12,6 +13,14 @@ export function ContactAmbassadorForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // This form collects email only, so email is the required contact channel.
+    const validationError = validateContact({ name, email });
+    if (validationError) {
+      setError(validationError);
+      return;
+    }
+
     setLoading(true);
     setError("");
     try {
