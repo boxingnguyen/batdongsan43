@@ -1,7 +1,4 @@
-import Image from "next/image";
-import { ProjectLeadForm } from "./ProjectLeadForm";
-
-const CDN = "https://dongtayland.vn/wp-content/uploads/2026/05";
+import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
 
 const types = [
   { name: "Studio", area: "30 – 33m²" },
@@ -16,8 +13,8 @@ export function SymphonyProducts() {
       <div className="mx-auto max-w-[1440px] px-5 md:px-20">
         <div className="mb-10 grid gap-10 lg:grid-cols-2">
           <div>
-            <Image
-              src={`${CDN}/San-pham-da-dang-1.png`}
+            <ImageWithSkeleton
+              src={`/images/symphony5/San-pham-da-dang-1.png`}
               alt="Sản phẩm đa dạng"
               width={600}
               height={90}
@@ -37,8 +34,8 @@ export function SymphonyProducts() {
             </ul>
           </div>
           <div className="overflow-hidden rounded-2xl bg-gradient-to-br from-[#f5ecb0] to-[#ce9e51] p-2">
-            <Image
-              src={`${CDN}/san-pham-1.jpg`}
+            <ImageWithSkeleton
+              src={`/images/symphony5/san-pham-1.jpg`}
               alt="Căn hộ mẫu"
               width={960}
               height={640}
@@ -47,12 +44,6 @@ export function SymphonyProducts() {
           </div>
         </div>
 
-        <div className="mt-12 rounded-2xl border border-[#d2c4bb]/40 bg-white p-8 text-center shadow-sm">
-          <p className="mb-6 font-serif text-[#4a3829] md:text-lg">
-            Anh chị để lại thông tin để nhận giỏ hàng phù hợp với mình nhé!
-          </p>
-          <ProjectLeadForm variant="light" className="mx-auto max-w-4xl" />
-        </div>
       </div>
     </section>
   );

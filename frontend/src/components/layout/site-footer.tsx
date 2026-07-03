@@ -15,7 +15,8 @@ export function SiteFooter() {
                 {SITE_NAME}
               </h2>
               <p className="text-[16px] font-normal leading-[24px] font-hanken text-[#4e453e] max-w-xs">
-                Không gian sống tinh tế cho cuộc sống đẳng cấp. Mạng lưới toàn cầu, thấu hiểu địa phương.
+                Không gian sống tinh tế cho cuộc sống đẳng cấp. Mạng lưới toàn
+                cầu, thấu hiểu địa phương.
               </p>
             </div>
             <div className="space-y-4">
@@ -24,7 +25,7 @@ export function SiteFooter() {
               </h4>
               <div className="space-y-2">
                 <p className="text-[16px] font-semibold leading-[24px] font-hanken text-[#4a3829] font-bold">
-                  0345 747 138 - (GDDA) Nguyễn Thị Nguyệt
+                  0345 747 138 - (GĐKD) Nguyễn Thị Nguyệt
                 </p>
                 <p className="text-[14px] font-semibold text-[#4a3829] font-bold">
                   BĐS Duyên Hải - Đất Xanh Miền Bắc{" "}
@@ -196,7 +197,8 @@ export function SiteFooter() {
               Đăng Ký Nhận Tư Vấn
             </h4>
             <p className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e]">
-              Tham gia mạng lưới của chúng tôi để nhận những thông tin thị trường độc quyền và các cơ hội đầu tư kín.
+              Tham gia mạng lưới của chúng tôi để nhận những thông tin thị
+              trường độc quyền và các cơ hội đầu tư kín.
             </p>
             <FooterRegisterForm />
           </div>
@@ -205,7 +207,8 @@ export function SiteFooter() {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-[#d2c4bb]/20 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e]">
-            © {new Date().getFullYear()} {SITE_NAME}. Bảo lưu mọi quyền. Riêng tư &amp; Bảo mật.
+            © {new Date().getFullYear()} {SITE_NAME}. Bảo lưu mọi quyền. Riêng
+            tư &amp; Bảo mật.
           </p>
           <div className="flex gap-6">
             <Link
@@ -215,7 +218,8 @@ export function SiteFooter() {
               Chính sách bảo mật
             </Link>
             <span className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] italic">
-              Thành viên của Mạng lưới Khách sạn &amp; Khu dân cư hàng đầu thế giới
+              Thành viên của Mạng lưới Khách sạn &amp; Khu dân cư hàng đầu thế
+              giới
             </span>
           </div>
         </div>

@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { useTranslations } from 'next-intl';
-import Image from 'next/image';
+import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
 import AnimateInView from '@/components/shared/AnimateInView';
 import { Playfair_Display } from 'next/font/google'; 
 import { Button } from '@/components/ui/button'; 
@@ -75,7 +75,7 @@ const NewsPage = () => {
     <div className="bg-white min-h-screen">
       {/* 1. Hero Section/Banner */}
       <div className="relative h-[400px] w-full overflow-hidden">
-        <Image 
+        <ImageWithSkeleton 
             src="/images/home/tintuc1.png " 
             alt={t('hero_title')}
             fill
@@ -96,7 +96,7 @@ const NewsPage = () => {
 
       {/* 2. Main Content Sections */}
       <div className="relative isolate py-16 md:py-24"> 
-        <Image
+        <ImageWithSkeleton
             src="/images/home/background.png" 
             alt="Background"
             fill
@@ -116,7 +116,7 @@ const NewsPage = () => {
               >
                 <Link href={news.href} className="block h-full w-full">
                   {/* Ảnh nền */}
-                  <Image
+                  <ImageWithSkeleton
                     src={news.imageSrc}
                     alt={news.title}
                     fill

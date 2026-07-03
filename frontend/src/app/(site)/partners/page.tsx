@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
+import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
 import { useTranslations } from "next-intl";
 import { Playfair_Display } from 'next/font/google';
 import AnimateInView from "@/components/shared/AnimateInView";
@@ -47,7 +47,7 @@ const PartnersList = () => {
       
       {/* === 1. HERO SECTION (ẢNH VÀ CHỮ ĐỐI TÁC) === */}
       <div className="relative h-[400px] w-full overflow-hidden">
-        <Image 
+        <ImageWithSkeleton 
             src="/images/home/banner-4.jpg" // Bạn có thể đổi ảnh này
             alt="Partners Banner"
             fill
@@ -79,7 +79,7 @@ const PartnersList = () => {
               className="relative w-full min-h-[600px] lg:h-screen flex items-center"
             >
               {/* A. Ảnh nền full */}
-              <Image
+              <ImageWithSkeleton
                 src={partner.coverImage}
                 alt="Background"
                 fill
@@ -101,7 +101,7 @@ const PartnersList = () => {
                     {/* Cột Logo (Chiếm 40%) */}
                     <div className="flex-1 flex items-center justify-center lg:justify-center">
                       <div className="relative w-64 h-64 lg:w-80 lg:h-80 bg-white/10 backdrop-blur-sm rounded-full p-8 flex items-center justify-center shadow-2xl border border-white/20">
-                        <Image
+                        <ImageWithSkeleton
                           src={partner.logo}
                           alt={t(partner.title)}
                           width={partner.logoWidth}

@@ -8,7 +8,7 @@ import {
   useCallback,
 } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import Image from "next/image";
+import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useTranslations } from "next-intl";
 
@@ -102,7 +102,7 @@ const Header: React.FC = () => {
         <div className="lg:hidden flex justify-between items-center gap-2 w-full">
           <div>
             <Link href="/">
-              <Image
+              <ImageWithSkeleton
                 src={"/images/header_logo.png"}
                 alt="logo"
                 width={150}
@@ -170,7 +170,7 @@ const Header: React.FC = () => {
           <div className="w-1/5 relative h-full">
             <div className="block align-middle">
               <Link href="/">
-                <Image
+                <ImageWithSkeleton
                   src={"/images/header_logo.png"}
                   alt="logo"
                   width={150}
@@ -220,7 +220,7 @@ const Header: React.FC = () => {
           title="Xem VR 360"
           className="flex h-10 w-10 items-center justify-center rounded-full transition-colors hover:bg-white/10"
         >
-          <Image
+          <ImageWithSkeleton
             src="/images/icon-360.png" 
             alt="VR 360"
             width={28}
@@ -267,7 +267,7 @@ const Header: React.FC = () => {
                     className="flex items-center gap-3 text-white/80 hover:text-white transition-colors"
                     onClick={() => setNavbarOpen(false)}
                   >
-                    <Image
+                    <ImageWithSkeleton
                       src="/images/icon-360.png"
                       alt="VR 360"
                       width={24}

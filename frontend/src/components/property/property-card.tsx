@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
 import Link from "next/link";
 import { Bath, BedDouble, Maximize2, MapPin } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -31,7 +31,7 @@ export function PropertyCard({ property }: PropertyCardProps) {
     <Link href={`/properties/${property.slug}`} className="group block h-full">
       <Card className="h-full overflow-hidden border-slate-200/80 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
         <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
-          <Image
+          <ImageWithSkeleton
             src={imageUrl}
             alt={property.title}
             fill

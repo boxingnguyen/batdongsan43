@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { Icon } from "@iconify/react";
-import Image from "next/image";
+import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
 import toast from "react-hot-toast";
 
 const PopupContact = () => {
@@ -11,6 +11,7 @@ const PopupContact = () => {
   const locale = useLocale();
   
   const [isVisible, setIsVisible] = useState(false);
+  const [hasShown, setHasShown] = useState(false);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -22,21 +23,24 @@ const PopupContact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
 
-  // === TIMER LOGIC ===
+  // === SCROLL LOGIC ===
   useEffect(() => {
-    const initialTimer = setTimeout(() => {
-      setIsVisible(true);
-    }, 3000);
+    const handleScroll = () => {
+      if (hasShown) return;
 
-    const intervalTimer = setInterval(() => {
-      setIsVisible(true);
-    }, 30000);
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
 
-    return () => {
-      clearTimeout(initialTimer);
-      clearInterval(intervalTimer);
+      if (scrollPercent >= 50) {
+        setIsVisible(true);
+        setHasShown(true);
+      }
     };
-  }, []);
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [hasShown]);
 
   const handleClose = () => {
     setIsVisible(false);
@@ -120,7 +124,7 @@ const PopupContact = () => {
 
         {/* Left Column: Image */}
         <div className="w-full md:w-1/2 relative h-40 md:h-auto bg-gray-100 hidden md:block">
-          <Image
+          <ImageWithSkeleton
             src="/images/home/cover-pool.png"
             alt="Promotion"
             fill

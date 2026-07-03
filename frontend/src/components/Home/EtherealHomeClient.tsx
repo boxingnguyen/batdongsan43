@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import {
@@ -11,7 +11,6 @@ import {
   ChevronDown,
 } from "lucide-react";
 import { projects } from "@/data/projects";
-import { SITE_URL } from "@/config/site";
 
 const heroSlides = [
   "/images/home/sym1.png",
@@ -68,7 +67,7 @@ export function EtherealHomeClient() {
                 idx === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0"
               }`}
             >
-              <Image
+              <ImageWithSkeleton
                 alt={`Bất Động Sản Cao Cấp ${idx + 1}`}
                 src={slide}
                 fill
@@ -161,18 +160,16 @@ export function EtherealHomeClient() {
             </div>
           </div>
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {projects.map((project) => {
-              const isSoleil = project.slug === "wyndham-soleil-danang";
-              return (
-                <Link
-                  key={project.id}
-                  href={isSoleil ? `${SITE_URL}/` : `/projects/${project.slug}`}
-                  target={isSoleil ? "_blank" : undefined}
-                  rel={isSoleil ? "noopener noreferrer" : undefined}
-                  className="group flex flex-col overflow-hidden rounded-[4px] bg-white shadow-sm transition-shadow hover:shadow-md"
-                >
+            {projects.map((project) => (
+              <Link
+                key={project.id}
+                href={project.slug === "wyndham-soleil-danang" ? "https://thesoleil.vn" : `/projects/${project.slug}`}
+                target={project.slug === "wyndham-soleil-danang" ? "_blank" : undefined}
+                rel={project.slug === "wyndham-soleil-danang" ? "noopener noreferrer" : undefined}
+                className="group flex flex-col overflow-hidden rounded-[4px] bg-white shadow-sm transition-shadow hover:shadow-md"
+              >
                   <div className="relative aspect-[16/10] overflow-hidden">
-                    <Image
+                    <ImageWithSkeleton
                       src={project.image}
                       alt={project.imageAlt}
                       fill
@@ -195,8 +192,7 @@ export function EtherealHomeClient() {
                     </p>
                   </div>
                 </Link>
-              );
-            })}
+            ))}
           </div>
         </div>
       </section>
@@ -206,7 +202,7 @@ export function EtherealHomeClient() {
         <div className="max-w-[1440px] mx-auto px-5 md:px-20 flex flex-col lg:flex-row gap-20 items-center">
           <div className="lg:w-1/2 w-full relative">
             <div className="aspect-[4/5] relative overflow-hidden rounded-lg">
-              <Image
+              <ImageWithSkeleton
                 alt="The Vision"
                 src="/images/home/profile.jpg"
                 fill

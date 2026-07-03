@@ -1,7 +1,4 @@
-import Image from "next/image";
-import { ProjectLeadForm } from "./ProjectLeadForm";
-
-const CDN = "https://dongtayland.vn/wp-content/uploads/2026/05";
+import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
 
 export function SymphonyIntro() {
   return (
@@ -37,8 +34,8 @@ export function SymphonyIntro() {
                 </ul>
               </div>
               <div className="overflow-hidden rounded-xl">
-                <Image
-                  src={`${CDN}/gioi-thieu-1-new.jpg`}
+                <ImageWithSkeleton
+                  src={`/images/symphony5/gioi-thieu-1-new.jpg`}
                   alt="Đà Nẵng"
                   width={960}
                   height={589}
@@ -66,34 +63,30 @@ export function SymphonyIntro() {
                 </ul>
               </div>
               <div className="relative min-h-[240px] overflow-hidden rounded-[20px]">
-                <Image
-                  src={`${CDN}/gioi-thieu-2.jpg`}
+                <ImageWithSkeleton
+                  src={`/images/symphony5/gioi-thieu-2.jpg`}
                   alt="Symphony Residence"
-                  fill
+                  width={960}
+                  height={589}
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
             </div>
 
-            <p className="mb-6 text-center font-serif text-[#fcdd8b] md:text-lg">
-              Lựa chọn đầu tư &amp; nghỉ dưỡng lý tưởng tại Đà Nẵng — để lại thông tin để được tư
-              vấn chi tiết.
-            </p>
-            <ProjectLeadForm variant="dark" />
           </div>
 
           <div className="mt-10 overflow-hidden rounded-lg">
-            <Image
-              src={`${CDN}/stransit-1-fn-new.png`}
+            <ImageWithSkeleton
+              src={`/images/symphony5/stransit-1-fn-new.png`}
               alt="Kết nối giao thông"
               width={1920}
               height={790}
               className="hidden h-auto w-full md:block"
               sizes="100vw"
             />
-            <Image
-              src={`${CDN}/stransit-1-fn-mobile-new.png`}
+            <ImageWithSkeleton
+              src={`/images/symphony5/stransit-1-fn-mobile-new.png`}
               alt="Kết nối giao thông"
               width={790}
               height={790}

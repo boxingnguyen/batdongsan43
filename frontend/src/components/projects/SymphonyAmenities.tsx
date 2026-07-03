@@ -1,16 +1,14 @@
 "use client";
 
-import Image from "next/image";
+import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
-const CDN = "https://dongtayland.vn/wp-content/uploads/2026/05";
-
 const mapSlides = [
-  `${CDN}/map-tien-ich-new.jpg`,
-  `${CDN}/map-tien-ich-2.jpg`,
-  `${CDN}/map-tien-ich-3-1.jpg`,
-  `${CDN}/map-tien-ich-4.jpg`,
+  "/images/symphony5/map-tien-ich-new.jpg",
+  "/images/symphony5/map-tien-ich-2.jpg",
+  "/images/symphony5/map-tien-ich-3-1.jpg",
+  "/images/symphony5/map-tien-ich-4.jpg",
 ];
 
 const perks = [
@@ -26,8 +24,8 @@ export function SymphonyAmenities() {
     <section id="tien-ich" className="scroll-mt-24 bg-[#f9f9f9] pb-16 md:pb-24">
       <div className="mx-auto max-w-[1440px] px-5 md:px-20">
         <div className="mb-10 text-center">
-          <Image
-            src={`${CDN}/Tron-ven-he-tien-ich-cua-To-hop-dang-cap-tu-Sun-Group-1.png`}
+          <ImageWithSkeleton
+            src="/images/symphony5/Tron-ven-he-tien-ich-cua-To-hop-dang-cap-tu-Sun-Group-1.png"
             alt="Tiện ích"
             width={600}
             height={126}
@@ -37,7 +35,7 @@ export function SymphonyAmenities() {
 
         <div className="mb-8 overflow-hidden rounded-2xl bg-white shadow-lg">
           <div className="relative aspect-[21/9] w-full">
-            <Image
+            <ImageWithSkeleton
               src={mapSlides[slide]}
               alt="Sơ đồ tiện ích"
               fill

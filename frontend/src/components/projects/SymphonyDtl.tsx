@@ -1,7 +1,4 @@
-import Image from "next/image";
-import { ProjectLeadForm } from "./ProjectLeadForm";
-
-const CDN = "https://dongtayland.vn/wp-content/uploads/2026/05";
+import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
 
 const benefits = [
   "Tất cả sản phẩm minh bạch, mức giá rõ ràng, pháp lý đầy đủ",
@@ -17,12 +14,13 @@ export function SymphonyDtl() {
     >
       <div className="mx-auto max-w-[1440px] px-5 md:px-20">
         <div className="mb-12 text-center">
-          <Image
-            src={`${CDN}/f1_sun_group.jpg`}
+          <ImageWithSkeleton
+            src={`/images/symphony5/f1_sun_group.jpg`}
             alt="Duyên Hải Holding"
-            width={600}
-            height={133}
-            className="mx-auto h-auto w-full max-w-lg"
+            width={1200}
+            height={780}
+            wrapperClassName="block w-full"
+            className="w-full"
           />
         </div>
 
@@ -45,22 +43,14 @@ export function SymphonyDtl() {
             </ul>
           </div>
           <div className="overflow-hidden rounded-2xl border border-white/20">
-            <Image
-              src={`${CDN}/dtl.jpg`}
+            <ImageWithSkeleton
+              src={`/images/symphony5/dtl.jpg`}
               alt="Duyên Hải Holding"
               width={960}
               height={590}
               className="h-auto w-full object-cover"
             />
           </div>
-        </div>
-
-        <div className="text-center">
-          <p className="mb-6 font-serif text-[#fcdd8b] md:text-lg">
-            Quý Anh/Chị điền thông tin bên dưới để được chuyên viên Duyên Hải
-            Holding hỗ trợ tốt nhất
-          </p>
-          <ProjectLeadForm variant="dark" className="mx-auto max-w-4xl" />
         </div>
       </div>
     </section>

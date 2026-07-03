@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
+import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
 import { useTranslations } from "next-intl";
 
 const PARTNERS = [
@@ -91,7 +91,7 @@ const Partners = () => {
             <div className="relative h-full flex flex-col justify-center items-center px-4 lg:px-6 xl:px-8 py-8 lg:py-12 text-center">
               {/* Logo */}
               <div className="mb-6 lg:mb-8 xl:mb-10 flex-shrink-0">
-                <Image
+                <ImageWithSkeleton
                   src={partner.logo}
                   alt={t(partner.title)}
                   width={partner.logoWidth}
