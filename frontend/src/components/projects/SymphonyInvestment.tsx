@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { ProjectLeadForm } from "./ProjectLeadForm";
 
 const cards = [
   {
@@ -62,12 +61,6 @@ export function SymphonyInvestment() {
           ))}
         </div>
 
-        <div className="text-center">
-          <p className="mb-6 font-serif text-[#fcdd8b] md:text-lg">
-            Nhận chi tiết tài liệu phân tích đầu tư hấp dẫn của Sun Symphony Residence 5
-          </p>
-          <ProjectLeadForm variant="dark" className="mx-auto max-w-4xl" />
-        </div>
       </div>
     </section>
   );

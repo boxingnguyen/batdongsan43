@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { ProjectLeadForm } from "./ProjectLeadForm";
 
 const types = [
   { name: "Studio", area: "30 – 33m²" },
@@ -45,12 +44,6 @@ export function SymphonyProducts() {
           </div>
         </div>
 
-        <div className="mt-12 rounded-2xl border border-[#d2c4bb]/40 bg-white p-8 text-center shadow-sm">
-          <p className="mb-6 font-serif text-[#4a3829] md:text-lg">
-            Anh chị để lại thông tin để nhận giỏ hàng phù hợp với mình nhé!
-          </p>
-          <ProjectLeadForm variant="light" className="mx-auto max-w-4xl" />
-        </div>
       </div>
     </section>
   );

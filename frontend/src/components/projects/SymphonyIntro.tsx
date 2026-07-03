@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { ProjectLeadForm } from "./ProjectLeadForm";
 
 export function SymphonyIntro() {
   return (
@@ -74,11 +73,6 @@ export function SymphonyIntro() {
               </div>
             </div>
 
-            <p className="mb-6 text-center font-serif text-[#fcdd8b] md:text-lg">
-              Lựa chọn đầu tư &amp; nghỉ dưỡng lý tưởng tại Đà Nẵng — để lại thông tin để được tư
-              vấn chi tiết.
-            </p>
-            <ProjectLeadForm variant="dark" />
           </div>
 
           <div className="mt-10 overflow-hidden rounded-lg">

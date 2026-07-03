@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { ProjectLeadForm } from "./ProjectLeadForm";
 
 const benefits = [
   "Tất cả sản phẩm minh bạch, mức giá rõ ràng, pháp lý đầy đủ",
@@ -53,13 +52,6 @@ export function SymphonyDtl() {
           </div>
         </div>
 
-        <div className="text-center">
-          <p className="mb-6 font-serif text-[#fcdd8b] md:text-lg">
-            Quý Anh/Chị điền thông tin bên dưới để được chuyên viên Duyên Hải
-            Holding hỗ trợ tốt nhất
-          </p>
-          <ProjectLeadForm variant="dark" className="mx-auto max-w-4xl" />
-        </div>
       </div>
     </section>
   );

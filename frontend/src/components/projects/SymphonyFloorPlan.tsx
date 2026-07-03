@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
-import { ProjectLeadForm } from "./ProjectLeadForm";
 
 const unitSlides = [
   "/images/symphony5/San-pham-STUDIO.jpg",
@@ -67,12 +66,6 @@ export function SymphonyFloorPlan() {
           </div>
         </div>
 
-        <div className="rounded-2xl border border-[#d2c4bb]/40 bg-white p-8 text-center shadow-sm">
-          <p className="mb-6 font-serif text-[#4a3829] md:text-lg">
-            Anh chị để lại thông tin để nhận giỏ hàng phù hợp với mình nhé!
-          </p>
-          <ProjectLeadForm variant="light" className="mx-auto max-w-4xl" />
-        </div>
       </div>
     </section>
   );

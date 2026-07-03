@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { ProjectLeadForm } from "./ProjectLeadForm";
 
 const highlights = [
   { time: "2 phút", text: "Đường dạo bộ sông Hàn, bến du thuyền và trung tâm tài chính quốc tế" },
@@ -80,12 +79,6 @@ export function SymphonyLocation() {
           />
         </div>
 
-        <div className="rounded-2xl bg-gradient-to-b from-[#0f437d] to-[#030b3a] p-8 text-center md:p-12">
-          <p className="mb-6 font-serif text-[#fcdd8b] md:text-lg">
-            Quý Anh/Chị điền thông tin bên dưới để nhận trọn bộ thông tin chi tiết qua Zalo/Viber/iMess
-          </p>
-          <ProjectLeadForm variant="dark" className="mx-auto max-w-4xl" />
-        </div>
       </div>
     </section>
   );
