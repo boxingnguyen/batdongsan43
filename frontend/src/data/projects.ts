@@ -64,8 +64,7 @@ export const projects: Project[] = [
     location: "Đà Nẵng, Việt Nam",
     description:
       "4 tháp căn hộ 20 tầng tại trung tâm phía Nam Đà Nẵng, tổ hợp Sun Riverpolis. 1.281 căn hộ với kính cong panorama, hồ bơi 4 mùa, tiện ích all-in-tower. Chỉ từ 1,5 tỷ.",
-    image:
-      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80",
+    image: "/images/fourS_tower/phoi-canh-1.jpg",
     imageAlt: "Sun FourS Tower Đà Nẵng căn hộ phía Nam",
     status: "Đang mở bán",
   },

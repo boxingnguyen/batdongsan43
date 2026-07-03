@@ -2,17 +2,42 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react";
-import { Menu, X, Umbrella, ShoppingCart, Leaf, Plane, Building2, Castle, Hotel, Hospital, Waves, Dumbbell, ShoppingBag, FerrisWheel, Trees, Lock, SquareParking, Sunrise } from "lucide-react";
+import { useState, useEffect, useRef, useCallback } from "react";
+import { Menu, X, Umbrella, ShoppingCart, Leaf, Plane, Building2, Castle, Hotel, Hospital, Waves, Dumbbell, ShoppingBag, FerrisWheel, Trees, Lock, SquareParking, Sunrise, ChevronLeft, ChevronRight } from "lucide-react";
 import { HideSiteHeader } from "@/components/projects/HideSiteHeader";
 import { SITE_NAME } from "@/config/site";
 import { ProjectScrollPopup } from "@/components/projects/ProjectScrollPopup";
 
+const CAROUSEL_IMAGES = [
+  "/images/fourS_tower/phoi-canh-1.jpg",
+  "/images/fourS_tower/phoi-canh-2.jpg",
+  "/images/fourS_tower/phoi-canh-3.jpg",
+  "/images/fourS_tower/phoi-canh-4.jpg",
+  "/images/fourS_tower/phoi-canh-5.jpg",
+  "/images/fourS_tower/phoi-canh-6.jpg",
+  "/images/fourS_tower/phoi-canh-7.jpg",
+  "/images/fourS_tower/phoi-canh-8.jpg",
+  "/images/fourS_tower/phoi-canh-9.jpg",
+  "/images/fourS_tower/phoi-canh-10.jpg",
+  "/images/fourS_tower/phoi-canh-11.jpg",
+];
 
+const FLOOR_PLANS = [
+  { tower: "F1", label: "Tầng 2", image: "/images/fourS_tower/layout/f1-tang-2.jpg" },
+  { tower: "F1", label: "Tầng 3", image: "/images/fourS_tower/layout/f1-tang-3.jpg" },
+  { tower: "F1", label: "Tầng 4–7", image: "/images/fourS_tower/layout/f1-tang-4-7.jpg" },
+  { tower: "F1", label: "Tầng 8–19", image: "/images/fourS_tower/layout/f1-tang-8-19.jpg" },
+  { tower: "F5", label: "Tầng 2", image: "/images/fourS_tower/layout/f5-tang-2.jpg" },
+  { tower: "F5", label: "Tầng 3", image: "/images/fourS_tower/layout/f5-tang-3.jpg" },
+  { tower: "F5", label: "Tầng 8–15", image: "/images/fourS_tower/layout/f5-tang-8-15.jpg" },
+  { tower: "F5", label: "Tầng 16", image: "/images/fourS_tower/layout/f5-tang-16.jpg" },
+  { tower: "F5", label: "Tầng 17–19", image: "/images/fourS_tower/layout/f5-tang-17-19.jpg" },
+];
 
 const navLinks = [
   { href: "#tong-quan", label: "Tổng Quan" },
   { href: "#can-ho", label: "Căn Hộ" },
+  { href: "#mat-bang", label: "Mặt Bằng" },
   { href: "#vi-tri", label: "Vị Trí" },
   { href: "#tien-ich", label: "Tiện Ích" },
   { href: "#chinh-sach", label: "Chính Sách" },
@@ -84,47 +109,160 @@ function SunFoursNav() {
   );
 }
 
+function HeroCarousel() {
+  const [current, setCurrent] = useState(0);
+  const total = CAROUSEL_IMAGES.length;
+  const timer = useRef<ReturnType<typeof setInterval> | null>(null);
+  const dragStart = useRef<number | null>(null);
+  const isDragging = useRef(false);
+
+  const go = useCallback((i: number) => setCurrent((i + total) % total), [total]);
+  const next = useCallback(() => go(current + 1), [current, go]);
+  const prev = useCallback(() => go(current - 1), [current, go]);
+
+  const resetAuto = useCallback(() => {
+    if (timer.current) clearInterval(timer.current);
+    timer.current = setInterval(() => setCurrent((c) => (c + 1) % total), 5000);
+  }, [total]);
+
+  useEffect(() => {
+    resetAuto();
+    return () => {
+      if (timer.current) clearInterval(timer.current);
+    };
+  }, [resetAuto]);
+
+  const onPointerDown = (e: React.PointerEvent) => {
+    dragStart.current = e.clientX;
+    isDragging.current = true;
+  };
+  const onPointerUp = (e: React.PointerEvent) => {
+    if (dragStart.current === null) return;
+    const delta = e.clientX - dragStart.current;
+    if (Math.abs(delta) > 50) {
+      delta < 0 ? next() : prev();
+      resetAuto();
+    }
+    dragStart.current = null;
+    isDragging.current = false;
+  };
+
+  return (
+    <section
+      className="relative flex min-h-[90vh] select-none items-end overflow-hidden bg-[#1a2033] py-0 cursor-grab active:cursor-grabbing"
+      onPointerDown={onPointerDown}
+      onPointerUp={onPointerUp}
+      onPointerLeave={() => {
+        dragStart.current = null;
+        isDragging.current = false;
+      }}
+    >
+      {CAROUSEL_IMAGES.map((src, i) => (
+        <div
+          key={src}
+          className={`pointer-events-none absolute inset-0 transition-opacity duration-1000 ${
+            i === current ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          <Image
+            src={src}
+            alt={`Sun FourS Tower ${i + 1}`}
+            fill
+            priority={i === 0}
+            draggable={false}
+            className="object-cover opacity-60"
+            sizes="100vw"
+          />
+        </div>
+      ))}
+
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+
+      <button
+        onPointerDown={(e) => e.stopPropagation()}
+        onClick={(e) => {
+          e.stopPropagation();
+          prev();
+          resetAuto();
+        }}
+        aria-label="Ảnh trước"
+        className="absolute left-4 top-1/2 z-20 -translate-y-1/2 rounded-full bg-black/30 p-2 text-white backdrop-blur-sm transition hover:bg-black/50 md:left-8 md:p-3"
+      >
+        <ChevronLeft className="h-5 w-5 md:h-6 md:w-6" />
+      </button>
+      <button
+        onPointerDown={(e) => e.stopPropagation()}
+        onClick={(e) => {
+          e.stopPropagation();
+          next();
+          resetAuto();
+        }}
+        aria-label="Ảnh tiếp"
+        className="absolute right-4 top-1/2 z-20 -translate-y-1/2 rounded-full bg-black/30 p-2 text-white backdrop-blur-sm transition hover:bg-black/50 md:right-8 md:p-3"
+      >
+        <ChevronRight className="h-5 w-5 md:h-6 md:w-6" />
+      </button>
+
+      <div className="absolute bottom-6 left-1/2 z-20 flex -translate-x-1/2 gap-2">
+        {CAROUSEL_IMAGES.map((_, i) => (
+          <button
+            key={i}
+            onPointerDown={(e) => e.stopPropagation()}
+            onClick={(e) => {
+              e.stopPropagation();
+              go(i);
+              resetAuto();
+            }}
+            aria-label={`Slide ${i + 1}`}
+            className={`h-1.5 rounded-full transition-all duration-300 ${
+              i === current
+                ? "w-6 bg-[#E3C284]"
+                : "w-1.5 bg-white/40 hover:bg-white/70"
+            }`}
+          />
+        ))}
+      </div>
+
+      <p className="pointer-events-none absolute bottom-6 right-5 z-20 text-xs font-semibold tabular-nums text-white/50 md:right-8">
+        {current + 1} / {total}
+      </p>
+
+      <div className="pointer-events-none relative z-10 mx-auto w-full max-w-[1440px] px-5 pb-24 md:px-20">
+        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-[#E3C284]">
+          Sun Group · Sun Riverpolis
+        </p>
+        <h1 className="font-serif text-4xl font-bold text-white md:text-6xl lg:text-7xl">
+          SUN FOURS TOWER
+        </h1>
+        <p className="mt-3 text-lg font-medium text-white/90 md:text-2xl">
+          Tâm điểm an cư — Đầu tư phía Nam Đà Nẵng
+        </p>
+        <p className="mt-4 text-2xl font-bold text-[#E3C284] md:text-3xl">
+          Chỉ từ 1,5 tỷ
+        </p>
+        <div className="pointer-events-auto mt-8 flex flex-col gap-3 sm:flex-row">
+          <a
+            href="#tong-quan"
+            className="inline-block rounded-sm border border-white/70 px-8 py-3 font-semibold uppercase tracking-wide text-white transition-colors hover:bg-white/10"
+          >
+            Tìm Hiểu Thêm
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function SunFoursTowerPage() {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   return (
     <main className="bg-[#f9f9f9]">
       <HideSiteHeader />
       <SunFoursNav />
 
-      {/* HERO */}
-      <section className="relative flex min-h-[90vh] items-end bg-[#1a2033] py-0">
-        <Image
-          src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&q=80"
-          alt="Sun FourS Tower Đà Nẵng"
-          fill
-          priority
-          className="object-cover opacity-60"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-        <div className="relative z-10 mx-auto w-full max-w-[1440px] px-5 pb-20 md:px-20">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-[#E3C284]">
-            Sun Group · Sun Riverpolis
-          </p>
-          <h1 className="font-serif text-4xl font-bold text-white md:text-6xl lg:text-7xl">
-            SUN FOURS TOWER
-          </h1>
-          <p className="mt-3 text-lg font-medium text-white/90 md:text-2xl">
-            Tâm điểm an cư — Đầu tư phía Nam Đà Nẵng
-          </p>
-          <p className="mt-4 text-2xl font-bold text-[#E3C284] md:text-3xl">
-            Chỉ từ 1,5 tỷ
-          </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-
-            <a
-              href="#tong-quan"
-              className="inline-block rounded-sm border border-white/70 px-8 py-3 font-semibold uppercase tracking-wide text-white transition-colors hover:bg-white/10"
-            >
-              Tìm Hiểu Thêm
-            </a>
-          </div>
-        </div>
-      </section>
+      {/* HERO CAROUSEL */}
+      <HeroCarousel />
 
       {/* TỔNG QUAN */}
       <section id="tong-quan" className="scroll-mt-16 pb-20">
@@ -132,15 +270,28 @@ export default function SunFoursTowerPage() {
           <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#634F3F]/70">
             Tổng Quan Dự Án
           </p>
-          <h2 className="mt-3 font-serif text-3xl text-[#4a3829] md:text-4xl">
-            Sun FourS Tower Đà Nẵng
-          </h2>
-          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[#4e453e]/80">
-            Lần đầu tiên tại Đà Nẵng — căn hộ kính cong với tầm view panorama
-            toàn cảnh. Nằm trong khu đô thị sinh thái Sun Riverpolis, Sun FourS
-            Tower là tổ hợp 4 tháp căn hộ cao tầng đầu tiên tại phía Nam thành
-            phố.
-          </p>
+          <div className="mt-3 grid items-center gap-10 lg:grid-cols-2">
+            <div>
+              <h2 className="font-serif text-3xl text-[#4a3829] md:text-4xl">
+                Sun FourS Tower Đà Nẵng
+              </h2>
+              <p className="mt-4 text-sm leading-relaxed text-[#4e453e]/80">
+                Lần đầu tiên tại Đà Nẵng — căn hộ kính cong với tầm view panorama
+                toàn cảnh. Nằm trong khu đô thị sinh thái Sun Riverpolis, Sun
+                FourS Tower là tổ hợp 4 tháp căn hộ cao tầng đầu tiên tại phía
+                Nam thành phố.
+              </p>
+            </div>
+            <div className="relative aspect-[4/3] overflow-hidden rounded-sm bg-[#E8E2D9] shadow-sm">
+              <Image
+                src="/images/fourS_tower/phoi-canh-2.jpg"
+                alt="Tổng quan Sun FourS Tower"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
+          </div>
           <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
             {[
               { label: "Chủ đầu tư", value: "Sun Group (Sun Property)" },
@@ -228,6 +379,87 @@ export default function SunFoursTowerPage() {
         </div>
       </section>
 
+      {/* HÌNH ẢNH */}
+      <section id="hinh-anh" className="scroll-mt-16 bg-white pb-20">
+        <div className="mx-auto max-w-[1440px] px-5 md:px-20">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#634F3F]/70">
+            Hình Ảnh Thực Tế
+          </p>
+          <h2 className="mt-3 font-serif text-3xl text-[#4a3829] md:text-4xl">
+            Phối Cảnh Dự Án
+          </h2>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {CAROUSEL_IMAGES.map((src, i) => (
+              <div
+                key={i}
+                className="group relative aspect-[4/3] cursor-pointer overflow-hidden rounded-sm bg-[#E8E2D9]"
+                onClick={() => setSelectedImage(src)}
+              >
+                <Image
+                  src={src}
+                  alt={`Sun FourS Tower phối cảnh ${i + 1}`}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                />
+                <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition-all duration-300 group-hover:bg-black/20 group-hover:opacity-100">
+                  <span className="rounded-sm bg-white/90 px-3 py-1.5 text-sm font-semibold text-[#4a3829] shadow-sm backdrop-blur-sm">
+                    Xem
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+          <p className="mt-4 text-xs text-[#634F3F]/50">
+            Ảnh: Sun FourS Tower · Sun Group
+          </p>
+        </div>
+      </section>
+
+      {/* MẶT BẰNG ĐIỂN HÌNH */}
+      <section id="mat-bang" className="scroll-mt-16 pb-20">
+        <div className="mx-auto max-w-[1440px] px-5 md:px-20">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#634F3F]/70">
+            Mặt Bằng
+          </p>
+          <h2 className="mt-3 font-serif text-3xl text-[#4a3829] md:text-4xl">
+            Mặt Bằng Điển Hình
+          </h2>
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[#4e453e]/80">
+            Mặt bằng chi tiết theo từng tầng của hai tháp mở bán đợt 1 — Tháp F1
+            và Tháp F5. Nhấn vào từng mặt bằng để xem chi tiết.
+          </p>
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {FLOOR_PLANS.map((plan) => (
+              <button
+                key={plan.image}
+                type="button"
+                onClick={() => setSelectedImage(plan.image)}
+                className="group overflow-hidden rounded-sm border border-[#E8E2D9] bg-white text-left shadow-sm transition-shadow hover:shadow-md"
+              >
+                <div className="relative aspect-[4/3] overflow-hidden bg-[#f2efe9]">
+                  <Image
+                    src={plan.image}
+                    alt={`Mặt bằng Tháp ${plan.tower} ${plan.label}`}
+                    fill
+                    className="object-contain transition-transform duration-500 group-hover:scale-[1.03]"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                  <span className="absolute left-3 top-3 rounded-sm bg-[#4a3829] px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-white">
+                    Tháp {plan.tower}
+                  </span>
+                </div>
+                <div className="p-4">
+                  <p className="font-serif text-lg text-[#4a3829]">
+                    {plan.label}
+                  </p>
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* VỊ TRÍ */}
       <section id="vi-tri" className="scroll-mt-16 pb-20">
         <div className="mx-auto max-w-[1440px] px-5 md:px-20">
@@ -242,6 +474,15 @@ export default function SunFoursTowerPage() {
             khu Nam Đà Nẵng. Bao quanh bởi các sông Cẩm Lệ, Cổ Cò và Sông Hàn,
             kết nối thuận tiện đến các điểm đến quan trọng.
           </p>
+          <div className="relative mt-10 aspect-[21/9] overflow-hidden rounded-sm bg-[#E8E2D9] shadow-sm">
+            <Image
+              src="/images/fourS_tower/phoi-canh-3.jpg"
+              alt="Vị trí Sun FourS Tower phía Nam Đà Nẵng"
+              fill
+              className="object-cover"
+              sizes="100vw"
+            />
+          </div>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
               {
@@ -314,6 +555,15 @@ export default function SunFoursTowerPage() {
             Toàn bộ tiện ích tập trung ngay trong tòa nhà — không cần ra ngoài
             để tận hưởng cuộc sống đẳng cấp.
           </p>
+          <div className="relative mt-10 aspect-[21/9] overflow-hidden rounded-sm shadow-lg">
+            <Image
+              src="/images/fourS_tower/phoi-canh-4.jpg"
+              alt="Tiện ích Sun FourS Tower"
+              fill
+              className="object-cover"
+              sizes="100vw"
+            />
+          </div>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {[
               {
@@ -501,6 +751,35 @@ export default function SunFoursTowerPage() {
         </div>
       </section>
 
+
+      {/* LIGHTBOX MẶT BẰNG */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 z-[60] flex items-center justify-center bg-black/85 p-4"
+          onClick={() => setSelectedImage(null)}
+        >
+          <button
+            type="button"
+            aria-label="Đóng"
+            className="absolute right-5 top-5 rounded-full bg-white/10 p-2 text-white transition hover:bg-white/20"
+            onClick={() => setSelectedImage(null)}
+          >
+            <X className="h-6 w-6" />
+          </button>
+          <div
+            className="relative h-[85vh] w-full max-w-6xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Image
+              src={selectedImage}
+              alt="Mặt bằng chi tiết"
+              fill
+              className="object-contain"
+              sizes="100vw"
+            />
+          </div>
+        </div>
+      )}
 
       <ProjectScrollPopup projectName="Sun FourS Tower" accent="#E3C284" />
     </main>
