@@ -48,7 +48,8 @@ export const portfolioItems: PortfolioItem[] = [
       "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
     imageAlt: "Skyscraper facade against sunset sky",
     layout: "tall",
-    propertySlug: "the-zenith-tower",
+    propertySlug: "s-light-tower",
+    routePrefix: "projects",
   },
 ];
 
