@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { useTranslations } from "next-intl";
 import { validateEmail } from "@/components/utils/validateEmail";
 import { Facebook, Instagram, Youtube } from "lucide-react";
-import Link from "next/link";
 import { useLocale } from "next-intl";
 import toast from "react-hot-toast";
 
@@ -247,12 +246,6 @@ const HomeContact = () => {
                   {t("info.address_value")}
                 </p>
               </div>
-              <Link
-                href="/terms" 
-                className="text-white hover:underline block mt-4"
-              >
-                {t("info.termsOfUse")}
-              </Link>
             </div>
 
             {/* 2. KHỐI ICON */}
