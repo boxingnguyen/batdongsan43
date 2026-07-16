@@ -36,10 +36,10 @@ const CAROUSEL_IMAGES = [
   "/images/slight_images/s-light-tower-ban-cong-phao-hoa-tong-the.jpg",
 ];
 const LAYOUT_IMAGES = [
-  "/images/slight_images/layout/s-light-tower-layout-tang2.jpg",
-  "/images/slight_images/layout/s-light-tower-layout-tang3.jpg",
-  "/images/slight_images/layout/s-light-tower-layout-tang3a.jpg",
-  "/images/slight_images/layout/s-light-tower-layout-tang7.jpg",
+  "/images/slight_images/layout/s-light-tower-layout-tang-2.jpg",
+  "/images/slight_images/layout/s-light-tower-layout-tang-3.jpg",
+  "/images/slight_images/layout/s-light-tower-layout-tang-3a.jpg",
+  "/images/slight_images/layout/s-light-tower-layout-tang-7.jpg",
 ];
 const navLinks = [
   { href: "#chinh-sach", label: "Chính Sách" },
