@@ -26,16 +26,21 @@ const CAROUSEL_IMAGES = [
   "/images/slight_images/s-light-tower-toa-nha-doi-ban-ngay.jpg",
   "/images/slight_images/s-light-tower-phong-ngu-view-song-han.jpg",
   "/images/slight_images/s-light-tower-ban-cong-phao-hoa-diff.jpg",
-  "/images/slight_images/slight4.jpg",
   "/images/slight_images/slight6.jpg",
   "/images/slight_images/slight7.jpg",
   "/images/slight_images/slight1.jpg",
-  "/images/slight_images/slight2.jpg",
   "/images/slight_images/slight3.jpg",
   "/images/slight_images/slight5.jpg",
   "/images/slight_images/slight8.jpg",
+  "/images/slight_images/s-light-tower-ban-cong-tang-15.jpg",
+  "/images/slight_images/s-light-tower-ban-cong-phao-hoa-tong-the.jpg",
 ];
-
+const LAYOUT_IMAGES = [
+  "/images/slight_images/layout/s-light-tower-layout-tang2.jpg",
+  "/images/slight_images/layout/s-light-tower-layout-tang3.jpg",
+  "/images/slight_images/layout/s-light-tower-layout-tang3a.jpg",
+  "/images/slight_images/layout/s-light-tower-layout-tang7.jpg",
+];
 const navLinks = [
   { href: "#chinh-sach", label: "Chính Sách" },
   { href: "#tong-quan", label: "Tổng Quan" },
@@ -108,6 +113,92 @@ function SLightNav() {
         </div>
       )}
     </header>
+  );
+}
+
+const LAYOUT_IMAGE_LABELS = ["Tầng 2", "Tầng 3", "Tầng 3A", "Tầng 7"];
+
+function LayoutCarousel({
+  images,
+  labels,
+  onImageClick,
+}: {
+  images: string[];
+  labels: string[];
+  onImageClick: (src: string) => void;
+}) {
+  const [current, setCurrent] = useState(0);
+  const total = images.length;
+  const autoTimer = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const resetAuto = useCallback(() => {
+    if (autoTimer.current) clearInterval(autoTimer.current);
+    autoTimer.current = setInterval(
+      () => setCurrent((c) => (c + 1) % total),
+      1500,
+    );
+  }, [total]);
+
+  const stopAuto = useCallback(() => {
+    if (autoTimer.current) clearInterval(autoTimer.current);
+  }, []);
+
+  useEffect(() => {
+    resetAuto();
+    return () => {
+      if (autoTimer.current) clearInterval(autoTimer.current);
+    };
+  }, [resetAuto]);
+
+  return (
+    <div
+      className="group relative aspect-[16/9] w-full overflow-hidden rounded-lg bg-white/10 shadow-lg"
+      onMouseEnter={stopAuto}
+      onMouseLeave={resetAuto}
+    >
+      {images.map((src, i) => (
+        <div
+          key={src}
+          className={`absolute inset-0 cursor-pointer transition-opacity duration-700 ${
+            i === current ? "opacity-100" : "pointer-events-none opacity-0"
+          }`}
+          onClick={() => onImageClick(src)}
+        >
+          <Image
+            src={src}
+            alt={`Mặt bằng ${labels[i] ?? i + 1} - S-Light Tower`}
+            fill
+            className="transition-transform duration-500 group-hover:scale-105"
+            sizes="(max-width: 1024px) 100vw, 50vw"
+          />
+          <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition-all duration-300 group-hover:bg-black/20 group-hover:opacity-100">
+            <span className="rounded-sm bg-white/90 px-3 py-1.5 text-sm font-semibold text-[#4a3829] shadow-sm backdrop-blur-sm">
+              Xem
+            </span>
+          </div>
+        </div>
+      ))}
+
+      {/* Dots */}
+      <div className="object-cover absolute bottom-3 left-1/2 z-10 flex -translate-x-1/2 gap-1.5">
+        {images.map((_, i) => (
+          <button
+            key={i}
+            onClick={(e) => {
+              e.stopPropagation();
+              setCurrent(i);
+              resetAuto();
+            }}
+            aria-label={`Mặt bằng ${labels[i] ?? i + 1}`}
+            className={`h-1.5 rounded-full transition-all duration-300 ${
+              i === current
+                ? "w-6 bg-[#C8A96E]"
+                : "w-1.5 bg-white/40 hover:bg-white/70"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
   );
 }
 
@@ -189,7 +280,7 @@ function HeroCarousel() {
             fill
             priority={i === 0}
             draggable={false}
-            className="object-cover opacity-60"
+            className="object-cover opacity-90"
             sizes="100vw"
           />
         </div>
@@ -263,14 +354,6 @@ function HeroCarousel() {
         <p className="mt-2 text-sm text-white/70 md:text-base">
           Tầm nhìn 360° · Sông Hàn · Núi Ngũ Hành · Biển Đông · Pháo hoa DIFF
         </p>
-        <div className="pointer-events-auto mt-8 flex flex-col gap-3 sm:flex-row">
-          <a
-            href="#tong-quan"
-            className="inline-block rounded-sm border border-white/70 px-8 py-3 font-semibold uppercase tracking-wide text-white transition-colors hover:bg-white/10"
-          >
-            Tìm Hiểu Thêm
-          </a>
-        </div>
       </div>
     </section>
   );
@@ -332,7 +415,10 @@ export default function SLightTowerPage() {
       </section>
 
       {/* CHÍNH SÁCH */}
-      <section id="chinh-sach" className="scroll-mt-16 bg-gradient-to-b from-[#4a3829] to-[#3a2f28] pb-20 text-white">
+      <section
+        id="chinh-sach"
+        className="scroll-mt-16 bg-gradient-to-b from-[#4a3829] to-[#3a2f28] pb-20 text-white"
+      >
         <div className="mx-auto max-w-[1440px] px-5 md:px-20">
           <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#C8A96E]/70">
             Chính Sách Mở Bán
@@ -345,52 +431,13 @@ export default function SLightTowerPage() {
             toán linh hoạt, hỗ trợ lãi suất và các ưu đãi tối ưu.
           </p>
 
-          <div className="mt-10 grid gap-6 lg:grid-cols-2">
-            {/* Image 1 */}
-            <div
-              className="group relative aspect-[3/4] overflow-hidden rounded-lg bg-white/10 shadow-lg cursor-pointer"
-              onClick={() =>
-                setSelectedImage(
-                  "/images/slight_images/s-light-tower-gia-rumor-tang-15.jpg",
-                )
-              }
-            >
-              <Image
-                src="/images/slight_images/s-light-tower-gia-rumor-tang-15.jpg"
-                alt="Giá Rumor Tầng 15 - S-Light Tower căn hộ mặt sông Hàn"
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-              <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition-all duration-300 group-hover:bg-black/20 group-hover:opacity-100">
-                <span className="rounded-sm bg-white/90 px-3 py-1.5 text-sm font-semibold text-[#4a3829] shadow-sm backdrop-blur-sm">
-                  Xem
-                </span>
-              </div>
-            </div>
-
-            {/* Image 2 */}
-            <div
-              className="group relative aspect-[3/4] overflow-hidden rounded-lg bg-white/10 shadow-lg cursor-pointer"
-              onClick={() =>
-                setSelectedImage(
-                  "/images/slight_images/s-light-tower-chinh-sach-sun-early-key.jpg",
-                )
-              }
-            >
-              <Image
-                src="/images/slight_images/s-light-tower-chinh-sach-sun-early-key.jpg"
-                alt="Chính Sách Sun Early Key - S-Light Tower thanh toán 70% nhận nhà"
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-              <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition-all duration-300 group-hover:bg-black/20 group-hover:opacity-100">
-                <span className="rounded-sm bg-white/90 px-3 py-1.5 text-sm font-semibold text-[#4a3829] shadow-sm backdrop-blur-sm">
-                  Xem
-                </span>
-              </div>
-            </div>
+          <div className="mt-10 grid gap-6 lg:grid-cols-1">
+            {/* Carousel trái: Tầng 2 + Tầng 3 */}
+            <LayoutCarousel
+              images={LAYOUT_IMAGES.slice(0, 4)}
+              labels={LAYOUT_IMAGE_LABELS.slice(0, 4)}
+              onImageClick={setSelectedImage}
+            />
           </div>
 
           {/* Key Benefits */}
@@ -492,12 +539,16 @@ export default function SLightTowerPage() {
             Các Loại Căn Hộ & Sơ Đồ Chi Tiết
           </h2>
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[#4e453e]/80">
-            Studio và 1 phòng ngủ chiếm ~70% quỹ căn với thiết kế tối ưu không gian, đảm bảo thanh khoản vượt trội và tỷ lệ lấp đầy cao khi khai thác cho thuê.
+            Studio và 1 phòng ngủ chiếm ~70% quỹ căn với thiết kế tối ưu không
+            gian, đảm bảo thanh khoản vượt trội và tỷ lệ lấp đầy cao khi khai
+            thác cho thuê.
           </p>
 
           {/* Room Type Cards */}
           <div className="mt-12">
-            <h3 className="font-serif text-2xl font-semibold text-[#4a3829]">Các Loại Căn Hộ</h3>
+            <h3 className="font-serif text-2xl font-semibold text-[#4a3829]">
+              Các Loại Căn Hộ
+            </h3>
             <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
               {[
                 {
@@ -534,14 +585,19 @@ export default function SLightTowerPage() {
                   onClick={() => {
                     setSelectedLayout(apt.id);
                     const element = document.getElementById(apt.id);
-                    element?.scrollIntoView({ behavior: "smooth", block: "start" });
+                    element?.scrollIntoView({
+                      behavior: "smooth",
+                      block: "start",
+                    });
                   }}
                   className="group cursor-pointer rounded-sm border border-[#E8E2D9] p-6 transition-all hover:shadow-md hover:border-[#C8A96E] hover:bg-[#f9f9f9]"
                 >
                   <p className="font-serif text-xl font-semibold text-[#4a3829] group-hover:text-[#C8A96E]">
                     {apt.type}
                   </p>
-                  <p className="text-sm font-semibold text-[#C8A96E]">{apt.size}</p>
+                  <p className="text-sm font-semibold text-[#C8A96E]">
+                    {apt.size}
+                  </p>
                   {apt.badge && (
                     <span className="mt-2 inline-block rounded-sm bg-[#C8A96E]/15 px-2 py-0.5 text-[11px] font-semibold text-[#8a6a3a]">
                       {apt.badge}
@@ -557,27 +613,33 @@ export default function SLightTowerPage() {
 
           {/* Floor Plans */}
           <div className="mt-12">
-            <h3 className="font-serif text-2xl font-semibold text-[#4a3829]">Sơ Đồ Căn Hộ Chi Tiết</h3>
+            <h3 className="font-serif text-2xl font-semibold text-[#4a3829]">
+              Sơ Đồ Căn Hộ Chi Tiết
+            </h3>
             <div className="mt-6 grid gap-6 sm:grid-cols-2">
               {[
                 {
                   name: "Studio\n33.3 m²",
-                  image: "/images/slight_images/layout/s-light-tower-layout-studio-33m2.jpg",
+                  image:
+                    "/images/slight_images/layout/s-light-tower-layout-studio-33m2.jpg",
                   id: "layout-studio",
                 },
                 {
                   name: "1BR Plus\n49.3 m²",
-                  image: "/images/slight_images/layout/s-light-tower-layout-1br-plus-49m2.jpg",
+                  image:
+                    "/images/slight_images/layout/s-light-tower-layout-1br-plus-49m2.jpg",
                   id: "layout-1br-plus",
                 },
                 {
                   name: "2 Phòng Ngủ\n76 m²",
-                  image: "/images/slight_images/layout/s-light-tower-layout-2br-76m2.jpg",
+                  image:
+                    "/images/slight_images/layout/s-light-tower-layout-2br-76m2.jpg",
                   id: "layout-2br",
                 },
                 {
                   name: "3 Phòng Ngủ\n95.1 m²",
-                  image: "/images/slight_images/layout/s-light-tower-layout-3br-95m2.jpg",
+                  image:
+                    "/images/slight_images/layout/s-light-tower-layout-3br-95m2.jpg",
                   id: "layout-3br",
                 },
               ].map((layout) => (
@@ -872,7 +934,7 @@ export default function SLightTowerPage() {
       {/* LIGHTBOX MODAL */}
       {selectedImage && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 backdrop-blur-sm"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm"
           onClick={() => setSelectedImage(null)}
         >
           <button
