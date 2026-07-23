@@ -8,38 +8,9 @@ import {
 } from "lucide-react";
 import { buildMetadata, buildJsonLd } from "@/lib/seo";
 import { SunFoursTowerClient, VrTour } from "./SunFoursClient";
+import { getSEO } from "@/config/projects-seo";
 
-const SEO_CONFIG = {
-  slug: "sun-fours-tower",
-  title: "Sun FourS Tower Đà Nẵng – Căn Hộ Trung Tâm Nam Đà Nẵng | Từ 1.5 Tỷ",
-  description:
-    "Sun FourS Tower Đà Nẵng – Căn hộ cao cấp tại Sun Riverpolis, Minh Mạng. Studio, 1-3PN từ 1.5 tỷ. Sở hữu lâu dài, chiết khấu 26.5%. Đặt chỗ ngay!",
-  keywords: [
-    "Sun FourS Tower",
-    "Sun FourS Tower Đà Nẵng",
-    "căn hộ Sun Riverpolis",
-    "căn hộ phía Nam Đà Nẵng",
-    "mua căn hộ Minh Mạng Đà Nẵng",
-  ],
-  og: {
-    title: "Sun FourS Tower – Căn Hộ Nam Đà Nẵng | Sun Riverpolis",
-    description:
-      "Tổ hợp căn hộ 4 tháp tại Sun Riverpolis 500ha. Chiết khấu 26.5%, sở hữu lâu dài. Từ 1.5 tỷ.",
-    image: "/images/fourS_tower/phoi-canh-1.jpg",
-    imageAlt: "Sun FourS Tower Đà Nẵng – Phối Cảnh Tổng Thể",
-  },
-  jsonLd: {
-    name: "Sun FourS Tower",
-    description: "Căn hộ cao cấp tại Sun Riverpolis, Minh Mạng, Đà Nẵng",
-    streetAddress: "Minh Mạng – Nguyễn Phước Lan",
-    locality: "Đà Nẵng",
-    numberOfUnits: 800,
-    geo: { lat: 16.0100, lng: 108.2200 },
-    amenities: ["Hồ Bơi", "Gym", "Spa", "Shophouse", "Kids Club"],
-    seller: "Sun Property (Sun Group)",
-    priceDescription: "Từ 1.5 tỷ đồng. Chiết khấu 26.5%",
-  },
-};
+const SEO_CONFIG = getSEO("sun-fours-tower")
 
 export const metadata: Metadata = buildMetadata(SEO_CONFIG);
 

@@ -14,37 +14,9 @@ import { SymphonyDtl } from "@/components/projects/SymphonyDtl";
 
 import type { Metadata } from "next";
 import { buildMetadata, buildJsonLd } from "@/lib/seo";
+import { getSEO } from "@/config/projects-seo";
 
-const SEO_CONFIG = {
-  slug: "symphony5",
-  title: "Sun Symphony Residence 5 Đà Nẵng – Căn Hộ Cao Cấp Sông Hàn",
-  description:
-    "Sun Symphony Residence 5 Đà Nẵng – Căn hộ cao cấp view sông Hàn tại Sun Group. Thiết kế sang trọng, tiện ích đẳng cấp, pháp lý rõ ràng. Liên hệ tư vấn ngay!",
-  keywords: [
-    "Sun Symphony Residence 5",
-    "Symphony 5 Đà Nẵng",
-    "căn hộ Sun Symphony Đà Nẵng",
-    "căn hộ cao cấp Đà Nẵng",
-    "Sun Group Đà Nẵng",
-  ],
-  og: {
-    title: "Sun Symphony Residence 5 – Căn Hộ Cao Cấp Đà Nẵng",
-    description:
-      "Dự án căn hộ cao cấp Sun Symphony Residence 5 tại Đà Nẵng. Vị trí đắc địa, tiện ích sang trọng, sở hữu lâu dài.",
-    image: "/images/symphony5/phoi-canh-tong-the.jpg",
-    imageAlt: "Sun Symphony Residence 5 Đà Nẵng – Phối Cảnh Tổng Thể",
-  },
-  jsonLd: {
-    name: "Sun Symphony Residence 5",
-    description: "Căn hộ cao cấp tại Đà Nẵng do Sun Group phát triển",
-    streetAddress: "Đà Nẵng",
-    locality: "Đà Nẵng",
-    geo: { lat: 16.0471, lng: 108.2062 },
-    amenities: ["Hồ Bơi", "Gym", "Spa", "Shophouse", "Kids Club"],
-    seller: "Sun Property (Sun Group)",
-    priceDescription: "Liên hệ để biết giá chi tiết",
-  },
-};
+const SEO_CONFIG = getSEO("symphony5")
 
 export const metadata: Metadata = buildMetadata(SEO_CONFIG);
 
