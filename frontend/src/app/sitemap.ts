@@ -53,6 +53,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 0.6,
             changeFrequency: "monthly" as const,
         },
+        {
+            path: "lien-he",
+            priority: 0.6,
+            changeFrequency: "monthly" as const,
+        },
     ];
 
     // Trang dự án

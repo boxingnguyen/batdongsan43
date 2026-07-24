@@ -1,3 +1,7 @@
+// [DEPRECATED] Replaced by Next.js native sitemap.ts (app/sitemap.ts -> /sitemap.xml)
+// Kept for reference only. Do not activate this file alongside sitemap.ts.
+export {};
+
 // import { NextResponse } from 'next/server'
 
 // const baseUrl = 'https://canhocaocapdanang.info'
