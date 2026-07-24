@@ -142,3 +142,10 @@ export const projectsSEO: ProjectSEO[] = [
     },
   },
 ];
+export function getSEO(slug: string): ProjectSEO {
+  const config = projectsSEO.find((item) => item.slug == slug)
+  if (!config) {
+    throw new Error(`Không tìm thấy dự án với slug ${slug}`)
+  }
+  return config
+}

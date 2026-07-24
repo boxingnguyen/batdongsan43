@@ -1,3 +1,5 @@
+import { buildMetadata, buildJsonLd } from "@/lib/seo";
+import { getSEO } from "@/config/projects-seo";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -10,13 +12,15 @@ interface ProjectDetailPageProps {
 
 export async function generateMetadata({ params }: ProjectDetailPageProps) {
   const { slug } = await params;
-  const project = projects.find((p) => p.slug === slug);
-  if (!project) return { title: "Project not found" };
-  return {
-    title: `${project.title} | Project`,
-    description: project.description.slice(0, 160),
-  };
+  try {
+    return buildMetadata(getSEO(slug)); // full: og, twitter, canonical...
+  } catch {
+    const project = projects.find((p) => p.slug === slug);
+    if (!project) return { title: "Không tìm thấy dự án" };
+    return { title: project.title, description: project.description.slice(0, 160) };
+  }
 }
+
 
 function ExternalRedirect({ url }: { url: string }) {
   return (
@@ -46,7 +50,10 @@ export default async function ProjectDetailPage({
 }: ProjectDetailPageProps) {
   const { slug } = await params;
   const project = projects.find((p) => p.slug === slug);
-  if (!project) notFound();
+  if (!project) return notFound();
+
+  let jsonLd: string | null = null;
+  try { jsonLd = buildJsonLd(getSEO(slug)); } catch { jsonLd = null; }
 
   if (slug === "wyndham-soleil-danang") {
     return <ExternalRedirect url={`${SITE_URL}/`} />;
@@ -54,6 +61,7 @@ export default async function ProjectDetailPage({
 
   return (
     <div className="bg-[#F9F9F9] text-[#634F3F]">
+      {jsonLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />}
       {/* Hero */}
       <section className="relative aspect-[21/9] max-h-[70vh] w-full overflow-hidden">
         <Image

@@ -17,42 +17,11 @@ import {
 } from "lucide-react";
 import { buildMetadata, buildJsonLd } from "@/lib/seo";
 import { SLightPageClient } from "./SlightClient";
+import { getSEO } from "@/config/projects-seo";
 
 // ─── SEO Config ──────────────────────────────────────────────────────────────
 
-const SEO_CONFIG = {
-  slug: "s-light-tower",
-  title: "S-Light Tower Đà Nẵng – Căn Hộ View Sông Hàn 270° | Từ 2.4 Tỷ",
-  description:
-    "S-Light Tower Đà Nẵng – Tháp đôi căn hộ mặt sông Hàn Sun NeO City Hòa Xuân. Studio, 1-3PN từ 2.4 tỷ. Sở hữu lâu dài, pháp lý rõ ràng. Đặt chỗ ngay!",
-  keywords: [
-    "S-Light Tower",
-    "S-Light Tower Đà Nẵng",
-    "căn hộ S-Light Tower",
-    "Sun NeO City Hòa Xuân",
-    "căn hộ view sông Hàn Đà Nẵng",
-    "căn hộ mặt sông Đà Nẵng",
-    "mua căn hộ Hòa Xuân Đà Nẵng",
-  ],
-  og: {
-    title: "S-Light Tower – Căn Hộ Mặt Sông Hàn Đà Nẵng | Sun NeO City",
-    description:
-      "Tháp đôi biểu tượng tại cửa ngõ Nam Đà Nẵng. View 270° sông Hàn, Núi Ngũ Hành, Biển Đông. 396 căn/tòa – sở hữu lâu dài.",
-    image: "/images/slight_images/s-light-tower-toa-nha-doi-phao-hoa-dem.jpg",
-    imageAlt: "S-Light Tower Đà Nẵng – Tháp Đôi View Sông Hàn Pháo Hoa",
-  },
-  jsonLd: {
-    name: "S-Light Tower",
-    description: "Căn hộ cao cấp mặt sông Hàn tại Sun NeO City, Hòa Xuân, Đà Nẵng",
-    streetAddress: "Nguyễn Đình Thi - 29/3, Hòa Xuân",
-    locality: "Đà Nẵng",
-    numberOfUnits: 800,
-    geo: { lat: 16.0204, lng: 108.2115 },
-    amenities: ["Hồ Bơi", "Gym", "Spa", "Kids Club", "Shophouse", "Nhà Hàng"],
-    seller: "Sun Property (Sun Group)",
-    priceDescription: "Từ 2.4 tỷ đồng. Đã bao gồm VAT + KBBT",
-  },
-};
+const SEO_CONFIG = getSEO("s-light-tower")
 
 // ─── Dynamic Metadata ─────────────────────────────────────────────────────────
 // ✅ Chỉ hoạt động ở Server Component → Next.js inject vào <head>
@@ -304,11 +273,10 @@ export default function SLightTowerPage() {
               <div key={step.date} className="flex gap-6">
                 <div className="flex flex-col items-center">
                   <div
-                    className={`mt-1 h-4 w-4 flex-shrink-0 rounded-full border-2 ${
-                      step.done
+                    className={`mt-1 h-4 w-4 flex-shrink-0 rounded-full border-2 ${step.done
                         ? "border-[#4a3829] bg-[#4a3829]"
                         : "border-[#d2c4bb] bg-white"
-                    }`}
+                      }`}
                   />
                   {i < TIMELINE_ITEMS.length - 1 && (
                     <div className="my-1 w-0.5 flex-1 bg-[#d2c4bb]" />
