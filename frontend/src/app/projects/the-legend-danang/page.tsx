@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { buildMetadata, buildJsonLd } from "@/lib/seo";
+import { buildMetadata, buildJsonLd, buildBreadcrumbJsonLd, buildProjectBreadcrumbItems } from "@/lib/seo";
 import { getSEO } from "@/config/projects-seo";
 import { ProjectScrollPopup } from "@/components/projects/ProjectScrollPopup";
 import { theLegendDanang } from "@/data/the-legend-danang";
@@ -9,16 +9,16 @@ import { LegendGallery } from "@/components/projects/legend-gallery";
 import { LegendAbout } from "@/components/projects/legend-about";
 import { LegendAmenities } from "@/components/projects/legend-amenities";
 
-const SEO_CONFIG = getSEO("the-legend-danang");
+const THE_LEGEND_DANANG_SEO_CONFIG = getSEO("the-legend-danang");
 
-export const metadata: Metadata = buildMetadata(SEO_CONFIG);
+export const metadata: Metadata = buildMetadata(THE_LEGEND_DANANG_SEO_CONFIG);
 
 export default function TheLegendDanangPage() {
   return (
     <main className="bg-[#F9F9F9]">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: buildJsonLd(SEO_CONFIG) }}
+        dangerouslySetInnerHTML={{ __html: buildJsonLd(THE_LEGEND_DANANG_SEO_CONFIG) }}
       />
       <LegendHero
         title={theLegendDanang.title}

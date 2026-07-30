@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { SITE_NAME } from "@/config/site";
 
+export type FaqItem = { question: string; answer: string };
+
 export type ProjectSEO = {
   slug: string;
   title: string;
@@ -23,7 +25,10 @@ export type ProjectSEO = {
     seller: string;
     priceDescription?: string;
   };
+  /** Danh sách câu hỏi thường gặp – dùng để tạo FAQPage schema và render FAQ section */
+  faq?: FaqItem[];
 };
+
 
 export function buildMetadata(seo: ProjectSEO): Metadata {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://localhost:3000";
@@ -102,5 +107,61 @@ export function buildJsonLd(seo: ProjectSEO): string {
     },
   };
 
+  return JSON.stringify(jsonLd);
+}
+
+// ── Breadcrumb JSON-LD ─────────────────────────────────────────────────────────
+export type BreadcrumbItem = { name: string; url: string };
+
+export function buildBreadcrumbJsonLd(items: BreadcrumbItem[]): string {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  };
+  return JSON.stringify(jsonLd);
+}
+
+/**
+ * Tạo breadcrumb items chuẩn cho trang dự án bất động sản.
+ * Dùng chung cho tất cả project pages – không cần khai báo thủ công.
+ *
+ * Kết quả: Trang Chủ › Dự Án Bất Động Sản Đà Nẵng › <Tên dự án>
+ *
+ * @example
+ * const items = buildProjectBreadcrumbItems(CAMELLIA_SEO_CONFIG);
+ * const jsonLd = buildBreadcrumbJsonLd(items);
+ */
+export function buildProjectBreadcrumbItems(seo: ProjectSEO): BreadcrumbItem[] {
+  const baseUrl =
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://canhocaocapdanang.info";
+  return [
+    { name: "Trang Chủ", url: baseUrl },
+    { name: "Dự Án Bất Động Sản Đà Nẵng", url: `${baseUrl}/projects` },
+    { name: seo.jsonLd.name, url: `${baseUrl}/projects/${seo.slug}` },
+  ];
+}
+
+// ── FAQ JSON-LD ───────────────────────────────────────────────────────────────
+// FaqItem type đã được khai báo ở đầu file cùng với ProjectSEO
+
+export function buildFaqJsonLd(faqs: FaqItem[]): string {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
   return JSON.stringify(jsonLd);
 }
