@@ -13,18 +13,23 @@ import { SymphonyPolicy } from "@/components/projects/SymphonyPolicy";
 import { SymphonyDtl } from "@/components/projects/SymphonyDtl";
 
 import type { Metadata } from "next";
-import { buildMetadata, buildJsonLd } from "@/lib/seo";
+import { buildMetadata, buildJsonLd, buildBreadcrumbJsonLd, buildProjectBreadcrumbItems } from "@/lib/seo";
 import { getSEO } from "@/config/projects-seo";
 
-const SEO_CONFIG = getSEO("symphony5")
+const SYMPHONY5_SEO_CONFIG = getSEO("symphony5")
 
-export const metadata: Metadata = buildMetadata(SEO_CONFIG);
+export const metadata: Metadata = buildMetadata(SYMPHONY5_SEO_CONFIG);
 
 export default function Symphony5Page() {
-  const jsonLd = buildJsonLd(SEO_CONFIG);
+  const symphony5ApartmentComplexJsonLd = buildJsonLd(SYMPHONY5_SEO_CONFIG);
+  const symphony5BreadcrumbJsonLd = buildBreadcrumbJsonLd(
+    buildProjectBreadcrumbItems(SYMPHONY5_SEO_CONFIG)
+  );
+  const symphony5FaqItems = SYMPHONY5_SEO_CONFIG.faq ?? [];
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: symphony5ApartmentComplexJsonLd }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: symphony5BreadcrumbJsonLd }} />
       <HideSiteHeader />
       <div className="symphony5-page bg-[#f9f9f9]">
         <ProjectHeroNav />

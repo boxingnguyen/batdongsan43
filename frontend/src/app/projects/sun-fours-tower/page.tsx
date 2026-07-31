@@ -6,19 +6,24 @@ import {
   Waves, Dumbbell, ShoppingBag, FerrisWheel, Trees,
   SquareParking, Sunrise
 } from "lucide-react";
-import { buildMetadata, buildJsonLd } from "@/lib/seo";
+import { buildMetadata, buildJsonLd, buildBreadcrumbJsonLd, buildProjectBreadcrumbItems } from "@/lib/seo";
 import { SunFoursTowerClient, VrTour } from "./SunFoursClient";
 import { getSEO } from "@/config/projects-seo";
 
-const SEO_CONFIG = getSEO("sun-fours-tower")
+const SUN_FOURS_TOWER_SEO_CONFIG = getSEO("sun-fours-tower")
 
-export const metadata: Metadata = buildMetadata(SEO_CONFIG);
+export const metadata: Metadata = buildMetadata(SUN_FOURS_TOWER_SEO_CONFIG);
 
 export default function SunFoursTowerPage() {
-  const jsonLd = buildJsonLd(SEO_CONFIG);
+  const sunFoursTowerApartmentComplexJsonLd = buildJsonLd(SUN_FOURS_TOWER_SEO_CONFIG);
+  const sunFoursTowerBreadcrumbJsonLd = buildBreadcrumbJsonLd(
+    buildProjectBreadcrumbItems(SUN_FOURS_TOWER_SEO_CONFIG)
+  );
+  const sunFoursTowerFaqItems = SUN_FOURS_TOWER_SEO_CONFIG.faq ?? [];
   return (
     <main className="bg-[#f9f9f9]">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: sunFoursTowerApartmentComplexJsonLd }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: sunFoursTowerBreadcrumbJsonLd }} />
       <SunFoursTowerClient />
 
       {/* TỔNG QUAN */}

@@ -15,22 +15,22 @@ import {
   TramFront,
   Mountain,
 } from "lucide-react";
-import { buildMetadata, buildJsonLd } from "@/lib/seo";
+import { buildMetadata, buildJsonLd, buildBreadcrumbJsonLd, buildProjectBreadcrumbItems } from "@/lib/seo";
 import { SLightPageClient } from "./SlightClient";
 import { getSEO } from "@/config/projects-seo";
 
 // ─── SEO Config ──────────────────────────────────────────────────────────────
 
-const SEO_CONFIG = getSEO("s-light-tower")
+const S_LIGHT_TOWER_SEO_CONFIG = getSEO("s-light-tower")
 
 // ─── Dynamic Metadata ─────────────────────────────────────────────────────────
 // ✅ Chỉ hoạt động ở Server Component → Next.js inject vào <head>
 
-export const metadata: Metadata = buildMetadata(SEO_CONFIG);
+export const metadata: Metadata = buildMetadata(S_LIGHT_TOWER_SEO_CONFIG);
 
 // ─── Static data (pure server-side rendering) ────────────────────────────────
 
-const LOCATION_ITEMS = [
+const S_LIGHT_TOWER_LOCATION_ITEMS = [
   { icon: Umbrella, title: "Biển Mỹ Khê", detail: "2,5 km · Qua cầu Bùi Tá Hán" },
   { icon: Plane, title: "Sân Bay Đà Nẵng", detail: "5 km · ~10 phút" },
   { icon: Building2, title: "Trung Tâm Đà Nẵng", detail: "5,5 km · ~12 phút" },
@@ -41,7 +41,7 @@ const LOCATION_ITEMS = [
   { icon: Mountain, title: "Ngũ Hành Sơn", detail: "Tầm nhìn từ ban công" },
 ];
 
-const AMENITY_ITEMS = [
+const S_LIGHT_TOWER_AMENITY_ITEMS = [
   { title: "Hồ Bơi", desc: "Không gian bơi lội thư giãn tại tầng 2, view mở thoáng đãng", image: "/images/home/cover-pool.png" },
   { title: "Gym · Spa", desc: "Khu thể thao và chăm sóc sức khỏe tiêu chuẩn cao cấp", image: "/images/home/cover-gym.jpg" },
   { title: "Shophouse", desc: "Tầng trệt sôi động, đáp ứng toàn bộ nhu cầu mua sắm thường nhật", image: "/images/home/cover-shopping.jpg" },
@@ -50,7 +50,7 @@ const AMENITY_ITEMS = [
   { title: "Quản Lý & An Ninh", desc: "Hệ thống bảo mật hiện đại, quản lý chuyên nghiệp 24/7", image: "/images/home/cover-manage.jpg" },
 ];
 
-const TIMELINE_ITEMS = [
+const S_LIGHT_TOWER_TIMELINE_ITEMS = [
   { date: "Tháng 6/2026", title: "Ra Mắt Chính Thức", desc: "Sun Property giới thiệu S-Light Tower tại Nam Đà Nẵng", done: true },
   { date: "Quý 3/2026", title: "Mở Bán & Ký HĐMB", desc: "Mở bán chính thức, ký hợp đồng mua bán với khách hàng", done: false },
   { date: "2027", title: "Thi Công Thân Tháp", desc: "Triển khai xây dựng 2 tháp 22 tầng", done: false },
@@ -60,14 +60,18 @@ const TIMELINE_ITEMS = [
 // ─── Page Component (Server Component) ───────────────────────────────────────
 
 export default function SLightTowerPage() {
-  const jsonLd = buildJsonLd(SEO_CONFIG);
+  const sLightTowerApartmentComplexJsonLd = buildJsonLd(S_LIGHT_TOWER_SEO_CONFIG);
+  const sLightTowerBreadcrumbJsonLd = buildBreadcrumbJsonLd(
+    buildProjectBreadcrumbItems(S_LIGHT_TOWER_SEO_CONFIG)
+  );
+  const sLightTowerFaqItems = S_LIGHT_TOWER_SEO_CONFIG.faq ?? [];
 
   return (
     <main className="bg-[#f9f9f9]">
       {/* ✅ JSON-LD Structured Data – ApartmentComplex schema cho Google Rich Snippets */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLd }}
+        dangerouslySetInnerHTML={{ __html: sLightTowerApartmentComplexJsonLd }}
       />
 
       {/*
@@ -196,7 +200,7 @@ export default function SLightTowerPage() {
             Nam và hệ thống LRT kết nối sân bay Đà Nẵng - Hội An - Chu Lai.
           </p>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {LOCATION_ITEMS.map((loc) => (
+            {S_LIGHT_TOWER_LOCATION_ITEMS.map((loc) => (
               <div
                 key={loc.title}
                 className="flex items-start gap-4 rounded-sm border border-[#E8E2D9] bg-white p-5 shadow-sm"
@@ -233,7 +237,7 @@ export default function SLightTowerPage() {
             khép kín cho cư dân tinh hoa.
           </p>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {AMENITY_ITEMS.map((amenity) => (
+            {S_LIGHT_TOWER_AMENITY_ITEMS.map((amenity) => (
               <div
                 key={amenity.title}
                 className="group relative overflow-hidden rounded-lg border border-white/10 bg-white/5 transition-all hover:shadow-lg"
@@ -269,7 +273,7 @@ export default function SLightTowerPage() {
             Lộ Trình Dự Án
           </h2>
           <div className="mt-10 flex flex-col gap-0">
-            {TIMELINE_ITEMS.map((step, i) => (
+            {S_LIGHT_TOWER_TIMELINE_ITEMS.map((step, i) => (
               <div key={step.date} className="flex gap-6">
                 <div className="flex flex-col items-center">
                   <div
@@ -278,7 +282,7 @@ export default function SLightTowerPage() {
                         : "border-[#d2c4bb] bg-white"
                       }`}
                   />
-                  {i < TIMELINE_ITEMS.length - 1 && (
+                  {i < S_LIGHT_TOWER_TIMELINE_ITEMS.length - 1 && (
                     <div className="my-1 w-0.5 flex-1 bg-[#d2c4bb]" />
                   )}
                 </div>

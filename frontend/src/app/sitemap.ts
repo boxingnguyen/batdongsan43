@@ -66,6 +66,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         "sun-fours-tower",
         "symphony5",
         "the-legend-danang",
+        "camellia",
     ];
 
     const sitemap: MetadataRoute.Sitemap = [
