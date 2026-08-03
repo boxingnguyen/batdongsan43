@@ -96,7 +96,12 @@ export default function CamelliaPage() {
        * Next.js vẫn SSR ra HTML đầy đủ vì Client Component được pre-render phía server.
        */}
       <CamelliaPageClient />
-
+      {/* ─────────────────────────────────────────────────────────────────────────
+       * Các section bên dưới là PURE SERVER RENDER:
+       * → Không có onClick, useState, useEffect
+       * → Google Bot nhận HTML đầy đủ ngay lần đầu crawl
+       * → H2 được cải thiện để chứa từ khóa SEO
+       * ─────────────────────────────────────────────────────────────────────── */}
       {/* ✅ BREADCRUMB UI – Google đọc được, tăng CTR trên SERP ──────────────── */}
       <nav
         aria-label="Breadcrumb"
@@ -122,14 +127,6 @@ export default function CamelliaPage() {
           </ol>
         </div>
       </nav>
-
-      {/* ─────────────────────────────────────────────────────────────────────────
-       * Các section bên dưới là PURE SERVER RENDER:
-       * → Không có onClick, useState, useEffect
-       * → Google Bot nhận HTML đầy đủ ngay lần đầu crawl
-       * → H2 được cải thiện để chứa từ khóa SEO
-       * ─────────────────────────────────────────────────────────────────────── */}
-
       {/* SLOGAN HIGHLIGHT ─────────────────────────────────────────────────── */}
       <section className="bg-gradient-to-r from-[#16384C] to-[#204a63] py-12 md:py-16">
         <div className="mx-auto max-w-[1440px] px-5 md:px-20">
