@@ -3,9 +3,50 @@ import Link from "next/link";
 import { projects } from "@/data/projects";
 import { SITE_URL } from "@/config/site";
 
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.danangluxuryhomes.vn";
+
 export const metadata = {
-  title: "Projects",
+  title: "Dự Án Căn Hộ Cao Cấp Đà Nẵng | Ethereal Estate",
+  description:
+    "Khám phá các dự án căn hộ cao cấp Đà Nẵng: S-Light Tower, Sun FourS Tower, The Legend, Camellia. Bảng giá mới nhất, pháp lý sở hữu lâu dài. Tư vấn miễn phí từ Ethereal Estate.",
+  keywords: [
+    "dự án căn hộ Đà Nẵng",
+    "căn hộ cao cấp Đà Nẵng",
+    "bất động sản Đà Nẵng",
+    "S-Light Tower",
+    "Sun FourS Tower",
+    "The Legend Đà Nẵng",
+    "Camellia Sơn Trà",
+    "căn hộ sở hữu lâu dài Đà Nẵng",
+  ],
+  alternates: {
+    canonical: `${BASE_URL}/projects`,
+  },
+  openGraph: {
+    title: "Dự Án Căn Hộ Cao Cấp Đà Nẵng | Ethereal Estate",
+    description:
+      "Khám phá các dự án căn hộ cao cấp Đà Nẵng: S-Light Tower, Sun FourS Tower, The Legend, Camellia. Bảng giá mới nhất, pháp lý sở hữu lâu dài.",
+    url: `${BASE_URL}/projects`,
+    type: "website",
+    locale: "vi_VN",
+    images: [
+      {
+        url: `${BASE_URL}/images/home/cover-image.jpg`,
+        width: 1200,
+        height: 630,
+        alt: "Dự Án Căn Hộ Cao Cấp Đà Nẵng – Ethereal Estate",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image" as const,
+    title: "Dự Án Căn Hộ Cao Cấp Đà Nẵng | Ethereal Estate",
+    description:
+      "Khám phá các dự án căn hộ cao cấp Đà Nẵng: S-Light Tower, Sun FourS Tower, The Legend, Camellia. Pháp lý sở hữu lâu dài.",
+    images: [`${BASE_URL}/images/home/cover-image.jpg`],
+  },
 };
+
 
 export default function ProjectsPage() {
   return (

@@ -4,9 +4,9 @@ import { getTranslations, getLocale } from 'next-intl/server';
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
   const t = await getTranslations({ locale, namespace: 'News' });
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://canhocaocapdanang.info'
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.danangluxuryhomes.vn'
   const localeUrl = locale === 'vi' ? `${baseUrl}/news` : `${baseUrl}/${locale}/news`
-  
+
   return {
     title: t('hero_title'),
     description: `Latest news and updates about Căn hộ cao cấp Đà Nẵng - luxury apartments, project progress, and real estate insights in Da Nang.`,

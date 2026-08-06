@@ -13,8 +13,10 @@ import { SymphonyPolicy } from "@/components/projects/SymphonyPolicy";
 import { SymphonyDtl } from "@/components/projects/SymphonyDtl";
 
 import type { Metadata } from "next";
+import Link from "next/link";
 import { buildMetadata, buildJsonLd, buildBreadcrumbJsonLd, buildProjectBreadcrumbItems } from "@/lib/seo";
 import { getSEO } from "@/config/projects-seo";
+import { ProjectBottomContent } from "@/components/projects/ProjectBottomContent";
 
 const SYMPHONY5_SEO_CONFIG = getSEO("symphony5")
 
@@ -44,6 +46,15 @@ export default function Symphony5Page() {
         <SymphonyPolicy />
         <SymphonyDtl />
       </div>
+
+      <ProjectBottomContent 
+        slug="symphony5" 
+        accentColor="#C8A96E"
+        bgSeo="bg-white"
+        bgRelated="bg-[#f9f9f9]"
+        borderColor="border-[#E8E2D9]"
+      />
+
       <ProjectScrollPopup projectName="Sun Symphony Residence 5" accent="#C8A96E" />
     </>
   );

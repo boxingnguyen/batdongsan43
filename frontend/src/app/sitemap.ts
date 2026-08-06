@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 const BASE_URL =
-    (process.env.NEXT_PUBLIC_SITE_URL || "https://canhocaocapdanang.info").replace(/\/$/, "");
+    (process.env.NEXT_PUBLIC_SITE_URL || "https://www.danangluxuryhomes.vn").replace(/\/$/, "");
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const lastModified = new Date();

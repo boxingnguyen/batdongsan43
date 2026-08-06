@@ -44,7 +44,7 @@ export const projectsSEO: ProjectSEO[] = [
       "Sun Group căn hộ Đà Nẵng",
 
       // ── Từ khóa năm ──
-      "căn hộ Đà Nẵng 2027 2028",
+      "căn hộ Đà Nẵng 2026 2027 2028 2029",
     ],
     og: {
       title: "S-Light Tower – Căn Hộ Mặt Sông Hàn Hiếm Nhất Đà Nẵng",

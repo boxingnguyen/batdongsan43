@@ -63,9 +63,8 @@ export function EtherealHomeClient() {
           {heroSlides.map((slide, idx) => (
             <div
               key={idx}
-              className={`absolute inset-0 transition-opacity duration-[1500ms] ease-in-out ${
-                idx === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0"
-              }`}
+              className={`absolute inset-0 transition-opacity duration-[1500ms] ease-in-out ${idx === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0"
+                }`}
             >
               <ImageWithSkeleton
                 alt={`Bất Động Sản Cao Cấp ${idx + 1}`}
@@ -76,9 +75,9 @@ export function EtherealHomeClient() {
                 style={
                   idx === currentSlide
                     ? {
-                        transform: `translateY(${scrollY * 0.15}px) scale(1.05)`,
-                        transition: "transform 0.1s ease-out",
-                      }
+                      transform: `translateY(${scrollY * 0.15}px) scale(1.05)`,
+                      transition: "transform 0.1s ease-out",
+                    }
                     : undefined
                 }
               />
@@ -168,30 +167,30 @@ export function EtherealHomeClient() {
                 rel={project.slug === "wyndham-soleil-danang" ? "noopener noreferrer" : undefined}
                 className="group flex flex-col overflow-hidden rounded-[4px] bg-white shadow-sm transition-shadow hover:shadow-md"
               >
-                  <div className="relative aspect-[16/10] overflow-hidden">
-                    <ImageWithSkeleton
-                      src={project.image}
-                      alt={project.imageAlt}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    />
-                    <span className="absolute right-3 top-3 rounded-sm bg-white/90 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-[#634F3F]">
-                      {project.status}
-                    </span>
-                  </div>
-                  <div className="flex flex-1 flex-col gap-2 p-5">
-                    <h2 className="font-serif text-xl text-[#4a3829] transition-colors group-hover:text-[#634F3F]">
-                      {project.title}
-                    </h2>
-                    <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-[#634F3F]/70">
-                      {project.location}
-                    </p>
-                    <p className="mt-1 text-sm leading-relaxed text-[#634F3F]/80 line-clamp-2">
-                      {project.description}
-                    </p>
-                  </div>
-                </Link>
+                <div className="relative aspect-[16/10] overflow-hidden">
+                  <ImageWithSkeleton
+                    src={project.image}
+                    alt={project.imageAlt}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                  <span className="absolute right-3 top-3 rounded-sm bg-white/90 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-[#634F3F]">
+                    {project.status}
+                  </span>
+                </div>
+                <div className="flex flex-1 flex-col gap-2 p-5">
+                  <h2 className="font-serif text-xl text-[#4a3829] transition-colors group-hover:text-[#634F3F]">
+                    {project.title}
+                  </h2>
+                  <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-[#634F3F]/70">
+                    {project.location}
+                  </p>
+                  <p className="mt-1 text-sm leading-relaxed text-[#634F3F]/80 line-clamp-2">
+                    {project.description}
+                  </p>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -232,9 +231,9 @@ export function EtherealHomeClient() {
               <div className="flex items-start gap-4">
                 <Check className="h-6 w-6 text-[#735c00] flex-shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="text-[14px] font-semibold leading-[20px] tracking-[0.05em] font-hanken text-[#4a3829]">
+                  <h3 className="text-[14px] font-semibold leading-[20px] tracking-[0.05em] font-hanken text-[#4a3829]">
                     Tiếp Cận Đặc Quyền
-                  </h4>
+                  </h3>
                   <p className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e]">
                     Danh sách bất động sản ngoài thị trường độc quyền tại những
                     vị trí đắt giá nhất.
@@ -244,9 +243,9 @@ export function EtherealHomeClient() {
               <div className="flex items-start gap-4">
                 <Lock className="h-5 w-5 text-[#735c00] flex-shrink-0 mt-1 mx-0.5" />
                 <div>
-                  <h4 className="text-[14px] font-semibold leading-[20px] tracking-[0.05em] font-hanken text-[#4a3829]">
+                  <h3 className="text-[14px] font-semibold leading-[20px] tracking-[0.05em] font-hanken text-[#4a3829]">
                     Tuyệt Đối Bảo Mật
-                  </h4>
+                  </h3>
                   <p className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e]">
                     Xem nhà riêng tư và đàm phán bảo mật là tiêu chuẩn của chúng
                     tôi.

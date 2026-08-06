@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import { buildMetadata, buildJsonLd, buildBreadcrumbJsonLd, buildFaqJsonLd, buildProjectBreadcrumbItems } from "@/lib/seo";
 import { CamelliaPageClient } from "./CamelliaClient";
+import { ProjectBottomContent } from "@/components/projects/ProjectBottomContent";
 import { getSEO } from "@/config/projects-seo";
 import { projects } from "@/data/projects";
 
@@ -68,41 +69,23 @@ export default function CamelliaPage() {
 
   return (
     <main className="bg-[#F8F7F3]">
-      {/* ✅ JSON-LD: ApartmentComplex Schema */}
+      {/*JSON-LD: ApartmentComplex Schema */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: camelliaApartmentComplexJsonLd }}
       />
-      {/* ✅ JSON-LD: BreadcrumbList Schema – hiển thị đường dẫn trên Google SERP */}
+      {/*JSON-LD: BreadcrumbList Schema – hiển thị đường dẫn trên Google SERP */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: camelliaBreadcrumbJsonLd }}
       />
-      {/* ✅ JSON-LD: FAQPage Schema – xuất hiện Rich Snippets hỏi đáp trên Google */}
+      {/*JSON-LD: FAQPage Schema – xuất hiện Rich Snippets hỏi đáp trên Google */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: camelliaFaqPageJsonLd }}
       />
-
-      {/*
-       * ✅ CamelliaPageClient – Client Component duy nhất
-       *
-       * Chứa: HideSiteHeader + CamelliaNav + HeroCarousel (H1 overlay)
-       *       + CanHoSection (ApartmentCards + FloorPlanGrid + LayoutCarousel)
-       *       + HinhAnhSection (GalleryGrid)
-       *       + LightboxModal + ProjectScrollPopup
-       *
-       * Tất cả state & event handler chỉ sống ở đây.
-       * Next.js vẫn SSR ra HTML đầy đủ vì Client Component được pre-render phía server.
-       */}
       <CamelliaPageClient />
-      {/* ─────────────────────────────────────────────────────────────────────────
-       * Các section bên dưới là PURE SERVER RENDER:
-       * → Không có onClick, useState, useEffect
-       * → Google Bot nhận HTML đầy đủ ngay lần đầu crawl
-       * → H2 được cải thiện để chứa từ khóa SEO
-       * ─────────────────────────────────────────────────────────────────────── */}
-      {/* ✅ BREADCRUMB UI – Google đọc được, tăng CTR trên SERP ──────────────── */}
+      {/* BREADCRUMB UI – Google đọc được, tăng CTR trên SERP */}
       <nav
         aria-label="Breadcrumb"
         className="border-b border-[#E8E5DF] bg-white py-3"
@@ -215,7 +198,6 @@ export default function CamelliaPage() {
           <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#5C8269]/70">
             Vị Trí
           </p>
-          {/* ✅ SEO: H2 cải thiện – chứa từ khóa */}
           <h2 className="mt-3 font-serif text-3xl text-[#16384C] md:text-4xl">
             Vị Trí The Camellia Sơn Trà – Tâm Điểm Kết Nối
           </h2>
@@ -250,7 +232,6 @@ export default function CamelliaPage() {
           <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#C9A45D]/70">
             Tiện Ích Nội Khu
           </p>
-          {/* ✅ SEO: H2 cải thiện */}
           <h2 className="mt-3 font-serif text-3xl text-white md:text-4xl">
             Đặc Quyền Tiện Ích The Camellia – Wellness & Lifestyle
           </h2>
@@ -266,7 +247,7 @@ export default function CamelliaPage() {
                 <div className="relative h-48 overflow-hidden">
                   <Image
                     src={amenity.image}
-                    alt={amenity.title}
+                    alt={`${amenity.title} tại căn hộ cao cấp The Camellia Sơn Trà Đà Nẵng`}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
@@ -322,71 +303,15 @@ export default function CamelliaPage() {
         </div>
       </section>
 
-      {/* DỰ ÁN LIÊN QUAN (Internal Link) ─────────────────────────────────────
-       * ✅ SEO: Internal linking giúp Google Bot crawl các project page khác
-       */}
-      <section className="bg-white py-16 border-t border-[#E8E5DF]">
-        <div className="mx-auto max-w-[1440px] px-5 md:px-20">
-          <h2 className="font-serif text-2xl font-bold text-[#16384C] mb-8">
-            Các Dự Án Bất Động Sản Cao Cấp Khác Tại Đà Nẵng
-          </h2>
-          <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {projects
-              .filter((p) => p.slug !== "camellia")
-              .map((project) => (
-                <Link
-                  key={project.id}
-                  href={`/projects/${project.slug}`}
-                  className="group rounded-sm border border-[#E8E5DF] bg-white p-6 shadow-sm transition-all hover:shadow-md hover:border-[#C9A45D]"
-                >
-                  <h3 className="font-serif text-lg font-semibold text-[#16384C] group-hover:text-[#C9A45D] line-clamp-2">
-                    {project.title}
-                  </h3>
-                  <p className="mt-2 text-sm text-[#2B2B2B]/70 line-clamp-2">
-                    {project.description}
-                  </p>
-                  <p className="mt-3 text-sm font-semibold text-[#C9A45D]">Xem chi tiết →</p>
-                </Link>
-              ))}
-          </div>
-        </div>
-      </section>
+      <ProjectBottomContent 
+        slug="camellia" 
+        accentColor="#C9A45D" 
+        bgSeo="bg-white"
+        bgRelated="bg-white"
+        borderColor="border-[#E8E5DF]"
+      />
 
-      {/* TEXT SEO CUỐI TRANG ─────────────────────────────────────────────────
-       * ✅ Google đọc text này để hiểu context, chứa từ khóa chính
-       * ✅ Internal links tăng PageRank cho các trang con
-       */}
-      <section className="bg-white py-12 border-t border-[#E8E5DF]">
-        <div className="mx-auto max-w-[1440px] px-5 md:px-20">
-          <h2 className="text-xl font-bold text-[#16384C] mb-4">
-            Về Dự Án The Camellia Sơn Trà Đà Nẵng
-          </h2>
-          <p className="text-sm leading-relaxed text-[#2B2B2B]/80">
-            <strong>The Camellia Sơn Trà</strong> là biểu tượng <strong>căn hộ biển Đà Nẵng sở hữu lâu dài</strong> tọa lạc tại quỹ đất vàng giao lộ Lê Văn Lương và Lê Đức Thọ. Dự án mang đến chuẩn sống Luxury Urban Nature Residence hiếm hoi nơi giao hòa giữa rừng nguyên sinh, biển Mỹ Khê và trung tâm thành phố. Với quy mô giới hạn chỉ 478 căn hộ, thiết kế kính tràn viền và hệ tiện ích Wellness cao cấp, đây là cơ hội đầu tư tài sản truyền đời lý tưởng.
-          </p>
-          <p className="mt-3 text-sm leading-relaxed text-[#2B2B2B]/80">
-            Khám phá thêm các{" "}
-            <Link href="/apartment" className="text-[#C9A45D] underline">
-              căn hộ cao cấp Đà Nẵng
-            </Link>{" "}
-            hoặc{" "}
-            <Link href="/projects" className="text-[#C9A45D] underline">
-              các dự án bất động sản tiềm năng khác
-            </Link>{" "}
-            để tối ưu hóa danh mục đầu tư của bạn.{" "}
-            <Link href="/contact-us" className="text-[#C9A45D] underline">
-              Liên hệ tư vấn
-            </Link>{" "}
-            ngay hôm nay để nhận thông tin sớm nhất về The Camellia Sơn Trà.
-          </p>
-        </div>
-      </section>
-
-      {/* FAQ SECTION ───────────────────────────────────────────────────
-       * ✅ FAQPage JSON-LD đã được inject ở đầu trang
-       * ✅ Nội dung bên dưới cần khớp với JSON-LD để GG xác nhận Rich Snippets
-       * ✅ Mỗi câu hỏi chứa từ khóa dạng question – nhắm tới featured snippets
-       */}
+      {/* FAQ SECTION  */}
       <section id="faq" className="scroll-mt-16 bg-[#F8F7F3] py-16 border-t border-[#E8E5DF]">
         <div className="mx-auto max-w-[1440px] px-5 md:px-20">
           <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#5C8269]/70">
@@ -416,10 +341,7 @@ export default function CamelliaPage() {
         </div>
       </section>
 
-      {/* EEAT – Uy Tín & Chuyên Gia ────────────────────────────────────────
-       * ✅ EEAT (Experience · Expertise · Authoritativeness · Trustworthiness)
-       * → Google đánh giá cao trang có tín hiệu uy tín rõ ràng
-       */}
+      {/* EEAT – Uy Tín & Chuyên Gia */}
       <section className="bg-[#16384C] py-12 border-t border-[#16384C]/30">
         <div className="mx-auto max-w-[1440px] px-5 md:px-20">
           <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#C9A45D]/70">
