@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import { buildMetadata, buildJsonLd, buildBreadcrumbJsonLd, buildProjectBreadcrumbItems } from "@/lib/seo";
 import { SunFoursTowerClient, VrTour } from "./SunFoursClient";
+import { ProjectBottomContent } from "@/components/projects/ProjectBottomContent";
 import { getSEO } from "@/config/projects-seo";
 
 const SUN_FOURS_TOWER_SEO_CONFIG = getSEO("sun-fours-tower")
@@ -265,7 +266,7 @@ export default function SunFoursTowerPage() {
           <div className="relative mt-10 aspect-[21/9] overflow-hidden rounded-sm shadow-lg">
             <Image
               src="/images/fourS_tower/phoi-canh-4.jpg"
-              alt="Tiện ích Sun FourS Tower"
+              alt="Hệ thống tiện ích nội khu đẳng cấp tại căn hộ Sun FourS Tower Đà Nẵng"
               fill
               className="object-cover"
               sizes="100vw"
@@ -457,6 +458,13 @@ export default function SunFoursTowerPage() {
         </div>
       </section>
 
+      <ProjectBottomContent 
+        slug="sun-fours-tower" 
+        accentColor="#E3C284"
+        bgSeo="bg-white"
+        bgRelated="bg-[#f9f9f9]"
+        borderColor="border-[#E8E2D9]"
+      />
 
     </main>
   );

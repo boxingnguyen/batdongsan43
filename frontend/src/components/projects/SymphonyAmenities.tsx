@@ -26,7 +26,7 @@ export function SymphonyAmenities() {
         <div className="mb-10 text-center">
           <Image
             src="/images/symphony5/Tron-ven-he-tien-ich-cua-To-hop-dang-cap-tu-Sun-Group-1.png"
-            alt="Tiện ích"
+            alt="Hệ thống tiện ích nội khu tại dự án căn hộ cao cấp Sun Symphony Residence Đà Nẵng"
             width={600}
             height={126}
             className="mx-auto h-auto w-full max-w-lg"
@@ -37,7 +37,7 @@ export function SymphonyAmenities() {
           <div className="relative aspect-[21/9] w-full">
             <Image
               src={mapSlides[slide]}
-              alt="Sơ đồ tiện ích"
+              alt="Sơ đồ tiện ích tại dự án Sun Symphony Residence Đà Nẵng"
               fill
               className="object-cover"
               sizes="100vw"

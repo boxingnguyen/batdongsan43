@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { buildMetadata, buildJsonLd, buildBreadcrumbJsonLd, buildProjectBreadcrumbItems } from "@/lib/seo";
 import { getSEO } from "@/config/projects-seo";
 import { ProjectScrollPopup } from "@/components/projects/ProjectScrollPopup";
+import { ProjectBottomContent } from "@/components/projects/ProjectBottomContent";
 import { theLegendDanang } from "@/data/the-legend-danang";
 import { LegendHero } from "@/components/projects/legend-hero";
 import { LegendGallery } from "@/components/projects/legend-gallery";
@@ -50,21 +51,23 @@ export default function TheLegendDanangPage() {
             thêm
           </p>
           <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
-            <a
-              href={`tel:${theLegendDanang.agent.phone}`}
+            <Link
+              href="/contact-us"
               className="inline-block rounded-sm bg-[#07be8a] px-8 py-3 font-semibold text-white transition-colors hover:bg-[#07be8a]/90"
             >
-              Gọi Ngay
-            </a>
-            <a
-              href={`mailto:${theLegendDanang.agent.email}`}
-              className="inline-block rounded-sm border border-[#07be8a] px-8 py-3 font-semibold text-[#07be8a] transition-colors hover:bg-[#07be8a]/5"
-            >
-              Gửi Email
-            </a>
+              Liên Hệ Ngay
+            </Link>
           </div>
         </div>
       </section>
+
+      <ProjectBottomContent 
+        slug="the-legend-danang" 
+        accentColor="#07be8a"
+        bgSeo="bg-[#F9F9F9]"
+        bgRelated="bg-white"
+        borderColor="border-[#E8E5DF]"
+      />
 
       <ProjectScrollPopup projectName="The Legend Đà Nẵng" accent="#07be8a" />
     </main>

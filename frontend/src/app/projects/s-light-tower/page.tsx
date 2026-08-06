@@ -15,9 +15,10 @@ import {
   TramFront,
   Mountain,
 } from "lucide-react";
-import { buildMetadata, buildJsonLd, buildBreadcrumbJsonLd, buildProjectBreadcrumbItems } from "@/lib/seo";
+import { buildMetadata, buildJsonLd, buildBreadcrumbJsonLd, buildFaqJsonLd, buildProjectBreadcrumbItems } from "@/lib/seo";
 import { SLightPageClient } from "./SlightClient";
 import { getSEO } from "@/config/projects-seo";
+import { ProjectBottomContent } from "@/components/projects/ProjectBottomContent";
 
 // ─── SEO Config ──────────────────────────────────────────────────────────────
 
@@ -245,7 +246,7 @@ export default function SLightTowerPage() {
                 <div className="relative h-48 overflow-hidden">
                   <Image
                     src={amenity.image}
-                    alt={amenity.title}
+                    alt={`${amenity.title} tại căn hộ view sông Hàn S-Light Tower Đà Nẵng`}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
@@ -301,84 +302,13 @@ export default function SLightTowerPage() {
         </div>
       </section>
 
-      {/* DỰ ÁN LIÊN QUAN (Internal Link) ─────────────────────────────────────
-       * ✅ SEO: Internal linking giúp Google Bot crawl các project page khác
-       * H2 + H3 đều được index hoàn toàn phía server
-       */}
-      <section className="bg-[#f9f9f9] py-16 border-t border-[#E8E2D9]">
-        <div className="mx-auto max-w-[1440px] px-5 md:px-20">
-          <h2 className="font-serif text-2xl font-bold text-[#4a3829] mb-8">
-            Các Dự Án Bất Động Sản Cao Cấp Khác Tại Đà Nẵng
-          </h2>
-          <div className="grid gap-4 sm:grid-cols-3">
-            <Link
-              href="/projects/sun-fours-tower"
-              className="group rounded-sm border border-[#E8E2D9] bg-white p-6 shadow-sm transition-all hover:shadow-md hover:border-[#C8A96E]"
-            >
-              <h3 className="font-serif text-lg font-semibold text-[#4a3829] group-hover:text-[#C8A96E]">
-                Sun FourS Tower – Căn Hộ Trung Tâm Đà Nẵng
-              </h3>
-              <p className="mt-2 text-sm text-[#4e453e]/70">Xem chi tiết →</p>
-            </Link>
-            <Link
-              href="/projects/the-legend-danang"
-              className="group rounded-sm border border-[#E8E2D9] bg-white p-6 shadow-sm transition-all hover:shadow-md hover:border-[#C8A96E]"
-            >
-              <h3 className="font-serif text-lg font-semibold text-[#4a3829] group-hover:text-[#C8A96E]">
-                The Legend – Biệt Thự Nghỉ Dưỡng Đà Nẵng
-              </h3>
-              <p className="mt-2 text-sm text-[#4e453e]/70">Xem chi tiết →</p>
-            </Link>
-            <Link
-              href="/projects/symphony5"
-              className="group rounded-sm border border-[#E8E2D9] bg-white p-6 shadow-sm transition-all hover:shadow-md hover:border-[#C8A96E]"
-            >
-              <h3 className="font-serif text-lg font-semibold text-[#4a3829] group-hover:text-[#C8A96E]">
-                Symphony Residence – Căn Hộ Cao Cấp Đà Nẵng
-              </h3>
-              <p className="mt-2 text-sm text-[#4e453e]/70">Xem chi tiết →</p>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* TEXT SEO CUỐI TRANG ─────────────────────────────────────────────────
-       * ✅ Google đọc text này để hiểu context, chứa từ khóa chính
-       * ✅ Internal links tăng PageRank cho các trang con
-       */}
-      <section className="bg-white py-12 border-t border-[#E8E2D9]">
-        <div className="mx-auto max-w-[1440px] px-5 md:px-20">
-          <h2 className="text-xl font-bold text-[#4a3829] mb-4">
-            Về Dự Án S-Light Tower Đà Nẵng
-          </h2>
-          <p className="text-sm leading-relaxed text-[#4e453e]/80">
-            <strong>S-Light Tower Đà Nẵng</strong> là dự án{" "}
-            <strong>căn hộ cao cấp mặt sông Hàn</strong> thuộc đại đô thị Sun NeO
-            City, do chủ đầu tư Sun Property (Sun Group) phát triển. Tọa lạc tại
-            ngã tư Nguyễn Đình Thi - 29/3, Hòa Xuân, dự án gồm 2 tháp đôi 22
-            tầng với khoảng 800 căn hộ từ Studio đến 3 Phòng Ngủ, sở hữu lâu dài,
-            pháp lý rõ ràng. Đây là{" "}
-            <strong>căn hộ view sông Hàn 270°</strong> duy nhất tại Nam Đà Nẵng
-            với tầm nhìn bao quát Ngũ Hành Sơn, Biển Đông và điểm bắn pháo hoa
-            DIFF hàng năm.
-          </p>
-          <p className="mt-3 text-sm leading-relaxed text-[#4e453e]/80">
-            Nếu bạn đang tìm kiếm{" "}
-            <Link href="/apartment" className="text-[#C8A96E] underline">
-              căn hộ cao cấp Đà Nẵng
-            </Link>{" "}
-            với vị trí đắc địa, hãy khám phá thêm{" "}
-            <Link href="/projects" className="text-[#C8A96E] underline">
-              các dự án bất động sản Đà Nẵng
-            </Link>{" "}
-            khác hoặc{" "}
-            <Link href="/contact-us" className="text-[#C8A96E] underline">
-              liên hệ tư vấn miễn phí
-            </Link>{" "}
-            ngay hôm nay.
-          </p>
-        </div>
-      </section>
+      <ProjectBottomContent 
+        slug="s-light-tower" 
+        accentColor="#C8A96E"
+        bgSeo="bg-white"
+        bgRelated="bg-[#f9f9f9]"
+        borderColor="border-[#E8E2D9]"
+      />
     </main>
   );
 }
