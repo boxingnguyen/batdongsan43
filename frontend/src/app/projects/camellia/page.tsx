@@ -5,14 +5,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  TreePine,
-  Waves,
-  Building2,
-  MapPin,
-  Car,
-  Plane,
-} from "lucide-react";
+
 import { buildMetadata, buildJsonLd, buildBreadcrumbJsonLd, buildFaqJsonLd, buildProjectBreadcrumbItems } from "@/lib/seo";
 import { CamelliaPageClient } from "./CamelliaClient";
 import { ProjectBottomContent } from "@/components/projects/ProjectBottomContent";
@@ -30,22 +23,47 @@ export const metadata: Metadata = buildMetadata(CAMELLIA_SEO_CONFIG);
 
 // ─── Static data – dữ liệu hiển thị trang Camellia (pure server-side) ─────────
 
-const CAMELLIA_LOCATION_ITEMS = [
-  { icon: TreePine, title: "Bán Đảo Sơn Trà", detail: "2 phút · Không gian thiên nhiên" },
-  { icon: Waves, title: "Biển Mỹ Khê", detail: "2 phút · Trải nghiệm biển" },
-  { icon: MapPin, title: "Chùa Linh Ứng", detail: "3 phút · Tâm linh, du lịch" },
-  { icon: Building2, title: "Trung tâm TP Đà Nẵng", detail: "10-12 phút" },
-  { icon: Car, title: "Cầu Rồng", detail: "10-12 phút" },
-  { icon: Plane, title: "Sân bay Đà Nẵng", detail: "20 phút" },
-];
 
-const CAMELLIA_AMENITY_ITEMS = [
-  { title: "Indoor Pool", desc: "Hồ bơi trong nhà đẳng cấp, chuẩn Wellness, thiết kế sang trọng", image: "/images/camellia_images/tien_ich/camellia-tien-ich-be-boi.jpg" },
-  { title: "Gym Center", desc: "Phòng tập Gym cao cấp, không gian thể thao năng động", image: "/images/camellia_images/tien_ich/camellia-tien-ich-phong-gym.jpg" },
-  { title: "Yoga & Meditation", desc: "Không gian tập Yoga view thiên nhiên thư thái", image: "/images/camellia_images/tien_ich/camellia-tien-ich-phong-yoga.jpg" },
-  { title: "Community Room", desc: "Phòng sinh hoạt cộng đồng, không gian kết nối cư dân", image: "/images/camellia_images/tien_ich/camellia-tien-ich-phong-sinh-hoat-cong-dong.jpg" },
-  { title: "Luxury Lobby", desc: "Sảnh đón và khu vực thang máy hiện đại sang trọng", image: "/images/camellia_images/tien_ich/camellia-tien-ich-thang-may-tang-2.jpg" },
-  { title: "Sky Garden", desc: "Vườn trên mây, không gian thư giãn và tầm nhìn bao quát", image: "/images/camellia_images/tien_ich/camellia-tien-ich-tang-mai-1.jpg" },
+const CAMELLIA_AMENITY_GROUPS = [
+  {
+    key: "wellness",
+    subtitle: "Chăm sóc sức khỏe & tái tạo năng lượng",
+    desc: "Không gian Wellness được định hướng trở thành nơi cư dân có thể thư giãn, phục hồi năng lượng và tìm lại sự cân bằng sau những nhịp sống bận rộn.",
+    color: "bg-[#5C8269]/10 border-[#5C8269]/20",
+    textColor: "text-[#5C8269]",
+    items: ["Indoor Swimming Pool", "Gym & Fitness Center", "Yoga & Meditation Room", "Spa & Sauna"],
+    image: "/images/camellia_images/tien_ich/camellia-tien-ich-be-boi.jpg",
+  },
+  {
+    key: "nature",
+    subtitle: "Kết nối thiên nhiên & hệ sinh thái Sơn Trà",
+    desc: "Không gian Nature đưa tinh thần thiên nhiên Sơn Trà vào trải nghiệm sống hàng ngày, hướng đến sự kết nối giữa cư dân với thiên nhiên và hệ sinh thái đặc trưng.",
+
+    color: "bg-[#C9A45D]/10 border-[#C9A45D]/20",
+    textColor: "text-[#C9A45D]",
+    items: ["Sky Garden – Tầng Mái", "Morning Mist Garden", "Forest Walking Path", "Green Rooftop"],
+    image: "/images/camellia_images/tien_ich/camellia-tien-ich-tang-mai-1.jpg",
+  },
+  {
+    key: "community",
+    subtitle: "Gắn kết cộng đồng & gia đình đa thế hệ",
+    desc: "Community tập trung vào những giá trị kết nối giữa con người với con người, tạo điều kiện để những khoảnh khắc gặp gỡ, sum vầy và chia sẻ trở thành một phần của đời sống.",
+
+    color: "bg-[#16384C]/10 border-[#16384C]/20",
+    textColor: "text-[#16384C]",
+    items: ["Community Room", "Kid Club & Playground", "BBQ Garden", "Event Space"],
+    image: "/images/camellia_images/tien_ich/camellia-tien-ich-phong-sinh-hoat-cong-dong.jpg",
+  },
+  {
+    key: "everyday",
+    subtitle: "Phục vụ nhu cầu sống hàng ngày",
+    desc: "Hệ thống tiện ích Everyday Living góp phần tạo nên một môi trường sống thuận tiện, nơi cư dân có thể tận hưởng cuộc sống hàng ngày trong một không gian được tổ chức đồng bộ.",
+
+    color: "bg-[#E8E5DF] border-[#E8E5DF]",
+    textColor: "text-[#2B2B2B]",
+    items: ["Lobby & Reception 24/7", "Hệ thống thang máy cao cấp", "Bãi đỗ xe thông minh", "An ninh 5 lớp"],
+    image: "/images/camellia_images/tien_ich/camellia-tien-ich-thang-may-tang-2.jpg",
+  },
 ];
 
 const CAMELLIA_TIMELINE_ITEMS = [
@@ -110,7 +128,7 @@ export default function CamelliaPage() {
           </ol>
         </div>
       </nav>
-      {/* SLOGAN HIGHLIGHT ─────────────────────────────────────────────────── */}
+      {/* SLOGAN HIGHLIGHT ───────────────────────────────────────────────────
       <section className="bg-gradient-to-r from-[#16384C] to-[#204a63] py-12 md:py-16">
         <div className="mx-auto max-w-[1440px] px-5 md:px-20">
           <div className="mb-6 inline-block rounded-sm bg-[#C9A45D]/20 px-4 py-2">
@@ -147,123 +165,7 @@ export default function CamelliaPage() {
             ))}
           </ul>
         </div>
-      </section>
-
-      {/* TỔNG QUAN ──────────────────────────────────────────────────────────── */}
-      <section id="tong-quan" className="scroll-mt-16 pb-20 pt-16">
-        <div className="mx-auto max-w-[1440px] px-5 md:px-20">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#5C8269]/70">
-            Tổng Quan Dự Án
-          </p>
-          <h2 className="mt-3 font-serif text-3xl text-[#16384C] md:text-4xl">
-            The Camellia Sơn Trà Đà Nẵng
-          </h2>
-          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[#2B2B2B]/80">
-            The Camellia không được định vị là một dự án căn hộ thông thường, mà là một Luxury Urban Nature Residence. Tọa lạc tại giao lộ Lê Văn Lương và Lê Đức Thọ, nơi hội tụ giá trị thiên nhiên nguyên bản của rừng nguyên sinh Sơn Trà, vẻ đẹp của biển Mỹ Khê và nhịp sống năng động của trung tâm thành phố Đà Nẵng.
-          </p>
-          <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
-            {[
-              { label: "Chủ đầu tư", value: "Công ty TNHH Địa ốc Thành Lâm" },
-              { label: "Phát triển", value: "MBLand Holding & WeLand" },
-              { label: "Quy mô", value: "1 Tower (25 tầng nổi, 2 hầm)" },
-              { label: "Diện tích đất", value: "4.299,9 m² (Mật độ 48,2%)" },
-              { label: "Tổng sản phẩm", value: "478 (469 căn hộ + 9 TM)" },
-              { label: "Loại hình", value: "Studio, 2BR, 3BR, Duplex" },
-              { label: "Vị trí", value: "Lê Văn Lương × Lê Đức Thọ" },
-              { label: "Biển Mỹ Khê", value: "2 phút di chuyển" },
-              { label: "Bán Đảo Sơn Trà", value: "Tựa lưng trực tiếp" },
-              { label: "Trung tâm TP", value: "10 phút di chuyển" },
-              { label: "Bàn giao", value: "Dự kiến Quý I / 2028" },
-              { label: "Pháp lý", value: "Sở hữu lâu dài" },
-            ].map((item) => (
-              <div
-                key={item.label}
-                className="rounded-sm border border-[#E8E5DF] bg-white p-4 shadow-sm"
-              >
-                <p className="text-[11px] font-semibold uppercase tracking-wide text-[#5C8269]/70">
-                  {item.label}
-                </p>
-                <p className="mt-1 text-base font-semibold text-[#16384C]">
-                  {item.value}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* VỊ TRÍ ─────────────────────────────────────────────────────────────── */}
-      <section id="vi-tri" className="scroll-mt-16 pb-20">
-        <div className="mx-auto max-w-[1440px] px-5 md:px-20">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#5C8269]/70">
-            Vị Trí
-          </p>
-          <h2 className="mt-3 font-serif text-3xl text-[#16384C] md:text-4xl">
-            Vị Trí The Camellia Sơn Trà – Tâm Điểm Kết Nối
-          </h2>
-          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[#2B2B2B]/80">
-            Nằm tại giao lộ vàng Lê Văn Lương và Lê Đức Thọ, phường Sơn Trà, TP Đà Nẵng. Không quá đông đúc, không quá xa trung tâm – một điểm cân bằng tuyệt hảo mang giá trị tài sản truyền đời.
-          </p>
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {CAMELLIA_LOCATION_ITEMS.map((loc) => (
-              <div
-                key={loc.title}
-                className="flex items-start gap-4 rounded-sm border border-[#E8E5DF] bg-white p-5 shadow-sm"
-              >
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#C9A45D]/10 text-[#C9A45D]">
-                  <loc.icon className="h-5 w-5" />
-                </div>
-                <div>
-                  <p className="font-semibold text-[#16384C]">{loc.title}</p>
-                  <p className="mt-1 text-sm text-[#2B2B2B]/70">{loc.detail}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* TIỆN ÍCH ───────────────────────────────────────────────────────────── */}
-      <section
-        id="tien-ich"
-        className="scroll-mt-16 bg-[#16384C] pb-20 text-white pt-16"
-      >
-        <div className="mx-auto max-w-[1440px] px-5 md:px-20">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#C9A45D]/70">
-            Tiện Ích Nội Khu
-          </p>
-          <h2 className="mt-3 font-serif text-3xl text-white md:text-4xl">
-            Đặc Quyền Tiện Ích The Camellia – Wellness & Lifestyle
-          </h2>
-          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/80">
-            Không chỉ là nơi an cư, The Camellia mang đến trải nghiệm sống chuẩn mực với hệ thống tiện ích chăm sóc sức khỏe, kết nối cộng đồng tinh hoa và thiên nhiên nguyên bản.
-          </p>
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {CAMELLIA_AMENITY_ITEMS.map((amenity) => (
-              <div
-                key={amenity.title}
-                className="group relative overflow-hidden rounded-lg border border-white/10 bg-white/5 transition-all hover:shadow-lg"
-              >
-                <div className="relative h-48 overflow-hidden">
-                  <Image
-                    src={amenity.image}
-                    alt={`${amenity.title} tại căn hộ cao cấp The Camellia Sơn Trà Đà Nẵng`}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                </div>
-                <div className="relative p-5">
-                  <p className="font-semibold text-white">{amenity.title}</p>
-                  <p className="mt-2 text-sm leading-relaxed text-white/70">
-                    {amenity.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      </section> */}
 
       {/* TIẾN ĐỘ ────────────────────────────────────────────────────────────── */}
       <section id="tien-do" className="scroll-mt-16 pb-20 pt-16">
@@ -303,9 +205,9 @@ export default function CamelliaPage() {
         </div>
       </section>
 
-      <ProjectBottomContent 
-        slug="camellia" 
-        accentColor="#C9A45D" 
+      <ProjectBottomContent
+        slug="camellia"
+        accentColor="#C9A45D"
         bgSeo="bg-white"
         bgRelated="bg-white"
         borderColor="border-[#E8E5DF]"
