@@ -900,6 +900,115 @@ function CanHoSection() {
   );
 }
 
+// ─── TamViewSection ─────────────────────────────────────────────────────────
+
+const TAM_VIEW_TABS = [
+  {
+    id: "tab1",
+    label: "Tầng 5",
+    href: "https://thecamellia.vn/tam-view-tang-5/",
+    img: "https://thecamellia.vn/wp-content/uploads/2026/07/da_tien_ich_3.jpg",
+  },
+  {
+    id: "tab2",
+    label: "Tầng 10",
+    href: "https://thecamellia.vn/tam-view-tang-10/",
+    img: "https://thecamellia.vn/wp-content/uploads/2026/07/TT02-1-1.jpg",
+  },
+  {
+    id: "tab3",
+    label: "Tầng 15",
+    href: "https://thecamellia.vn/tam-view-tang-15/",
+    img: "https://thecamellia.vn/wp-content/uploads/2026/08/Rectangle-34624523.jpg",
+  },
+  {
+    id: "tab4",
+    label: "Tầng 25",
+    href: "https://thecamellia.vn/tam-view-tang-25/",
+    img: "https://thecamellia.vn/wp-content/uploads/2026/07/da_tien_ich_2.jpg",
+  },
+];
+
+function TamViewSection() {
+  const [activeTab, setActiveTab] = useState("tab1");
+  const active = TAM_VIEW_TABS.find((t) => t.id === activeTab) ?? TAM_VIEW_TABS[0];
+
+  return (
+    <section id="tam-view" className="scroll-mt-16 bg-[#F8F7F3] pb-20 pt-16">
+      <div className="mx-auto max-w-[1440px] px-5 md:px-20">
+        {/* Header */}
+        <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#5C8269]/70">
+              Trải Nghiệm 360°
+            </p>
+            <h2 className="mt-3 font-serif text-3xl text-[#16384C] md:text-4xl">
+              Tầm View
+            </h2>
+          </div>
+
+          {/* Tab selector */}
+          <div className="flex gap-2">
+            {TAM_VIEW_TABS.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`rounded-sm px-5 py-2.5 text-sm font-semibold transition-all duration-200 ${activeTab === tab.id
+                    ? "bg-[#16384C] text-white shadow-md"
+                    : "border border-[#E8E5DF] bg-white text-[#2B2B2B] hover:border-[#C9A45D] hover:text-[#16384C]"
+                  }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Image with 360 overlay */}
+        <a
+          href={active.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group relative block w-full overflow-hidden rounded-xl shadow-xl"
+        >
+          {/* Transition wrapper – fade between tabs */}
+          <div className="relative aspect-[16/7] w-full overflow-hidden rounded-xl bg-[#16384C]">
+            {TAM_VIEW_TABS.map((tab) => (
+              <img
+                key={tab.id}
+                src={tab.img}
+                alt={`Tầm view ${tab.label} The Camellia Sơn Trà – 360°`}
+                className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${activeTab === tab.id ? "opacity-100" : "opacity-0 pointer-events-none"
+                  }`}
+              />
+            ))}
+
+            {/* Dark gradient overlay */}
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+
+            {/* 360° badge */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="flex flex-col items-center gap-2 rounded-xl border border-white/30 bg-black/40 px-8 py-5 text-white shadow-2xl backdrop-blur-sm transition-all duration-300 group-hover:scale-105 group-hover:bg-black/60">
+                <p className="font-serif text-5xl font-bold leading-none tracking-tight">
+                  360<sup className="text-2xl">°</sup>
+                </p>
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#C9A45D]">
+                  Khám phá ngay
+                </p>
+              </div>
+            </div>
+
+            {/* Floor label bottom-left */}
+            <p className="absolute bottom-5 left-6 text-xs font-bold uppercase tracking-widest text-white/70">
+              The Camellia Sơn Trà · {active.label}
+            </p>
+          </div>
+        </a>
+      </div>
+    </section>
+  );
+}
+
 // ─── TienIchSection ───────────────────────────────────────────────────────────
 
 const TIEN_ICH_ITEMS = [
@@ -1108,6 +1217,9 @@ export function CamelliaPageClient() {
 
       {/* Section căn hộ – ApartmentCards + Mặt bằng tầng */}
       <CanHoSection />
+
+      {/* Tầm view 360° – sau mặt bằng điển hình */}
+      <TamViewSection />
 
       {/* Tiện ích nội khu */}
       <TienIchSection />
