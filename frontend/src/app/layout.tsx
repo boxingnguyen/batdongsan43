@@ -11,7 +11,9 @@ import Toaster from "@/components/Toaster";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { ReactNode } from "react";
 import { SITE_NAME } from "@/config/site";
-import FloatingContactButtons from "@/components/shared/FloatingContactButtons";
+import { GlobalAssistantProvider } from "@/components/chat/global/GlobalAssistantProvider";
+import { GlobalAssistantHost } from "@/components/chat/global/GlobalAssistantHost";
+import { AssistantContactDock } from "@/components/chat/global/AssistantContactDock";
 import { buildRootMetadata } from "@/lib/seo";
 import { ROOT_SEO_CONFIG, buildRealEstateAgentSchema, buildResidentialComplexSchema } from "@/config/site-seo";
 
@@ -81,13 +83,16 @@ export default async function RootLayout({
             enableSystem={true}
             defaultTheme="light"
           >
-            <HeaderSelector />
-            <MainWrapper>{children}</MainWrapper>
-            <Toaster />
+            <GlobalAssistantProvider>
+              <HeaderSelector />
+              <MainWrapper>{children}</MainWrapper>
+              <GlobalAssistantHost />
+              <Toaster />
+              {/* Unified concierge contact dock (replaces FloatingContactButtons). */}
+              <AssistantContactDock />
+            </GlobalAssistantProvider>
           </ThemeProvider>
         </NextIntlClientProvider>
-
-        <FloatingContactButtons />
       </body>
     </html>
   );
