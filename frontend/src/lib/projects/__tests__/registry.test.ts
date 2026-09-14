@@ -4,6 +4,7 @@ import {
   lookupWebsiteProjectRoute,
   websiteHrefForProjectKey,
 } from "../registry";
+import { projects } from "@/data/projects";
 
 describe("websiteProjectRoutes", () => {
   it("maps_camellia_backend_key_to_internal_route", () => {
@@ -47,5 +48,38 @@ describe("websiteProjectRoutes", () => {
       expect(route.href).toBeTruthy();
       expect(typeof route.external).toBe("boolean");
     }
+  });
+
+  it("derives_routes_from_projects_ts_data", () => {
+    // websiteProjectRoutes must be derived from the projects.ts data array,
+    // not duplicated as literals.
+    const sourceProjects = projects.filter(
+      (p) =>
+        typeof p.chatbotProjectKey === "string" &&
+        typeof p.href === "string" &&
+        typeof p.external === "boolean",
+    );
+
+    expect(websiteProjectRoutes).toHaveLength(sourceProjects.length);
+
+    for (const route of websiteProjectRoutes) {
+      const source = sourceProjects.find(
+        (p) => p.chatbotProjectKey === route.chatbotProjectKey,
+      );
+      expect(source).toBeDefined();
+      expect(route.href).toBe(source!.href);
+      expect(route.external).toBe(source!.external);
+    }
+  });
+
+  it("only_includes_projects_with_routing_metadata", () => {
+    // Projects without chatbotProjectKey href external (e.g. s-light-tower,
+    // symphony5, etc.) must NOT appear in the registry.
+    const keysWithRouting: Record<string, true> = Object.fromEntries(
+      websiteProjectRoutes.map((r) => [r.chatbotProjectKey, true] as const),
+    );
+    expect(!!keysWithRouting["camellia"]).toBe(true);
+    expect(!!keysWithRouting["soleil"]).toBe(true);
+    expect(!!keysWithRouting["s-light-tower"]).toBe(false);
   });
 });

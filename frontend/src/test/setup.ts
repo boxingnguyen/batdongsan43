@@ -4,4 +4,4 @@
  * Installs @testing-library/jest-dom matchers (toBeInTheDocument,
  * toBeInTheDocument, etc.) so they are available in every test file.
  */
-import "@testing-library/jest-dom";
+import "@testing-library/jest-dom/vitest";

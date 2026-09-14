@@ -10,30 +10,34 @@
  * backend key `soleil` but a legacy slug `wyndham-soleil-danang`.
  */
 import type { WebsiteProjectRoute } from "./contracts";
+import { projects } from "@/data/projects";
 
 /**
- * The single source of truth for website routing metadata.
- *
- * Each entry maps a backend `chatbotProjectKey` to an internal route or
- * external URL. When a backend key has no website route entry,
- * `lookupWebsiteProjectRoute` returns `null` — never an invented href.
+ * The single source of truth for website routing metadata, derived from the
+ * `projects.ts` data array. Only projects with `chatbotProjectKey`, `href`,
+ * and `external` fields produce a route entry.
  */
-export const websiteProjectRoutes: WebsiteProjectRoute[] = [
-  {
-    chatbotProjectKey: "camellia",
-    href: "/projects/camellia",
-    external: false,
-    slug: "camellia",
-    image: "/images/camellia_images/camellia-phoi-canh.jpg",
-  },
-  {
-    chatbotProjectKey: "soleil",
-    href: "https://thesoleil.vn",
-    external: true,
-    slug: "wyndham-soleil-danang",
-    image: "/images/home/banner-1.jpg",
-  },
-];
+export const websiteProjectRoutes: WebsiteProjectRoute[] = projects
+  .filter(
+    (project): project is typeof project & {
+      chatbotProjectKey: string;
+      href: string;
+      external: boolean;
+    } =>
+      typeof project.chatbotProjectKey === "string" &&
+      typeof project.href === "string" &&
+      typeof project.external === "boolean",
+  )
+  .map((project) => ({
+    chatbotProjectKey: project.chatbotProjectKey,
+    href: project.href,
+    external: project.external,
+    // Preserve slug only when it differs from the backend key.
+    slug: project.slug && project.slug !== project.chatbotProjectKey
+      ? project.slug
+      : undefined,
+    image: project.image,
+  }));
 
 /**
  * Resolve website routing for a backend project key.
