@@ -112,7 +112,7 @@ function FullShell({ withHero = false }: { withHero?: boolean }) {
   );
 }
 
-const LAUNCHER_LABEL = "Mở trợ lý AI";
+const LAUNCHER_LABEL = "Mở Trợ lý AI";
 const PANEL_LABEL = "Ethereal Concierge AI";
 
 /** Open the assistant and wait for the lazily-loaded panel to appear. */

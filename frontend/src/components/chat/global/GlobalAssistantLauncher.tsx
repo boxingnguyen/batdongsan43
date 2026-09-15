@@ -24,7 +24,7 @@ export interface GlobalAssistantLauncherProps {
 }
 
 export function GlobalAssistantLauncher({
-  "aria-label": ariaLabel = "Mở trợ lý AI",
+  "aria-label": ariaLabel = "Mở Trợ lý AI",
   label,
   iconOnly = false,
   className,

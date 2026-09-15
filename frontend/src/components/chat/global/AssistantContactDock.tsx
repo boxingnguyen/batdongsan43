@@ -74,7 +74,7 @@ export function AssistantContactDock() {
         ref={launcherRef}
         type="button"
         onClick={handleOpen}
-        aria-label="Mở trợ lý AI"
+        aria-label="Mở Trợ lý AI"
         data-pulse="true"
         className="assistant-dock__launcher relative flex items-center gap-3 rounded-full bg-[#FFFFFF] px-5 py-3.5 shadow-[0_10px_25px_-5px_rgba(26,32,35,0.12)] text-[#4E453E] transition-colors hover:bg-[#F3EFE9]"
       >
