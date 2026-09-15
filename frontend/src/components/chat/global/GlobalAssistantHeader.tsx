@@ -15,7 +15,7 @@ export interface GlobalAssistantHeaderProps {
 
 export function GlobalAssistantHeader({
   onClose,
-  closeAriaLabel = "Đóng trợ lý AI",
+  closeAriaLabel = "Đóng Trợ lý AI",
 }: GlobalAssistantHeaderProps) {
   return (
     <div className="flex items-center justify-between border-b border-[#E8E2D9] bg-[#FFFFFF] px-4 py-3">

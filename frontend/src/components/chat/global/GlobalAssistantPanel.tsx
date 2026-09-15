@@ -8,7 +8,6 @@ import { ProjectContextBar } from "./ProjectContextBar";
 import { AssistantWelcome } from "./AssistantWelcome";
 import { ProjectChoiceList } from "./ProjectChoiceList";
 import type { ActiveProject } from "@/lib/projects/contracts";
-import "./global-assistant-shell.css";
 
 /**
  * GlobalAssistantPanel is the lazily-loaded assistant shell. It renders:
@@ -124,8 +123,8 @@ export function GlobalAssistantPanel() {
   return (
     <div
       ref={panelRef}
-      className="assistant-panel fixed inset-0 z-[60] m-0 flex h-auto w-full flex-col rounded-none bg-[#FCFBF8] font-hanken text-[#4E453E] shadow-[0_10px_25px_-5px_rgba(26,32,35,0.12)] md:inset-auto md:right-6 md:bottom-6 md:h-[min(760px,calc(100dvh-112px))] md:w-[480px] md:max-w-[calc(100vw-48px)] md:rounded-[20px] md:border md:border-[#E8E2D9]"
-      aria-label="Trợ lý AI Ethereal Concierge"
+      className="assistant-panel fixed inset-0 z-[70] m-0 flex h-auto w-full flex-col rounded-none bg-[#FCFBF8] font-hanken text-[#4E453E] shadow-[0_10px_25px_-5px_rgba(26,32,35,0.12)] md:inset-auto md:right-6 md:bottom-6 md:h-[min(760px,calc(100dvh-112px))] md:w-[480px] md:max-w-[calc(100vw-48px)] md:rounded-[20px] md:border md:border-[#E8E2D9]"
+      aria-label="Ethereal Concierge AI"
       role="dialog"
       aria-modal="true"
     >

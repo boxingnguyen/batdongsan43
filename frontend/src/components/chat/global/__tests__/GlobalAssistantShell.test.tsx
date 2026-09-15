@@ -20,6 +20,7 @@ import { GlobalAssistantProvider } from "../GlobalAssistantProvider";
 import { AssistantContactDock } from "../AssistantContactDock";
 import { GlobalAssistantHost } from "../GlobalAssistantHost";
 import { useGlobalAssistant } from "../GlobalAssistantProvider";
+import * as ProjectsApi from "@/lib/projects/api";
 
 /**
  * Behaviour tests for the Ethereal Concierge shell (GA-05).
@@ -111,8 +112,8 @@ function FullShell({ withHero = false }: { withHero?: boolean }) {
   );
 }
 
-const LAUNCHER_LABEL = "Mở trợ lý AI tư vấn bất động sản";
-const PANEL_LABEL = "Trợ lý AI Ethereal Concierge";
+const LAUNCHER_LABEL = "Mở trợ lý AI";
+const PANEL_LABEL = "Ethereal Concierge AI";
 
 /** Open the assistant and wait for the lazily-loaded panel to appear. */
 async function openAssistantVia(fn: () => void) {
@@ -214,7 +215,7 @@ describe("phone_link_is_preserved", () => {
   it("the dock links to the exact tel: destination", async () => {
     render(<FullShell />);
 
-    const phone = screen.getByLabelText("Gọi điện thoại hỗ trợ");
+    const phone = screen.getByLabelText("Gọi 0345747138");
     expect(phone).toHaveAttribute("href", "tel:0345747138");
   });
 });
@@ -247,5 +248,61 @@ describe("welcome_does_not_require_network_query", () => {
     expect(fetchSpy).not.toHaveBeenCalled();
 
     fetchSpy.mockRestore();
+  });
+});
+
+describe("dock_hidden_while_panel_open", () => {
+  it("removes the dock from the hit-test path while the panel is open so the composer send button is topmost", async () => {
+    // Seed the catalogue mock with one project so the welcome view can promote
+    // to the chat view (composer + send button) via a real tile selection.
+    vi.mocked(ProjectsApi.fetchActiveProjects).mockResolvedValue([
+      {
+        project_key: "symphony5",
+        display_name: "Symphony 5",
+        name: "Symphony 5",
+        location: "Quận 1, TP. HCM",
+      },
+    ]);
+
+    render(<FullShell />);
+
+    // Before opening: the dock launcher is present and interactive.
+    const dock = screen.getByLabelText(LAUNCHER_LABEL);
+    expect(dock).toBeInTheDocument();
+
+    // Open the assistant the same way the dock launcher does.
+    await openAssistantVia(() => dock.click());
+
+    const panel = screen.getByLabelText(PANEL_LABEL);
+    expect(panel).toBeInTheDocument();
+
+    // Promote the welcome view to the chat view by selecting the (mocked) project tile.
+    // The composer + send button only render in the chat view.
+    const tile = await screen.findByLabelText(/Chọn Symphony 5/i);
+    await act(async () => {
+      tile.click();
+    });
+
+    // The composer send button ("Gửi câu hỏi") is the topmost interactive target.
+    const send = await screen.findByLabelText("Gửi câu hỏi");
+    expect(send).toBeInTheDocument();
+
+    // Regression: the dock must be hidden from the hit-test path while the
+    // panel (aria-modal dialog) is open. A real elementFromPoint at the send
+    // centre would resolve to the send button, not the dock, only when the
+    // dock is removed from the accessibility tree and from pointer events.
+    const dockEl = document.querySelector('[data-assistant-dock="true"]');
+    expect(dockEl).not.toBeNull();
+    const dockHidden = dockEl!.getAttribute("hidden") !== null;
+    const dockAriaHidden = dockEl!.getAttribute("aria-hidden") === "true";
+    expect(dockHidden || dockAriaHidden).toBe(true);
+
+    // The send button must NOT be contained within the dock subtree (i.e. the
+    // dock did not win paint order over the panel).
+    expect(dockEl!.contains(send)).toBe(false);
+    // The send button must live under the open panel (aria-modal dialog).
+    expect(panel.contains(send)).toBe(true);
+
+    vi.mocked(ProjectsApi.fetchActiveProjects).mockRestore();
   });
 });

@@ -34,7 +34,19 @@
   background-color: #C8A96E;
   z-index: -1;
 }
+/* Dock only interactive in closed state. While the panel (aria-modal) is
+   open the dock is hidden + pointer-events:none so the composer send button
+   is the topmost hit-test target. */
+.assistant-dock {
+  right: 24px;
+  bottom: 24px;
+}
+.assistant-dock[data-assistant-dock][hidden],
+.assistant-dock[aria-hidden="true"] {
+  display: none;
+}
 
+/* Champagne pulse ring behind the launcher glyph. */
 /* Mobile (<768) overrides for the dock stack and panel. */
 @media (max-width: 767px) {
   .assistant-dock {
