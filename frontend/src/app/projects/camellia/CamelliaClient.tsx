@@ -18,6 +18,7 @@ import {
 import { HideSiteHeader } from "@/components/projects/HideSiteHeader";
 import { SITE_NAME } from "@/config/site";
 import { ProjectScrollPopup } from "@/components/projects/ProjectScrollPopup";
+import { ChatSection } from "@/components/chat/ChatSection";
 
 export const CAROUSEL_IMAGES = [
   "/images/camellia_images/camellia-phoi-canh-tang-mai.jpg",
@@ -68,6 +69,7 @@ const navLinks = [
   { href: "#tien-ich", label: "Tiện Ích" },
   { href: "#hinh-anh", label: "Hình Ảnh" },
   { href: "#tien-do", label: "Tiến Độ" },
+  { href: "#tra-loi", label: "Hỏi Đáp" },
 ];
 
 // ─── Dữ liệu 22 căn hộ – enhanced với svgId, loại căn, hướng, view, trạng thái ────────
@@ -1226,6 +1228,8 @@ export function CamelliaPageClient() {
 
       {/* Section hình ảnh – có GalleryGrid tương tác */}
       <HinhAnhSection onImageClick={setSelectedImage} />
+
+      <ChatSection />
 
       {/* Lightbox Modal – controlled bởi state chung */}
       {selectedImage && (

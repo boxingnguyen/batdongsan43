@@ -1,0 +1,200 @@
+/* Unlayered rule beats globals.css section py-24 (Tailwind .py-0 lives in
+   @layer utilities and loses) — chat section manages its own padding. */
+section#tra-loi {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* The chat bubble renders its own <section> (image gallery): the blanket
+   `section { @apply py-24 }` in globals.css injects 96px vertical padding
+   inside the bubble — scope-neutralize it for every section under chat. */
+#tra-loi section {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.chat-md {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: #16384c;
+}
+
+.chat-md > * + * {
+  margin-top: 0.625rem;
+}
+
+/* Bold tokens render navy, not black (spec). */
+.chat-md strong,
+.chat-md b {
+  color: #16384c;
+  font-weight: 700;
+}
+
+.chat-md h1,
+.chat-md h2,
+.chat-md h3,
+.chat-md h4 {
+  font-family: var(--font-serif), "EB Garamond", serif;
+  color: #16384c;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.chat-md h1 {
+  font-size: 1.25rem;
+}
+.chat-md h2 {
+  font-size: 1.125rem;
+}
+.chat-md h3,
+.chat-md h4 {
+  font-size: 1rem;
+}
+
+.chat-md ul,
+.chat-md ol {
+  margin: 0.375rem 0 0.375rem 1.125rem;
+  list-style: revert;
+}
+
+.chat-md li + li {
+  margin-top: 0.125rem;
+}
+
+.chat-md a {
+  color: #16384c;
+  text-decoration: underline;
+  text-decoration-color: #c9a45d;
+  text-underline-offset: 2px;
+}
+
+.chat-md a:hover {
+  text-decoration-color: #16384c;
+}
+
+.chat-md code {
+  background: #f1efe9;
+  border-radius: 0.25rem;
+  padding: 0.0625rem 0.25rem;
+  font-size: 0.875em;
+}
+
+.chat-md pre {
+  background: #16384c;
+  color: #f8f7f3;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  overflow-x: auto;
+}
+
+.chat-md pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+.chat-md blockquote {
+  border-left: 3px solid #c9a45d;
+  background: #fbfaf6;
+  padding: 0.5rem 0.875rem;
+  border-radius: 0 0.375rem 0.375rem 0;
+}
+
+.chat-md hr {
+  border: 0;
+  border-top: 1px solid #e8e5df;
+  margin: 0.875rem 0;
+}
+
+.chat-md table {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.875rem;
+}
+
+.chat-md th,
+.chat-md td {
+  border: 1px solid #e8e5df;
+  padding: 0.375rem 0.625rem;
+  text-align: left;
+}
+
+.chat-md th {
+  background: #f8f7f3;
+  color: #16384c;
+  font-weight: 600;
+}
+
+/* Markdown images stay framed with house-style rounding. */
+.chat-md img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}
+
+@keyframes chat-caret-blink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  50%,
+  95% {
+    opacity: 0.15;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.chat-caret {
+  display: inline-block;
+  width: 0.5rem;
+  height: 1.05em;
+  margin-left: 0.125rem;
+  vertical-align: text-bottom;
+  background-color: #c9a45d;
+  border-radius: 1px;
+  animation: chat-caret-blink 1s steps(1, end) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chat-caret {
+    animation: none;
+  }
+}
+
+.chat-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #dcd7cd transparent;
+}
+
+.chat-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-scroll::-webkit-scrollbar-thumb {
+  background: #dcd7cd;
+  border-radius: 999px;
+}
+
+.chat-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.maplibregl-popup-content {
+  border-radius: 0.5rem !important;
+  border: 1px solid #e8e5df;
+  box-shadow: 0 10px 15px -3px rgba(23, 32, 35, 0.12);
+  padding: 0.5rem 0.75rem !important;
+  font-family: var(--font-hanken), sans-serif;
+}
+
+.maplibregl-ctrl-attrib.maplibregl-compact {
+  border-radius: 0.375rem;
+}
+
+.maplibregl-ctrl-group {
+  border-radius: 0.375rem !important;
+  border: 1px solid #e8e5df !important;
+}

@@ -2,7 +2,7 @@
 
 import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import {
   ChevronLeft,
   ChevronRight,
@@ -11,6 +11,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 import { projects } from "@/data/projects";
+import { useGlobalAssistant } from "@/components/chat/global/GlobalAssistantProvider";
 
 const heroSlides = [
   "/images/home/sym1.png",
@@ -28,6 +29,7 @@ const heroSlides = [
 export function EtherealHomeClient() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [scrollY, setScrollY] = useState(0);
+  const { openAssistant } = useGlobalAssistant();
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -102,6 +104,19 @@ export function EtherealHomeClient() {
             <span className="italic font-semibold">tầm view triệu $</span> độc
             bản giữa lòng Đà Nẵng.
           </p>
+
+          {/* Hero CTA: subtle AI concierge trigger (spec §Hero CTA). */}
+          <button
+            type="button"
+            onClick={() => openAssistant({ initialView: "chat" })}
+            aria-label="Hỏi trợ lý AI"
+            className="mt-10 inline-flex items-center gap-2 rounded-full border border-white/30 bg-[#FCFBF8]/15 px-5 py-2.5 text-white/90 backdrop-blur-sm transition-colors hover:bg-[#FCFBF8]/25 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C8A96E] focus-visible:ring-offset-2"
+          >
+            <span className="text-lg" aria-hidden="true">
+              ✦
+            </span>
+            <span className="font-serif text-[15px]">Hỏi trợ lý AI</span>
+          </button>
         </div>
 
         {/* Carousel Controls */}

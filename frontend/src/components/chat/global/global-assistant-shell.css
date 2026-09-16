@@ -1,0 +1,113 @@
+/* Ethereal Concierge shell styles (GA-05).
+   Scoped token classes + responsive geometry from the ticket §Responsive geometry.
+   Does not touch the legacy chat section; these classes are namespaced under
+   `.assistant-panel` / `.assistant-dock` to avoid colliding with chat.css. */
+
+/* First-visit champagne pulse on the AI launcher glyph (spec §Accessibility:
+   max two cycles, disabled with reduced motion). */
+@keyframes ga-pulse-radar {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+/* Pulse runs at most twice per open; disabled with reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  .assistant-dock__launcher[data-pulse]::before {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+/* Champagne pulse ring behind the launcher glyph. */
+.assistant-dock__launcher[data-pulse]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  animation: ga-pulse-radar 2.5s cubic-bezier(0.4, 0, 0.2, 1) 2;
+  background-color: #C8A96E;
+  z-index: -1;
+}
+/* Dock only interactive in closed state. While the panel (aria-modal) is
+   open the dock is hidden + pointer-events:none so the composer send button
+   is the topmost hit-test target. */
+.assistant-dock {
+  right: 24px;
+  bottom: 24px;
+}
+.assistant-dock[data-assistant-dock][hidden],
+.assistant-dock[aria-hidden="true"] {
+  display: none;
+}
+
+/* Champagne pulse ring behind the launcher glyph. */
+/* Mobile (<768) overrides for the dock stack and panel. */
+@media (max-width: 767px) {
+  .assistant-dock {
+    right: 16px;
+    bottom: 16px;
+    gap: 3.5rem;
+  }
+
+  /* Mobile AI launcher is a 56x56 round button; Zalo/Phone become 44x44. */
+  .assistant-dock__launcher {
+    height: 56px;
+    width: 56px;
+    min-width: 56px;
+    min-height: 56px;
+    border-radius: 9999px;
+    padding: 0;
+  }
+
+  .assistant-dock__control {
+    height: 44px;
+    width: 44px;
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  /* Panel is full-screen mobile, respecting safe-area insets. */
+  .assistant-panel {
+    inset: 0 !important;
+    width: 100vw;
+    height: 100dvh;
+    border-radius: 0;
+    max-width: none;
+    margin: 0;
+    bottom: 0 !important;
+    right: 0 !important;
+    /* Pad content above the iOS home bar. */
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* Tablet (768–1179) geometry: width capped, 16px inset, full-screen-ish panel. */
+@media (min-width: 768px) and (max-width: 1179px) {
+  .assistant-dock {
+    right: 16px;
+    bottom: 16px;
+  }
+
+  .assistant-panel {
+    width: min(560px, calc(100vw - 32px));
+    max-width: calc(100vw - 32px);
+    right: 16px;
+    bottom: 16px;
+    border-radius: 20px;
+  }
+}
+
+/* Focus ring visibility (spec §Accessibility: visible keyboard focus). */
+.assistant-dock__launcher:focus-visible,
+.assistant-dock__control:focus-visible,
+.assistant-panel button:focus-visible,
+.assistant-panel a:focus-visible {
+  outline: 2px solid #4A3829;
+  outline-offset: 2px;
+}

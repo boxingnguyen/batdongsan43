@@ -7,6 +7,9 @@ export type Project = {
   image: string;
   imageAlt: string;
   status: string;
+  chatbotProjectKey?: string;
+  href?: string;
+  external?: boolean;
 };
 
 export const projects: Project[] = [
@@ -33,6 +36,9 @@ export const projects: Project[] = [
     image: "/images/camellia_images/camellia-phoi-canh.jpg",
     imageAlt: "The Camellia Sơn Trà Đà Nẵng",
     status: "Đang mở bán",
+    chatbotProjectKey: "camellia",
+    href: "/projects/camellia",
+    external: false,
   },
   {
     id: "symphony5",
@@ -55,6 +61,9 @@ export const projects: Project[] = [
     image: "/images/home/banner-1.jpg",
     imageAlt: "Wyndham Soleil Danang beachfront",
     status: "Đang mở bán",
+    chatbotProjectKey: "soleil",
+    href: "https://thesoleil.vn",
+    external: true,
   },
   {
     id: "the-legend-danang",
