@@ -6,10 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "test": "vitest",
-    "test:run": "vitest run",
-    "typecheck": "tsc --noEmit"
+    "lint": "next lint"
   },
   "dependencies": {
     "@base-ui/react": "^1.5.0",
@@ -24,7 +21,6 @@
     "embla-carousel-react": "^8.6.0",
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.487.0",
-    "maplibre-gl": "^6.8.0",
     "next": "^15.2.4",
     "next-auth": "^4.24.14",
     "next-intl": "^4.13.0",
@@ -47,11 +43,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "^15.2.4",
-    "jsdom": "^25.0.0",
-    "@testing-library/jest-dom": "^6.0.0",
-    "@testing-library/react": "^16.0.0",
     "tailwindcss": "^4",
-    "typescript": "^5",
-    "vitest": "^3.0.0"
+    "typescript": "^5"
   }
 }

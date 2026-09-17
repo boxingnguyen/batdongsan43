@@ -34,17 +34,3 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-
-# AI tooling / agent-generated local state (chỉ ignore thứ ta sinh ra, không đụng source cũ)
-/.claude/
-/.omp/
-/.zcode/
-/.agents/
-/_bmad/
-/.mimosa/
-/.dsh/
-/.mcp.json
-/.superpowers/
-/skills-lock.json
-*.log
-camellia-report-full.png
