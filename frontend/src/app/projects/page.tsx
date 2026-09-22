@@ -3,7 +3,8 @@ import Link from "next/link";
 import { projects } from "@/data/projects";
 import { SITE_URL } from "@/config/site";
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.danangluxuryhomes.vn";
+const BASE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://www.danangluxuryhomes.vn";
 
 export const metadata = {
   title: "Dự Án Căn Hộ Cao Cấp Đà Nẵng | Ethereal Estate",
@@ -32,8 +33,8 @@ export const metadata = {
     images: [
       {
         url: `${BASE_URL}/images/home/cover-image.jpg`,
-        width: 1200,
-        height: 630,
+        width: 800,
+        height: 454,
         alt: "Dự Án Căn Hộ Cao Cấp Đà Nẵng – Ethereal Estate",
       },
     ],
@@ -46,7 +47,6 @@ export const metadata = {
     images: [`${BASE_URL}/images/home/cover-image.jpg`],
   },
 };
-
 
 export default function ProjectsPage() {
   return (

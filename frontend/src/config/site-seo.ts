@@ -43,7 +43,15 @@ export const SITE_INFO = {
   openingHours: {
     opens: "08:00",
     closes: "17:30",
-    days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"] as const,
+    days: [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday",
+    ] as const,
   },
   /** Phân khúc giá (cho Schema.org) */
   priceRange: "$$$$",
@@ -58,7 +66,7 @@ export const SITE_INFO = {
 export const ROOT_SEO_CONFIG: RootSEO = {
   title: `${SITE_NAME} – Căn Hộ Cao Cấp Đà Nẵng | Bất Động Sản Hạng Sang`,
   description:
-    "Khám phá dự án căn hộ cao cấp Đà Nẵng: S-Light Tower, Sun FourS Tower, The Legend, Symphony Residence, The Camellia. Bảng giá mới nhất, pháp lý sở hữu lâu dài. Tư vấn miễn phí từ Ethereal Estate.",
+    "Khám phá căn hộ cao cấp Đà Nẵng tại S-Light Tower, Sun FourS Tower, The Legend và The Camellia. Xem bảng giá, pháp lý và nhận tư vấn miễn phí.",
   keywords: [
     "căn hộ cao cấp Đà Nẵng",
     "bất động sản Đà Nẵng",
@@ -73,7 +81,7 @@ export const ROOT_SEO_CONFIG: RootSEO = {
   og: {
     title: `${SITE_NAME} – Căn Hộ Cao Cấp Đà Nẵng`,
     description:
-      "Khám phá dự án căn hộ cao cấp Đà Nẵng từ Sun Group. Bảng giá mới nhất, pháp lý sở hữu lâu dài. Tư vấn miễn phí.",
+      "Khám phá căn hộ cao cấp Đà Nẵng, cập nhật bảng giá và pháp lý dự án. Nhận tư vấn miễn phí từ Ethereal Estate.",
     image: "/images/home/cover-image.jpg",
     imageAlt: "Ethereal Estate – Căn Hộ Cao Cấp Đà Nẵng",
   },
@@ -140,11 +148,23 @@ export function buildResidentialComplexSchema(baseUrl: string): object {
       longitude: SITE_INFO.geo.lng,
     },
     amenityFeature: [
-      { "@type": "LocationFeatureSpecification", name: "Infinity Pool", value: true },
+      {
+        "@type": "LocationFeatureSpecification",
+        name: "Infinity Pool",
+        value: true,
+      },
       { "@type": "LocationFeatureSpecification", name: "Gym", value: true },
       { "@type": "LocationFeatureSpecification", name: "Spa", value: true },
-      { "@type": "LocationFeatureSpecification", name: "Restaurant", value: true },
-      { "@type": "LocationFeatureSpecification", name: "Shopping Center", value: true },
+      {
+        "@type": "LocationFeatureSpecification",
+        name: "Restaurant",
+        value: true,
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        name: "Shopping Center",
+        value: true,
+      },
     ],
     image: `${baseUrl}${SITE_INFO.coverImage}`,
     telephone: SITE_INFO.telephone,
