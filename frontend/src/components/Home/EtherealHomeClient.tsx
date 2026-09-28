@@ -89,11 +89,17 @@ export function EtherealHomeClient() {
         {/* Content */}
         <div className="relative z-30 w-full max-w-4xl px-5 md:px-0 text-center text-white">
           <h1
-            className="text-[40px] md:text-[64px] font-light leading-[48px] md:leading-[72px] tracking-[0.05em] md:tracking-[0.08em] mb-8 drop-shadow-xl italic"
+            className="text-[40px] md:text-[64px] font-light leading-[48px] md:leading-[72px] tracking-[0.05em] md:tracking-[0.08em] mb-4 drop-shadow-xl italic"
             style={{ fontFamily: "EB Garamond, serif" }}
           >
-            Căn hộ tinh túy, nâng tầm trải nghiệm.
+            Căn hộ cao cấp Đà Nẵng
           </h1>
+          <p
+            className="text-[22px] md:text-[30px] font-light leading-[30px] md:leading-[40px] tracking-[0.05em] mb-8 drop-shadow-xl italic opacity-95"
+            style={{ fontFamily: "EB Garamond, serif" }}
+          >
+            Tinh túy, nâng tầm trải nghiệm.
+          </p>
           <p className="font-hanken text-[18px] font-light leading-[28px] opacity-95 max-w-2xl mx-auto drop-shadow-md tracking-wide">
             Thức dậy với <span className="italic">bình minh tráng lệ</span> trên
             biển Mỹ Khê, tối về ngắm{" "}
@@ -160,12 +166,9 @@ export function EtherealHomeClient() {
           </div>
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {projects.map((project) => (
-              <Link
+              <article
                 key={project.id}
-                href={project.slug === "wyndham-soleil-danang" ? "https://thesoleil.vn" : `/projects/${project.slug}`}
-                target={project.slug === "wyndham-soleil-danang" ? "_blank" : undefined}
-                rel={project.slug === "wyndham-soleil-danang" ? "noopener noreferrer" : undefined}
-                className="group flex flex-col overflow-hidden rounded-[4px] bg-white shadow-sm transition-shadow hover:shadow-md"
+                className="group relative flex flex-col overflow-hidden rounded-[4px] bg-white shadow-sm transition-shadow hover:shadow-md"
               >
                 <div className="relative aspect-[16/10] overflow-hidden">
                   <ImageWithSkeleton
@@ -181,7 +184,15 @@ export function EtherealHomeClient() {
                 </div>
                 <div className="flex flex-1 flex-col gap-2 p-5">
                   <h2 className="font-serif text-xl text-[#4a3829] transition-colors group-hover:text-[#634F3F]">
-                    {project.title}
+                    {/* Stretched link: whole card stays clickable, anchor text stays short */}
+                    <Link
+                      href={project.slug === "wyndham-soleil-danang" ? "https://thesoleil.vn" : `/projects/${project.slug}`}
+                      target={project.slug === "wyndham-soleil-danang" ? "_blank" : undefined}
+                      rel={project.slug === "wyndham-soleil-danang" ? "noopener noreferrer" : undefined}
+                      className="after:absolute after:inset-0 after:content-['']"
+                    >
+                      {project.title}
+                    </Link>
                   </h2>
                   <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-[#634F3F]/70">
                     {project.location}
@@ -190,8 +201,16 @@ export function EtherealHomeClient() {
                     {project.description}
                   </p>
                 </div>
-              </Link>
+              </article>
             ))}
+          </div>
+          <div className="mt-12 text-center">
+            <Link
+              href="/projects"
+              className="inline-block border border-[#4a3829] text-[#4a3829] px-10 py-4 text-[14px] font-semibold leading-[20px] tracking-[0.05em] font-hanken hover:bg-[#4a3829] hover:text-white transition-all duration-300"
+            >
+              Xem tất cả dự án
+            </Link>
           </div>
         </div>
       </section>
@@ -253,12 +272,12 @@ export function EtherealHomeClient() {
                 </div>
               </div>
             </div>
-            <button
-              type="button"
-              className="mt-8 border border-[#4a3829] text-[#4a3829] px-10 py-4 text-[14px] font-semibold leading-[20px] tracking-[0.05em] font-hanken hover:bg-[#4a3829] hover:text-white transition-all duration-300"
+            <Link
+              href="/lien-he"
+              className="inline-block mt-8 border border-[#4a3829] text-[#4a3829] px-10 py-4 text-[14px] font-semibold leading-[20px] tracking-[0.05em] font-hanken hover:bg-[#4a3829] hover:text-white transition-all duration-300"
             >
-              DI SẢN CỦA CHÚNG TÔI
-            </button>
+              LIÊN HỆ TƯ VẤN
+            </Link>
           </div>
         </div>
       </section>

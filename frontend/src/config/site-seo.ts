@@ -31,11 +31,11 @@ export const SITE_INFO = {
   /** Liên kết mạng xã hội (để trống "" nếu không có) */
   social: {
     facebook: "https://www.facebook.com/nguyet.nguyen2111",
-    instagram: "https://instagram.com",
-    youtube: "https://youtube.com",
-    tiktok: "https://tiktok.com",
-    linkedin: "https://linkedin.com",
-    twitter: "https://x.com",
+    instagram: "",
+    youtube: "",
+    tiktok: "",
+    linkedin: "",
+    twitter: "",
   },
   /** Zalo */
   zalo: "https://zalo.me/0345747138",
@@ -64,7 +64,7 @@ export const SITE_INFO = {
 // ── 2. Root SEO Config (Homepage) ─────────────────────────────────────────────
 // Dùng trong layout.tsx: export const metadata = buildRootMetadata(ROOT_SEO_CONFIG)
 export const ROOT_SEO_CONFIG: RootSEO = {
-  title: `${SITE_NAME} – Căn Hộ Cao Cấp Đà Nẵng | Bất Động Sản Hạng Sang`,
+  title: `Căn Hộ Cao Cấp Đà Nẵng | ${SITE_NAME}`,
   description:
     "Khám phá căn hộ cao cấp Đà Nẵng tại S-Light Tower, Sun FourS Tower, The Legend và The Camellia. Xem bảng giá, pháp lý và nhận tư vấn miễn phí.",
   keywords: [

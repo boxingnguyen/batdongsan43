@@ -2,6 +2,19 @@ import Link from "next/link";
 import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
 import { FooterRegisterForm } from "@/components/ethereal/footer-register-form";
 import { SITE_INFO } from "@/config/site-seo";
+import { ShareButtons } from "@/components/shared/ShareButtons";
+
+const FOOTER_LINK_CLASS =
+  "text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] hover:text-[#4a3829] transition-colors";
+
+const PROJECT_LINKS = [
+  { href: "/projects", label: "Tất cả dự án" },
+  { href: "/projects/s-light-tower", label: "S-Light Tower" },
+  { href: "/projects/sun-fours-tower", label: "Sun FourS Tower" },
+  { href: "/projects/camellia", label: "The Camellia Sơn Trà" },
+  { href: "/projects/the-legend-danang", label: "The Legend Đà Nẵng" },
+  { href: "/projects/symphony5", label: "Symphony Residence 5" },
+];
 
 export function SiteFooter() {
   return (
@@ -115,41 +128,16 @@ export function SiteFooter() {
           <div className="md:col-span-4 grid grid-cols-2 gap-8">
             <div className="space-y-6">
               <h4 className="text-[14px] font-semibold leading-[20px] tracking-[0.05em] font-hanken text-[#4a3829] uppercase tracking-widest">
-                Danh Mục
+                Dự Án
               </h4>
               <ul className="space-y-3">
-                <li>
-                  <Link
-                    className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] hover:text-[#4a3829] transition-colors"
-                    href="#"
-                  >
-                    Bộ Sưu Tập Hạng Sang
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] hover:text-[#4a3829] transition-colors"
-                    href="#"
-                  >
-                    Mạng Lưới Toàn Cầu
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] hover:text-[#4a3829] transition-colors"
-                    href="#"
-                  >
-                    Dự Án Mới
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] hover:text-[#4a3829] transition-colors"
-                    href="#"
-                  >
-                    Bộ Sưu Tập Cho Thuê
-                  </Link>
-                </li>
+                {PROJECT_LINKS.map((link) => (
+                  <li key={link.href}>
+                    <Link className={FOOTER_LINK_CLASS} href={link.href}>
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
             <div className="space-y-6">
@@ -158,36 +146,24 @@ export function SiteFooter() {
               </h4>
               <ul className="space-y-3">
                 <li>
-                  <Link
-                    className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] hover:text-[#4a3829] transition-colors"
-                    href="#"
-                  >
-                    Thông Tin Liên Hệ
+                  <Link className={FOOTER_LINK_CLASS} href="/lien-he">
+                    Liên hệ tư vấn
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] hover:text-[#4a3829] transition-colors"
-                    href="#"
-                  >
-                    Hệ Thống Văn Phòng
-                  </Link>
+                  <a className={FOOTER_LINK_CLASS} href={`tel:${SITE_INFO.telephone}`}>
+                    Gọi {SITE_INFO.telephoneDisplay}
+                  </a>
                 </li>
                 <li>
-                  <Link
-                    className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] hover:text-[#4a3829] transition-colors"
-                    href="#"
+                  <a
+                    className={FOOTER_LINK_CLASS}
+                    href={SITE_INFO.zalo}
+                    target="_blank"
+                    rel="nofollow noopener noreferrer"
                   >
-                    Cơ Hội Nghề Nghiệp
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] hover:text-[#4a3829] transition-colors"
-                    href="#"
-                  >
-                    Cổng Thông Tin Đại Lý
-                  </Link>
+                    Chat Zalo
+                  </a>
                 </li>
               </ul>
             </div>
@@ -212,13 +188,8 @@ export function SiteFooter() {
             © {new Date().getFullYear()} {SITE_INFO.name}. Bảo lưu mọi quyền. Riêng
             tư &amp; Bảo mật.
           </p>
-          <div className="flex gap-6">
-            <Link
-              className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] hover:text-[#4a3829]"
-              href="#"
-            >
-              Chính sách bảo mật
-            </Link>
+          <div className="flex flex-col md:flex-row items-center gap-6">
+            <ShareButtons />
             <span className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] italic">
               Thành viên của Mạng lưới Khách sạn &amp; Khu dân cư hàng đầu thế
               giới
