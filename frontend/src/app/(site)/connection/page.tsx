@@ -20,12 +20,6 @@ export async function generateMetadata(): Promise<Metadata> {
     description: `${t("main_heading")}. ${t("location_mykhe_desc")}`,
     alternates: {
       canonical: localeUrl,
-      languages: {
-        vi: `${baseUrl}/connection`,
-        en: `${baseUrl}/en/connection`,
-        [locale]: localeUrl, // Self-referential alternate link
-        "x-default": `${baseUrl}/connection`,
-      },
     },
     openGraph: {
       title: t("hero_title"),

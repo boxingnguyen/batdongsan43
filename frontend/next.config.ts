@@ -6,6 +6,13 @@ const strapiUrl = process.env.NEXT_PUBLIC_STRAPI_URL ?? "http://localhost:1337";
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  // Site is Vietnamese-only: fold old /vi and /en URLs into the canonical ones
+  async redirects() {
+    return [
+      { source: "/:locale(en|vi)", destination: "/", permanent: true },
+      { source: "/:locale(en|vi)/:path*", destination: "/:path*", permanent: true },
+    ];
+  },
   images: {
     remotePatterns: [
       {

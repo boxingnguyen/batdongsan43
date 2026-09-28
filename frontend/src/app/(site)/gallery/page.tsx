@@ -14,12 +14,6 @@ export async function generateMetadata(): Promise<Metadata> {
     description: `Explore our gallery of images and videos showcasing Căn hộ cao cấp Đà Nẵng - luxury apartments, facilities, and stunning views.`,
     alternates: {
       canonical: localeUrl,
-      languages: {
-        vi: `${baseUrl}/gallery`,
-        en: `${baseUrl}/en/gallery`,
-        [locale]: localeUrl, // Self-referential alternate link
-        "x-default": `${baseUrl}/gallery`,
-      },
     },
     openGraph: {
       title: t("title"),

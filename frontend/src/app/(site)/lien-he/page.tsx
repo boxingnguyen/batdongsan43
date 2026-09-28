@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Liên hệ",
   description: "Liên hệ với chúng tôi",
+  alternates: { canonical: "/lien-he" },
 };
 
 export default function ContactPage() {

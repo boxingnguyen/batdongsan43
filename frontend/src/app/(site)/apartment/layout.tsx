@@ -14,12 +14,6 @@ export async function generateMetadata(): Promise<Metadata> {
     description: `Explore luxury apartments at Căn hộ cao cấp Đà Nẵng. ${t("content_5_23_desc")} ${t("content_27_45_desc")} ${t("content_47_48_desc")}`,
     alternates: {
       canonical: localeUrl,
-      languages: {
-        vi: `${baseUrl}/apartment`,
-        en: `${baseUrl}/en/apartment`,
-        [locale]: localeUrl, // Self-referential alternate link
-        "x-default": `${baseUrl}/apartment`,
-      },
     },
     openGraph: {
       title: t("hero_title"),

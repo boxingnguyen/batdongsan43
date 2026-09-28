@@ -16,12 +16,6 @@ export async function generateMetadata(): Promise<Metadata> {
     description: `Contact Căn hộ cao cấp Đà Nẵng. Hotline: ${t("info.hotline1_value")}, ${t("info.hotline2_value")}. Email: ${t("info.email_value")}. Address: ${t("info.address_value")}`,
     alternates: {
       canonical: localeUrl,
-      languages: {
-        vi: `${baseUrl}/contact-us`,
-        en: `${baseUrl}/en/contact-us`,
-        [locale]: localeUrl, // Self-referential alternate link
-        "x-default": `${baseUrl}/contact-us`,
-      },
     },
     openGraph: {
       title: t("title"),

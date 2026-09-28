@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { SITE_NAME } from "@/config/site";
+import { SITE_NAME, SITE_URL } from "@/config/site";
 
 export type FaqItem = { question: string; answer: string };
 
@@ -30,7 +30,7 @@ export type ProjectSEO = {
 };
 
 export function buildMetadata(seo: ProjectSEO): Metadata {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://localhost:3000";
+  const baseUrl = SITE_URL;
   const canonical = `${baseUrl}/projects/${seo.slug}`;
   const ogImage = seo.og.image.startsWith("http")
     ? seo.og.image
@@ -76,7 +76,7 @@ export type RootSEO = {
   title: string;
   description: string;
   keywords: string[];
-  canonical?: string; // mặc định = baseUrl nếu không truyền
+  canonical?: string; // chỉ đặt khi chắc chắn; root layout được mọi trang kế thừa
   og: {
     title: string;
     description: string;
@@ -95,9 +95,7 @@ export type RootSEO = {
  * export const metadata = buildRootMetadata(ROOT_SEO_CONFIG);
  */
 export function buildRootMetadata(seo: RootSEO): Metadata {
-  const baseUrl =
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.danangluxuryhomes.vn";
-  const canonical = seo.canonical ?? baseUrl;
+  const baseUrl = SITE_URL;
   const ogImage = seo.og.image.startsWith("http")
     ? seo.og.image
     : `${baseUrl}${seo.og.image}`;
@@ -110,13 +108,10 @@ export function buildRootMetadata(seo: RootSEO): Metadata {
     creator: SITE_NAME,
     publisher: SITE_NAME,
     metadataBase: new URL(baseUrl),
-    alternates: {
-      canonical,
-      languages: {
-        "vi-VN": `${baseUrl}/vi`,
-        "en-US": `${baseUrl}/en`,
-      },
-    },
+    // No canonical here: root-layout metadata is inherited by every page, so a
+    // canonical set here would mark all pages as duplicates of the homepage.
+    // Each page sets its own (homepage: src/app/page.tsx).
+    ...(seo.canonical && { alternates: { canonical: seo.canonical } }),
     robots: {
       index: true,
       follow: true,
@@ -125,7 +120,6 @@ export function buildRootMetadata(seo: RootSEO): Metadata {
     openGraph: {
       type: "website",
       locale: "vi_VN",
-      url: canonical,
       siteName: SITE_NAME,
       title: seo.og.title,
       description: seo.og.description,
@@ -146,7 +140,7 @@ export function buildRootMetadata(seo: RootSEO): Metadata {
 }
 
 export function buildJsonLd(seo: ProjectSEO): string {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://localhost:3000";
+  const baseUrl = SITE_URL;
   const ogImage = seo.og.image.startsWith("http")
     ? seo.og.image
     : `${baseUrl}${seo.og.image}`;

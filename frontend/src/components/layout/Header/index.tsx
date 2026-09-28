@@ -9,7 +9,6 @@ import {
 } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
-import LanguageSwitcher from "./LanguageSwitcher";
 import { useTranslations } from "next-intl";
 
 const Header: React.FC = () => {
@@ -212,7 +211,6 @@ const Header: React.FC = () => {
 
       {/* Desktop Icons */}
       <div className="lg:flex hidden absolute right-2 top-2 flex-col items-end gap-2">
-        <LanguageSwitcher className="hidden text-white md:flex" />
         <Link
           href="https://vrclickstudio.vn/public/vr/soleil/"
           target="_blank"
@@ -256,9 +254,6 @@ const Header: React.FC = () => {
             </div>
             <nav className="flex flex-col items-start gap-4">
               <ul className="w-full list-none">
-                <li className="mt-6">
-                  <LanguageSwitcher className="text-white" />
-                </li>
                 <li className="mt-4">
                   <Link
                     href="https://vrclickstudio.vn/public/vr/soleil/"

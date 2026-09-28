@@ -14,12 +14,6 @@ export async function generateMetadata(): Promise<Metadata> {
     description: `Latest news and updates about Căn hộ cao cấp Đà Nẵng - luxury apartments, project progress, and real estate insights in Da Nang.`,
     alternates: {
       canonical: localeUrl,
-      languages: {
-        vi: `${baseUrl}/news`,
-        en: `${baseUrl}/en/news`,
-        [locale]: localeUrl, // Self-referential alternate link
-        "x-default": `${baseUrl}/news`,
-      },
     },
     openGraph: {
       title: t("hero_title"),
