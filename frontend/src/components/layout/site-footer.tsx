@@ -190,6 +190,9 @@ export function SiteFooter() {
           </p>
           <div className="flex flex-col md:flex-row items-center gap-6">
             <ShareButtons />
+            <Link className={FOOTER_LINK_CLASS} href="/so-do-trang">
+              Sơ đồ trang
+            </Link>
             <span className="text-[12px] font-medium leading-[16px] tracking-[0.03em] font-hanken text-[#4e453e] italic">
               Thành viên của Mạng lưới Khách sạn &amp; Khu dân cư hàng đầu thế
               giới
