@@ -4,6 +4,10 @@ import { MAIN_PAGES, PROJECT_PAGES } from "@/config/site-pages";
 
 const BASE_URL = SITE_URL.replace(/\/$/, "");
 
+// Google yêu cầu <image:loc> là URL tuyệt đối.
+const absoluteUrl = (path: string) =>
+    /^https?:\/\//.test(path) ? path : `${BASE_URL}${path.startsWith("/") ? "" : "/"}${path}`;
+
 // Danh sách trang lấy từ src/config/site-pages.ts (dùng chung với /so-do-trang).
 export default function sitemap(): MetadataRoute.Sitemap {
     const lastModified = new Date();
@@ -13,6 +17,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         lastModified,
         changeFrequency: page.changeFrequency,
         priority: page.priority,
-        ...(page.image && { images: [page.image] }),
+        ...(page.image && { images: [absoluteUrl(page.image)] }),
     }));
 }

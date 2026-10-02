@@ -6,7 +6,7 @@ import { MainWrapper } from "@/components/layout/MainWrapper";
 import { ThemeProvider } from "next-themes";
 import NextTopLoader from "nextjs-toploader";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
+import { getLocale, getMessages } from "next-intl/server";
 import Toaster from "@/components/Toaster";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { ReactNode, Suspense } from "react";
@@ -36,7 +36,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: ReactNode;
 }>) {
-  const locale = "vi";
+  const locale = await getLocale();
   const messages = await getMessages();
   const baseUrl = SITE_URL;
 

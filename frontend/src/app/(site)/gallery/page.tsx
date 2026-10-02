@@ -6,8 +6,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "gallery" });
   const baseUrl =
     process.env.NEXT_PUBLIC_SITE_URL || "https://www.danangluxuryhomes.vn";
-  const localeUrl =
-    locale === "vi" ? `${baseUrl}/gallery` : `${baseUrl}/${locale}/gallery`;
+  const localeUrl = `${baseUrl}/gallery`;
 
   return {
     title: t("title"),
