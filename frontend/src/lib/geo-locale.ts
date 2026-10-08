@@ -16,24 +16,12 @@ export function isBot(userAgent: string | null): boolean {
   return !!userAgent && BOT_UA.test(userAgent);
 }
 
-// Netlify sends `x-nf-geo` as base64-encoded JSON ({ country: { code } });
-// other hosts/CDNs send a plain ISO country code header.
+// Vercel sends the visitor's country as a plain ISO code header; the others
+// cover a custom proxy or Cloudflare in front of the site.
 export function getCountryFromHeaders(headers: Headers): string | null {
-  const nfGeo = headers.get("x-nf-geo");
-  if (nfGeo) {
-    for (const decode of [(v: string) => atob(v), (v: string) => v]) {
-      try {
-        const code = JSON.parse(decode(nfGeo))?.country?.code;
-        if (typeof code === "string" && code) return code.toUpperCase();
-      } catch {
-        // try next format
-      }
-    }
-  }
-
   const code =
-    headers.get("x-country") ??
     headers.get("x-vercel-ip-country") ??
+    headers.get("x-country") ??
     headers.get("cf-ipcountry");
   return code ? code.toUpperCase() : null;
 }
