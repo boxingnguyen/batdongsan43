@@ -44,9 +44,12 @@ async function checkFile(file, known) {
   const abs = path.resolve(FRONTEND, file);
   const slug = path.basename(abs, ".md");
   const tag = `[${slug}]`;
-  if (path.dirname(abs) !== POSTS_DIR || !abs.endsWith(".md")) return [`${file}: not in content/tin-tuc/*.md`];
-  if (!SLUG.test(slug)) problems.push(`${tag} file name must be lowercase ASCII words joined by hyphens`);
   if (!fs.existsSync(abs)) return [`${tag} file does not exist`];
+  // Compare real paths: on macOS /var is a symlink to /private/var.
+  if (fs.realpathSync(path.dirname(abs)) !== fs.realpathSync(POSTS_DIR) || !abs.endsWith(".md")) {
+    return [`${file}: not in content/tin-tuc/*.md`];
+  }
+  if (!SLUG.test(slug)) problems.push(`${tag} file name must be lowercase ASCII words joined by hyphens`);
 
   let parsed;
   try {
