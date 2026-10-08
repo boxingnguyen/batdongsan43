@@ -18,6 +18,7 @@ export const MAIN_PAGES: SitePage[] = [
   { path: "/", label: "Trang chủ", changeFrequency: "weekly", priority: 1.0 },
   { path: "/projects", label: "Dự án căn hộ cao cấp Đà Nẵng", changeFrequency: "weekly", priority: 0.9 },
   { path: "/lien-he", label: "Liên hệ tư vấn", changeFrequency: "monthly", priority: 0.6 },
+  { path: "/tin-tuc", label: "Tin tức & cẩm nang mua căn hộ", changeFrequency: "daily", priority: 0.7 },
 ];
 
 // Dự án có trang riêng trên site (bỏ qua dự án chỉ link ra website ngoài)

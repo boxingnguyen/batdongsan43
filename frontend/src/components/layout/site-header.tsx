@@ -56,6 +56,12 @@ export function SiteHeader() {
 
         {/* Right side Actions */}
         <div className="hidden items-center gap-6 md:flex">
+          <Link
+            href="/tin-tuc"
+            className="text-sm font-semibold tracking-wider font-hanken text-[#4e453e] dark:text-[#d2c4bb] hover:text-[#4a3829] dark:hover:text-[#faddc8] transition-colors duration-300"
+          >
+            Tin tức
+          </Link>
           {/* CTA Button */}
           <Link
             href="/lien-he"
@@ -93,6 +99,13 @@ export function SiteHeader() {
                 {link.label}
               </Link>
             ))} */}
+            <Link
+              href="/tin-tuc"
+              onClick={() => setOpen(false)}
+              className="text-sm font-semibold tracking-wider font-hanken text-[#4e453e] dark:text-[#d2c4bb]"
+            >
+              Tin tức
+            </Link>
             <div className="h-[1px] bg-[#E8E2D9] dark:bg-[#d2c4bb]/30 my-2" />
             <Link
               href="/lien-he"
