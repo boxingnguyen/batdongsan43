@@ -1,8 +1,19 @@
 "use client";
 
 import Image from "next/image";
+import { usePathname } from "next/navigation";
+
+import { isChatEmbedPath } from "@/config/chat-embed";
 
 const FloatingContactButtons = () => {
+  const pathname = usePathname() ?? "/";
+
+  // This dock is rendered outside MainWrapper, so it has to hide itself on the
+  // embed surface instead of floating on top of the framed chat.
+  if (isChatEmbedPath(pathname)) {
+    return null;
+  }
+
   const ZALO_LINK = "https://zalo.me/0345747138";
   const PHONE_NUMBER = "0345.747.138"; // Formatted phone number
   const PHONE_LINK = "tel:0345747138";
