@@ -85,9 +85,9 @@ Từ dự án, anh/chị mất khoảng 2–5 phút để ra biển Mỹ Khê ho
 
 Kiến trúc tòa nhà lấy cảm hứng từ núi, đá và biển Sơn Trà. Tiện ích tập trung vào đời sống hằng ngày của cư dân: hồ bơi trong nhà, phòng gym và yoga, khu sinh hoạt cộng đồng, khu vui chơi trẻ em, không gian làm việc chung, và vườn trên mái nhìn về phía biển Mỹ Khê.
 
-![Phối cảnh vườn cảnh quan trên tầng mái The Camellia Sơn Trà với lối đi, cây xanh và ghế nghỉ](/images/tin-tuc/camellia-son-tra-tang-mai-1.jpg)
+![Phối cảnh vườn cảnh quan trên tầng mái The Camellia Sơn Trà với lối đi, cây xanh và ghế nghỉ](/images/tin-tuc/camellia-son-tra-tang-mai-1.webp)
 
-![Phối cảnh hồ bơi trong nhà của The Camellia Sơn Trà với khu ghế nằm thư giãn](/images/tin-tuc/camellia-son-tra-be-boi.jpg)
+![Phối cảnh hồ bơi trong nhà của The Camellia Sơn Trà với khu ghế nằm thư giãn](/images/tin-tuc/camellia-son-tra-be-boi.webp)
 
 *Ảnh phối cảnh tầng mái và hồ bơi, mang tính minh họa (nguồn: tài liệu dự án).*
 

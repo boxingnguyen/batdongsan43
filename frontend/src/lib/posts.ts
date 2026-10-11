@@ -88,7 +88,8 @@ export function getAllPosts(): Post[] {
 
 export async function renderMarkdown(markdown: string): Promise<string> {
   const result = await remark().use(remarkGfm).use(remarkHtml).process(markdown);
-  return result.toString();
+  // Body images sit below the cover, so let the browser defer them.
+  return result.toString().replace(/<img /g, '<img loading="lazy" decoding="async" ');
 }
 
 export async function getPost(slug: string): Promise<PostWithContent | null> {
