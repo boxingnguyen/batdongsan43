@@ -1,6 +1,6 @@
 ---
 title: "Căn hộ sở hữu lâu dài ven biển Đà Nẵng và The Camellia"
-description: "Vì sao căn hộ sở hữu lâu dài ven biển Đà Nẵng ngày càng hiếm, và The Camellia Sơn Trà của MBLand có gì: vị trí, pháp lý, quy mô, Sales Gallery mới khai trương."
+description: "Vì sao căn hộ sở hữu lâu dài ven biển Đà Nẵng ngày càng hiếm? Phân tích nguồn cung và giới thiệu The Camellia Sơn Trà của MBLand vừa khai trương Gallery."
 date: "2026-10-12"
 updated: "2026-10-12"
 author: "Đà Nẵng Luxury Homes"
@@ -10,7 +10,14 @@ keyword: "căn hộ sở hữu lâu dài ven biển Đà Nẵng"
 ---
 Đà Nẵng có gần 200 km bờ biển sau khi hợp nhất với Quảng Nam, nhưng **căn hộ sở hữu lâu dài ven biển Đà Nẵng** lại là loại sản phẩm ít ỏi trên thị trường. Phần lớn những gì được chào bán "sát biển" trong mười năm qua là condotel hoặc căn hộ du lịch có thời hạn. Bài viết này giải thích vì sao nguồn cung sở hữu lâu dài gần biển hiếm, cách phân biệt hai loại pháp lý, rồi đi vào chi tiết dự án The Camellia Sơn Trà của MBLand, vừa khai trương văn phòng bán hàng tại Đà Nẵng.
 
-## Sở hữu lâu dài và có thời hạn: khác nhau ở đâu
+**Tóm tắt nhanh:**
+
+- Theo Savills, chỉ khoảng 8–10% sản phẩm căn hộ mới ở các thành phố biển được cấp sổ hồng sở hữu lâu dài; phần còn lại chủ yếu có thời hạn 50 năm.
+- Sơn Trà hiếm quỹ đất ở mới vì bờ biển dành cho du lịch và bán đảo Sơn Trà được bảo tồn.
+- The Camellia Sơn Trà là dự án đầu tiên của MBLand tại Đà Nẵng: 1 tháp 25 tầng, 469 căn hộ sở hữu lâu dài, cách biển Mỹ Khê khoảng 2–5 phút, dự kiến bàn giao quý 1/2028.
+- Văn phòng bán hàng Camellia Gallery khai trương ngày 10/10/2026 tại tầng 9 tòa nhà Da Nang Complex, có sa bàn dự án.
+
+## Căn hộ sở hữu lâu dài khác condotel 50 năm thế nào?
 
 Hai căn hộ cùng nhìn ra biển có thể mang hai loại pháp lý rất khác nhau, tùy theo **loại đất** mà tòa nhà được xây trên đó:
 
@@ -39,7 +46,7 @@ Cần nhìn cân bằng: tổng nguồn cung căn hộ Đà Nẵng không hề t
 
 ## Sơn Trà trên bản đồ căn hộ ven biển
 
-So với các khu vực khác, Sơn Trà có lợi thế là khu đô thị đã hình thành từ lâu: trường học, chợ, bệnh viện, nhà hàng đều có sẵn, và trung tâm thành phố chỉ cách một cây cầu.
+So với các khu vực khác, Sơn Trà có lợi thế là khu đô thị đã hình thành từ lâu: trường học, chợ, bệnh viện, nhà hàng đều có sẵn, và trung tâm thành phố chỉ cách một cây cầu. Vì vậy, căn hộ biển Sơn Trà có sổ hồng lâu dài thường được người mua để ở chọn trước.
 
 | Khu vực | Đặc điểm nguồn cung ven biển | Điều nên cân nhắc |
 |---|---|---|
@@ -47,7 +54,7 @@ So với các khu vực khác, Sơn Trà có lợi thế là khu đô thị đã
 | Ngũ Hành Sơn (Võ Nguyên Giáp kéo dài) | Nhiều khu nghỉ dưỡng, nhiều sản phẩm có thời hạn | Kiểm tra kỹ loại đất của từng dự án |
 | Phía nam và Quảng Nam cũ | Quỹ đất còn rộng, nhiều dự án lớn đang triển khai | Tiện ích còn trên bản vẽ, xa trung tâm |
 
-Nếu anh/chị quan tâm đến tác động của dòng vốn ngoại lên các khu vực này, có thể đọc thêm bài [vốn FDI và thị trường căn hộ Đà Nẵng](/tin-tuc/von-fdi-da-nang-thi-truong-can-ho).
+Nếu anh/chị quan tâm đến tác động của dòng vốn ngoại lên các khu vực này, có thể đọc thêm bài [vốn FDI và thị trường căn hộ Đà Nẵng](/tin-tuc/von-fdi-da-nang-thi-truong-can-ho), hoặc so sánh [các dự án căn hộ đang mở bán tại Đà Nẵng](/projects).
 
 ## The Camellia Sơn Trà: dự án đầu tiên của MBLand tại Đà Nẵng
 
@@ -76,7 +83,15 @@ Từ dự án, anh/chị mất khoảng 2–5 phút để ra biển Mỹ Khê ho
 
 ### Thiết kế và tiện ích
 
-Kiến trúc tòa nhà lấy cảm hứng từ núi, đá và biển Sơn Trà. Tiện ích tập trung vào đời sống hằng ngày của cư dân: hồ bơi trong nhà, phòng gym và yoga, khu sinh hoạt cộng đồng, khu vui chơi trẻ em, không gian làm việc chung, và vườn trên mái nhìn về phía biển Mỹ Khê. Xem phối cảnh, mặt bằng tầng và từng loại căn tại [trang dự án The Camellia Sơn Trà](/projects/camellia).
+Kiến trúc tòa nhà lấy cảm hứng từ núi, đá và biển Sơn Trà. Tiện ích tập trung vào đời sống hằng ngày của cư dân: hồ bơi trong nhà, phòng gym và yoga, khu sinh hoạt cộng đồng, khu vui chơi trẻ em, không gian làm việc chung, và vườn trên mái nhìn về phía biển Mỹ Khê.
+
+![Phối cảnh vườn cảnh quan trên tầng mái The Camellia Sơn Trà với lối đi, cây xanh và ghế nghỉ](/images/tin-tuc/camellia-son-tra-tang-mai-1.jpg)
+
+![Phối cảnh hồ bơi trong nhà của The Camellia Sơn Trà với khu ghế nằm thư giãn](/images/tin-tuc/camellia-son-tra-be-boi.jpg)
+
+*Ảnh phối cảnh tầng mái và hồ bơi, mang tính minh họa (nguồn: tài liệu dự án).*
+
+Xem phối cảnh, mặt bằng tầng và từng loại căn tại [trang dự án The Camellia Sơn Trà](/projects/camellia).
 
 ### Giá và chính sách bán hàng
 
@@ -96,9 +111,27 @@ Tại Gallery, khách tham quan có thể:
 
 Với một dự án đang xây dựng, sa bàn và mặt bằng là công cụ quan trọng để kiểm tra thông tin. Khi đến Gallery, anh/chị nên đối chiếu vị trí căn định mua trên sa bàn với mặt bằng tầng, hỏi rõ hướng nắng, hướng gió và những công trình có thể che tầm nhìn trong tương lai.
 
-## Người nước ngoài và người mua từ xa
+## Câu hỏi thường gặp về The Camellia Sơn Trà
 
-Người nước ngoài đủ điều kiện được mua căn hộ trong dự án nhà ở thương mại theo **Luật Nhà ở 2023**, với hạn mức không quá 30% số căn trong một tòa nhà và thời hạn sở hữu tối đa 50 năm, có thể gia hạn. Khi đó quyền của họ khác với quyền sở hữu lâu dài của công dân Việt Nam. Người mua ở Hà Nội, TP.HCM có thể đặt lịch xem sa bàn và nhận hồ sơ qua đơn vị tư vấn trước khi ra Đà Nẵng.
+### The Camellia Sơn Trà có phải căn hộ sở hữu lâu dài không?
+
+Có. Với công dân Việt Nam, căn hộ The Camellia Sơn Trà là nhà ở thương mại sở hữu lâu dài, mỗi căn được cấp sổ hồng riêng. Theo đơn vị phân phối, dự án đã đủ điều kiện bán nhà ở hình thành trong tương lai; anh/chị nên xin xem văn bản này khi ký hợp đồng.
+
+### Khi nào dự án bàn giao?
+
+Dự kiến quý 1/2028, theo thông tin chủ đầu tư công bố. Tiến độ thực tế cần được đối chiếu trong hợp đồng mua bán.
+
+### Văn phòng bán hàng The Camellia ở đâu?
+
+Camellia Gallery nằm tại tầng 9 tòa nhà Da Nang Complex, Đà Nẵng, khai trương ngày 10/10/2026. Anh/chị nên đặt lịch trước để được chuyên viên hướng dẫn xem sa bàn và chọn căn.
+
+### Người nước ngoài có mua được căn hộ The Camellia không?
+
+Theo **Luật Nhà ở 2023**, người nước ngoài đủ điều kiện được mua căn hộ trong dự án nhà ở thương mại, với hạn mức không quá 30% số căn trong một tòa nhà và thời hạn sở hữu tối đa 50 năm, có thể gia hạn. Quyền này khác với quyền sở hữu lâu dài của công dân Việt Nam; anh/chị cần hỏi chủ đầu tư tòa nhà còn hạn mức bán cho người nước ngoài hay không.
+
+### Mua từ Hà Nội hoặc TP.HCM có cần ra Đà Nẵng ngay không?
+
+Không bắt buộc. Anh/chị có thể nhận bảng giá, mặt bằng và hồ sơ pháp lý qua đơn vị tư vấn trước, rồi ra Đà Nẵng xem sa bàn và khu đất khi đã chọn được vài căn phù hợp.
 
 ## Các bước tiếp theo
 
