@@ -45,6 +45,7 @@ export default function Page() {
           <h1 className="font-serif text-4xl md:text-5xl text-[#16384C] mb-6">
             Ethereal Estate
           </h1>
+          <p className="font-serif text-xl italic text-[#C9A45D] -mt-3 mb-6">Bất động sản thanh tao</p>
           <p className="text-base text-[#4e453e] max-w-2xl mx-auto">
             Chúng tôi luôn sẵn sàng hỗ trợ quý khách hàng với những thông tin
             bất động sản hạng sang, tư vấn dự án cao cấp và cung cấp giải pháp

@@ -1,11 +1,11 @@
-import { SITE_NAME } from "@/config/site";
+import { SITE_FULL_NAME, SITE_NAME } from "@/config/site";
 import type { RootSEO } from "@/lib/seo";
 
 // ── 1. Thông tin doanh nghiệp (Business Info) ──────────────────────────────────────────────
 // Đổi sĐT, địa chỉ, email → chỉ cần sửa ở đây, áp dụng toàn site.
 export const SITE_INFO = {
   /** Tên thương hiệu hiển thị */
-  name: SITE_NAME,
+  name: SITE_FULL_NAME,
   /** Số điện thoại định dạng E.164 (dùng trong schema) */
   telephone: "+84345747138",
   /** Số điện thoại định dạng hiển thị (dùng trong UI) */
@@ -77,11 +77,12 @@ export const ROOT_SEO_CONFIG: RootSEO = {
     "căn hộ biển Đà Nẵng",
     "Sun Group Đà Nẵng",
     "Ethereal Estate",
+    "Bất động sản thanh tao",
   ],
   og: {
     title: `${SITE_NAME} – Căn Hộ Cao Cấp Đà Nẵng`,
     description:
-      "Khám phá căn hộ cao cấp Đà Nẵng, cập nhật bảng giá và pháp lý dự án. Nhận tư vấn miễn phí từ Ethereal Estate.",
+      "Khám phá căn hộ cao cấp Đà Nẵng, cập nhật bảng giá và pháp lý dự án. Nhận tư vấn miễn phí từ Ethereal Estate - Bất động sản thanh tao.",
     image: "/images/home/cover-image.jpg",
     imageAlt: "Ethereal Estate – Căn Hộ Cao Cấp Đà Nẵng",
   },

@@ -14,7 +14,7 @@
  *   description: "Mô tả 120-155 ký tự"
  *   date: "2026-10-08"
  *   updated: "2026-10-08"
- *   author: "Đà Nẵng Luxury Homes"
+ *   author: "Ethereal Estate - Bất động sản thanh tao"
  *   cover: ""            # đường dẫn trong public/, ví dụ "/images/tin-tuc/x.jpg"
  *   coverAlt: ""
  *   keyword: "từ khoá chính"

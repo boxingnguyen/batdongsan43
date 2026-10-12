@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { SITE_NAME, SITE_URL } from "@/config/site";
+import { SITE_FULL_NAME, SITE_URL } from "@/config/site";
 
 export type FaqItem = { question: string; answer: string };
 
@@ -40,9 +40,9 @@ export function buildMetadata(seo: ProjectSEO): Metadata {
     title: seo.title,
     description: seo.description,
     keywords: seo.keywords,
-    authors: [{ name: SITE_NAME, url: baseUrl }],
-    creator: SITE_NAME,
-    publisher: SITE_NAME,
+    authors: [{ name: SITE_FULL_NAME, url: baseUrl }],
+    creator: SITE_FULL_NAME,
+    publisher: SITE_FULL_NAME,
     metadataBase: new URL(baseUrl),
     alternates: { canonical },
     robots: { index: true, follow: true },
@@ -50,7 +50,7 @@ export function buildMetadata(seo: ProjectSEO): Metadata {
       type: "website",
       locale: "vi_VN",
       url: canonical,
-      siteName: SITE_NAME,
+      siteName: SITE_FULL_NAME,
       title: seo.og.title,
       description: seo.og.description,
       images: [
@@ -104,9 +104,9 @@ export function buildRootMetadata(seo: RootSEO): Metadata {
     title: seo.title,
     description: seo.description,
     keywords: seo.keywords,
-    authors: [{ name: SITE_NAME, url: baseUrl }],
-    creator: SITE_NAME,
-    publisher: SITE_NAME,
+    authors: [{ name: SITE_FULL_NAME, url: baseUrl }],
+    creator: SITE_FULL_NAME,
+    publisher: SITE_FULL_NAME,
     metadataBase: new URL(baseUrl),
     // No canonical here: root-layout metadata is inherited by every page, so a
     // canonical set here would mark all pages as duplicates of the homepage.
@@ -120,7 +120,7 @@ export function buildRootMetadata(seo: RootSEO): Metadata {
     openGraph: {
       type: "website",
       locale: "vi_VN",
-      siteName: SITE_NAME,
+      siteName: SITE_FULL_NAME,
       title: seo.og.title,
       description: seo.og.description,
       images: [{ url: ogImage, width: 800, height: 454, alt: seo.og.imageAlt }],

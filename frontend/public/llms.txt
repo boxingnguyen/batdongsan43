@@ -1,4 +1,4 @@
-# Ethereal Estate
+# Ethereal Estate - Bất động sản thanh tao
 
 > Ethereal Estate provides information and sales consultation for luxury apartments and high-end real estate projects in Da Nang, Vietnam.
 
@@ -53,7 +53,7 @@ Ethereal Estate publishes project information for buyers researching premium apa
 - [Project page](https://www.danangluxuryhomes.vn/projects/camellia)
 - Developers: Thanh Lam, MBLand Holding, and WeLand
 - Location: Le Van Luong and Le Duc Tho, Son Tra
-- Highlights: 478 coastal apartments
+- Highlights: 469 coastal apartments
 - Expected handover: Q1 2028
 
 ## Contact

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { SITE_NAME, SITE_URL } from "@/config/site";
+import { SITE_FULL_NAME, SITE_NAME, SITE_URL } from "@/config/site";
 import { ROOT_SEO_CONFIG } from "@/config/site-seo";
 import { buildBreadcrumbJsonLd } from "@/lib/seo";
 import { POSTS_PATH, formatDate, getAllPosts, getPost } from "@/lib/posts";
@@ -57,8 +57,8 @@ export default async function ArticlePage({ params }: Props) {
     dateModified: post.updated,
     inLanguage: "vi",
     mainEntityOfPage: url,
-    author: { "@type": "Organization", name: post.author || SITE_NAME, url: SITE_URL },
-    publisher: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+    author: { "@type": "Organization", name: post.author || SITE_FULL_NAME, url: SITE_URL },
+    publisher: { "@type": "Organization", name: SITE_FULL_NAME, url: SITE_URL },
   }).replace(/</g, "\\u003c");
   const breadcrumb = buildBreadcrumbJsonLd([
     { name: "Trang chủ", url: SITE_URL },
