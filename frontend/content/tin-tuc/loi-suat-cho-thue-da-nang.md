@@ -7,7 +7,7 @@ date: "2026-10-12"
 updated: "2026-10-12"
 author: "Ethereal Estate - Bất động sản thanh tao"
 cover: "/images/tin-tuc/loi-suat-cho-thue-da-nang.jpg"
-coverAlt: "Biểu đồ lợi suất cho thuê căn hộ gộp theo năm tại Hà Nội, TP.HCM, Đà Nẵng bình quân và Đà Nẵng cao cấp ven sông"
+coverAlt: "Toàn cảnh sông Hàn Đà Nẵng bên cạnh biểu đồ lợi suất cho thuê gộp và thực của căn hộ"
 keyword: "lợi suất cho thuê Đà Nẵng"
 tags:
   - "lợi suất cho thuê Đà Nẵng"

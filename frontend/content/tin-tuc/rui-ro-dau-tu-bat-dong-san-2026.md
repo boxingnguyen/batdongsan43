@@ -7,7 +7,7 @@ date: "2026-10-08"
 updated: "2026-10-08"
 author: "Ethereal Estate - Bất động sản thanh tao"
 cover: "/images/tin-tuc/rui-ro-dau-tu-bat-dong-san-2026.jpg"
-coverAlt: "Danh sách 4 rủi ro đầu tư bất động sản năm 2026: vốn lớn, thanh khoản, pháp lý, lãi suất"
+coverAlt: "Tòa căn hộ cao tầng đang thi công với cần cẩu tại Đà Nẵng"
 keyword: "rủi ro đầu tư bất động sản"
 tags:
   - "rủi ro đầu tư bất động sản"

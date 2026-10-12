@@ -7,7 +7,7 @@ date: "2026-10-09"
 updated: "2026-10-09"
 author: "Ethereal Estate - Bất động sản thanh tao"
 cover: "/images/tin-tuc/5-ly-do-mua-can-ho-da-nang-2026.jpg"
-coverAlt: "Danh sách 5 lý do mua căn hộ Đà Nẵng năm 2026"
+coverAlt: "Các tòa căn hộ cao tầng ven biển Mỹ Khê, Đà Nẵng"
 keyword: "mua căn hộ Đà Nẵng"
 tags:
   - "mua căn hộ Đà Nẵng"

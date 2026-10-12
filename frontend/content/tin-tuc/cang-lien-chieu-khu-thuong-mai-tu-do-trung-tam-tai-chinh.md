@@ -7,7 +7,7 @@ date: "2026-10-06"
 updated: "2026-10-06"
 author: "Ethereal Estate - Bất động sản thanh tao"
 cover: "/images/tin-tuc/cang-lien-chieu-khu-thuong-mai-tu-do-trung-tam-tai-chinh.jpg"
-coverAlt: "Ảnh minh họa ba dự án: cảng Liên Chiểu hoàn thành hợp phần A tháng 3/2026, khu thương mại tự do Đà Nẵng và trung tâm tài chính quốc tế khai trương 9/1/2026"
+coverAlt: "Cầu Rồng Đà Nẵng về đêm kèm các mốc trung tâm tài chính, cảng Liên Chiểu và khu thương mại tự do năm 2026"
 keyword: "cảng Liên Chiểu"
 tags:
   - "cảng Liên Chiểu"

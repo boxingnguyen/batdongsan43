@@ -7,7 +7,7 @@ date: "2026-10-05"
 updated: "2026-10-05"
 author: "Ethereal Estate - Bất động sản thanh tao"
 cover: "/images/tin-tuc/nen-mua-can-ho-nao-o-da-nang.jpg"
-coverAlt: "Ba chân dung người mua: ở thực và tích sản chọn The Camellia Sơn Trà, dòng tiền cho thuê chọn Wyndham Soleil, giá tốt chọn S-Light Tower"
+coverAlt: "Phòng khách và bàn ăn của một căn hộ cao cấp tại Đà Nẵng"
 keyword: "nên mua căn hộ nào ở Đà Nẵng"
 tags:
   - "nên mua căn hộ nào ở Đà Nẵng"

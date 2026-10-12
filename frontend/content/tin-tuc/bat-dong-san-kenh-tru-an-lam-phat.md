@@ -7,7 +7,7 @@ date: "2026-10-08"
 updated: "2026-10-08"
 author: "Ethereal Estate - Bất động sản thanh tao"
 cover: "/images/tin-tuc/bat-dong-san-kenh-tru-an-lam-phat.jpg"
-coverAlt: "Hình khiên bảo vệ minh họa bất động sản trước lạm phát, kèm so sánh tăng giá bất động sản, CPI và lãi tiết kiệm"
+coverAlt: "Tòa căn hộ cao tầng giữa khu đô thị Đà Nẵng bên cạnh biểu đồ so sánh lợi suất cho thuê, lạm phát, lãi tiết kiệm và lãi vay"
 keyword: "đầu tư bất động sản lạm phát"
 tags:
   - "đầu tư bất động sản"

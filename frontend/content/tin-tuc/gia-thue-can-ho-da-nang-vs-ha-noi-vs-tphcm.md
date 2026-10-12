@@ -7,7 +7,7 @@ date: "2026-10-01"
 updated: "2026-10-01"
 author: "Ethereal Estate - Bất động sản thanh tao"
 cover: "/images/tin-tuc/gia-thue-can-ho-da-nang-vs-ha-noi-vs-tphcm.jpg"
-coverAlt: "Biểu đồ giá thuê căn hộ 2 phòng ngủ năm 2026: Đà Nẵng phổ thông, Đà Nẵng cao cấp ven sông Hàn, TP.HCM và Hà Nội"
+coverAlt: "Căn hộ nhìn ra biển Mỹ Khê bên cạnh biểu đồ giá thuê căn 2 phòng ngủ tại Đà Nẵng, TP.HCM và Hà Nội năm 2026"
 keyword: "giá thuê căn hộ Đà Nẵng"
 tags:
   - "giá thuê căn hộ Đà Nẵng"

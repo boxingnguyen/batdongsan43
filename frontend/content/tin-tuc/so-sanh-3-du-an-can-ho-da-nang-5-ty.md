@@ -7,7 +7,7 @@ date: "2026-10-01"
 updated: "2026-10-01"
 author: "Ethereal Estate - Bất động sản thanh tao"
 cover: "/images/tin-tuc/so-sanh-3-du-an-can-ho-da-nang-5-ty.jpg"
-coverAlt: "Ba thẻ so sánh The Camellia Sơn Trà, Wyndham Soleil và S-Light Tower với mức giá và hình thức sở hữu"
+coverAlt: "Ảnh ba dự án The Camellia Sơn Trà, Wyndham Soleil và S-Light Tower kèm hình thức sở hữu và giá tham khảo"
 keyword: "mua căn hộ Đà Nẵng 5 tỷ"
 tags:
   - "mua căn hộ Đà Nẵng 5 tỷ"

@@ -7,7 +7,7 @@ date: "2026-10-07"
 updated: "2026-10-07"
 author: "Ethereal Estate - Bất động sản thanh tao"
 cover: "/images/tin-tuc/da-nang-muc-tieu-tang-truong-2-con-so.jpg"
-coverAlt: "Biểu đồ tăng trưởng GRDP Đà Nẵng: 7,51% năm 2024, 9,18% năm 2025 và mục tiêu từ 11% năm 2026"
+coverAlt: "Bờ sông Hàn về đêm bên cạnh biểu đồ tăng trưởng GRDP Đà Nẵng từ 2024 đến mục tiêu 2026"
 keyword: "kinh tế Đà Nẵng 2026"
 tags:
   - "kinh tế Đà Nẵng"

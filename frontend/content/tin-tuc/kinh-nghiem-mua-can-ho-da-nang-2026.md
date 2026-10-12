@@ -7,7 +7,7 @@ date: "2026-10-12"
 updated: "2026-10-12"
 author: "Ethereal Estate - Bất động sản thanh tao"
 cover: "/images/tin-tuc/kinh-nghiem-mua-can-ho-da-nang-2026.jpg"
-coverAlt: "Danh sách 4 cái bẫy khi mua căn hộ Đà Nẵng năm 2026: giá sơ cấp cao, dư cung cục bộ, lãi vay thả nổi, pháp lý"
+coverAlt: "Ảnh chụp từ trên cao công trường căn hộ đang xây ven biển Đà Nẵng"
 keyword: "kinh nghiệm mua căn hộ Đà Nẵng"
 tags:
   - "kinh nghiệm mua căn hộ Đà Nẵng"
