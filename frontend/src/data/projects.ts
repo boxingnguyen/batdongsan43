@@ -29,7 +29,7 @@ export const projects: Project[] = [
     title: "The Camellia Sơn Trà",
     location: "Sơn Trà, Đà Nẵng",
     description:
-      "Luxury Urban Nature Residence nơi Rừng Phố Biển gặp gỡ. 478 căn hộ biển sở hữu lâu dài, bàn giao Quý I/2028.",
+      "Luxury Urban Nature Residence nơi Rừng Phố Biển gặp gỡ. 469 căn hộ biển sở hữu lâu dài, bàn giao Quý I/2028.",
     image: "/images/camellia_images/camellia-phoi-canh.jpg",
     imageAlt: "The Camellia Sơn Trà Đà Nẵng",
     status: "Đang mở bán",

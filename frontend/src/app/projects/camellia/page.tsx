@@ -140,7 +140,7 @@ export default function CamelliaPage() {
             SỞ HỮU CĂN HỘ BIỂN SƠN TRÀ ĐÀ NẴNG LÂU DÀI
           </h2>
           <p className="mt-1 text-base font-semibold text-[#C9A45D] md:text-lg">
-            Phiên bản giới hạn 478 căn &mdash; CĐT Thành Lâm &mdash; Phát triển MBLand Holding
+            Phiên bản giới hạn 469 căn &mdash; CĐT Thành Lâm &mdash; Phát triển MBLand Holding
           </p>
           <blockquote className="mt-6 border-l-4 border-[#C9A45D] pl-5 text-base italic leading-relaxed text-white/80 md:text-lg">
             &quot;Không phải sống gần thiên nhiên. Mà là sống trong thiên nhiên nhưng vẫn ở trung tâm thành phố.&quot;
@@ -149,7 +149,7 @@ export default function CamelliaPage() {
             {[
               "Forest • City • Sea: Vị trí giao thoa độc bản Rừng – Biển – Trung tâm.",
               "Sở hữu lâu dài (Đủ điều kiện bán nhà ở hình thành trong tương lai).",
-              "Chỉ 478 căn hộ giới hạn – Không mở rộng thêm phase tiếp theo.",
+              "Chỉ 469 căn hộ giới hạn – Không mở rộng thêm phase tiếp theo.",
               "Kiến trúc lấy cảm hứng từ Núi – Đá – Biển Sơn Trà.",
               "Premium Lifestyle với chuỗi tiện ích Wellness, Sky Garden.",
             ].map((slogan) => (
@@ -266,7 +266,7 @@ export default function CamelliaPage() {
               },
               {
                 label: "Căn Hộ Cao Cấp",
-                value: "478 Căn – 1 Tháp 25 Tầng",
+                value: "469 Căn – 1 Tháp 25 Tầng",
                 note: "Giới hạn – Không mở rộng phase tiếp",
               },
               {

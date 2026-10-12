@@ -362,7 +362,7 @@ export const projectsSEO: ProjectSEO[] = [
     slug: "camellia",
     title: "The Camellia Sơn Trà Đà Nẵng | Căn Hộ Biển Sở Hữu Lâu Dài – Luxury Urban Nature Residence",
     description:
-      "The Camellia Sơn Trà – Luxury Urban Nature Residence tại Đà Nẵng. 478 căn hộ biển sở hữu lâu dài, nơi Rừng Phố Biển gặp gỡ. CĐT Thành Lâm · MBLand Holding. Bàn giao Q1/2028.",
+      "The Camellia Sơn Trà – Luxury Urban Nature Residence tại Đà Nẵng. 469 căn hộ biển sở hữu lâu dài, nơi Rừng Phố Biển gặp gỡ. CĐT Thành Lâm · MBLand Holding. Bàn giao Q1/2028.",
     keywords: [
       // ── Từ khóa chính (thương hiệu) ──
       "The Camellia Sơn Trà",
@@ -414,17 +414,17 @@ export const projectsSEO: ProjectSEO[] = [
     og: {
       title: "The Camellia Sơn Trà – Nơi Rừng × Phố × Biển Gặp Gỡ",
       description:
-        "478 Residences · Sở hữu lâu dài · Luxury Urban Nature · MBLand Holding. Giao lộ Lê Văn Lương × Lê Đức Thọ, Sơn Trà, Đà Nẵng.",
+        "469 Residences · Sở hữu lâu dài · Luxury Urban Nature · MBLand Holding. Giao lộ Lê Văn Lương × Lê Đức Thọ, Sơn Trà, Đà Nẵng.",
       image: "/images/camellia/TheCamelliaSTDN_Đào tạo thông tin dự án_page-0016.jpg",
       imageAlt: "The Camellia Sơn Trà Đà Nẵng – Luxury Urban Nature Residence nơi Rừng Phố Biển gặp gỡ",
     },
     jsonLd: {
       name: "The Camellia Sơn Trà",
       description:
-        "Luxury Urban Nature Residence tại Sơn Trà, Đà Nẵng. 478 căn hộ biển sở hữu lâu dài. Nơi hội tụ Rừng nguyên sinh Sơn Trà – Biển Mỹ Khê – Trung tâm Đà Nẵng.",
+        "Luxury Urban Nature Residence tại Sơn Trà, Đà Nẵng. 469 căn hộ biển sở hữu lâu dài. Nơi hội tụ Rừng nguyên sinh Sơn Trà – Biển Mỹ Khê – Trung tâm Đà Nẵng.",
       streetAddress: "Giao lộ Lê Văn Lương × Lê Đức Thọ",
       locality: "Sơn Trà",
-      numberOfUnits: 478,
+      numberOfUnits: 469,
       geo: { lat: 16.0808, lng: 108.2376 },
       amenities: [
         "Indoor Pool",
@@ -441,7 +441,7 @@ export const projectsSEO: ProjectSEO[] = [
       {
         question: "The Camellia Sơn Trà giá bao nhiêu?",
         answer:
-          "The Camellia Sơn Trà có mức giá cạnh tranh cho phân khúc căn hộ cao cấp biển Đà Nẵng. Dự án gồm 478 căn hộ với các loại hình Studio, 2BR, 3BR và Duplex. Liên hệ đội ngũ tư vấn để nhận bảng giá chi tiết và chính sách ưu đãi mới nhất từ CĐT Thành Lâm – MBLand Holding.",
+          "The Camellia Sơn Trà có mức giá cạnh tranh cho phân khúc căn hộ cao cấp biển Đà Nẵng. Dự án gồm 469 căn hộ với các loại hình Studio, 2BR, 3BR và Duplex. Liên hệ đội ngũ tư vấn để nhận bảng giá chi tiết và chính sách ưu đãi mới nhất từ CĐT Thành Lâm – MBLand Holding.",
       },
       {
         question: "The Camellia Sơn Trà bàn giao năm nào?",
@@ -466,7 +466,7 @@ export const projectsSEO: ProjectSEO[] = [
       {
         question: "The Camellia Sơn Trà có đáng mua để đầu tư không?",
         answer:
-          "The Camellia Sơn Trà là lựa chọn tiềm năng cho đầu tư vì: (1) Vị trí hiếm – tiếp giáp Sơn Trà, biển Mỹ Khê và trung tâm; (2) Sở hữu lâu dài – giá trị tài sản bền vững; (3) Quy mô giới hạn 478 căn – khan hiếm nguồn cung; (4) Thiết kế Wellness cao cấp – phù hợp second home và cho thuê nghỉ dưỡng.",
+          "The Camellia Sơn Trà là lựa chọn tiềm năng cho đầu tư vì: (1) Vị trí hiếm – tiếp giáp Sơn Trà, biển Mỹ Khê và trung tâm; (2) Sở hữu lâu dài – giá trị tài sản bền vững; (3) Quy mô giới hạn 469 căn – khan hiếm nguồn cung; (4) Thiết kế Wellness cao cấp – phù hợp second home và cho thuê nghỉ dưỡng.",
       },
       {
         question: "The Camellia có những loại căn hộ nào?",
