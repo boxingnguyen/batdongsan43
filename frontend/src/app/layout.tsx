@@ -13,7 +13,7 @@ import { ReactNode, Suspense } from "react";
 import { SITE_URL } from "@/config/site";
 import FloatingContactButtons from "@/components/shared/FloatingContactButtons";
 import { buildRootMetadata } from "@/lib/seo";
-import { ROOT_SEO_CONFIG, buildRealEstateAgentSchema, buildResidentialComplexSchema } from "@/config/site-seo";
+import { ROOT_SEO_CONFIG, buildRealEstateAgentSchema } from "@/config/site-seo";
 
 const font = Montserrat({
   subsets: ["latin"],
@@ -43,19 +43,12 @@ export default async function RootLayout({
   // Structured Data (JSON-LD) – RealEstateAgent (LocalBusiness)
   const realEstateAgentSchema = buildRealEstateAgentSchema(baseUrl);
 
-  // Structured Data (JSON-LD) – ResidentialComplex
-  const residentialComplexSchema = buildResidentialComplexSchema(baseUrl);
-
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(realEstateAgentSchema) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(residentialComplexSchema) }}
         />
         {/* useSearchParams inside needs Suspense so pages can be prerendered */}
         <Suspense fallback={null}>
