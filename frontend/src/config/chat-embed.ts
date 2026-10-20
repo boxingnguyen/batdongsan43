@@ -7,10 +7,16 @@
  * the link builder, so it stays free of any runtime dependency.
  */
 
-/** Origin of the deployed chat app. Override per environment. */
+/**
+ * Origin of the deployed chat app. Override per environment.
+ *
+ * Migrated 2026-10-20: both Cloud Run services were deleted, so the previous
+ * fallback (ragre-web-448504678237.asia-southeast1.run.app) served Google's
+ * default 404 inside the /chatbot iframe. The chat now runs on the VPS.
+ */
 export const CHAT_EMBED_ORIGIN =
   process.env.NEXT_PUBLIC_CHAT_EMBED_ORIGIN ??
-  "https://ragre-web-448504678237.asia-southeast1.run.app";
+  "https://14-225-81-171.sslip.io";
 
 /** Path prefix that marks the embed surface on this site. */
 export const CHAT_EMBED_PREFIX = "/chatbot";
