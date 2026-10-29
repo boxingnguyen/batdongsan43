@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { ChatEmbedLauncher } from "@/components/chat-embed/ChatEmbedLauncher";
+import { FloatingQuoteButton } from "@/components/shared/FloatingQuoteButton";
 import { isChatEmbedPath } from "@/config/chat-embed";
 
 export function MainWrapper({ children }: { children: React.ReactNode }) {
@@ -20,7 +21,10 @@ export function MainWrapper({ children }: { children: React.ReactNode }) {
     <>
       <main className={`${isProjectPage ? "" : "pt-20"}`}>{children}</main>
       <SiteFooter />
-      <ChatEmbedLauncher />
+      <div className="fixed bottom-6 left-6 z-50 flex flex-col items-start gap-3 pointer-events-none">
+        <FloatingQuoteButton />
+        <ChatEmbedLauncher />
+      </div>
     </>
   );
 }

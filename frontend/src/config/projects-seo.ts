@@ -1,5 +1,4 @@
 import type { ProjectSEO } from "@/lib/seo";
-import { SITE_NAME } from "@/config/site";
 
 export const projectsSEO: ProjectSEO[] = [
   {
@@ -474,6 +473,71 @@ export const projectsSEO: ProjectSEO[] = [
           "The Camellia Sơn Trà cung cấp 4 loại hình: Studio (phù hợp đầu tư cho thuê), căn hộ 2 phòng ngủ (2BR), căn hộ 3 phòng ngủ (3BR) và Duplex (căn đặc biệt 2 tầng view biển). Tổng 469 căn hộ và 9 căn thương mại trong 1 tháp 25 tầng.",
       },
     ],
+  },
+  {
+    slug: "soleil",
+    title: "The Soleil Đà Nẵng | Căn Hộ Ven Biển Mỹ Khê – Wyndham Vận Hành",
+    description:
+      "The Soleil Đà Nẵng – tổ hợp khách sạn và căn hộ cao cấp tại giao lộ Phạm Văn Đồng – Võ Nguyên Giáp, cách biển Mỹ Khê chưa đầy 1 phút đi bộ. 21.806 m², 04 tòa tháp 57–45 tầng, thiết kế Aedas, vận hành Wyndham Hotel Group.",
+    keywords: [
+      // ── Từ khóa chính (thương hiệu) ──
+      "The Soleil Đà Nẵng",
+      "The Soleil Da Nang",
+      "Wyndham Soleil Đà Nẵng",
+      "Soleil Đà Nẵng",
+
+      // ── Từ khóa địa phương ──
+      "căn hộ ven biển Đà Nẵng",
+      "căn hộ Mỹ Khê",
+      "căn hộ Phạm Văn Đồng Đà Nẵng",
+      "căn hộ Võ Nguyên Giáp Đà Nẵng",
+      "căn hộ An Hải Đà Nẵng",
+
+      // ── Từ khóa loại hình / ý định mua ──
+      "căn hộ khách sạn Đà Nẵng",
+      "căn hộ cao cấp ven biển Mỹ Khê",
+      "mua căn hộ view biển Đà Nẵng",
+      "penthouse duplex Đà Nẵng",
+      "căn hộ studio Đà Nẵng",
+      "căn hộ 2 phòng ngủ ven biển Đà Nẵng",
+
+      // ── Từ khóa đối tác / chủ đầu tư ──
+      "PPC An Thịnh Đà Nẵng",
+      "Wyndham Hotel Group Việt Nam",
+      "Aedas Đà Nẵng",
+      "Artelia Việt Nam",
+
+      // ── Từ khóa câu hỏi ──
+      "The Soleil Đà Nẵng ở đâu",
+      "The Soleil Đà Nẵng có gì",
+      "căn hộ ven biển Đà Nẵng giá bao nhiêu",
+    ],
+    og: {
+      title: "The Soleil Đà Nẵng – Tổ Hợp Khách Sạn & Căn Hộ Ven Biển Mỹ Khê",
+      description:
+        "21.806 m² · 04 tòa tháp 57–45 tầng · 02 tầng hầm · Thiết kế Aedas · Vận hành Wyndham Hotel Group. Giao lộ Phạm Văn Đồng – Võ Nguyên Giáp, Đà Nẵng.",
+      image: "/images/home/banner-5.jpg",
+      imageAlt:
+        "Phối cảnh The Soleil Đà Nẵng – tổ hợp bốn tòa tháp ven biển Mỹ Khê",
+    },
+    jsonLd: {
+      name: "The Soleil Đà Nẵng",
+      description:
+        "Tổ hợp khách sạn và căn hộ cao cấp ven biển Mỹ Khê, Đà Nẵng. 04 tòa tháp 57 – 57 – 50 – 45 tầng trên khu đất 21.806 m², 02 tầng hầm, thiết kế bởi Aedas, vận hành bởi Wyndham Hotel Group.",
+      streetAddress: "Số 02 Phạm Văn Đồng, giao lộ Võ Nguyên Giáp",
+      locality: "An Hải",
+      geo: { lat: 16.0583, lng: 108.2278 },
+      amenities: [
+        "Spa và phòng tập gym",
+        "Hồ bơi tràn tầng thượng",
+        "Nhà hàng và quán bar",
+        "Khu vui chơi trẻ em",
+        "Trung tâm mua sắm",
+        "Trung tâm hội nghị",
+      ],
+      seller: "Công ty Cổ phần PPC An Thịnh Đà Nẵng",
+      priceDescription: "Liên hệ nhận thông tin bảng giá",
+    },
   },
 ];
 export function getSEO(slug: string): ProjectSEO {

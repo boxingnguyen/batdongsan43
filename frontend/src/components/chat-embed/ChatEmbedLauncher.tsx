@@ -30,7 +30,7 @@ export function ChatEmbedLauncher() {
       onClick={handleClick}
       aria-label="Mở trợ lý AI — The Camellia Sơn Trà"
       title="Trợ lý AI — The Camellia Sơn Trà"
-      className="group fixed bottom-6 left-6 z-50 flex items-center gap-3 rounded-full focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#8A6A3B]"
+      className="group flex items-center gap-3 rounded-full focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#8A6A3B] pointer-events-auto"
     >
       <span className="relative flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#D8BC86] to-[#8A6A3B] shadow-lg transition-transform duration-200 group-hover:scale-105 group-hover:shadow-xl">
         {/* Attention halo; hidden for visitors who ask for reduced motion. */}

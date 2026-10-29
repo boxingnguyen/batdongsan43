@@ -21,12 +21,11 @@ const POSTS_DIR = path.join(FRONTEND, "content", "tin-tuc");
 const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const DATE = /^\d{4}-\d{2}-\d{2}$/;
 
-// Project pages that exist on the site (src/data/projects.ts minus external
-// ones, the same rule as src/config/site-pages.ts).
+// Project pages that exist on the site (every slug in src/data/projects.ts,
+// the same rule as src/config/site-pages.ts).
 function projectSlugs() {
   const src = fs.readFileSync(path.join(FRONTEND, "src/data/projects.ts"), "utf8");
-  const external = ["wyndham-soleil-danang"];
-  return [...src.matchAll(/slug:\s*"([^"]+)"/g)].map((m) => m[1]).filter((s) => !external.includes(s));
+  return [...src.matchAll(/slug:\s*"([^"]+)"/g)].map((m) => m[1]);
 }
 
 function knownPaths() {

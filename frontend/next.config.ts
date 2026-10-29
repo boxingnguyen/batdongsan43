@@ -11,6 +11,8 @@ const nextConfig: NextConfig = {
     return [
       { source: "/:locale(en|vi)", destination: "/", permanent: true },
       { source: "/:locale(en|vi)/:path*", destination: "/:path*", permanent: true },
+      // Old public URL of The Soleil project page (indexed) → new slug
+      { source: "/projects/wyndham-soleil-danang", destination: "/projects/soleil", permanent: true },
     ];
   },
   images: {
