@@ -8,12 +8,6 @@ import {
   X,
   ChevronLeft,
   ChevronRight,
-  Car,
-  TreePine,
-  Waves,
-  MapPin,
-  Building2,
-  Plane,
 } from "lucide-react";
 import { HideSiteHeader } from "@/components/projects/HideSiteHeader";
 import { SITE_NAME } from "@/config/site";
@@ -114,39 +108,6 @@ const OVERVIEW_ITEMS = [
   { label: "Vị trí", value: "Lê Văn Lương × Lê Đức Thọ" },
   { label: "Bàn giao", value: "Dự kiến Quý I / 2028" },
   { label: "Pháp lý", value: "Sở hữu lâu dài" },
-];
-
-const LOCATION_GROUPS = [
-  {
-    time: "2–5 phút",
-    items: [
-      { icon: TreePine, title: "Bán Đảo Sơn Trà", detail: "Thiên nhiên nguyên sinh" },
-      { icon: Waves, title: "Biển Mỹ Khê", detail: "Bãi biển đẹp nhất Đà Nẵng" },
-      { icon: MapPin, title: "Chùa Linh Ứng", detail: "Tâm linh, du lịch" },
-      { icon: Building2, title: "Vịnh Sơn Trà", detail: "Cảnh quan thiên nhiên" },
-      { icon: MapPin, title: "Co.opmart Sơn Trà", detail: "Mua sắm tiện lợi" },
-      { icon: Building2, title: "Bảo tàng 3D Art In Paradise", detail: "Du lịch, giải trí" },
-    ],
-  },
-  {
-    time: "10–12 phút",
-    items: [
-      { icon: Building2, title: "DIFF – Lễ hội Pháo hoa", detail: "Địa điểm sự kiện lớn" },
-      { icon: Building2, title: "Trung tâm Hành chính TP", detail: "Cơ quan nhà nước" },
-      { icon: Car, title: "Cầu Rồng & Cầu Sông Hàn", detail: "Biểu tượng Đà Nẵng" },
-      { icon: Building2, title: "Bệnh viện Đà Nẵng", detail: "Y tế trung tâm" },
-      { icon: Building2, title: "Đại học Đà Nẵng", detail: "Giáo dục" },
-      { icon: Building2, title: "Chợ Hàn", detail: "Mua sắm truyền thống" },
-    ],
-  },
-  {
-    time: "20 phút",
-    items: [
-      { icon: Plane, title: "Sân bay Quốc tế Đà Nẵng", detail: "Kết nối quốc tế" },
-      { icon: Building2, title: "Bệnh viện Vinmec", detail: "Y tế cao cấp" },
-      { icon: Building2, title: "Bệnh viện Gia đình Đà Nẵng", detail: "Y tế chuyên khoa" },
-    ],
-  },
 ];
 
 // ─── CamelliaNav ──────────────────────────────────────────────────────────────
@@ -1183,34 +1144,29 @@ export function CamelliaPageClient() {
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[#2B2B2B]/80">
             The Camellia Sơn Trà tọa lạc tại <strong>giao lộ Lê Văn Lương và Lê Đức Thọ, phường Sơn Trà, TP. Đà Nẵng</strong> – nơi hội tụ những giá trị đặc trưng của một đô thị biển: núi, rừng, biển và nhịp sống thành phố.
           </p>
-          <div className="mt-10 space-y-8">
-            {LOCATION_GROUPS.map((group) => (
-              <div key={group.time}>
-                <div className="mb-4 flex items-center gap-3">
-                  <span className="inline-flex items-center gap-2 rounded-full bg-[#16384C] px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#C9A45D]">
-                    <Car className="h-3.5 w-3.5" />
-                    {group.time}
-                  </span>
-                  <div className="h-px flex-1 bg-[#E8E5DF]" />
-                </div>
-                <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                  {group.items.map((loc) => (
-                    <div
-                      key={loc.title}
-                      className="flex items-start gap-3 rounded-sm border border-[#E8E5DF] bg-white p-4 shadow-sm"
-                    >
-                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#C9A45D]/10 text-[#C9A45D]">
-                        <loc.icon className="h-4 w-4" />
-                      </div>
-                      <div>
-                        <p className="text-sm font-semibold text-[#16384C]">{loc.title}</p>
-                        <p className="mt-0.5 text-xs text-[#2B2B2B]/60">{loc.detail}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
+          <div className="mt-10">
+            <figure className="overflow-hidden rounded-sm border border-[#E8E5DF] bg-white shadow-sm">
+              <a
+                href="/images/camellia_images/location.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Mở bản đồ vị trí ở kích thước đầy đủ"
+                className="block focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16384C]"
+              >
+                <Image
+                  src="/images/camellia_images/location.jpg"
+                  alt="Bản đồ vị trí The Camellia Sơn Trà: 2–5 phút đến Bán đảo Sơn Trà và Biển Mỹ Khê, 10–12 phút đến trung tâm hành chính Đà Nẵng và Cầu Rồng, 20 phút đến Sân bay Quốc tế Đà Nẵng."
+                  width={2000}
+                  height={1125}
+                  loading="lazy"
+                  sizes="(min-width: 1280px) 1200px, 100vw"
+                  className="h-auto w-full"
+                />
+                <span className="block border-t border-[#E8E5DF] px-4 py-2.5 text-center text-xs font-semibold tracking-wide text-[#16384C] sm:hidden">
+                  Nhấn để phóng to
+                </span>
+              </a>
+            </figure>
           </div>
         </div>
       </section>

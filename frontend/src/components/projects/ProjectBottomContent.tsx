@@ -214,6 +214,40 @@ export function ProjectBottomContent({
           </>
         );
 
+      case "soleil":
+        return (
+          <>
+            <h2 className="text-xl font-bold text-[#4a3829] mb-4">
+              Về Tổ Hợp The Soleil Đà Nẵng
+            </h2>
+            <p className="text-sm leading-relaxed text-[#4e453e]/80">
+              <strong>The Soleil Đà Nẵng</strong> là tổ hợp khách sạn và căn hộ
+              cao cấp tại giao lộ Phạm Văn Đồng – Võ Nguyên Giáp, phường An Hải,
+              Đà Nẵng. Quy mô, các loại căn và tiện ích đã tóm tắt ở các mục phía
+              trên.
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-[#4e453e]/80">
+              Xem thêm{" "}
+              <Link
+                href="/projects"
+                style={{ color: accentColor }}
+                className="font-medium hover:underline"
+              >
+                các dự án bất động sản Đà Nẵng
+              </Link>{" "}
+              khác, hoặc{" "}
+              <Link
+                href="/lien-he"
+                style={{ color: accentColor }}
+                className="font-medium hover:underline"
+              >
+                liên hệ tư vấn
+              </Link>{" "}
+              để nhận thông tin dự án và bảng giá mới nhất.
+            </p>
+          </>
+        );
+
       default:
         return (
           <>

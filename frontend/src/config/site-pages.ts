@@ -21,15 +21,11 @@ export const MAIN_PAGES: SitePage[] = [
   { path: "/tin-tuc", label: "Tin tức & cẩm nang mua căn hộ", changeFrequency: "daily", priority: 0.7 },
 ];
 
-// Dự án có trang riêng trên site (bỏ qua dự án chỉ link ra website ngoài)
-const EXTERNAL_PROJECT_SLUGS = ["wyndham-soleil-danang"];
-
-export const PROJECT_PAGES: SitePage[] = projects
-  .filter((p) => !EXTERNAL_PROJECT_SLUGS.includes(p.slug))
-  .map((p) => ({
-    path: `/projects/${p.slug}`,
-    label: p.title,
-    changeFrequency: "weekly" as const,
-    priority: 0.9,
-    image: p.image,
-  }));
+// Dự án có trang riêng trên site
+export const PROJECT_PAGES: SitePage[] = projects.map((p) => ({
+  path: `/projects/${p.slug}`,
+  label: p.title,
+  changeFrequency: "weekly" as const,
+  priority: 0.9,
+  image: p.image,
+}));

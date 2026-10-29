@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { projects } from "@/data/projects";
-import { SITE_URL } from "@/config/site";
 
 interface ProjectDetailPageProps {
   params: Promise<{ slug: string }>;
@@ -21,30 +20,6 @@ export async function generateMetadata({ params }: ProjectDetailPageProps) {
   }
 }
 
-
-function ExternalRedirect({ url }: { url: string }) {
-  return (
-    <div className="flex h-screen items-center justify-center bg-[#F9F9F9]">
-      <div className="text-center">
-        <p className="mb-4 text-lg text-[#634F3F]">Redirecting...</p>
-        <a
-          href={url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-blue-600 hover:underline"
-        >
-          Click here if not redirected
-        </a>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `window.open('${url}', '_blank'); history.back();`,
-          }}
-        />
-      </div>
-    </div>
-  );
-}
-
 export default async function ProjectDetailPage({
   params,
 }: ProjectDetailPageProps) {
@@ -54,10 +29,6 @@ export default async function ProjectDetailPage({
 
   let jsonLd: string | null = null;
   try { jsonLd = buildJsonLd(getSEO(slug)); } catch { jsonLd = null; }
-
-  if (slug === "wyndham-soleil-danang") {
-    return <ExternalRedirect url={`${SITE_URL}/`} />;
-  }
 
   return (
     <div className="bg-[#F9F9F9] text-[#634F3F]">

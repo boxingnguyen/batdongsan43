@@ -46,8 +46,8 @@ export const projects: Project[] = [
     status: "Đang mở bán",
   },
   {
-    id: "wyndham-soleil-danang",
-    slug: "wyndham-soleil-danang",
+    id: "soleil",
+    slug: "soleil",
     title: "The Soleil Đà Nẵng",
     location: "Đà Nẵng, Việt Nam",
     description:

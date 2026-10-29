@@ -186,9 +186,7 @@ export function EtherealHomeClient() {
                   <h2 className="font-serif text-xl text-[#4a3829] transition-colors group-hover:text-[#634F3F]">
                     {/* Stretched link: whole card stays clickable, anchor text stays short */}
                     <Link
-                      href={project.slug === "wyndham-soleil-danang" ? "https://thesoleil.vn" : `/projects/${project.slug}`}
-                      target={project.slug === "wyndham-soleil-danang" ? "_blank" : undefined}
-                      rel={project.slug === "wyndham-soleil-danang" ? "noopener noreferrer" : undefined}
+                      href={`/projects/${project.slug}`}
                       className="after:absolute after:inset-0 after:content-['']"
                     >
                       {project.title}

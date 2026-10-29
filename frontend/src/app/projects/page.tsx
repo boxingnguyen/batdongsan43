@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { projects } from "@/data/projects";
-import { SITE_URL } from "@/config/site";
 
 const BASE_URL =
   process.env.NEXT_PUBLIC_SITE_URL || "https://www.danangluxuryhomes.vn";
@@ -66,13 +65,10 @@ export default function ProjectsPage() {
 
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {projects.map((project) => {
-          const isSoleil = project.slug === "wyndham-soleil-danang";
           return (
             <Link
               key={project.id}
-              href={isSoleil ? `${SITE_URL}/` : `/projects/${project.slug}`}
-              target={isSoleil ? "_blank" : undefined}
-              rel={isSoleil ? "noopener noreferrer" : undefined}
+              href={`/projects/${project.slug}`}
               className="group flex flex-col overflow-hidden rounded-[4px] bg-white shadow-sm transition-shadow hover:shadow-md"
             >
               <div className="relative aspect-[16/10] overflow-hidden">
